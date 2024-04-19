@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTV Project</title>
+
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="source/style.css">
+
+</head>
+<body>
+  <main class="contaniner">
+    <div class="d-flex page-container">
+      <!-- 側邊欄 -->
+      <div id="sidebar" class="d-flex">
+        <div class="d-flex flex-column layout-sidebar bg-dark">
+          <div id="home-logo" class="d-flex justify-content-center" style="padding-top: 16px;">
+            <img src="image/logo.png" alt="Logo">
+          </div>
+        
+          <hr>
+          <ul class="main-menu nav nav-pills flex-column" role="tablist">
+            <li class="nav-item">
+              <a id="home-tab" href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false">
+                首頁
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" href="#subtitle-menu" role="button" aria-expanded="false" aria-controls="subtitle-menu">
+                字幕
+              </a>
+              <ul class="nav collapse" id="subtitle-menu">
+                <!-- 聽打 --> 
+                <li class="nav-item">
+                  <a id="聽打-tab" href="#" class="nav-link dropdown-item" data-bs-toggle="tab" data-bs-target="#聽打" type="button" role="tab" aria-controls="聽打" aria-selected="false">
+                    <i class="bi bi-arrows-collapse-vertical"></i>
+                    聽打
+                  </a>
+                </li>
+                <!-- 校正 -->
+                <li class="nav-item">
+                  <a id="校正-tab" href="#" class="nav-link dropdown-item" data-bs-toggle="tab" data-bs-target="#校正" type="button" role="tab" aria-controls="校正" aria-selected="false">
+                    <i class="fas fa-blog"></i>
+                    校正
+                  </a>
+                </li>
+                <!-- 上字 -->
+                <li class="nav-item">
+                  <a id="上字-tab" href="#" class="nav-link dropdown-item" data-bs-toggle="tab" data-bs-target="#上字" type="button" role="tab" aria-controls="上字" aria-selected="false">
+                    <i class="fas fa-blog"></i>
+                    上字
+                  </a>
+                </li>            
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#tools-menu" role="button" aria-controls="tools-menu" aria-expanded="false">小工具
+              </a>
+                <ul class="nav collapse" id="tools-menu">
+                  <!-- 工具 --> 
+                  <li class="nav nav-item">
+                    <a id="tools-assign-time-tab" href="#" class="nav-link dropdown-item" data-bs-toggle="tab" data-bs-target="#tools-assign-time" type="button" role="tab" aria-controls="tools-assign-time" aria-selected="false">
+                      <i class="fas fa-tools"></i>
+                      時間分配
+                    </a>
+                  </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link ">
+                -
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link ">
+                -
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="sidebar-toggle">
+          <i class="bi bi-chevron-bar-left"></i>
+      </div>
+      <!-- 主內容 -->
+      <!-- 首頁 -->
+      <div id="main-content" class="tab-content main-content w-100">
+        <div id="home" class="p-4 content tab-pane active" role="tabpanel" aria-labelledby="home-tab,home-logo">首頁
+          <nav class="navbar layout-nav" role="navigation">
+            <div class="d-flex">
+              <div class="logo"></div>
+            </div>
+          </nav>
+          <div class="row">
+            <div class="col-sm-3">
+              <!-- 1 -->
+            </div>
+          </div>
+        </div>
+      <!-- 分頁 -->
+        <div id="聽打" class="p-4 content tab-pane fade" role="tabpanel" aria-labelledby="聽打-tab">
+          <div class="section">
+            <div class="listen">
+              <div id="check-toggle-btn" class="btn-group-sm m-3" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">無TIMECODE</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">有TIMECODE</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" disabled>
+                <label class="btn btn-outline-primary" for="btnradio3">暫留</label>
+              </div>
+              <div class="row">
+                <div class="col d-flex listen input">
+                  <textarea class="inputText" rows="30" cols="50" placeholder="貼上文字"></textarea>
+                  <div class="error-mark" style="display: none;">
+                  </div>
+                </div>
+                <div class="col listen output">
+                  <ol id="check_list"></ol>
+                </div>
+                <div class="col listen right_area">
+                    <div class="check_area"></div>
+                </div>   
+              </div>
+            </div>  
+          </div>
+        </div>
+
+        <div id="校正" class="p-4 content tab-pane fade" role="tabpanel" aria-labelledby="校正-tab">
+          <div class="section">校正</div>
+        </div>
+
+        <div id="上字" class="p-4 content tab-pane fade" role="tabpanel" aria-labelledby="上字-tab">
+          <div class="section">上字</div>
+        </div>
+        <!-- 小工具 -->
+
+        <!-- 時間分配 -->
+        <div id="tools-assign-time" class="p-4 content tab-pane fade" role="tabpanel" aria-labelledby="tools-assign-time-tab">
+          <div class="section">
+            <div id="assign_time" class="d-flex">                                               
+              <div class="me-5 container">
+                  <div class="input-time d-flex flex-column">
+                      <input class="assigntime_h" placeholder="時">          
+                      <input class="assigntime_m" placeholder="分">
+                      <input class="assigntime_s" placeholder="秒">
+                      <input class="assigntime_nop" placeholder="人數">
+                  </div>
+                  <div>
+                    <div class="d-flex flex-row align-items-center">
+                      <p style="margin: 0 10px 0 0;padding-top:5px;font-weight: bold;">集<br>數</p>
+                      <input class="assign-time-ep-input" style="height: 2rem;" placeholder="輸入集數(不含#)">
+                    </div>
+                      <ul id="tools-assign-time-people" class="d-flex flex-row">
+                        <p style="margin: 0 5px 0 0;padding-top:5px;font-weight: bold;">排<br>序</p>
+                        <li>
+                          <span>1</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option selected="selected" value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>2</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option selected="selected" value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>3</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option selected="selected" value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>4</span>
+                          <select class="assigntime_sort"> 
+                            <option selected="selected" value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>5</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option selected="selected" value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>6</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option selected="selected" value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>7</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option selected="selected" value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>8</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option selected="selected" value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option value="11">-</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>9</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option selected="selected" value="11">-</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>10</span>
+                          <select class="assigntime_sort"> 
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option selected="selected" value="11">-</option>
+                          </select>
+                        </li>
+                      </ul>                                 
+                  </div>
+                  <button type="button" class="w-100 assigntime_btn btn btn-dark">計算</button>
+              </div>
+              
+              <div class="assign_time_output">
+                <div id="liveAlertPlaceholder"></div>
+              </div>    
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="d-flex align-items-center border-top fixed-bottom">
+    <span class="ps-4 text-muted">© 2024 FTV</span>   
+  </footer>
+
+  <!-- toTop -->
+  <a class="to_top" href="#to_top">
+    <img src="image/gotop.png" alt="Go to Top">
+  </a>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+  <script src="source/script.js"></script>
+  
+</body>
+</html>
