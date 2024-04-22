@@ -228,6 +228,8 @@ toTopButton.addEventListener("click", function() {
 });
 
 // 時間分配 assign-time
+
+const assignUserSelect = document.querySelector('#assign-user-select-file');
 const assignStart = document.querySelector('.assigntime_btn');
 const hours = document.querySelector('.assigntime_h');
 const minutes = document.querySelector('.assigntime_m');
@@ -237,22 +239,14 @@ const assignTimeOutput = document.querySelector('.assign_time_output');
 const selectOptions = document.querySelectorAll('#tools-assign-time-people select');
 const episodeInput = document.querySelector('.assign-time-ep-input');
 
-assignStart.onclick = function() {
-    document.querySelectorAll('.assign_time_output p').forEach(p => p.remove());
-
-    let hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
-    let minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
-    let secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
-    let nopValue = nop.value.trim() === "" ? "1" : parseInt(nop.value);
-    let totalTimePerNop = ((hoursValue * 3600 + minutesValue * 60 + secondsValue) / nopValue);
-    let episode = episodeInput.value;
+function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput) {
     let outputText = document.createElement('p');
     let totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue;
     let averageTimePerNopMinutes = Math.floor(totalSeconds / 60 / nopValue);
-    let averageTimePerNopSeconds =  Math.floor(totalSeconds % 60 / nopValue);
+    let averageTimePerNopSeconds = Math.floor(totalSeconds % 60 / nopValue);
     outputText.textContent = `綜藝大集合#${episode}
     總長${hoursValue}時${minutesValue}分${secondsValue}秒 平均每人${averageTimePerNopMinutes}分${averageTimePerNopSeconds}秒
-    時間參考如下~`
+    時間參考如下~`;
     outputText.style.whiteSpace = "pre-line";
     outputText.style.marginBottom = "5px";
     assignTimeOutput.appendChild(outputText);
@@ -260,8 +254,8 @@ assignStart.onclick = function() {
     let nopElement = document.createElement('p');
     let noptext = '';
     for (let i = 0; i < nopValue; i++) {
-        let startTime = Math.round(i * totalTimePerNop);
-        let endTime = Math.round((i + 1) * totalTimePerNop);
+        let startTime = Math.round(i * totalSeconds / nopValue);
+        let endTime = Math.round((i + 1) * totalSeconds / nopValue);
         let startTimeString = formatTime(startTime);
         let endTimeString = formatTime(endTime);
         
@@ -271,7 +265,7 @@ assignStart.onclick = function() {
         if (i === nopValue - 1) {
             noptext += `綜藝大集合#${episode}-0${i+1} (${startTimeString}-END) ${lastCharacter} (文字版).txt
             `;
-        }else {       
+        } else {       
             noptext += `綜藝大集合#${episode}-0${i+1} (${startTimeString}-${endTimeString}) ${lastCharacter} (文字版).txt
             `;
         }
@@ -279,6 +273,63 @@ assignStart.onclick = function() {
     nopElement.textContent = noptext;
     nopElement.style.whiteSpace = "pre-line";
     assignTimeOutput.appendChild(nopElement);
+}
+
+assignStart.onclick = function() {
+    document.querySelectorAll('.assign_time_output p').forEach(p => p.remove());
+
+    let hoursValue, minutesValue, secondsValue, nopValue;
+    let episode;
+
+    if (assignUserSelect.files.length > 0) {
+        const file = assignUserSelect.files[0];
+        const fileName = file.name;
+        const hashIndex = fileName.indexOf('#');
+        const episodeNumber = fileName.substring(hashIndex + 1).match(/\d+/)[0];
+        episode = parseInt(episodeNumber);
+        
+        const video = document.createElement('video');
+        video.preload = 'metadata';
+        const fileURL = URL.createObjectURL(file); 
+        video.src = fileURL;
+    
+        video.onloadedmetadata = function() {
+            const duration = video.duration;
+            hoursValue = Math.floor(duration / 3600);
+            minutesValue = Math.floor((duration % 3600) / 60);
+            secondsValue = Math.floor(duration % 60);
+            nopValue = parseInt(nop.value.trim() === "" ? "1" : nop.value);
+
+
+            calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
+        };
+    } else {
+        hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
+        minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
+        secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
+        nopValue = nop.value.trim() === "" ? "1" : parseInt(nop.value);
+        episode = episodeInput.value;
+
+        calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
+    }
+}
+
+
+function formatTime(timeInSeconds) {
+    let hours = Math.floor(timeInSeconds / 3600);
+    let minutes = Math.floor((timeInSeconds % 3600) / 60);
+    let seconds = timeInSeconds % 60;
+
+    if (hours > 0) {
+        minutes += hours * 60;
+        hours = 0;
+    }
+
+    return padZero(minutes) + padZero(seconds);
+}
+
+function padZero(num) {
+    return num.toString().padStart(2, '0');
 }
 
 function formatTime(timeInSeconds) {
@@ -297,6 +348,7 @@ function formatTime(timeInSeconds) {
 function padZero(num) {
     return num.toString().padStart(2, '0');
 }
+
 
 // 複製output
 assignTimeOutput.onclick = copyAssignTimeOutput;
@@ -334,3 +386,19 @@ function showAlert(message, type) {
         copyalert.remove();
     }, 1500);
 }
+
+// drag or drop file
+document.addEventListener('change', function(event) {
+    if (event.target.classList.contains('file-input')) {
+      const filesCount = event.target.files.length;
+      const textbox = event.target.previousElementSibling;
+  
+      if (filesCount === 1) {
+        const fileName = event.target.value.split('\\').pop();
+        textbox.textContent = fileName;
+      } else {
+        textbox.textContent = filesCount + ' files selected';
+      }
+    }
+  });
+
