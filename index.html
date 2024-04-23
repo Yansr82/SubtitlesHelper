@@ -161,225 +161,234 @@
         <div id="tools-assign-time" class="p-4 content tab-pane fade" role="tabpanel"
           aria-labelledby="tools-assign-time-tab">
           <div class="section">
-            <div class="me-5">
-              <div class="d-flex flex-column">
-                <p>
-                  <a class="btn btn-primary" data-bs-toggle="collapse" href="#FileUpload" role="button"
-                    aria-expanded="false" aria-controls="FileUpload">
-                    File Upload
-                  </a>
-                  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#manualentry"
-                    aria-expanded="false" aria-controls="manualentry">
-                    手動輸入
-                  </button>
-                </p>
-              </div>
+                  <div class="me-5">
+                    <div class="d-flex flex-column">
+                      <p>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#FileUpload" role="button"
+                          aria-expanded="false" aria-controls="FileUpload">
+                          File Upload
+                        </a>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#manualentry"
+                          aria-expanded="false" aria-controls="manualentry">
+                          手動輸入
+                        </button>
+                      </p>
+                    </div>
 
-              <div id="FileUpload" class="collapse show">
-                <div class="card card-body">
-                  <div class="file-drop-area">
-                    <span class="choose-file-button">Choose files</span>
-                    <span class="file-message">or drag and drop files here</span>
-                    <input id="assign-user-select-file" class="file-input" type="file" accept="video/.mp3">
+                    <div id="FileUpload" class="collapse show">
+                      <div class="card card-body">
+                        <div class="file-drop-area">
+                          <span class="choose-file-button">Choose files</span>
+                          <span class="file-message">or drag and drop files here</span>
+                          <input id="assign-user-select-file" class="file-input" type="file" accept="video/.mp3">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="manualentry" class="input-time collapse">
+                      <div class="card card-body">
+                        <input class="assigntime_h" placeholder="時">
+                        <input class="assigntime_m" placeholder="分">
+                        <input class="assigntime_s" placeholder="秒">
+                        <p style="margin: 0 10px 0 0;padding-top:5px;font-weight: bold;">集<br>數</p>
+                        <input class="assign-time-ep-input" style="height: 2rem;" placeholder="輸入集數(不含#)">
+                      </div>
+                    </div>
+
+                    <div class="m-3">
+                      <div class="mt-3 mb-3">
+                      <input id="assign-time-end-time" class="text-center" placeholder="結尾時間">
+                      <div class="form-check ms-3" style="display: inline-block;">
+                        <input class="form-check-input" type="checkbox" value="" id="assign-time-check">
+                        <label class="form-check-label" for="assign-time-check">
+                          扣除結尾(-1分鐘)
+                        </label>
+                      </div>
+                      </div>
+                      <ul id="tools-assign-time-people" class="d-flex flex-row">
+                        <p style="margin: 0 5px 0 0;padding-top:5px;font-weight: bold;">排<br>序</p>
+                        <li>
+                          <span>1</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option selected="selected" value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>2</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option selected="selected" value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>3</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option selected="selected" value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>4</span>
+                          <select class="assigntime_sort">
+                            <option selected="selected" value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>5</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option selected="selected" value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>6</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option selected="selected" value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>7</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option selected="selected" value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>8</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option selected="selected" value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option value="11">--</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>9</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option selected="selected" value="11">--</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>10</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option selected="selected" value="11">--</option>
+                          </select>
+                        </li>
+                        <li>
+                          <span>11</span>
+                          <select class="assigntime_sort">
+                            <option value="1">1 - 京</option>
+                            <option value="2">2 - 周</option>
+                            <option value="3">3 - 憲</option>
+                            <option value="4">4 - 薇</option>
+                            <option value="5">5 - 凱</option>
+                            <option value="6">6 - 顏</option>
+                            <option value="7">7 - 呂</option>
+                            <option value="8">8 - 郝</option>
+                            <option value="9">9 - 凱</option>
+                            <option value="10">10 - 晴</option>
+                            <option selected="selected" value="11">--</option>
+                          </select>
+                        </li>
+                      </ul>
+                      <button type="button" class="w-100 assigntime_btn btn btn-dark">計算</button>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              <div id="manualentry" class="input-time collapse">
-                <div class="card card-body">
-                  <input class="assigntime_h" placeholder="時">
-                  <input class="assigntime_m" placeholder="分">
-                  <input class="assigntime_s" placeholder="秒">
-                  <p style="margin: 0 10px 0 0;padding-top:5px;font-weight: bold;">集<br>數</p>
-                  <input class="assign-time-ep-input" style="height: 2rem;" placeholder="輸入集數(不含#)">
-                </div>
-              </div>
-
-              <div>
-                <input class="assigntime_nop mt-3 mb-3" placeholder="人數">
-                <ul id="tools-assign-time-people" class="d-flex flex-row">
-                  <p style="margin: 0 5px 0 0;padding-top:5px;font-weight: bold;">排<br>序</p>
-                  <li>
-                    <span>1</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option selected="selected" value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>2</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option selected="selected" value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>3</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option selected="selected" value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>4</span>
-                    <select class="assigntime_sort">
-                      <option selected="selected" value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>5</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option selected="selected" value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>6</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option selected="selected" value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>7</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option selected="selected" value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>8</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option selected="selected" value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                      <option value="11">-</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>9</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                      <option selected="selected" value="11">-</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>10</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                      <option selected="selected" value="11">-</option>
-                    </select>
-                  </li>
-                  <li>
-                    <span>11</span>
-                    <select class="assigntime_sort">
-                      <option value="1">1 - 京</option>
-                      <option value="2">2 - 周</option>
-                      <option value="3">3 - 憲</option>
-                      <option value="4">4 - 薇</option>
-                      <option value="5">5 - 凱</option>
-                      <option value="6">6 - 顏</option>
-                      <option value="7">7 - 呂</option>
-                      <option value="8">8 - 郝</option>
-                      <option value="9">9 - 凱</option>
-                      <option value="10">10 - 晴</option>
-                      <option selected="selected" value="11">-</option>
-                    </select>
-                  </li>
-                </ul>
-                <button type="button" class="w-100 assigntime_btn btn btn-dark">計算</button>
-              </div>
-            </div>
-
-            <div class="assign_time_output">
-              <div id="liveAlertPlaceholder"></div>
-            </div>
-
+                  <div>
+                    <div class="assign_time_output mt-5">
+                      <div id="liveAlertPlaceholder"></div>
+                    </div>
+                  </div>
+              </div>            
           </div>
-        </div>
-      </div>
+
+      </div> <!--首頁-->
     </div>
   </main>
   <footer class="d-flex align-items-center border-top fixed-bottom">
