@@ -262,17 +262,6 @@ footer {
   margin: 3px;
 }
 
-.assign_time_output {
-  border: #333333 1px solid;
-  padding: 15px;
-  line-height: 15px;
-  width: 100%;
-}
-
-.assign_time_output p{
-  margin: 0;
-}
-
 #tools-assign-time-people {
   margin-top: 1rem;
   padding-left: 0;
