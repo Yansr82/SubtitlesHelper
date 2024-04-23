@@ -1,9 +1,9 @@
 // tab
 var navLinks = document.querySelectorAll('.nav-link');
 
-navLinks.forEach(function(navLink) {
-    navLink.addEventListener('click', function() {
-        navLinks.forEach(function(link) {
+navLinks.forEach(function (navLink) {
+    navLink.addEventListener('click', function () {
+        navLinks.forEach(function (link) {
             link.classList.remove('active');
         });
         this.classList.add('active');
@@ -17,7 +17,7 @@ const mainContent = document.querySelector('#main-content');
 const toggleIcon = document.querySelector('#sidebar-toggle i');
 const footerCollapse = document.querySelector('footer');
 
-sidebarToggle.onclick = function() {
+sidebarToggle.onclick = function () {
     if (sidebar.classList.contains('side-close')) {
         sidebar.classList.remove('side-close');
         sidebarToggle.classList.remove('side-toggle-close');
@@ -48,14 +48,29 @@ function countCharacters(str) {
 }
 
 function isChinese(char) {
-    return /^[\u4E00-\u9FA5]$/.test(char); 
+    return /^[\u4E00-\u9FA5]$/.test(char);
 }
 
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
 const checkArea = document.querySelector('.check_area');
 
+
+//scroll
+
+inputText.addEventListener('paste', handleInPaste);
 inputText.addEventListener('input', updateOutput1);
+
+function handleInPaste() {
+    setTimeout(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+    }, 0);
+}
+
+
+
+
+
 
 const wordsToCheck = [
     { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
@@ -68,7 +83,7 @@ function updateOutput1() {
     output.innerHTML = '';
     checkArea.innerHTML = '';
     let hasError = false;
-    
+
     lines.forEach((line, index) => {
         const lineNumber = index + 1;
         const characterCount = countCharacters(line);
@@ -79,7 +94,7 @@ function updateOutput1() {
         if (exceedsLimit || foundWord) {
             let errorMessage = '';
             let errorClass = '';
-        
+
             if (exceedsLimit) {
                 errorMessage = `請確認字數`;
                 errorClass = 'exceeds-limit';
@@ -87,23 +102,23 @@ function updateOutput1() {
                 errorMessage = foundWord.errorMessage;
                 errorClass = foundWord.errorClass;
             }
-        
+
             listItem.textContent = `${lineNumber}`;
             listItem.classList.add('error');
             listItem.id = `error-${lineNumber}`;
-        
+
             const errorAnchor = document.createElement('a');
-            errorAnchor.classList.add(errorClass); 
+            errorAnchor.classList.add(errorClass);
             errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
             errorAnchor.href = `#error-${lineNumber}`;
             errorAnchor.addEventListener('click', scrollToError);
             checkArea.appendChild(errorAnchor);
             hasError = true;
-        }        
-        
+        }
+
         output.appendChild(listItem);
     });
-    
+
     if (!hasError) {
         const listItem = document.createElement('p');
         listItem.textContent = `無錯誤行句`;
@@ -122,72 +137,72 @@ function scrollToError(event) {
 
 //timecodeCheck
 function timecodeCheck() {
-    
+
 }
 
 
 // 切換timecode/!timecode
 function updateOutput2() {
-    
-const inputText = document.querySelector('.inputText');
-const output = document.querySelector('.output ol');
-const checkArea = document.querySelector('.check_area');
 
-inputText.addEventListener('input', updateOutput1);
+    const inputText = document.querySelector('.inputText');
+    const output = document.querySelector('.output ol');
+    const checkArea = document.querySelector('.check_area');
 
-const wordsToCheck = [
-    { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
-    { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
-    { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
-];
+    inputText.addEventListener('input', updateOutput1);
 
-function updateOutput1() {
-    const lines = inputText.value.split('\n');
-    output.innerHTML = '';
-    checkArea.innerHTML = '';
-    let hasError = false;
-    
-    lines.forEach((line, index) => {
-        const lineNumber = index + 1;
-        const characterCount = countCharacters(line);
-        const exceedsLimit = characterCount > 39;
-        const listItem = document.createElement('li');
-        const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
+    const wordsToCheck = [
+        { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
+        { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
+        { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
+    ];
 
-        if (exceedsLimit || foundWord) {
-            let errorMessage = '';
-            let errorClass = '';
-        
-            if (exceedsLimit) {
-                errorMessage = `請確認字數`;
-                errorClass = 'exceeds-limit';
-            } else if (foundWord) {
-                errorMessage = foundWord.errorMessage;
-                errorClass = foundWord.errorClass;
-            }       
+    function updateOutput1() {
+        const lines = inputText.value.split('\n');
+        output.innerHTML = '';
+        checkArea.innerHTML = '';
+        let hasError = false;
 
-            listItem.textContent = `${lineNumber}`;
-            listItem.classList.add('error');
-            listItem.id = `error-${lineNumber}`;
-        
-            const errorAnchor = document.createElement('a');
-            errorAnchor.classList.add(errorClass); 
-            errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
-            errorAnchor.href = `#error-${lineNumber}`;
-            errorAnchor.addEventListener('click', scrollToError);
-            checkArea.appendChild(errorAnchor);
-            hasError = true;
-        }        
-        
-        output.appendChild(listItem);
-    });
-    
-    if (!hasError) {
-        const listItem = document.createElement('p');
-        listItem.textContent = `無錯誤行句`;
-        checkArea.appendChild(listItem);
+        lines.forEach((line, index) => {
+            const lineNumber = index + 1;
+            const characterCount = countCharacters(line);
+            const exceedsLimit = characterCount > 39;
+            const listItem = document.createElement('li');
+            const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
+
+            if (exceedsLimit || foundWord) {
+                let errorMessage = '';
+                let errorClass = '';
+
+                if (exceedsLimit) {
+                    errorMessage = `請確認字數`;
+                    errorClass = 'exceeds-limit';
+                } else if (foundWord) {
+                    errorMessage = foundWord.errorMessage;
+                    errorClass = foundWord.errorClass;
+                }
+
+                listItem.textContent = `${lineNumber}`;
+                listItem.classList.add('error');
+                listItem.id = `error-${lineNumber}`;
+
+                const errorAnchor = document.createElement('a');
+                errorAnchor.classList.add(errorClass);
+                errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
+                errorAnchor.href = `#error-${lineNumber}`;
+                errorAnchor.addEventListener('click', scrollToError);
+                checkArea.appendChild(errorAnchor);
+                hasError = true;
+            }
+
+            output.appendChild(listItem);
+        });
+
+        if (!hasError) {
+            const listItem = document.createElement('p');
+            listItem.textContent = `無錯誤行句`;
+            checkArea.appendChild(listItem);
+        }
     }
-}
 
 }
 
@@ -196,14 +211,14 @@ const radio1 = document.querySelector('#btnradio1');
 const radio2 = document.querySelector('#btnradio2');
 
 
-radio1.addEventListener('click', function() {  
-    inputText.removeEventListener('input', updateOutput2); 
+radio1.addEventListener('click', function () {
+    inputText.removeEventListener('input', updateOutput2);
     inputText.addEventListener('input', updateOutput1);
 });
 
-radio2.addEventListener('click', function() {
+radio2.addEventListener('click', function () {
     inputText.removeEventListener('input', updateOutput1);
-    inputText.addEventListener('input', updateOutput2); 
+    inputText.addEventListener('input', updateOutput2);
 });
 
 
@@ -220,7 +235,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-toTopButton.addEventListener("click", function() {
+toTopButton.addEventListener("click", function () {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -246,7 +261,7 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
     if (assignTimeCheck.checked) {
         totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue - 60;
         console.log(totalSeconds);
-    }else {
+    } else {
         totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue;
         console.log(totalSeconds);
     };
@@ -266,15 +281,15 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
         let endTime = Math.round((i + 1) * totalSeconds / nopValue);
         let startTimeString = formatTime(startTime);
         let endTimeString = formatTime(endTime);
-        
+
         let selectedOption = selectOptions[i % selectOptions.length].options[selectOptions[i % selectOptions.length].selectedIndex].text;
         let lastCharacter = selectedOption.trim().charAt(selectedOption.trim().length - 1);
 
         if (i === nopValue - 1) {
-            noptext += `綜藝大集合#${episode}-0${i+1} (${startTimeString}-END) ${lastCharacter} (文字版).txt
+            noptext += `綜藝大集合#${episode}-0${i + 1} (${startTimeString}-END) ${lastCharacter} (文字版).txt
             `;
-        } else {       
-            noptext += `綜藝大集合#${episode}-0${i+1} (${startTimeString}-${endTimeString}) ${lastCharacter} (文字版).txt
+        } else {
+            noptext += `綜藝大集合#${episode}-0${i + 1} (${startTimeString}-${endTimeString}) ${lastCharacter} (文字版).txt
             `;
         }
     }
@@ -284,7 +299,7 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
 }
 
 // 點擊事件處理程序
-assignStart.onclick = function() {
+assignStart.onclick = function () {
     document.querySelectorAll('.assign_time_output p').forEach(p => p.remove());
 
     let hoursValue, minutesValue, secondsValue, episode, nopValue;
@@ -295,13 +310,13 @@ assignStart.onclick = function() {
         const hashIndex = fileName.indexOf('#');
         const episodeNumber = fileName.substring(hashIndex + 1).match(/\d+/)[0];
         episode = parseInt(episodeNumber);
-        
+
         const video = document.createElement('video');
         video.preload = 'metadata';
-        const fileURL = URL.createObjectURL(file); 
+        const fileURL = URL.createObjectURL(file);
         video.src = fileURL;
-    
-        video.onloadedmetadata = function() {
+
+        video.onloadedmetadata = function () {
             const duration = video.duration;
             hoursValue = Math.floor(duration / 3600);
             minutesValue = Math.floor((duration % 3600) / 60);
@@ -405,28 +420,28 @@ function showAlert(message, type) {
     wrapper.innerHTML = '<div id="copyalert" class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '</div>';
 
     alertPlaceholder.append(wrapper);
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
         copyalert.classList.add('hidden');
     }, 1000);
 
-    setTimeout(function() {
+    setTimeout(function () {
         copyalert.remove();
     }, 1500);
 }
 
 // drag or drop file
-document.addEventListener('change', function(event) {
+document.addEventListener('change', function (event) {
     if (event.target.classList.contains('file-input')) {
-      const filesCount = event.target.files.length;
-      const textbox = event.target.previousElementSibling;
-  
-      if (filesCount === 1) {
-        const fileName = event.target.value.split('\\').pop();
-        textbox.textContent = fileName;
-      } else {
-        textbox.textContent = filesCount + ' files selected';
-      }
+        const filesCount = event.target.files.length;
+        const textbox = event.target.previousElementSibling;
+
+        if (filesCount === 1) {
+            const fileName = event.target.value.split('\\').pop();
+            textbox.textContent = fileName;
+        } else {
+            textbox.textContent = filesCount + ' files selected';
+        }
     }
-  });
+});
 
