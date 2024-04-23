@@ -234,14 +234,22 @@ const assignStart = document.querySelector('.assigntime_btn');
 const hours = document.querySelector('.assigntime_h');
 const minutes = document.querySelector('.assigntime_m');
 const seconds = document.querySelector('.assigntime_s');
-const nop = document.querySelector('.assigntime_nop');
 const assignTimeOutput = document.querySelector('.assign_time_output');
 const selectOptions = document.querySelectorAll('#tools-assign-time-people select');
 const episodeInput = document.querySelector('.assign-time-ep-input');
-
+const assignTimeCheck = document.querySelector('#assign-time-check');
+let nopValue = 0;
+// 計算時間並生成輸出
 function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput) {
     let outputText = document.createElement('p');
-    let totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue;
+    let totalSeconds;
+    if (assignTimeCheck.checked) {
+        totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue - 60;
+        console.log(totalSeconds);
+    }else {
+        totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue;
+        console.log(totalSeconds);
+    };
     let averageTimePerNopMinutes = Math.floor(totalSeconds / 60 / nopValue);
     let averageTimePerNopSeconds = Math.floor(totalSeconds % 60 / nopValue);
     outputText.textContent = `綜藝大集合#${episode}
@@ -275,11 +283,11 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
     assignTimeOutput.appendChild(nopElement);
 }
 
+// 點擊事件處理程序
 assignStart.onclick = function() {
     document.querySelectorAll('.assign_time_output p').forEach(p => p.remove());
 
-    let hoursValue, minutesValue, secondsValue, nopValue;
-    let episode;
+    let hoursValue, minutesValue, secondsValue, episode, nopValue;
 
     if (assignUserSelect.files.length > 0) {
         const file = assignUserSelect.files[0];
@@ -298,23 +306,60 @@ assignStart.onclick = function() {
             hoursValue = Math.floor(duration / 3600);
             minutesValue = Math.floor((duration % 3600) / 60);
             secondsValue = Math.floor(duration % 60);
-            nopValue = parseInt(nop.value.trim() === "" ? "1" : nop.value);
 
+            // Check if #assign-time-end-time has input
+            const endTimeInput = document.querySelector('#assign-time-end-time');
+            if (endTimeInput.value.trim() !== "") {
+                const timeString = endTimeInput.value.trim();
+                const timeDigits = timeString.split('').map(digit => parseInt(digit)).filter(digit => !isNaN(digit));
+                if (timeDigits.length === 8) {
+                    hoursValue = parseInt(timeDigits.slice(0, 2).join(''));
+                    minutesValue = parseInt(timeDigits.slice(2, 4).join(''));
+                    secondsValue = parseInt(timeDigits.slice(4, 6).join(''));
+                }
+            }
 
+            nopValue = calculateNOPValue(); // 計算 nopValue
             calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
         };
     } else {
-        hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
-        minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
-        secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
-        nopValue = nop.value.trim() === "" ? "1" : parseInt(nop.value);
+        // Check if #assign-time-end-time has input
+        const endTimeInput = document.querySelector('#assign-time-end-time');
+        if (endTimeInput.value.trim() !== "") {
+            const timeString = endTimeInput.value.trim();
+            const timeDigits = timeString.split('').map(digit => parseInt(digit)).filter(digit => !isNaN(digit));
+            if (timeDigits.length === 8) {
+                hoursValue = parseInt(timeDigits.slice(0, 2).join(''));
+                minutesValue = parseInt(timeDigits.slice(2, 4).join(''));
+                secondsValue = parseInt(timeDigits.slice(4, 6).join(''));
+            }
+        } else {
+            hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
+            minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
+            secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
+        }
+
         episode = episodeInput.value;
 
+        nopValue = calculateNOPValue(); // 計算 nopValue
         calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
     }
 }
 
 
+// 計算有效值的數量
+function calculateNOPValue() {
+    let nopCount = 0;
+    selectOptions.forEach(selectElement => {
+        let selectedOption = selectElement.options[selectElement.selectedIndex].text;
+        if (selectedOption !== "--") {
+            nopCount++;
+        }
+    });
+    return nopCount;
+}
+
+// 格式化時間
 function formatTime(timeInSeconds) {
     let hours = Math.floor(timeInSeconds / 3600);
     let minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -328,27 +373,10 @@ function formatTime(timeInSeconds) {
     return padZero(minutes) + padZero(seconds);
 }
 
+// 在數字前補零
 function padZero(num) {
     return num.toString().padStart(2, '0');
 }
-
-function formatTime(timeInSeconds) {
-    let hours = Math.floor(timeInSeconds / 3600);
-    let minutes = Math.floor((timeInSeconds % 3600) / 60);
-    let seconds = timeInSeconds % 60;
-
-    if (hours > 0) {
-        minutes += hours * 60;
-        hours = 0;
-    }
-
-    return padZero(minutes) + padZero(seconds);
-}
-
-function padZero(num) {
-    return num.toString().padStart(2, '0');
-}
-
 
 // 複製output
 assignTimeOutput.onclick = copyAssignTimeOutput;
