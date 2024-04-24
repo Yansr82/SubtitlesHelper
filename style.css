@@ -28,10 +28,6 @@ hr {
   position: relative;
 }
 
-.content {
-  min-height: 100%;
-}
-
 .section {
   padding-bottom: 110px;
   display: flex;
@@ -53,7 +49,6 @@ footer {
   z-index: 9999;
   transition: opacity .3s ease-in-out;
 }
-
 
 .layout-sidebar {
   z-index: 1031;
@@ -156,6 +151,26 @@ footer {
   transition: padding .3s ease-in-out;
 }
 
+/* 聽打 */
+
+.invalid-timecode-order, .invalid-timecode {
+  color: #800000;
+}
+
+.exceeds-limit {
+  color : #7a5000;
+}
+
+.stay-key {
+  color: #ff4500;
+}
+
+.question-mark {
+  color: #808000 ;
+}
+
+/* 錯誤色 */
+
 .listen .inputText {
   font-size: 16px;
   font-family: 'Noto Sans TC';
@@ -183,18 +198,6 @@ footer {
 #check_list {
   margin-top: 3.5px;
   padding: 0;
-}
-
-.exceeds-limit {
-  color: red;
-}
-
-.stay-key {
-  color: orangered;
-}
-
-.question-mark {
-  color: olive;
 }
 
 .listen {
@@ -250,20 +253,25 @@ footer {
 
 .check_area {
   position: fixed;
+  max-width: 250px;
   top: 150px;
-  right: 250px;
+  right: 0;
   border: 1px solid #333333;
+  margin-right: 30px;
   padding: 30px;
+  min-height: 50px;
   max-height: 500px;
   overflow: auto;
 }
 
 .check_area a {
   display: block;
+  padding: 2px;
 }
 
 .check_area p {
   margin: 0;
+  padding: 2px;
 }
 
 .btn-dark:hover {

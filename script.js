@@ -43,6 +43,13 @@ const wordsToCheck = [
     { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
 ];
 
+document.addEventListener('DOMContentLoaded', function () {
+    const listItem = document.createElement('p');
+    listItem.textContent = `錯誤檢查區`;
+    checkArea.appendChild(listItem);
+});
+
+
 function countCharacters(str) {
     let count = 0;
     for (let i = 0; i < str.length; i++) {
@@ -128,6 +135,7 @@ function checkTimeCode() {
 
             listItem.classList.add('error');
             listItem.id = `error-${lineNumber}`;
+            listItem.textContent = `${lineNumber}`;
 
             const errorAnchor = document.createElement('a');
             errorAnchor.classList.add(errorClass);
@@ -146,6 +154,7 @@ function checkTimeCode() {
 
                 listItem.classList.add('error');
                 listItem.id = `error-${lineNumber}`;
+                listItem.textContent = `${lineNumber}`;
 
                 const errorAnchor = document.createElement('a');
                 errorAnchor.classList.add(errorClass);
@@ -161,7 +170,7 @@ function checkTimeCode() {
         prevTimeCode = line.substring(0, 11);
     }
     
-    if (!hasError && lastLine.trim().endsWith('END')) {
+    if (!hasError || !hasError && lastLine.trim().endsWith('END')) {
         const listItem = document.createElement('p');
         listItem.textContent = `無錯誤行句`;
         checkArea.appendChild(listItem);
@@ -187,7 +196,7 @@ function handleInput() {
 
 
 inputText.addEventListener('input', checkTimeCode);
-inputText.addEventListener('input', handleInput);
+inputText.addEventListener('paste', handleInput);
 
 
 
