@@ -34,6 +34,15 @@ sidebarToggle.onclick = function () {
 //checkarea
 
 //聽打
+const inputText = document.querySelector('.inputText');
+const output = document.querySelector('.output ol');
+const checkArea = document.querySelector('.check_area');
+const wordsToCheck = [
+    { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
+    { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
+    { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
+];
+
 function countCharacters(str) {
     let count = 0;
     for (let i = 0; i < str.length; i++) {
@@ -51,59 +60,72 @@ function isChinese(char) {
     return /^[\u4E00-\u9FA5]$/.test(char);
 }
 
-const inputText = document.querySelector('.inputText');
-const output = document.querySelector('.output ol');
-const checkArea = document.querySelector('.check_area');
-
-
-//scroll
-
-inputText.addEventListener('paste', handleInPaste);
-inputText.addEventListener('input', updateOutput1);
-
-function handleInPaste() {
-    setTimeout(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, 0);
+function scrollToError(event) {
+    event.preventDefault();
+    const targetId = event.target.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 }
 
-
-
-
-
-
-const wordsToCheck = [
-    { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
-    { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
-    { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
-];
-
-function updateOutput1() {
+function checkTimeCode() {
     const lines = inputText.value.split('\n');
     output.innerHTML = '';
     checkArea.innerHTML = '';
     let hasError = false;
+    let prevTimeCode = null;
 
-    lines.forEach((line, index) => {
+    let endIndex = lines.length;
+    const lastLine = lines[lines.length - 1];
+    if (lastLine.trim().endsWith('END')) {
+        endIndex--;
+    } 
+
+    let firstFourLinesValidTimeCode = false;
+    if (lines.length >= 4) {
+        const firstLineTimeCodeValid = /^(?:[0-9]{2}:){3}[0-9]{2}$/.test(lines[0].substring(0, 11));
+        const secondLineTimeCodeValid = /^(?:[0-9]{2}:){3}[0-9]{2}$/.test(lines[1].substring(0, 11));
+        const thirdLineTimeCodeValid = /^(?:[0-9]{2}:){3}[0-9]{2}$/.test(lines[2].substring(0, 11));
+        const fourthLineTimeCodeValid = /^(?:[0-9]{2}:){3}[0-9]{2}$/.test(lines[3].substring(0, 11));
+        const fifthLineTimeCodeValid = /^(?:[0-9]{2}:){3}[0-9]{2}$/.test(lines[4].substring(0, 11));
+    
+        firstFourLinesValidTimeCode = firstLineTimeCodeValid && secondLineTimeCodeValid && thirdLineTimeCodeValid && fourthLineTimeCodeValid && fifthLineTimeCodeValid;
+    }
+
+    for (let index = 0; index < endIndex; index++) {
+        const line = lines[index];
         const lineNumber = index + 1;
         const characterCount = countCharacters(line);
-        const exceedsLimit = characterCount > 27 && (line.charAt(11) !== ' ' && line.charAt(2) !== ':');
+        let exceedsLimit = false;
+        let isValidTimeCode = true;
+
+        if (firstFourLinesValidTimeCode) {
+            isValidTimeCode = /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) && isValidTimeValues(line.substring(0, 11));
+            exceedsLimit = characterCount > 39;
+        } else {
+            exceedsLimit = (characterCount > 27 && line.charAt(11) !== ' ' && line.charAt(2) !== ':') || characterCount > 39;
+        }
+
         const listItem = document.createElement('li');
         const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
 
-        if (exceedsLimit || foundWord) {
+
+        if (exceedsLimit || !isValidTimeCode || foundWord) {
             let errorMessage = '';
             let errorClass = '';
 
             if (exceedsLimit) {
                 errorMessage = `請確認字數`;
                 errorClass = 'exceeds-limit';
+            } else if (!isValidTimeCode) {
+                errorMessage = `TIMECODE格式錯誤`;
+                errorClass = 'invalid-timecode';
             } else if (foundWord) {
                 errorMessage = foundWord.errorMessage;
                 errorClass = foundWord.errorClass;
             }
 
-            listItem.textContent = `${lineNumber}`;
             listItem.classList.add('error');
             listItem.id = `error-${lineNumber}`;
 
@@ -116,72 +138,12 @@ function updateOutput1() {
             hasError = true;
         }
 
-        output.appendChild(listItem);
-    });
+        if (prevTimeCode !== null) {
+            const currentTimeCode = line.substring(0, 11);
+            if (timeCodeToNumber(currentTimeCode) <= timeCodeToNumber(prevTimeCode)) {
+                const errorMessage = `TIMECODE順序錯誤`;
+                const errorClass = 'invalid-timecode-order';
 
-    if (!hasError) {
-        const listItem = document.createElement('p');
-        listItem.textContent = `無錯誤行句`;
-        checkArea.appendChild(listItem);
-    }
-}
-
-function scrollToError(event) {
-    event.preventDefault();
-    const targetId = event.target.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
-
-//timecodeCheck
-function timecodeCheck() {
-
-}
-
-
-// 切換timecode/!timecode
-function updateOutput2() {
-
-    const inputText = document.querySelector('.inputText');
-    const output = document.querySelector('.output ol');
-    const checkArea = document.querySelector('.check_area');
-
-    inputText.addEventListener('input', updateOutput1);
-
-    const wordsToCheck = [
-        { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
-        { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
-        { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
-    ];
-
-    function updateOutput1() {
-        const lines = inputText.value.split('\n');
-        output.innerHTML = '';
-        checkArea.innerHTML = '';
-        let hasError = false;
-
-        lines.forEach((line, index) => {
-            const lineNumber = index + 1;
-            const characterCount = countCharacters(line);
-            const exceedsLimit = characterCount > 39;
-            const listItem = document.createElement('li');
-            const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
-
-            if (exceedsLimit || foundWord) {
-                let errorMessage = '';
-                let errorClass = '';
-
-                if (exceedsLimit) {
-                    errorMessage = `請確認字數`;
-                    errorClass = 'exceeds-limit';
-                } else if (foundWord) {
-                    errorMessage = foundWord.errorMessage;
-                    errorClass = foundWord.errorClass;
-                }
-
-                listItem.textContent = `${lineNumber}`;
                 listItem.classList.add('error');
                 listItem.id = `error-${lineNumber}`;
 
@@ -193,37 +155,37 @@ function updateOutput2() {
                 checkArea.appendChild(errorAnchor);
                 hasError = true;
             }
-
-            output.appendChild(listItem);
-        });
-
-        if (!hasError) {
-            const listItem = document.createElement('p');
-            listItem.textContent = `無錯誤行句`;
-            checkArea.appendChild(listItem);
         }
+    
+        output.appendChild(listItem);
+        prevTimeCode = line.substring(0, 11);
     }
-
+    
+    if (!hasError && lastLine.trim().endsWith('END')) {
+        const listItem = document.createElement('p');
+        listItem.textContent = `無錯誤行句`;
+        checkArea.appendChild(listItem);
+    }
 }
 
-//切換文本檢查
-const radio1 = document.querySelector('#btnradio1');
-const radio2 = document.querySelector('#btnradio2');
 
+function isValidTimeValues(timeCode) {
+    const parts = timeCode.split(':').map(part => parseInt(part, 10));
+    return parts.every(part => part >= 0 && part <= 59);
+}
 
-radio1.addEventListener('click', function () {
-    inputText.removeEventListener('input', updateOutput2);
-    inputText.addEventListener('input', updateOutput1);
-});
+function timeCodeToNumber(timeCode) {
+    const parts = timeCode.split(':');
+    return parseInt(parts[0]) * 1000000 + parseInt(parts[1]) * 10000 + parseInt(parts[2]) * 100 + parseInt(parts[3]);
+}
 
-radio2.addEventListener('click', function () {
-    inputText.removeEventListener('input', updateOutput1);
-    inputText.addEventListener('input', updateOutput2);
-});
+// 监听文本框输入事件，更新输出
+inputText.addEventListener('input', checkTimeCode);
 
 
 
 // totop
+
 const toTopButton = document.querySelector('.to_top');
 toTopButton.style.opacity = '0';
 
@@ -240,6 +202,7 @@ toTopButton.addEventListener("click", function () {
         top: 0,
         behavior: "smooth"
     });
+    window.history.replaceState(null, null, window.location.href.split("#")[0]);
 });
 
 // 時間分配 assign-time

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="因應字幕室作業用的簡便工具集合網站。" />
   <title>FTV Project</title>
 
 
@@ -121,25 +122,25 @@
             <div class="listen">
               <div id="check-toggle-btn" class="btn-group-sm m-3" role="group"
                 aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" disabled>
                 <label class="btn btn-outline-primary" for="btnradio1">無TIMECODE</label>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
                 <label class="btn btn-outline-primary" for="btnradio2">有TIMECODE</label>
 
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" disabled>
                 <label class="btn btn-outline-primary" for="btnradio3">暫留</label>
               </div>
               <div class="row">
-                <div class="col d-flex listen input">
+                <div class="col d-flex input">
                   <textarea class="inputText" rows="30" cols="50" placeholder="貼上文字"></textarea>
                   <div class="error-mark" style="display: none;">
                   </div>
+                  <div class="output">
+                    <ol id="check_list"></ol>
+                  </div>
                 </div>
-                <div class="col listen output">
-                  <ol id="check_list"></ol>
-                </div>
-                <div class="col listen right_area">
+                <div class="col">
                   <div class="check_area"></div>
                 </div>
               </div>

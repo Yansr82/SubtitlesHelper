@@ -156,27 +156,33 @@ footer {
   transition: padding .3s ease-in-out;
 }
 
-.listen {
-  margin: 0 10px;
-  position: relative;
-}
-
 .listen .inputText {
   font-size: 16px;
   font-family: 'Noto Sans TC';
   resize: none;
+  line-height: 1.6;
+}
+
+.output {
+  margin-bottom: 20px;
 }
 
 .output ol {
   margin: 0 16px 16px;
-  padding-top: 4px;
+  padding: 0;
 }
 
 .output li {
-  flex-direction: column;
+  padding: 0;
   margin: 0;
   position: relative;
   font-size: 16px;
+  line-height: 1.6;
+}
+
+#check_list {
+  margin-top: 3.5px;
+  padding: 0;
 }
 
 .exceeds-limit {
@@ -184,19 +190,29 @@ footer {
 }
 
 .stay-key {
-  color: green;
+  color: orangered;
 }
 
 .question-mark {
-  color: blue;
+  color: olive;
 }
 
-.right_area {
-  height: 100%;
+.listen {
+  margin-left: 70px;
 }
 
 .listen .input {
   position: relative;
+}
+
+.input::after {
+  content: '';
+  position: absolute;
+  left: 20rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: rgba(32, 60, 187,0.4);
 }
 
 .input::before {
@@ -206,7 +222,7 @@ footer {
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: red;
+  background-color:rgba(204, 0, 0,0.4)
 }
 
 .error::after {
@@ -219,10 +235,10 @@ footer {
 }
 
 .error::before {
-  content: "X";
+  content: "\F231";
   position: absolute;
   top: 50%;
-  left: -50%;
+  left: -28.5rem;
   transform: translate(-50%, -50%);
   color: red;
   font-weight: bold;
