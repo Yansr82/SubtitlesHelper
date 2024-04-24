@@ -179,8 +179,15 @@ function timeCodeToNumber(timeCode) {
     return parseInt(parts[0]) * 1000000 + parseInt(parts[1]) * 10000 + parseInt(parts[2]) * 100 + parseInt(parts[3]);
 }
 
-// 监听文本框输入事件，更新输出
+function handleInput() {
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 0);
+  }
+
+
 inputText.addEventListener('input', checkTimeCode);
+inputText.addEventListener('input', handleInput);
 
 
 
