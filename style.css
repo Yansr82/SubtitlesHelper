@@ -211,7 +211,7 @@ footer {
 .input::after {
   content: '';
   position: absolute;
-  left: 20rem;
+  left: 19.3rem;
   top: 0;
   bottom: 0;
   width: 2px;
