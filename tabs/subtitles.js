@@ -207,14 +207,13 @@ document.addEventListener("DOMContentLoaded", function () {
       error: tdList[1].textContent.trim(),
       annotation: tdList[2].textContent.trim()
     };
-    console.log("rowData:", rowData); // 调试输出rowData
+    console.log("rowData:", rowData);
     let savedData = localStorage.getItem('wordTableData');
     let rowDataArray = [];
     if (savedData) {
       rowDataArray = JSON.parse(savedData);
     }
   
-    // 检查该数据是否已存在于数组中
     const existingIndex = rowDataArray.findIndex(item =>
       item.word === rowData.word &&
       item.error === rowData.error &&
@@ -222,15 +221,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   
     if (existingIndex !== -1) {
-      // 如果存在，则更新该数据
       rowDataArray[existingIndex] = rowData;
     } else {
-      // 如果不存在，则添加新数据
       rowDataArray.push(rowData);
     }
   
-    console.log("rowDataArray:", rowDataArray); // 调试输出rowDataArray
-    // 将更新后的数据保存到本地存储中
+    console.log("rowDataArray:", rowDataArray);
     localStorage.setItem('wordTableData', JSON.stringify(rowDataArray));
   }
   
