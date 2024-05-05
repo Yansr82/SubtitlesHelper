@@ -99,6 +99,9 @@
         min-height: 100%;
       }
 
+      #oml2d-stage {
+        height: 0;
+      }
     }
   }
 
@@ -112,6 +115,7 @@
     &:hover {
       background-color: darken($sub-color, 50%);
     }
+
   }
 
   a {
@@ -129,7 +133,7 @@
 
   .page-container {
     height: 100%;
-    padding-top: 60px;
+    padding-top: 80px;
     position: relative;
   }
 

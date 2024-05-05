@@ -6,7 +6,7 @@
           <img src="images/logo3.png" style="width:40px" alt="Logo">
         </a>
 
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+        <ul class="nav d-none d-sm-flex col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
           <li>
             <a href="./index.html" class="nav-link text-secondary">
 
