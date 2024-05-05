@@ -23,7 +23,7 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
     let averageTimePerNopSeconds = Math.floor(totalSeconds % 60 / nopValue);
     outputText.textContent = `綜藝大集合#${episode}
     總長${hoursValue}時${minutesValue}分${secondsValue}秒 平均每人${averageTimePerNopMinutes}分${averageTimePerNopSeconds}秒
-    時間參考如下~`;
+    時間參考如下↓`;
     outputText.style.whiteSpace = "pre-line";
     outputText.style.marginBottom = "5px";
     assignTimeOutput.appendChild(outputText);
