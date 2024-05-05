@@ -35,7 +35,7 @@
           <li>
             <a href="./minutes.html" class="nav-link ">
 
-              Customers
+              #
             </a>
           </li>
         </ul>
