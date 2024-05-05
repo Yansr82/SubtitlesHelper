@@ -2,7 +2,7 @@
   <div class="px-3 py-2">
     <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto  text-decoration-none">
+        <a href="./index.html" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto  text-decoration-none">
           <img src="images/logo3.png" style="width:40px" alt="Logo">
         </a>
 
@@ -21,7 +21,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="https://drive.google.com/drive/folders/156DWU2T1X7nZrvCgbM_u0Gt67skOTV14?usp=drive_link" class="nav-link ">
 
               小工具
             </a>
