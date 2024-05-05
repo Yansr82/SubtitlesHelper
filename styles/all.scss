@@ -53,6 +53,10 @@
       line-height: 1.42857143;
       color: #2c2e2f;
 
+      .wrapper {
+        padding-top:2% !important;
+      }
+
       main {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -132,8 +136,7 @@
 
 
   .page-container {
-    height: 100%;
-    padding-top: 80px;
+    padding-top: 60px;
     position: relative;
   }
 
