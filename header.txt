@@ -1,0 +1,45 @@
+<div class="header-nav">
+  <div class="px-3 py-2">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto  text-decoration-none">
+          <img src="images/logo3.png" style="width:40px" alt="Logo">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a href="./index.html" class="nav-link text-secondary">
+
+              首頁
+            </a>
+          </li>
+          <li>
+
+            <a href="#" class="nav-link ">
+
+              日程表
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link ">
+
+              小工具
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link ">
+
+              會議記錄
+            </a>
+          </li>
+          <li>
+            <a href="./minutes.html" class="nav-link ">
+
+              Customers
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
