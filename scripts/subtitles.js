@@ -1,4 +1,5 @@
 let wordTableData = [];
+let filteredWords = [];
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
 const checkArea = document.querySelector('.check_area');
@@ -17,17 +18,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const listItem = document.createElement('p');
     listItem.textContent = `錯誤檢查區`;
     checkArea.appendChild(listItem);
-    
+
     const checkboxes = document.querySelectorAll('#checks-wrapper input[type="checkbox"]');
-    
-    checkboxes.forEach(function(checkbox, index) {
-        checkbox.addEventListener('click', function() {
+
+    checkboxes.forEach(function (checkbox, index) {
+        checkbox.addEventListener('click', function () {
             if (index === 0) {
                 return;
             }
 
             if (checkbox.checked) {
-                checkboxes.forEach(function(cb, idx) {
+                checkboxes.forEach(function (cb, idx) {
                     if (idx !== index && idx !== 0) {
                         cb.checked = false;
                     }
@@ -35,8 +36,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            filteredWords = [];
+            wordTableData.forEach(function (data) {
+                if (data.category === 'all') {
+                    filteredWords.push(data);
+                } else if (checkbox.checked && data.category === checkbox.value) {
+                    filteredWords.push(data);
+                }
+            });
+            checkTimeCode();
+        });
+    });
+    wordTableData.forEach(function (data) {
+        if (data.category === 'all') {
+            filteredWords.push(data);
+        }
+    });
 });
-
 
 function countCharacters(str) {
     let count = 0;
@@ -104,9 +122,10 @@ function checkTimeCode() {
 
         const listItem = document.createElement('li');
         const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
-
-
-        if (exceedsLimit || !isValidTimeCode || foundWord) {
+        const customizedWord = filteredWords.find(({ word }) => line.includes(word));
+        const customizedCorrect = filteredWords.map(obj => obj.correct);
+        
+        if (exceedsLimit || !isValidTimeCode || foundWord || customizedWord) {
             let errorMessage = '';
             let errorClass = '';
 
@@ -119,6 +138,14 @@ function checkTimeCode() {
             } else if (foundWord) {
                 errorMessage = foundWord.errorMessage;
                 errorClass = foundWord.errorClass;
+            } else if (customizedWord) {
+                if (customizedWord.correct) {
+                    errorMessage = `請確認"${customizedWord.word}" / "${customizedWord.correct}"`;
+                    errorClass = 'customized-word';
+                } else {
+                    errorMessage = `請確認"${customizedWord.word}"`;
+                    errorClass = 'customized-word';
+                }
             }
 
             listItem.classList.add('error');
@@ -186,7 +213,6 @@ inputText.addEventListener('input', checkTimeCode);
 inputText.addEventListener('paste', handleInput);
 
 // rules
-
 document.addEventListener("DOMContentLoaded", function () {
     const addWordForm = document.getElementById("addWordForm");
     const wordTableBody = document.querySelector("#wordTable tbody");
@@ -196,19 +222,18 @@ document.addEventListener("DOMContentLoaded", function () {
     addWordForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const word = document.getElementById("floating-word").value.trim();
-        const error = document.getElementById("floating-error").value.trim();
+        const correct = document.getElementById("floating-word").value.trim();
+        const word = document.getElementById("floating-error").value.trim();
         const annotation = document.getElementById("floating-annotation").value.trim();
         const category = document.getElementById("form-category").value.trim();
 
-        const newRow = createRow({ word, error, annotation, category });
+        const newRow = createRow({ correct, word, annotation, category });
         insertRowByCategory(newRow, category);
         saveData(newRow);
 
         addWordForm.reset();
     });
 
-    // Function to load saved data from local storage
     function loadSavedData() {
         const savedData = localStorage.getItem('wordTableData');
         if (savedData) {
@@ -223,14 +248,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to find existing row in the table
     function findExistingRow(data) {
         const tableRows = wordTableBody.querySelectorAll('tr');
         for (let i = 0; i < tableRows.length; i++) {
             const row = tableRows[i];
             const td = row.querySelectorAll('td');
-            if (td[0].textContent.trim() === data.word &&
-                td[1].textContent.trim() === data.error &&
+            if (td[0].textContent.trim() === data.correct &&
+                td[1].textContent.trim() === data.word &&
                 td[2].textContent.trim() === data.annotation) {
                 return row;
             }
@@ -238,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return null;
     }
 
-    // Function to create a new row in the table
     function createRow(data) {
         const newRow = document.createElement("tr");
         if (data.category) {
@@ -246,20 +269,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         newRow.innerHTML = `
         <th></th>
-        <td class="editable">${data.word}</td>
-        <td class="editable">${data.error}</td>  
+        <td class="editable">${data.correct}</td>
+        <td class="editable">${data.word}</td>  
         <td class="editable">${data.annotation}</td>
       `;
         return newRow;
     }
 
-    // Function to save data to local storage
     function saveData(newRow) {
         const tdList = newRow.querySelectorAll('td');
         const rowData = {
             category: newRow.classList[0],
-            word: tdList[0].textContent.trim(),
-            error: tdList[1].textContent.trim(),
+            correct: tdList[0].textContent.trim(),
+            word: tdList[1].textContent.trim(),
             annotation: tdList[2].textContent.trim()
         };
         let savedData = localStorage.getItem('wordTableData');
@@ -269,8 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const existingIndex = rowDataArray.findIndex(item =>
+            item.correct === rowData.correct &&
             item.word === rowData.word &&
-            item.error === rowData.error &&
             item.annotation === rowData.annotation
         );
 
@@ -282,7 +304,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem('wordTableData', JSON.stringify(rowDataArray));
     }
 
-    // Function to insert row into the table based on category
     function insertRowByCategory(newRow, category) {
         const categoryParent = document.querySelector(`.${category}`);
         if (categoryParent) {
@@ -297,7 +318,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Add event listeners to editable table cells
     const editableTDs = document.querySelectorAll('td.editable');
     editableTDs.forEach(td => {
         td.addEventListener('click', function (event) {
@@ -327,7 +347,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Function to download data
     document.getElementById('downloadButton').addEventListener('click', function () {
         const data = localStorage.getItem('wordTableData');
         const blob = new Blob([data], { type: 'application/json' });
@@ -341,14 +360,13 @@ document.addEventListener("DOMContentLoaded", function () {
         URL.revokeObjectURL(url);
     });
 
-    // Function to handle file upload
     document.getElementById('uploadButton').addEventListener('change', function (event) {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.onload = function (e) {
             const data = e.target.result;
             localStorage.setItem('wordTableData', data);
-            location.reload(); // Reload the page to reflect changes
+            location.reload();
         };
         reader.readAsText(file);
     });

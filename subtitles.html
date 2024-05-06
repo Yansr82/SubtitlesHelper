@@ -63,24 +63,24 @@
                                     <div id="checks-wrapper">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="subtitles-check-1"
-                                                value="option1" checked disabled>
+                                                value="all" checked disabled>
                                             <label class="form-check-label" for="subtitles-check-1">All</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="subtitles-check-2"
-                                                value="option2">
+                                                value="pcp-1">
                                             <label class="form-check-label" for="subtitles-check-2">前線</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="subtitles-check-3"
-                                                value="option3">
+                                                value="pcp-2">
                                             <label class="form-check-label" for="subtitles-check-3">第一勇
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="subtitles-check-4"
-                                                value="option3">
-                                            <label class="form-check-label" for="subtitles-check-4">大集合
+                                                value="customize">
+                                            <label class="form-check-label" for="subtitles-check-4">自定義
                                             </label>
                                         </div>
                                     </div>
@@ -107,14 +107,14 @@
                                         <div class="row g-3 p-5">
                                             <h2>新增詞彙</h2>
                                             <div class="col-md-3 form-floating">
-                                                <input type="text" class="form-control" id="floating-word"
-                                                    placeholder="內規字" required>
-                                                <label for="floating-word" class="form-label">內規字：</label>
+                                                <input type="text" class="form-control" id="floating-error"
+                                                    placeholder="誤用字" required>
+                                                <label for="floating-error" class="form-label">誤用字：</label>
                                             </div>
                                             <div class="col-md-3 form-floating">
-                                                <input type="text" class="form-control" id="floating-error"
-                                                    placeholder="誤用字">
-                                                <label for="floating-error" class="form-label">誤用字：</label>
+                                                <input type="text" class="form-control" id="floating-word"
+                                                    placeholder="內規字" >
+                                                <label for="floating-word" class="form-label">內規字：</label>
                                             </div>
                                             <div class="col-md-2 form-floating">
                                                 <input type="text" class="form-control" id="floating-annotation"
@@ -123,9 +123,10 @@
                                             </div>
                                             <div class="col-md-2 form-floating">
                                                 <select class="form-select" id="form-category" aria-label="分類">
-                                                    <option value="universal" selected>通用</option>
+                                                    <option value="all" selected>通用</option>
                                                     <option value="pcp-1">前線</option>
                                                     <option value="pcp-2">第一勇</option>
+                                                    <option value="customize">自定義</option>
                                                 </select>
                                                 <label for="form-category">分類：</label>
                                             </div>
@@ -161,7 +162,7 @@
                                                             href="#list-glossaries-3">第一勇</a></div>
                                                     <div class="col-12"> <a
                                                             class="list-group-item list-group-item-action"
-                                                            href="#list-glossaries-4">綜藝大集合</a></div>
+                                                            href="#list-glossaries-4">自定義</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,32 +179,32 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <th id="list-glossaries-1" class="universal" scope="row">
+                                                            <th id="list-glossaries-1" class="all" scope="row">
                                                                 通&emsp;用</th>
-                                                            <td>精采</td>
-                                                            <td>精彩</td>
-                                                            <td>內規</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <th id="list-glossaries-2" class="pcp-1" scope="row">
                                                                 前&emsp;線</th>
-                                                            <td>正確詞1</td>
-                                                            <td>錯誤詞1</td>
-                                                            <td>註釋1</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
                                                             <th id="list-glossaries-3" class="pcp-2" scope="row">第一勇
                                                             </th>
-                                                            <td>正確詞2</td>
-                                                            <td>錯誤詞2</td>
-                                                            <td>註釋2</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                         <tr>
-                                                            <th id="list-glossaries-4" class="P-3" scope="row">大集合
+                                                            <th id="list-glossaries-4" class="P-3" scope="row">自定義
                                                             </th>
-                                                            <td>正確詞3</td>
-                                                            <td>錯誤詞3</td>
-                                                            <td>註釋3</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
