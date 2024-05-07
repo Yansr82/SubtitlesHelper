@@ -1,4 +1,4 @@
-let wordTableData = [[
+let wordTableData = [
 {
 "category": "all",
 "correct": "暴打",
@@ -65,7 +65,7 @@ let wordTableData = [[
 "word": "火山暴發",
 "annotation": ""
 }
-]];
+];
 let filteredWords = [];
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
