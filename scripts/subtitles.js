@@ -1,71 +1,85 @@
+const restoreButton = document.getElementById('resetlocalStorage');
+restoreButton.addEventListener('click', function() {
+    wordTableData = wordTableData.slice(0,12);
+    localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
+    window.location.reload();
+});
+
 let wordTableData = [
-{
-"category": "all",
-"correct": "暴打",
-"word": "爆打",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "暴汗",
-"word": "爆汗",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "暴紅",
-"word": "爆紅",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "暴發戶",
-"word": "爆發戶",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "山洪暴發",
-"word": "山洪爆發",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "爆炸",
-"word": "暴炸",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "爆料",
-"word": "暴料",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "爆笑",
-"word": "暴笑",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "爆氣",
-"word": "暴氣",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "爆哭",
-"word": "暴哭",
-"annotation": ""
-},
-{
-"category": "all",
-"correct": "火山爆發",
-"word": "火山暴發",
-"annotation": ""
-}
+    {
+        "category": "all",
+        "correct": "暴打",
+        "word": "爆打",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "暴汗",
+        "word": "爆汗",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "暴紅",
+        "word": "爆紅",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "暴發戶",
+        "word": "爆發戶",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "山洪暴發",
+        "word": "山洪爆發",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "爆炸",
+        "word": "暴炸",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "爆料",
+        "word": "暴料",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "爆笑",
+        "word": "暴笑",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "爆氣",
+        "word": "暴氣",
+        "annotation": ""
+    },
+    {
+        "category": "all",
+        "correct": "爆哭",
+        "word": "暴哭",
+        "annotation": ""
+    },
+    {
+        "category": "pcp-1",
+        "correct": "祕密",
+        "word": "秘密",
+        "annotation": ""
+    },
+    {
+        "category": "pcp-2",
+        "correct": "秘密",
+        "word": "祕密",
+        "annotation": ""
+    }
 ];
+
 let filteredWords = [];
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
