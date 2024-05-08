@@ -49,7 +49,7 @@ window.addEventListener('scroll', function () {
 let oml2d;
 async function initOml2dAndEvents() {
   oml2d = await OML2D.loadOml2d({
-    // initialStatus: 'sleep',
+    initialStatus: 'sleep',
     parentElement: document.querySelector('#oml2d-wrapper'),
     dockedPosition: 'right',
     primaryColor: '#bd5c76d7',
