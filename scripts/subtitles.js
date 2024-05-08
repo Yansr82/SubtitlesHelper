@@ -1,6 +1,6 @@
 const restoreButton = document.getElementById('resetlocalStorage');
-restoreButton.addEventListener('click', function() {
-    wordTableData = wordTableData.slice(0,12);
+restoreButton.addEventListener('click', function () {
+    wordTableData = wordTableData.slice(0, 12);
     localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
     window.location.reload();
 });
@@ -204,8 +204,7 @@ function checkTimeCode() {
         const listItem = document.createElement('li');
         const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
         const customizedWord = filteredWords.find(({ word }) => line.includes(word));
-        const customizedCorrect = filteredWords.map(obj => obj.correct);
-        
+
         if (exceedsLimit || !isValidTimeCode || foundWord || customizedWord) {
             let errorMessage = '';
             let errorClass = '';
@@ -309,8 +308,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const category = document.getElementById("form-category").value.trim();
 
         const newRow = createRow({ correct, word, annotation, category });
-        insertRowByCategory(newRow, category);
-        saveData(newRow);
+        if (newRow) {
+            insertRowByCategory(newRow, category);
+            saveData(newRow);
+        }
 
         addWordForm.reset();
     });
@@ -334,9 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < tableRows.length; i++) {
             const row = tableRows[i];
             const td = row.querySelectorAll('td');
-            if (td[0].textContent.trim() === data.correct &&
-                td[1].textContent.trim() === data.word &&
-                td[2].textContent.trim() === data.annotation) {
+            if (td[1].textContent.trim() === data.word) {
                 return row;
             }
         }
@@ -344,20 +343,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function createRow(data) {
+        const existingRow = findExistingRow(data);
+        if (existingRow) {
+            oml2d.tipsMessage('已有新增詞彙了！');
+            return null;
+        }
+
         const newRow = document.createElement("tr");
         if (data.category) {
             newRow.classList.add(data.category.toLowerCase());
         }
         newRow.innerHTML = `
-        <th></th>
-        <td class="editable">${data.correct}</td>
-        <td class="editable">${data.word}</td>  
-        <td class="editable">${data.annotation}</td>
-      `;
+            <th></th>
+            <td class="editable">${data.correct}</td>
+            <td class="editable">${data.word}</td>  
+            <td class="editable">${data.annotation}</td>
+        `;
         return newRow;
     }
 
-    function saveData(newRow) {
+    function saveData(newRow, isNewRow) {
         const tdList = newRow.querySelectorAll('td');
         const rowData = {
             category: newRow.classList[0],
@@ -365,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
             word: tdList[1].textContent.trim(),
             annotation: tdList[2].textContent.trim()
         };
+
         let savedData = localStorage.getItem('wordTableData');
         let rowDataArray = [];
         if (savedData) {
@@ -372,9 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const existingIndex = rowDataArray.findIndex(item =>
-            item.correct === rowData.correct &&
-            item.word === rowData.word &&
-            item.annotation === rowData.annotation
+            item.word === rowData.word
         );
 
         if (existingIndex !== -1) {
@@ -382,6 +386,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             rowDataArray.push(rowData);
         }
+
         localStorage.setItem('wordTableData', JSON.stringify(rowDataArray));
     }
 
@@ -404,6 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
         td.addEventListener('click', function (event) {
             event.stopPropagation();
             td.classList.add('td-editable');
+            const editableIndex = Array.from(editableTDs).indexOf(this);
 
             if (!td.querySelector('input')) {
                 const content = this.textContent;
@@ -413,10 +419,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.appendChild(input);
                 input.focus();
                 input.addEventListener('blur', function () {
-                    const newValue = input.value;
-                    td.textContent = newValue;
-                    saveData(td.parentNode);
-                    td.classList.remove('td-editable');
+                    const existingRow = findExistingRow({ word: input.value });
+                    if (existingRow && editableIndex !== 1) {
+                        const newValue = input.value;
+                        td.textContent = newValue;
+                        saveData(td.parentNode, false);
+                        td.classList.remove('td-editable');
+                    } else if (!existingRow) {
+                        const newValue = input.value;
+                        td.textContent = newValue;
+                        saveData(td.parentNode, false);
+                        td.classList.remove('td-editable');
+                    } else {
+                        oml2d.tipsMessage('已有新增詞彙了！');
+                        return null;
+                    }
                 });
 
                 input.addEventListener('keydown', function (event) {
@@ -427,6 +444,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
 
     document.getElementById('downloadButton').addEventListener('click', function () {
         const data = localStorage.getItem('wordTableData');
@@ -452,6 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsText(file);
     });
 });
+
 
 function openSettingsPopup() {
     const settingsPopup = document.querySelector('#settingsPopup');
