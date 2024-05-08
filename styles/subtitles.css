@@ -50,10 +50,12 @@
   color: rgba(0, 128, 0, 0.808) !important;
 }
 /* error color */
-
-.listen {
-  margin-left: 70px;
+@media only screen and (min-width: 768px) {
+  .listen {
+    margin-left: 70px;
+  }
 }
+
 
 .listen .input {
   position: relative;
