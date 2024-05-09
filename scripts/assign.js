@@ -45,10 +45,8 @@ function calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, 
         let totalSeconds;
         if (assignTimeCheck.checked) {
             totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue - 60;
-            console.log(totalSeconds);
         } else {
             totalSeconds = hoursValue * 3600 + minutesValue * 60 + secondsValue;
-            console.log(totalSeconds);
         };
         let averageTimePerNopMinutes = Math.floor(totalSeconds / 60 / nopValue);
         let averageTimePerNopSeconds = Math.floor(totalSeconds % 60 / nopValue);
@@ -121,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function setupNopControls() {
 
         for (let i = 1; i <= nop; i++) {
             const option = document.createElement('li');
-            
+
             option.innerHTML = `
                 <select class="assigntime_sort">
                     <option value="${i}">1 - 京</option>
@@ -139,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function setupNopControls() {
                 </select>
             `;
             nopContainer.appendChild(option);
-            
+
         }
         selectOptions = document.querySelectorAll('#tools-assign-time-people select');
     }
@@ -167,25 +165,49 @@ assignStart.onclick = function () {
 
         video.onloadedmetadata = function () {
             const duration = video.duration;
-            hoursValue = Math.floor(duration / 3600);
-            minutesValue = Math.floor((duration % 3600) / 60);
-            secondsValue = Math.floor(duration % 60);
-
+            const endTimeInput = document.querySelector('#assign-time-end-time');
+            if (endTimeInput.value.trim() !== "") {
+                const timeString = endTimeInput.value.trim();
+                const timeDigits = timeString.split('').map(digit => parseInt(digit)).filter(digit => !isNaN(digit));
+                console.log(timeDigits);
+                console.log(timeString);
+                if (timeDigits.length === 6) {
+                    hoursValue = parseInt(timeDigits.slice(0, 2).join(''));
+                    minutesValue = parseInt(timeDigits.slice(2, 4).join(''));
+                    secondsValue = parseInt(timeDigits.slice(4, 6).join(''));
+                    console.log(hoursValue, minutesValue, secondsValue);
+                } else if (timeDigits.length === 5) {
+                    hoursValue = parseInt(timeDigits.slice(0, 1).join(''));
+                    minutesValue = parseInt(timeDigits.slice(1, 3).join(''));
+                    secondsValue = parseInt(timeDigits.slice(3, 5).join(''));
+                    console.log(hoursValue, minutesValue, secondsValue);
+                } else if (timeDigits.length < 5) {
+                    hoursValue = 0;
+                    minutesValue = parseInt(timeDigits.slice(0, 2).join(''));
+                    secondsValue = parseInt(timeDigits.slice(2, 4).join(''));
+                    console.log(hoursValue, minutesValue, secondsValue);
+                }
+            } else {
+                hoursValue = Math.floor(duration / 3600);
+                minutesValue = Math.floor((duration % 3600) / 60);
+                secondsValue = Math.floor(duration % 60);
+            }
             nopValue = document.querySelectorAll('.assigntime_sort').length;
             calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
+            saveOptionsToLocalStorage();
         };
     } else {
         hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
         minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
         secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
-
         episode = episodeInput.value;
 
         nopValue = document.querySelectorAll('.assigntime_sort').length;
         calculateTimeAndGenerateOutput(hoursValue, minutesValue, secondsValue, nopValue, episode, assignTimeOutput);
+        saveOptionsToLocalStorage();
     }
-    saveOptionsToLocalStorage();
 };
+
 
 // 格式化時間
 function formatTime(timeInSeconds) {

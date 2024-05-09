@@ -1,3 +1,9 @@
+@media only screen and (min-width: 768px) {
+  #tools-assign-time-people {
+    height:  60px;
+    border-bottom: 1px solid rgba(52, 52, 52, 0.2);
+  }
+}
 #tools-assign-time-people {
   padding-left: 0;
   word-break: break-all;
