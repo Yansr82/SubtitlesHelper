@@ -1,11 +1,10 @@
 const restoreButton = document.getElementById('resetlocalStorage');
 restoreButton.addEventListener('click', function () {
-    wordTableData = wordTableData.slice(0, 12);
-    localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
+    localStorage.setItem('wordTableData', JSON.stringify(defaultWordTableData));
     window.location.reload();
 });
 
-let wordTableData = [
+const defaultWordTableData = [
     {
         "category": "all",
         "correct": "暴打",
@@ -80,6 +79,7 @@ let wordTableData = [
     }
 ];
 
+let wordTableData = defaultWordTableData;
 let filteredWords = [];
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
