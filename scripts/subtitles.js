@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     wordTableData.forEach(function (data) {
-        if (data.category === 'all') {
+        if (data.category === 'all' || data.category === 'name') {
             filteredWords.push(data);
         }
     });
@@ -203,7 +203,12 @@ function checkTimeCode() {
 
         const listItem = document.createElement('li');
         const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
-        const customizedWord = filteredWords.find(({ word }) => line.includes(word));
+        const customizedWord = filteredWords.find(({ word }) => {
+            const wordsArray = word.split(',').map(w => w.trim());
+            return wordsArray.some(w => line.includes(w));
+        });
+        console.log(filteredWords);
+
 
         if (exceedsLimit || !isValidTimeCode || foundWord || customizedWord) {
             let errorMessage = '';
@@ -491,3 +496,5 @@ function closeSettingsPopup() {
         settingsPopup.style.display = 'none';
     }, 300);
 }
+
+// callNumber

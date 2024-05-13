@@ -50,9 +50,9 @@
                                             aria-controls="check-rules-area" aria-selected="false">字幕規則</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                            data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
-                                            aria-selected="false" disabled>暫留</button>
+                                        <button class="nav-link" id="call-number-tab" data-bs-toggle="tab"
+                                            data-bs-target="#call-number-area" type="button" role="tab"
+                                            aria-controls="call-number-area" aria-selected="false">暫留</button>
                                     </li>
                                 </ul>
                             </div>
@@ -127,6 +127,7 @@
                                             <div class="col-md-2 form-floating">
                                                 <select class="form-select" id="form-category" aria-label="分類">
                                                     <option value="all" selected>通用</option>
+                                                    <option value="name">人名</option>
                                                     <option value="pcp-1">前線</option>
                                                     <option value="pcp-2">第一勇</option>
                                                     <option value="customize">自定義</option>
@@ -157,6 +158,9 @@
                                                     <div class="col-12"><a
                                                             class="list-group-item list-group-item-action"
                                                             href="#list-glossaries-1">通&emsp;用</a></div>
+                                                    <div class="col-12"><a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-5">人&emsp;名</a></div>
                                                     <div class="col-12"><a
                                                             class="list-group-item list-group-item-action"
                                                             href="#list-glossaries-2">前&emsp;線</a></div>
@@ -196,6 +200,13 @@
                                                             <td></td>
                                                         </tr>
                                                         <tr>
+                                                            <th id="list-glossaries-5" class="name" scope="row">
+                                                                人&emsp;名</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
                                                             <th id="list-glossaries-3" class="pcp-2" scope="row">第一勇
                                                             </th>
                                                             <td></td>
@@ -214,6 +225,42 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div id="call-number-area" class="section tab-pane fade" role="tabpanel"
+                                aria-labelledby="call-number-tab">
+                               
+                                    <div class="left-area d-flex flex-column">
+                                        <input class="mt-2" type="text" name="call-number-order" id="call-number-order"
+                                            placeholder="第幾順位">
+                                        <input class="mt-2" type="text" name="call-number-PPL" id="call-number-PPL"
+                                            placeholder="人數">
+                                        <input class="mt-2" type="text" name="call-number-PPL" id="call-number-end"
+                                            placeholder="END">
+                                        <button id="call-number-submit"
+                                            class="btn btn-sm btn-primary mt-2">順序列表</button>
+                                        <div class="btn-group mb-3" role="group" style="width: 20%;">
+                                            <button type="button" class="btn btn-sm btn-secondary border-end"
+                                                id="add-ppl">+</button>
+                                            <button type="button" class="btn btn-sm btn-secondary border-start"
+                                                id="del-ppl">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="ms-5 right-area d-flex flex-row">
+                                        <div class="output-wrapper1 text-center">
+                                            <label for="call-number-output">前線</label>
+                                        <ol id="call-number-output">
+                                        </div>
+                                        </ol>
+                                        <div class="output-wrapper2 text-center ms-3">
+                                            <label for="call-number-output2">第一勇</label>
+                                        <ol id="call-number-output-2">
+
+                                        </ol>
+                                    </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
