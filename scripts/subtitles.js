@@ -478,23 +478,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function openSettingsPopup() {
-    const settingsPopup = document.querySelector('#settingsPopup');
-    settingsPopup.style.display = 'block';
-    setTimeout(function () {
-        settingsPopup.style.opacity = '1';
-    }, 10);
-}
-
-const closeButton = document.querySelector('#closeButton');
-closeButton.onclick = closeSettingsPopup;
-
-function closeSettingsPopup() {
-    const settingsPopup = document.querySelector('#settingsPopup');
-    settingsPopup.style.opacity = '0';
-    setTimeout(function () {
-        settingsPopup.style.display = 'none';
-    }, 300);
-}
-
 // callNumber

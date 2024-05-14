@@ -139,15 +139,15 @@
                                                 <button type="submit" class="btn btn-primary">新增</button>
                                                 <input type="file" id="uploadButton" accept=".json"
                                                     style="display: none;">
-                                                <label for="uploadButton" class="btn btn-primary file-btn ms-5"
+                                                <label for="uploadButton" class="btn file-btn ms-5"
                                                     style="cursor: pointer;">上傳檔案</label>
                                                 <a id="downloadButton"
-                                                    class="btn btn-primary file-btn me-5">下載模板</a>
+                                                    class="btn file-btn me-5">下載模板</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="info-wrapper">
                                                     <ol>
-                                                        <li>- 詞彙新增
+                                                        <li>詞彙新增
                                                             <ol>
                                                                 <li> 誤用字以 <span class="badge bg-info">,</span> 隔開分類，可同時檢查多詞。
                                                                 </li>
@@ -156,7 +156,7 @@
                                                             </ol>
                                                         </li>
 
-                                                        <li>- 資料保存
+                                                        <li>資料保存
                                                             <ol>
                                                                 <li>本站使用網頁儲存，建議 <a type="button" class="link" id="downloadButton2"><span class="badge bg-info">定時存檔</span></a> ，<span class="badge bg-danger">清除Cookie會遺失網站資料</span>。</li>
                                                                 <li>上傳資料僅限 <span class="badge bg-warning">.json</span> 格式。</li>
@@ -302,16 +302,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 pb-4">
-                        <h1>Settings</h1>
+                        <h3>設定</h3>
                     </div>
                     <div class="col-12 d-flex align-items-center">
                         <button id="resetlocalStorage" class="btn btn-sm btn-danger"
                             onclick="saveDataToLocalStorage();">預設規則</button><br><br>
                     </div>
-
-                    <!-- <button id="applyButton" class="btn btn-primary" onclick="applySettings()">Apply</button> -->
-
-
                 </div>
             </div>
     </section>

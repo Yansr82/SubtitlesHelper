@@ -1,10 +1,10 @@
   $primary-color : rgba(26, 26, 26, 0.8);
-  $sub-color : #ff81a3d7;
+  $sub-color : #66ccffd6;
   $other-color : #619E8D;
+  $gray-color : #7d7d7d;
   $font-color : #333333;
-  $link-color : #f7f7f7;
+  $lg-color : #f7f7f7;
   $border-color : #7d7d7d30;
-  $bg-light: #f7f7f7;
   $bg-info: #3d7694;
 
   .bg-warning {
@@ -16,7 +16,7 @@
   }
 
   .bg-light {
-    background-color: $bg-light !important;
+    background-color: $lg-color !important;
     min-height: calc(100vh - 60px);
   }
 
@@ -30,9 +30,11 @@
 
   .file-btn {
     background-color: $other-color !important;
+    color: $lg-color;
 
     &:hover {
-      background-color: lighten($other-color, 10) !important;
+      background-color: lighten($other-color, 45%) !important;
+      color: $lg-color;
     }
   }
 
@@ -56,11 +58,11 @@
       height: 100%;
       position: relative;
       background: fixed url(../images/bg-image.jpg) no-repeat center/cover;
-      font-family: 'Noto Sans TC', 'Helvetica', 'Arial', 'sans-serif', 'bootstrap-icons';
-      font-weight: 600;
+      font-family: 'Noto Sans TC', 'Helvetica', 'Arial', 'sans-serif', 'bootstrap-icons' !important;
+      font-weight: 500;
       font-size: 14px;
       line-height: 1.42857143;
-      color: #2c2e2f;
+      color: $font-color;
 
       .wrapper {
         padding-top: 2% !important;
@@ -88,21 +90,41 @@
         height: 60px;
         border-radius: 0;
         border: 1.5px solid transparent;
-        transition: all .3s ease-in-out;
+        transition: all 1s ease-in-out;
 
         &.ysr {
-          background-color: rgba(38, 38, 38, 0.8) !important;
-          border: 1.5px solid #7d7d7d30;
+          background-color:darken($primary-color,10%) !important;
+          box-shadow: 0 1px 40px rgba(0, 0, 0,50%);
+          border: 1.5px solid $border-color;
         }
 
         .nav-link {
           text-decoration: none;
-          color: $link-color;
+          color: $lg-color;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+          }
 
           &:focus,
           &:active,
           &:hover {
-            color: $sub-color !important;
+            color: rgba($sub-color,1) !important;
+            &::before {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 4px;
+              background-color: $sub-color;
+              transition: width .3s ease-in-out;
+              border-radius: 2rem;
+              bottom: -8px;
+              left: 0;
+            }
           }
         }
       }
@@ -120,13 +142,13 @@
 
   .btn-primary {
     text-decoration: none;
-    background-color: $primary-color;
-    border: $border-color;
+    background-color:$primary-color;
+    border:none;
 
     &:focus,
     &:active,
     &:hover {
-      background-color: darken($sub-color, 50%);
+      background-color: lighten($primary-color, 15%);
     }
 
   }
@@ -140,7 +162,7 @@
 
 
   hr {
-    color: #FFF;
+    color: $lg-color;
   }
 
 
@@ -162,3 +184,27 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
+
+  #settingsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $primary-color;
+    color: $lg-color;
+    backdrop-filter: blur(0.25rem);
+    -webkit-backdrop-filter: blur(0.25rem);
+    border: 1px solid $lg-color;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    h3 {
+      color: $lg-color !important;
+    }
+    
+  }
+  

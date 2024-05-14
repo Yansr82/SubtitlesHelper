@@ -1,7 +1,185 @@
+.bg-warning {
+  color: #333333 !important;
+}
+
+.bg-info {
+  background-color: #3d7694 !important;
+}
+
+.bg-light {
+  background-color: #f7f7f7 !important;
+  min-height: calc(100vh - 60px);
+}
+
+.primary-color {
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.sub-color {
+  color: rgba(102, 204, 255, 0.8392156863);
+}
+
+.file-btn {
+  background-color: #619E8D !important;
+  color: #f7f7f7;
+}
+.file-btn:hover {
+  background-color: #eff5f4 !important;
+  color: #f7f7f7;
+}
+
+a,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+strong {
+  color: #333333;
+}
+
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  position: relative;
+  background: fixed url(../images/bg-image.jpg) no-repeat center/cover;
+  font-family: "Noto Sans TC", "Helvetica", "Arial", "sans-serif", "bootstrap-icons" !important;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+}
+html body a:hover {
+  color: #4d4d4d !important;
+}
+html body .wrapper {
+  padding-top: 2% !important;
+}
+html body main {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html body .scrollbar {
+  position: fixed;
+  top: 0;
+  height: 3px;
+  background: rgba(102, 204, 255, 0.8392156863);
+  transition-property: width, color;
+  transition-duration: 1s, 1s;
+  z-index: 99999;
+}
+html body header {
+  font-size: 0.95rem;
+  width: 100%;
+  height: 60px;
+  border-radius: 0;
+  border: 1.5px solid transparent;
+  transition: all 1s ease-in-out;
+}
+html body header.ysr {
+  background-color: rgba(1, 1, 1, 0.8) !important;
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5);
+  border: 1.5px solid rgba(125, 125, 125, 0.1882352941);
+}
+html body header .nav-link {
+  text-decoration: none;
+  color: #f7f7f7;
+  position: relative;
+}
+html body header .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+}
+html body header .nav-link:focus, html body header .nav-link:active, html body header .nav-link:hover {
+  color: #66ccff !important;
+}
+html body header .nav-link:focus::before, html body header .nav-link:active::before, html body header .nav-link:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(102, 204, 255, 0.8392156863);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2rem;
+  bottom: -8px;
+  left: 0;
+}
+html body #main-container {
+  background-color: rgba(51, 51, 51, 0.8);
+  min-height: 100%;
+}
+html body #oml2d-stage {
+  height: 0;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background-color: rgba(26, 26, 26, 0.8);
+  border: none;
+}
+.btn-primary:focus, .btn-primary:active, .btn-primary:hover {
+  background-color: rgba(64, 64, 64, 0.8);
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  color: #f7f7f7;
+}
+
+.page-container {
+  padding-top: 60px;
+  position: relative;
+}
+
+.to_top {
+  display: inline;
+  position: fixed;
+  right: 0;
+  bottom: 1px;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.backdrop-f {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#settingsPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(26, 26, 26, 0.8);
+  color: #f7f7f7;
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#settingsPopup h3 {
+  color: #f7f7f7 !important;
+}
 
 .listen .inputText {
   font-size: 16px;
-  font-family: 'Noto Sans TC';
+  font-family: "Noto Sans TC";
   resize: none;
   line-height: 1.6;
 }
@@ -28,8 +206,12 @@
   padding: 0;
 }
 
-/* error color */
+#listen-tab .nav-link {
+  color: rgba(0, 102, 153, 0.8392156863);
+  font-weight: 500;
+}
 
+/* error color */
 .exceeds-limit {
   color: rgba(173, 113, 33, 0.808) !important;
 }
@@ -49,20 +231,19 @@
 .customized-word {
   color: rgba(0, 128, 0, 0.808) !important;
 }
+
 /* error color */
 @media only screen and (min-width: 768px) {
   .listen {
     margin-left: 70px;
   }
 }
-
-
 .listen .input {
   position: relative;
 }
 
 .input::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 20rem;
   top: 0;
@@ -72,13 +253,13 @@
 }
 
 .input::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 14.5rem;
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: rgba(204, 0, 0, 0.4)
+  background-color: rgba(204, 0, 0, 0.4);
 }
 
 .error::after {
@@ -91,7 +272,7 @@
 }
 
 .error::before {
-  content: "\F231";
+  content: "\f231";
   position: absolute;
   top: 50%;
   left: -28.5rem;
@@ -101,7 +282,7 @@
 }
 
 .output li::marker {
-  content: '';
+  content: "";
 }
 
 .check_area {
@@ -160,15 +341,13 @@
 }
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable th {
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
-
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable th[scope=row] {
   color: #CCCCCC;
   font-weight: bold;
 }
-
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable td {
   font-weight: 500;
@@ -180,7 +359,6 @@
   outline: none;
   box-shadow: 0 1px 20px 2px #CCCCCC;
   color: #CCCCCC;
-
 }
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable .th-editable:focus-within {
@@ -188,39 +366,26 @@
 }
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable .role-correct {
-  color: #64ff92d7;
+  color: rgba(100, 255, 146, 0.8431372549);
 }
 
 .wrapper #glossaries-wrapper .list-wrapper #wordTable .role-word {
   color: rgba(255, 185, 180, 0.884);
 }
 
-#settingsPopup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(26, 26, 26, 0.8);
-  color: #CCCCCC;
-  backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.info-cotent ol {
+  counter-reset: item;
 }
 
-#settingsPopup h1 {
-  color: #CCCCCC;
+.info-cotent li {
+  display: block;
 }
 
-.info-cotent ol { counter-reset: item }
-.info-cotent li { display: block }
-.info-cotent li:before { content: counters(item, ".") " "; counter-increment: item }
+.info-cotent li:before {
+  content: counters(item, ".") " ";
+  counter-increment: item;
+}
+
 .info-cotent span {
-  font-size: .7rem;
-}
+  font-size: 0.7rem;
+}/*# sourceMappingURL=subtitles.css.map */

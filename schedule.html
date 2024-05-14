@@ -49,35 +49,70 @@
         <div class="offcanvas-header">
             <div class="offcanvas-body">
                 <form class="form">
-                    <div class="mb-3">
-                        <label for="name">標題</label>
-                        <input id="event-name-input" type="text" placeholder="標題" class="event-input form-control"
-                            value="HI">
-                    </div>
-                    <div class="mb-3">
-                        <label for="startDate">開始時間</label>
-                        <input id="startDate" type="date" class="event-input form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="endDate">結束時間</label>
-                        <input id="endDate" type="date" class="event-input form-control">
-                    </div>
-                    <div class="mb-3 ui-widget">
-                        <label for="event-type">節目</label>
-                        <input name="type" id="event-type" class="event-input form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="event-typing">聽打</label>
-                        <input type="checkbox" name="event-typing" id="event-typing">
+                    <div class="mb-3 row">
+                        <div class="col-8">
+                            <label for="event-type">節目</label>
+                            <input id="event-type" class="event-input form-control ">
+                        </div>
+                        <div class="col-4">
+                            <label for="event-episode" style="padding: 0 .75rem;">集數</label>
+                            <input id="event-episode" class="event-input form-control">
+                        </div>
 
-                        <label for="event-proofreading">校正</label>
-                        <input type="checkbox" name="event-proofreading" id="event-proofreading">
-
-                        <label for="event-tc">上字</label>
-                        <input type="checkbox" name="event-tc" id="event-tc">
-
-                        <input name="event-unit" id="event-unit" class="event-input">
-                        <label for="event-unit">單位</label>
+                    </div>
+                    <div class="mb-3">
+                        <fieldset class="checkbox-group">
+                            <legend class="checkbox-group-legend">起訖</legend>
+                            <div class="d-flex justify-content-between align-items-center">
+                                    <input id="startDate" type="date" class="event-input form-control w-30">
+                                    <p class="m-0">~</p>
+                                    <input id="endDate" type="date" class="event-input form-control w-30">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="mb-3">
+                        <fieldset class="checkbox-group">
+                            <legend class="checkbox-group-legend">作業項目</legend>
+                            <div class="checkbox">
+                                <label class="checkbox-wrapper">
+                                    <input id="event-typing" type="checkbox" class="checkbox-input" />
+                                    <span class="checkbox-tile">
+                                        <span class="checkbox-icon">
+                                            <svg t="1715704804951" class="icon" viewBox="0 0 1097 1024"
+                                                fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                p-id="44598" width="32" height="32">
+                                                <path
+                                                    d="M219.428571 667.428571v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m73.142858-146.285714v54.857143q0 9.142857-9.142858 9.142857H155.428571q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h128q9.142857 0 9.142858 9.142857zM219.428571 374.857143v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m585.142858 292.571428v54.857143q0 9.142857-9.142858 9.142857H301.714286q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h493.714285q9.142857 0 9.142858 9.142857zM438.857143 521.142857v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857zM365.714286 374.857143v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m219.428571 146.285714v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857zM512 374.857143v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m219.428571 146.285714v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m219.428572 146.285714v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m-292.571429-292.571428v54.857143q0 9.142857-9.142857 9.142857h-54.857143q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m146.285715 0v54.857143q0 9.142857-9.142858 9.142857h-54.857142q-9.142857 0-9.142858-9.142857v-54.857143q0-9.142857 9.142858-9.142857h54.857142q9.142857 0 9.142858 9.142857z m146.285714 0v201.142857q0 9.142857-9.142857 9.142857h-128q-9.142857 0-9.142857-9.142857v-54.857143q0-9.142857 9.142857-9.142857h64V374.857143q0-9.142857 9.142857-9.142857h54.857143q9.142857 0 9.142857 9.142857z m73.142857 429.714286V292.571429H73.142857v512h950.857143z m73.142857-512v512q0 30.285714-21.428571 51.714285T1024 877.714286H73.142857q-30.285714 0-51.714286-21.428572T0 804.571429V292.571429q0-30.285714 21.428571-51.714286T73.142857 219.428571h950.857143q30.285714 0 51.714286 21.428572T1097.142857 292.571429z"
+                                                    p-id="44599"></path>
+                                            </svg>
+                                        </span>
+                                        <span class="checkbox-label">聽打</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="checkbox-wrapper">
+                                    <input id="event-proofreading" type="checkbox" class="checkbox-input" />
+                                    <span class="checkbox-tile">
+                                        <span class="checkbox-icon">
+                                            <svg t="1715707129412" fill="currentColor" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="79453" width="32" height="32"><path d="M490.666667 853.333333h-256a42.666667 42.666667 0 0 1-42.666667-42.666666V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h213.333333v128a128 128 0 0 0 128 128h128v213.333333a42.666667 42.666667 0 0 0 85.333333 0V384v-2.56a55.893333 55.893333 0 0 0-2.56-11.52v-3.84a45.653333 45.653333 0 0 0-8.106666-11.946667l-256-256a45.653333 45.653333 0 0 0-11.946667-8.106666 12.373333 12.373333 0 0 0-4.266667 0 46.933333 46.933333 0 0 0-13.226666-4.693334H234.666667a128 128 0 0 0-128 128v597.333334a128 128 0 0 0 128 128h256a42.666667 42.666667 0 0 0 0-85.333334z m42.666666-622.506666L643.84 341.333333H576a42.666667 42.666667 0 0 1-42.666667-42.666666zM320 597.333333h256a42.666667 42.666667 0 0 0 0-85.333333h-256a42.666667 42.666667 0 0 0 0 85.333333z m170.666667 85.333334h-170.666667a42.666667 42.666667 0 0 0 0 85.333333h170.666667a42.666667 42.666667 0 0 0 0-85.333333z m-170.666667-256h42.666667a42.666667 42.666667 0 0 0 0-85.333334h-42.666667a42.666667 42.666667 0 0 0 0 85.333334z m584.96 268.373333a42.666667 42.666667 0 0 0-60.586667 0l-140.373333 140.8-55.04-55.466667a42.666667 42.666667 0 0 0-60.586667 60.586667l85.333334 85.333333a42.666667 42.666667 0 0 0 60.586666 0l170.666667-170.666666a42.666667 42.666667 0 0 0 0-60.586667z" p-id="79454"></path></svg>
+                                        </span>
+                                        <span class="checkbox-label">校正</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="checkbox-wrapper">
+                                    <input id="event-tc" type="checkbox" class="checkbox-input" />
+                                    <span class="checkbox-tile">
+                                        <span class="checkbox-icon">
+                                            <svg t="1715706965975" fill="currentColor" class="icon" viewBox="0 0 1126 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="67494" width="32" height="32"><path d="M266.24 348.16l17.066667-20.48-17.066667-20.48H177.493333l-17.066666 20.48 17.066666 20.48zM174.08 354.986667l-20.48-20.48-17.066667 20.48v150.186666l37.546667-23.893333zM174.08 669.013333v-133.12L136.533333 515.413333v153.6l17.066667 20.48zM177.493333 675.84l-17.066666 20.48 17.066666 20.48h88.746667l17.066667-20.48-17.066667-20.48zM269.653333 669.013333l20.48 20.48 17.066667-20.48v-153.6l-37.546667 20.48zM269.653333 481.28l37.546667 23.893333v-150.186666l-17.066667-20.48-20.48 20.48zM471.04 348.16l17.066667-20.48-17.066667-20.48h-88.746667l-17.066666 20.48 17.066666 20.48zM378.88 354.986667l-20.48-20.48-17.066667 20.48v150.186666l37.546667-23.893333zM378.88 669.013333v-133.12L341.333333 515.413333v153.6l17.066667 20.48zM382.293333 675.84l-17.066666 20.48 17.066666 20.48h88.746667l17.066667-20.48-17.066667-20.48zM474.453333 669.013333l20.48 20.48 17.066667-20.48v-153.6l-37.546667 20.48zM474.453333 481.28l37.546667 23.893333v-150.186666l-17.066667-20.48-20.48 20.48zM948.906667 348.16l17.066666-20.48-17.066666-20.48h-88.746667l-17.066667 20.48 17.066667 20.48zM856.746667 354.986667l-20.48-20.48-17.066667 20.48v150.186666l37.546667-23.893333zM856.746667 669.013333v-133.12l-37.546667-20.48v153.6l17.066667 20.48zM860.16 675.84l-17.066667 20.48 17.066667 20.48h88.746667l17.066666-20.48-17.066666-20.48zM952.32 669.013333l20.48 20.48 17.066667-20.48v-153.6l-37.546667 20.48zM952.32 481.28l37.546667 23.893333v-150.186666l-17.066667-20.48-20.48 20.48zM744.106667 348.16l17.066666-20.48-17.066666-20.48h-88.746667l-17.066667 20.48 17.066667 20.48zM651.946667 354.986667l-20.48-20.48-17.066667 20.48v150.186666l37.546667-23.893333zM651.946667 669.013333v-133.12l-37.546667-20.48v153.6l17.066667 20.48zM655.36 675.84l-17.066667 20.48 17.066667 20.48h88.746667l17.066666-20.48-17.066666-20.48zM747.52 669.013333l20.48 20.48 17.066667-20.48v-153.6l-37.546667 20.48zM747.52 481.28l37.546667 23.893333v-150.186666l-17.066667-20.48-20.48 20.48zM546.133333 409.6h34.133334v34.133333h-34.133334zM546.133333 580.266667h34.133334v34.133333h-34.133334z" p-id="67495"></path><path d="M1058.133333 136.533333H0v750.933334h1126.4V136.533333h-68.266667z m0 682.666667H68.266667V204.8h989.866666v614.4z" p-id="67496"></path></svg>
+                                        </span>
+                                        <span class="checkbox-label">上字</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
                     <!-- <div class="mb-3">
                         <label for="everyYear">是否每年重覆</label>
@@ -91,8 +126,9 @@
                         <label for="describe">敘述</label>
                         <textarea name="describe" id="describe" cols="20" rows="10" class="event-input"></textarea>
                     </div> -->
+                    <button id="addevent" type="button" class="btn btn-primary">新增</button>
                 </form>
-                <button id="addevent" type="button" class="btn btn-primary">Save changes</button>
+                
             </div>
         </div>
     </div>
@@ -103,6 +139,21 @@
             <img src="./images/gotop.png" alt="Go to Top">
         </a>
     </div>
+    <section class="setting">
+        <div id="settingsPopup" class="popup">
+            <button id="closeButton" type="button" class="btn-close btn-close-white float-end"
+                aria-label="Close"></button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 pb-4">
+                        <h3>設定</h3>
+                    </div>
+                    <div class="col-12 d-flex align-items-center">
+                        <button id="resetlocalStorage" class="btn btn-sm btn-danger">#</button><br><br>
+                    </div>
+                </div>
+            </div>
+    </section>
 
     <script src='https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/js/evo-calendar.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

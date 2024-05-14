@@ -37,7 +37,7 @@ window.addEventListener('scroll', function () {
   scrollbar.style.width = scrollPercentage + '%';
 
   const header = document.querySelector('header');
-  if (window.scrollY > 60) {
+  if (window.scrollY > 1) {
     header.classList.add('ysr');
   } else {
     header.classList.remove('ysr');
@@ -52,7 +52,7 @@ async function initOml2dAndEvents() {
     initialStatus: 'sleep',
     parentElement: document.querySelector('#oml2d-wrapper'),
     dockedPosition: 'right',
-    primaryColor: '#bd5c76d7',
+    primaryColor: '#285166',
     sayHello: false,
     models: [
       {
@@ -155,3 +155,23 @@ initOml2dAndEvents().then((oml2d) => {
   console.error('OML2D initialization error:', error);
 }).catch((error) => {
 });
+
+// Settings
+function openSettingsPopup() {
+  const settingsPopup = document.querySelector('#settingsPopup');
+  settingsPopup.style.display = 'block';
+  setTimeout(function () {
+      settingsPopup.style.opacity = '1';
+  }, 10);
+}
+
+const closeButton = document.querySelector('#closeButton');
+closeButton.onclick = closeSettingsPopup;
+
+function closeSettingsPopup() {
+  const settingsPopup = document.querySelector('#settingsPopup');
+  settingsPopup.style.opacity = '0';
+  setTimeout(function () {
+      settingsPopup.style.display = 'none';
+  }, 300);
+}

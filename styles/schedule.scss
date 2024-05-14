@@ -122,24 +122,60 @@ $lg-font-color: #f7f7f7;
                     }
                 }
 
-                // .day {
-                //     .event-indicator {
-                //         width: 100% !important;
-
-                //         .type-bullet,
-                //         .type-holiday {
-                //             width: 100% !important;
-                //             border-radius: 0;
-                //             height: .1rem;
-
-                //             .type-event {
-                //                 width: 100% !important;
-                //                 height: .1rem;
-                //                 border-radius: 0;
-                //             }
-                //         }
-                //     }
-                // }
+                .day {
+                    .event-indicator {
+                        .type-bullet {
+                            .type-台灣學堂 {
+                                background-color: #FFB347; 
+                            }
+                            .type-新聞觀測站 {
+                                background-color: #77DD77; 
+                            }
+                            .type-台灣最前線 {
+                                background-color: #FF6961; 
+                            }
+                            .type-全國第一勇 {
+                                background-color: #4682B4; 
+                            }
+                            .type-愛的榮耀 {
+                                background-color: #9932CC; 
+                            }
+                            .type-故事屋 {
+                                background-color: #FFD700; 
+                            }
+                            .type-台灣傳奇 {
+                                background-color: #CD5C5C; 
+                            }
+                            .type-全能歌手 {
+                                background-color: #6495ED; 
+                            }
+                            .type-美鳳有約 {
+                                background-color: #ADFF2F; 
+                            }
+                            .type-GoGo台灣 {
+                                background-color: #B0C4DE; 
+                            }
+                            .type-娛樂超skr {
+                                background-color: #8A2BE2; 
+                            }
+                            .type-姊妹亮起來 {
+                                background-color: #20B2AA; 
+                            }
+                            .type-醫學大聯盟 {
+                                background-color: #F08080; 
+                            }
+                            .type-我們一家人 {
+                                background-color: #FF7F50; 
+                            }
+                            .type-綜藝大集合 {
+                                background-color: #FFDAB9; 
+                            }
+                            .type-綜藝新時代 {
+                                background-color: #87CEEB; 
+                            }  
+                        }
+                    }
+                }
             }
 
 
@@ -172,7 +208,193 @@ $lg-font-color: #f7f7f7;
     .calendar-events {
         box-shadow: 5px 0 18px -3px $border-color;
         -webkit-box-shadow: 5px 0 18px -3px $border-color;
+        .event-container {
+            .event-icon {
+                .event-bullet-台灣學堂 {
+                    background-color: #FFB347;
+                }
+                .event-bullet-新聞觀測站 {
+                    background-color: #77DD77;
+                }
+                .event-bullet-台灣最前線 {
+                    background-color: #FF6961;
+                }
+                .event-bullet-全國第一勇 {
+                    background-color: #4682B4;
+                }
+                .event-bullet-愛的榮耀 {
+                    background-color: #9932CC;
+                }
+                .event-bullet-故事屋 {
+                    background-color: #FFD700;
+                }
+                .event-bullet-台灣傳奇 {
+                    background-color: #CD5C5C;
+                }
+                .event-bullet-全能歌手 {
+                    background-color: #6495ED;
+                }
+                .event-bullet-美鳳有約 {
+                    background-color: #ADFF2F;
+                }
+                .event-bullet-GoGo台灣 {
+                    background-color: #B0C4DE;
+                }
+                .event-bullet-娛樂超skr {
+                    background-color: #8A2BE2;
+                }
+                .event-bullet-姊妹亮起來 {
+                    background-color: #20B2AA;
+                }
+                .event-bullet-醫學大聯盟 {
+                    background-color: #F08080;
+                }
+                .event-bullet-我們一家人 {
+                    background-color: #FF7F50;
+                }
+                .event-bullet-綜藝大集合 {
+                    background-color: #FFDAB9;
+                }
+                .event-bullet-綜藝新時代 {
+                    background-color: #87CEEB;
+                }
+                
+                
+            }
+        }
     }
+}
+
+#Event-canvas {
+    .mb-3 {
+        label {
+            font-size: 1rem;
+            line-height: 1.125;
+            margin-bottom: 1.25rem;
+        }
+        input {
+            margin: 0.5rem 0.5rem;
+        }
+    
+    }
+    .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+        user-select: none;
+        & > * {
+            margin: .5rem 0.5rem;
+        }
+    }
+    
+    
+    
+    .checkbox-group-legend {
+        font-size: 1rem;
+        line-height: 1.125;
+        margin-bottom: 1.25rem;
+    }
+    
+    .checkbox-input {
+        clip: rect(0 0 0 0);
+        clip-path: inset(100%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    
+        &:checked + .checkbox-tile {
+            border-color: $calendar-color;
+            box-shadow: 0 5px 10px rgba(#000, 0.1);
+            color: $calendar-color;
+            &:before {
+                transform: scale(1);
+                opacity: 1;
+                background-color: $calendar-color;
+                border-color: $calendar-color;
+            }
+            
+            .checkbox-icon, .checkbox-label {
+                color: $calendar-color;
+            }
+        }
+        
+        &:focus + .checkbox-tile {
+            border-color: $calendar-color;
+            box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px lighten($calendar-color, 20%);
+            &:before {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+    
+    .checkbox-tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 5.5rem;
+        min-height: 5.5rem;
+        border-radius: 0.5rem;
+        border: 2px solid lighten($calendar-color, 20%);
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(#000, 0.1);
+        transition: 0.15s ease;
+        cursor: pointer;
+        position: relative;
+    
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid lighten($calendar-color, 20%);
+            background-color: #fff;
+            border-radius: 50%;
+            top: 0.25rem;
+            left: 0.25rem;
+            opacity: 0;
+            transform: scale(0);
+            transition: 0.25s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+    
+        &:hover {
+            border-color: $calendar-color;
+            &:before {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+    
+    .checkbox-icon {
+        transition: .375s ease;
+        color: #494949;
+        margin-bottom: 0.4rem;
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    
+    .checkbox-label {
+        font-size: .9rem;
+        color: #707070;
+        transition: .375s ease;
+        text-align: center;
+    }
+    
 }
 
 .ui-widget-content {

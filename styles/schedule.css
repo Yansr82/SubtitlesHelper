@@ -1,5 +1,10 @@
+@charset "UTF-8";
+.bg-warning {
+  color: #333333 !important;
+}
+
 .bg-info {
-  background-color: #123c52 !important;
+  background-color: #3d7694 !important;
 }
 
 .bg-light {
@@ -12,14 +17,16 @@
 }
 
 .sub-color {
-  color: rgba(255, 129, 163, 0.8431372549);
+  color: rgba(102, 204, 255, 0.8392156863);
 }
 
 .file-btn {
   background-color: #619E8D !important;
+  color: #f7f7f7;
 }
 .file-btn:hover {
-  background-color: #81b1a4 !important;
+  background-color: #eff5f4 !important;
+  color: #f7f7f7;
 }
 
 a,
@@ -42,11 +49,14 @@ html body {
   height: 100%;
   position: relative;
   background: fixed url(../images/bg-image.jpg) no-repeat center/cover;
-  font-family: "Noto Sans TC", "Helvetica", "Arial", "sans-serif", "bootstrap-icons";
-  font-weight: 600;
+  font-family: "Noto Sans TC", "Helvetica", "Arial", "sans-serif", "bootstrap-icons" !important;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #2c2e2f;
+  color: #333333;
+}
+html body a:hover {
+  color: #4d4d4d !important;
 }
 html body .wrapper {
   padding-top: 2% !important;
@@ -59,7 +69,7 @@ html body .scrollbar {
   position: fixed;
   top: 0;
   height: 3px;
-  background: rgba(255, 129, 163, 0.8431372549);
+  background: rgba(102, 204, 255, 0.8392156863);
   transition-property: width, color;
   transition-duration: 1s, 1s;
   z-index: 99999;
@@ -70,18 +80,37 @@ html body header {
   height: 60px;
   border-radius: 0;
   border: 1.5px solid transparent;
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 html body header.ysr {
-  background-color: rgba(38, 38, 38, 0.8) !important;
+  background-color: rgba(1, 1, 1, 0.8) !important;
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5);
   border: 1.5px solid rgba(125, 125, 125, 0.1882352941);
 }
 html body header .nav-link {
   text-decoration: none;
   color: #f7f7f7;
+  position: relative;
+}
+html body header .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
 }
 html body header .nav-link:focus, html body header .nav-link:active, html body header .nav-link:hover {
-  color: rgba(255, 129, 163, 0.8431372549) !important;
+  color: #66ccff !important;
+}
+html body header .nav-link:focus::before, html body header .nav-link:active::before, html body header .nav-link:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(102, 204, 255, 0.8392156863);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2rem;
+  bottom: -8px;
+  left: 0;
 }
 html body #main-container {
   background-color: rgba(51, 51, 51, 0.8);
@@ -94,10 +123,10 @@ html body #oml2d-stage {
 .btn-primary {
   text-decoration: none;
   background-color: rgba(26, 26, 26, 0.8);
-  border: rgba(125, 125, 125, 0.1882352941);
+  border: none;
 }
 .btn-primary:focus, .btn-primary:active, .btn-primary:hover {
-  background-color: rgba(129, 0, 35, 0.8431372549);
+  background-color: rgba(64, 64, 64, 0.8);
 }
 
 a {
@@ -105,7 +134,7 @@ a {
 }
 
 hr {
-  color: #FFF;
+  color: #f7f7f7;
 }
 
 .page-container {
@@ -125,6 +154,28 @@ hr {
 .backdrop-f {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+}
+
+#settingsPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(26, 26, 26, 0.8);
+  color: #f7f7f7;
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#settingsPopup h3 {
+  color: #f7f7f7 !important;
 }
 
 * {
@@ -218,6 +269,54 @@ hr {
   color: #f7f7f7;
   background-color: #D77D77;
 }
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣學堂 {
+  background-color: #FFB347;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-新聞觀測站 {
+  background-color: #77DD77;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣最前線 {
+  background-color: #FF6961;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-全國第一勇 {
+  background-color: #4682B4;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-愛的榮耀 {
+  background-color: #9932CC;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-故事屋 {
+  background-color: #FFD700;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣傳奇 {
+  background-color: #CD5C5C;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-全能歌手 {
+  background-color: #6495ED;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-美鳳有約 {
+  background-color: #ADFF2F;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-GoGo台灣 {
+  background-color: #B0C4DE;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-娛樂超skr {
+  background-color: #8A2BE2;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-姊妹亮起來 {
+  background-color: #20B2AA;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-醫學大聯盟 {
+  background-color: #F08080;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-我們一家人 {
+  background-color: #FF7F50;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-綜藝大集合 {
+  background-color: #FFDAB9;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-綜藝新時代 {
+  background-color: #87CEEB;
+}
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
   color: #f7f7f7;
@@ -242,6 +341,171 @@ hr {
 #calendar .calendar-events {
   box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
   -webkit-box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-台灣學堂 {
+  background-color: #FFB347;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-新聞觀測站 {
+  background-color: #77DD77;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線 {
+  background-color: #FF6961;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇 {
+  background-color: #4682B4;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-愛的榮耀 {
+  background-color: #9932CC;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-故事屋 {
+  background-color: #FFD700;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-台灣傳奇 {
+  background-color: #CD5C5C;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-全能歌手 {
+  background-color: #6495ED;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-美鳳有約 {
+  background-color: #ADFF2F;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-GoGo台灣 {
+  background-color: #B0C4DE;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-娛樂超skr {
+  background-color: #8A2BE2;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-姊妹亮起來 {
+  background-color: #20B2AA;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-醫學大聯盟 {
+  background-color: #F08080;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-我們一家人 {
+  background-color: #FF7F50;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-綜藝大集合 {
+  background-color: #FFDAB9;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-綜藝新時代 {
+  background-color: #87CEEB;
+}
+
+#Event-canvas .mb-3 label {
+  font-size: 1rem;
+  line-height: 1.125;
+  margin-bottom: 1.25rem;
+}
+#Event-canvas .mb-3 input {
+  margin: 0.5rem 0.5rem;
+}
+#Event-canvas .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+#Event-canvas .checkbox-group > * {
+  margin: 0.5rem 0.5rem;
+}
+#Event-canvas .checkbox-group-legend {
+  font-size: 1rem;
+  line-height: 1.125;
+  margin-bottom: 1.25rem;
+}
+#Event-canvas .checkbox-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+#Event-canvas .checkbox-input:checked + .checkbox-tile {
+  border-color: #D77D77;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #D77D77;
+}
+#Event-canvas .checkbox-input:checked + .checkbox-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #D77D77;
+  border-color: #D77D77;
+}
+#Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-icon, #Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-label {
+  color: #D77D77;
+}
+#Event-canvas .checkbox-input:focus + .checkbox-tile {
+  border-color: #D77D77;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #eec8c6;
+}
+#Event-canvas .checkbox-input:focus + .checkbox-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+#Event-canvas .checkbox-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5.5rem;
+  min-height: 5.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #eec8c6;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+#Event-canvas .checkbox-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #eec8c6;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+#Event-canvas .checkbox-tile:hover {
+  border-color: #D77D77;
+}
+#Event-canvas .checkbox-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+#Event-canvas .checkbox-icon {
+  transition: 0.375s ease;
+  color: #494949;
+  margin-bottom: 0.4rem;
+}
+#Event-canvas .checkbox-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+#Event-canvas .checkbox-label {
+  font-size: 0.9rem;
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
 }
 
 .ui-widget-content {
