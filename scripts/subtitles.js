@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < tableRows.length; i++) {
             const row = tableRows[i];
             const td = row.querySelectorAll('td');
-            if (td[1].textContent.trim() === data.word) {
+            if (td[2].textContent.trim() === data.word) {
                 return row;
             }
         }
