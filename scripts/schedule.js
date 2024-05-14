@@ -26,15 +26,27 @@ $(document).ready(function () {
         const endDate = $('#endDate').val();
         const type = $('#event-type').val();
         const eventId = eventIdCounter++;
-        console.log(eventIdCounter, eventName, startDate, "event");
-        $("#calendar").evoCalendar('addCalendarEvent', [
-          {
-            id: eventId,
-            name: eventName,
-            date: endDate ? [startDate, endDate] : startDate,
-            type: type,
-          }
-        ]);
+        if (!eventName || !startDate) {
+          const inputElement = $('#event-type');
+          inputElement.tooltip({
+              placement: 'top',
+              title: '請輸入節目名稱'
+          }).tooltip('show');
+          setTimeout(function() {
+            inputElement.tooltip('hide');
+        }, 2500);
+          return;
+      }
+       else {
+          $("#calendar").evoCalendar('addCalendarEvent', [
+            {
+              id: eventId,
+              name: eventName,
+              date: endDate ? [startDate, endDate] : startDate,
+              type: type,
+            }
+          ]);
+        };
       });
     });
 });
