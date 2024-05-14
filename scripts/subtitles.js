@@ -360,9 +360,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         newRow.innerHTML = `
             <th></th>
-            <td class="editable">${data.correct}</td>
-            <td class="editable">${data.word}</td>  
-            <td class="editable">${data.annotation}</td>
+            <td class="editable role-word">${data.word}</td>  
+            <td class="editable role-correct">${data.correct}</td>
+            <td class="editable role-annotation">${data.annotation}</td>
         `;
         return newRow;
     }
