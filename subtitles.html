@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -52,7 +52,7 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="call-number-tab" data-bs-toggle="tab"
                                             data-bs-target="#call-number-area" type="button" role="tab"
-                                            aria-controls="call-number-area" aria-selected="false">暫留</button>
+                                            aria-controls="call-number-area" aria-selected="false" disabled>暫留</button>
                                     </li>
                                 </ul>
                             </div>
@@ -110,14 +110,14 @@
                                         <div class="row g-3 p-5">
                                             <h2>新增詞彙</h2>
                                             <div class="col-md-3 form-floating">
-                                                <input type="text" class="form-control" id="floating-error"
-                                                    placeholder="誤用字" required>
-                                                <label for="floating-error" class="form-label">誤用字：</label>
-                                            </div>
-                                            <div class="col-md-3 form-floating">
                                                 <input type="text" class="form-control" id="floating-word"
                                                     placeholder="內規字">
                                                 <label for="floating-word" class="form-label">內規字：</label>
+                                            </div>
+                                            <div class="col-md-3 form-floating">
+                                                <input type="text" class="form-control" id="floating-error"
+                                                    placeholder="誤用字" required>
+                                                <label for="floating-error" class="form-label">誤用字：</label>
                                             </div>
                                             <div class="col-md-2 form-floating">
                                                 <input type="text" class="form-control" id="floating-annotation"
@@ -187,8 +187,8 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="width: 9rem;">#</th>
-                                                            <th scope="col">內規字</th>
                                                             <th scope="col">誤用字</th>
+                                                            <th scope="col">內規字</th>
                                                             <th scope="col">註釋</th>
                                                         </tr>
                                                     </thead>

@@ -38,3 +38,30 @@ $(document).ready(function () {
         });
     });
 });
+
+
+//autocomplete
+  $( function() {
+    const eventTypes = [
+        '台灣學堂',
+        '新聞觀測站',
+        '台灣最前線',
+        '全國第一勇',
+        '愛的榮耀',
+        '故事屋',
+        '台灣傳奇',
+        '全能歌手',
+        '美鳳有約',
+        'GoGo台灣',
+        '娛樂超skr',
+        '姊妹亮起來',
+        '醫學大聯盟',
+        '我們一家人',
+        '綜藝大集合',
+        '綜藝新時代'
+      ];
+      
+    $( "#event-type" ).autocomplete({
+      source: eventTypes
+    });
+  } );

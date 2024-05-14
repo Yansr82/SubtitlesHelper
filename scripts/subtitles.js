@@ -371,8 +371,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const tdList = newRow.querySelectorAll('td');
         const rowData = {
             category: newRow.classList[0],
-            correct: tdList[0].textContent.trim(),
-            word: tdList[1].textContent.trim(),
+            word: tdList[0].textContent.trim(),
+            correct: tdList[1].textContent.trim(),
             annotation: tdList[2].textContent.trim()
         };
 
