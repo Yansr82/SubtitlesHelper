@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
         checkbox.addEventListener('change', function () {
             filteredWords = [];
             wordTableData.forEach(function (data) {
-                if (data.category === 'all') {
+                if (data.category === 'all' || data.category === 'name') {
                     filteredWords.push(data);
                 } else if (checkbox.checked && data.category === checkbox.value) {
                     filteredWords.push(data);
