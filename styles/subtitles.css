@@ -217,3 +217,10 @@
 #settingsPopup h1 {
   color: #CCCCCC;
 }
+
+.info-cotent ol { counter-reset: item }
+.info-cotent li { display: block }
+.info-cotent li:before { content: counters(item, ".") " "; counter-increment: item }
+.info-cotent span {
+  font-size: .7rem;
+}

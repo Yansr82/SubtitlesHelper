@@ -5,6 +5,15 @@
   $link-color : #f7f7f7;
   $border-color : #7d7d7d30;
   $bg-light: #f7f7f7;
+  $bg-info: #3d7694;
+
+  .bg-warning {
+    color:$font-color !important;
+  }
+
+  .bg-info {
+    background-color: $bg-info !important;
+  }
 
   .bg-light {
     background-color: $bg-light !important;
@@ -54,7 +63,7 @@
       color: #2c2e2f;
 
       .wrapper {
-        padding-top:2% !important;
+        padding-top: 2% !important;
       }
 
       main {

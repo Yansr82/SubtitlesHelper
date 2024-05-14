@@ -1,3 +1,7 @@
+.bg-info {
+  background-color: #123c52 !important;
+}
+
 .bg-light {
   background-color: #f7f7f7 !important;
   min-height: calc(100vh - 60px);
@@ -238,4 +242,8 @@ hr {
 #calendar .calendar-events {
   box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
   -webkit-box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
+}
+
+.ui-widget-content {
+  z-index: 1046;
 }/*# sourceMappingURL=schedule.css.map */

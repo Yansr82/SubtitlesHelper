@@ -141,17 +141,29 @@
                                                     style="display: none;">
                                                 <label for="uploadButton" class="btn btn-primary file-btn ms-5"
                                                     style="cursor: pointer;">上傳檔案</label>
-                                                <a id="downloadButton" type="file"
+                                                <a id="downloadButton"
                                                     class="btn btn-primary file-btn me-5">下載模板</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="info-wrapper">
-                                                    <span class="badge bg-info" style="font-size: .75rem;">
-                                                        誤用字以[,]隔開分類，可同時檢查多詞</span>
-                                                    <span class="badge bg-danger mt-1" style="font-size: .75rem;">
-                                                        「誤用字」為必填欄位，「註釋」及「內規字」可選填</span>
-                                                </div>
+                                                    <ol>
+                                                        <li>- 詞彙新增
+                                                            <ol>
+                                                                <li> 誤用字以 <span class="badge bg-info">,</span> 隔開分類，可同時檢查多詞。
+                                                                </li>
+                                                                <li>內規字若新增重複詞會 <span class="badge bg-info">自動過濾</span>。</li>
+                                                                <li>「誤用字」=> <span class="badge bg-danger">必填</span> ，「註釋」及「內規字」=> <span class="badge bg-danger">可選填</span>。</li>
+                                                            </ol>
+                                                        </li>
 
+                                                        <li>- 資料保存
+                                                            <ol>
+                                                                <li>本站使用網頁儲存，建議 <a type="button" class="link" id="downloadButton2"><span class="badge bg-info">定時存檔</span></a> ，<span class="badge bg-danger">清除Cookie會遺失網站資料</span>。</li>
+                                                                <li>上傳資料僅限 <span class="badge bg-warning">.json</span> 格式。</li>
+                                                            </ol>     
+                                                        </li>
+                                                    </ol>
+                                                </div>
                                             </div>
 
                                         </div>

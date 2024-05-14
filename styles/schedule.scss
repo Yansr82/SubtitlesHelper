@@ -1,5 +1,6 @@
 @import 'all.scss';
 $calendar-color: #D77D77;
+$lg-font-color: #f7f7f7;
 
 * {
     padding: 0;
@@ -41,7 +42,7 @@ $calendar-color: #D77D77;
             .calendar-months {
                 li {
                     &:hover {
-                        background-color: lighten($primary-color, 5%);
+                        background-color:lighten($primary-color,5%);
                     }
 
                     &.active-month {
@@ -172,4 +173,8 @@ $calendar-color: #D77D77;
         box-shadow: 5px 0 18px -3px $border-color;
         -webkit-box-shadow: 5px 0 18px -3px $border-color;
     }
+}
+
+.ui-widget-content {
+    z-index: 1046;
 }

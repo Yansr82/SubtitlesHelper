@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,9 @@
     <meta name="description" content="字幕室作業用的簡便工具集合網站。" />
     <title>字幕室小幫手</title>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -40,7 +43,7 @@
             </div>
         </section>
     </main>
-    <!-- Modal -->
+    <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" id="Event-canvas" tabindex="-1" aria-labelledby="Event-canvas-Label"
         aria-hidden="true">
         <div class="offcanvas-header">
@@ -48,7 +51,8 @@
                 <form class="form">
                     <div class="mb-3">
                         <label for="name">標題</label>
-                        <input id="event-name-input" type="text" placeholder="標題" class="event-input form-control" value="HI">
+                        <input id="event-name-input" type="text" placeholder="標題" class="event-input form-control"
+                            value="HI">
                     </div>
                     <div class="mb-3">
                         <label for="startDate">開始時間</label>
@@ -58,28 +62,35 @@
                         <label for="endDate">結束時間</label>
                         <input id="endDate" type="date" class="event-input form-control">
                     </div>
-                    <div class="mb-3">
-                        <label for="type">活動類型</label>
-                        <select name="type" id="event-type" class="event-input form-control">
-                            <option value="QQfA">QQAa</option>
-                            <option value="QQAd">QQAd</option>
-                            <option value="QQA">QQcA</option>
-                            <option value="event">event</option>
-                            <option value="holiday">holiday</option>
-                        </select>
+                    <div class="mb-3 ui-widget">
+                        <label for="event-type">節目</label>
+                        <input name="type" id="event-type" class="event-input form-control">
                     </div>
                     <div class="mb-3">
+                        <label for="event-typing">聽打</label>
+                        <input type="checkbox" name="event-typing" id="event-typing">
+
+                        <label for="event-proofreading">校正</label>
+                        <input type="checkbox" name="event-proofreading" id="event-proofreading">
+
+                        <label for="event-tc">上字</label>
+                        <input type="checkbox" name="event-tc" id="event-tc">
+
+                        <input name="event-unit" id="event-unit" class="event-input">
+                        <label for="event-unit">單位</label>
+                    </div>
+                    <!-- <div class="mb-3">
                         <label for="everyYear">是否每年重覆</label>
                         <select name="everyYear" id="everyYear" class="event-input form-select">
                             <option value="">--Please choose an option--</option>
                             <option value="yes">yes</option>
                             <option value="no">no</option>
                         </select>
-                    </div>
-                    <div class="mb-3">
+                    </div> -->
+                    <!-- <div class="mb-3">
                         <label for="describe">敘述</label>
                         <textarea name="describe" id="describe" cols="20" rows="10" class="event-input"></textarea>
-                    </div>
+                    </div> -->
                 </form>
                 <button id="addevent" type="button" class="btn btn-primary">Save changes</button>
             </div>
@@ -93,15 +104,14 @@
         </a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/evo-calendar@1.1.3/evo-calendar/js/evo-calendar.min.js'></script>
-    <script src="scripts/schedule.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/oh-my-live2d@latest"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/schedule.js"></script>
+
     <!-- 2024 YSR -->
 </body>
 
