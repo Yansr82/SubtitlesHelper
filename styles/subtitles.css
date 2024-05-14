@@ -187,11 +187,11 @@
   outline: 2px solid blue;
 }
 
-.wrapper #glossaries-wrapper .list-wrapper #wordTable td:nth-child(2) {
+.wrapper #glossaries-wrapper .list-wrapper #wordTable .role-correct {
   color: #64ff92d7;
 }
 
-.wrapper #glossaries-wrapper .list-wrapper #wordTable td:nth-child(3) {
+.wrapper #glossaries-wrapper .list-wrapper #wordTable .role-word {
   color: rgba(255, 185, 180, 0.884);
 }
 
