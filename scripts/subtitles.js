@@ -9,73 +9,85 @@ const defaultWordTableData = [
         "category": "all",
         "correct": "暴打",
         "word": "爆打",
-        "annotation": ""
+        "annotation": "",
+        "number": 1
     },
     {
         "category": "all",
         "correct": "暴汗",
         "word": "爆汗",
-        "annotation": ""
+        "annotation": "",
+        "number": 2,
     },
     {
         "category": "all",
         "correct": "暴紅",
         "word": "爆紅",
-        "annotation": ""
+        "annotation": "",
+        "number": 3
     },
     {
         "category": "all",
         "correct": "暴發戶",
         "word": "爆發戶",
-        "annotation": ""
+        "annotation": "",
+        "number": 4
     },
     {
         "category": "all",
         "correct": "山洪暴發",
         "word": "山洪爆發",
-        "annotation": ""
+        "annotation": "",
+        "number": 5
     },
     {
         "category": "all",
         "correct": "爆炸",
         "word": "暴炸",
-        "annotation": ""
+        "annotation": "",
+        "number": 6
     },
     {
         "category": "all",
         "correct": "爆料",
         "word": "暴料",
-        "annotation": ""
+        "annotation": "",
+        "number": 7
     },
     {
         "category": "all",
         "correct": "爆笑",
         "word": "暴笑",
-        "annotation": ""
+        "annotation": "",
+        "number": 8
     },
     {
         "category": "all",
         "correct": "爆氣",
         "word": "暴氣",
-        "annotation": ""
+        "annotation": "",
+        "number": 9
     },
     {
         "category": "all",
         "correct": "爆哭",
         "word": "暴哭",
-        "annotation": ""
+        "annotation": "",
+        "number": 10
     },
     {
         "category": "pcp-1",
         "correct": "祕密",
         "word": "秘密",
-        "annotation": ""
+        "annotation": "",
+        "number": 11
     },
     {
         "category": "pcp-2",
         "correct": "秘密",
         "word": "祕密",
-        "annotation": ""
+        "annotation": "",
+        "number": 12
     }
 ];
 
@@ -299,6 +311,8 @@ inputText.addEventListener('paste', handleInput);
 
 // rules
 document.addEventListener("DOMContentLoaded", function () {
+    let wordTableIdCounter = 1;
+
     const addWordForm = document.getElementById("addWordForm");
     const wordTableBody = document.querySelector("#wordTable tbody");
 
@@ -330,8 +344,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!existingRow) {
                     const newRow = createRow(data);
                     insertRowByCategory(newRow, data.category);
+                    updateWordTableIdCounter(data);
                 }
             });
+        }
+    }
+
+    function updateWordTableIdCounter(data) {
+        if (data.number >= wordTableIdCounter) {
+            wordTableIdCounter = data.number + 1;
         }
     }
 
@@ -355,8 +376,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const newRow = document.createElement("tr");
+        const uniqueId = `row-${wordTableIdCounter++}`;
+        newRow.id = uniqueId;
+
         if (data.category) {
             newRow.classList.add(data.category.toLowerCase());
+            newRow.classList.add(uniqueId);
+        } else {
+            console.error('Missing category in data:', data);
         }
         newRow.innerHTML = `
             <th></th>
@@ -373,7 +400,8 @@ document.addEventListener("DOMContentLoaded", function () {
             category: newRow.classList[0],
             word: tdList[0].textContent.trim(),
             correct: tdList[1].textContent.trim(),
-            annotation: tdList[2].textContent.trim()
+            annotation: tdList[2].textContent.trim(),
+            number: parseInt(newRow.classList[1].split('-')[1])
         };
 
         let savedData = localStorage.getItem('wordTableData');
@@ -409,45 +437,77 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    const editableTDs = document.querySelectorAll('td.editable');
-    editableTDs.forEach(td => {
-        td.addEventListener('click', function (event) {
-            event.stopPropagation();
-            td.classList.add('td-editable');
-            const editableIndex = Array.from(editableTDs).indexOf(this);
+    // const editableTDs = document.querySelectorAll('td.editable');
+    // editableTDs.forEach(td => {
+    //     td.addEventListener('click', function (event) {
+    //         event.stopPropagation();
+    //         td.classList.add('td-editable');
+    //         const editableIndex = Array.from(editableTDs).indexOf(this);
 
-            if (!td.querySelector('input')) {
-                const content = this.textContent;
-                const input = document.createElement('input');
-                input.value = content;
-                this.innerHTML = '';
-                this.appendChild(input);
-                input.focus();
-                input.addEventListener('blur', function () {
-                    const existingRow = findExistingRow({ word: input.value });
-                    if (existingRow && editableIndex !== 1) {
-                        const newValue = input.value;
-                        td.textContent = newValue;
-                        saveData(td.parentNode, false);
-                        td.classList.remove('td-editable');
-                    } else if (!existingRow) {
-                        const newValue = input.value;
-                        td.textContent = newValue;
-                        saveData(td.parentNode, false);
-                        td.classList.remove('td-editable');
-                    } else {
-                        oml2d.tipsMessage('已有新增詞彙了！');
-                        return null;
-                    }
-                });
+    //         if (!td.querySelector('input')) {
+    //             const content = this.textContent;
+    //             const input = document.createElement('input');
+    //             input.value = content;
+    //             this.innerHTML = '';
+    //             this.appendChild(input);
+    //             input.focus();
+    //             input.addEventListener('blur', function () {
+    //                 const existingRow = findExistingRow({ word: input.value });
+    //                 if (existingRow && editableIndex !== 1) {
+    //                     const newValue = input.value;
+    //                     td.textContent = newValue;
+    //                     saveData(td.parentNode, false);
+    //                     td.classList.remove('td-editable');
+    //                 } else if (!existingRow) {
+    //                     const newValue = input.value;
+    //                     td.textContent = newValue;
+    //                     saveData(td.parentNode, false);
+    //                     td.classList.remove('td-editable');
+    //                 } else {
+    //                     oml2d.tipsMessage('已有新增詞彙了！');
+    //                     return null;
+    //                 }
+    //             });
 
-                input.addEventListener('keydown', function (event) {
-                    if (event.keyCode === 13) {
-                        input.blur();
-                    }
-                });
-            }
+    //             input.addEventListener('keydown', function (event) {
+    //                 if (event.keyCode === 13) {
+    //                     input.blur();
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+
+    const trsWithClass = document.querySelectorAll('#wordTable tr[class]');
+
+    trsWithClass.forEach(tr => {
+        tr.addEventListener('mouseenter', function () {
+            this.classList.add('hovered');
         });
+
+        tr.addEventListener('mouseleave', function () {
+            this.classList.remove('hovered');
+        });
+
+        tr.addEventListener('click', function () {
+            const rowNumberClass = Array.from(this.classList).find(cls => cls.startsWith('row-'));
+            const rowNumber = parseInt(rowNumberClass.split('-')[1]);
+            let savedData = localStorage.getItem('wordTableData');
+            let rowDataArray = [];
+            if (savedData) {
+                rowDataArray = JSON.parse(savedData);
+            }
+            const indexToRemove = rowDataArray.findIndex(item =>
+                item.number === rowNumber
+            );
+            if (indexToRemove !== -1) {
+                rowDataArray.splice(indexToRemove, 1);
+            }
+
+            localStorage.setItem('wordTableData', JSON.stringify(rowDataArray));
+            this.remove();
+        });
+
     });
 
 
@@ -469,13 +529,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.onload = function (e) {
-            const data = e.target.result;
-            localStorage.setItem('wordTableData', data);
+            let data = JSON.parse(e.target.result);
+            data = data.map((item, index) => {
+                if (!item.hasOwnProperty('number')) {
+                    item.number = wordTableIdCounter++;
+                }
+                return item;
+            });
+
+            localStorage.setItem('wordTableData', JSON.stringify(data));
             location.reload();
         };
         reader.readAsText(file);
     });
+
 });
-
-
-// callNumber

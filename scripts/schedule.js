@@ -55,30 +55,69 @@ $(document).ready(function () {
 //autocomplete
 $(function () {
   const eventTypes = [
-    '台灣學堂',
-    '新聞觀測站',
-    '台灣最前線',
-    '全國第一勇',
-    '愛的榮耀',
-    '故事屋',
-    '台灣傳奇',
-    '全能歌手',
-    '美鳳有約',
-    'GoGo台灣',
-    '娛樂超skr',
-    '姊妹亮起來',
-    '醫學大聯盟',
-    '我們一家人',
-    '綜藝大集合',
-    '綜藝新時代'
+    { program: '台灣學堂', unit: '1' },
+    { program: '新聞觀測站', unit: '' },
+    { program: '台灣最前線', unit: '0.3' },
+    { program: '全國第一勇', unit: '0.3' },
+    { program: '愛的榮耀', unit: '' },
+    { program: '故事屋', unit: '1' },
+    { program: '台灣傳奇', unit: '' },
+    { program: '全能歌手', unit: '' },
+    { program: '美鳳有約', unit: '1' },
+    { program: 'GoGo台灣', unit: '1' },
+    { program: '娛樂超skr', unit: '1' },
+    { program: '姊妹亮起來', unit: '1' },
+    { program: '醫學大聯盟', unit: '1' },
+    { program: '我們一家人', unit: '1' },
+    { program: '綜藝大集合', unit: '4' },
+    { program: '綜藝新時代', unit: '1' }
   ];
-
+  const program = eventTypes.map(event => event.program);
   $("#event-type").autocomplete({
-    source: eventTypes,
+    source: program,
     delay: 50,
     minLength: 0,
     search: '',
+    select: function(event, ui) {
+      const selectedProgram = ui.item.value;
+      const selectedEvent = eventTypes.find(event => event.program === selectedProgram);
+      $('#event-typing').data('unit', selectedEvent.unit);
+      $('#event-proofreading').data('unit', selectedEvent.unit);
+      $('#event-tc').data('unit', selectedEvent.unit);
+      updateCheckboxValues();
+    }
   }).on("click", function () {
     $(this).autocomplete("search", "");
   });
+
+  $('input[type="checkbox"]').on('change', function() {
+    updateCheckboxValues();
+  });
+
+
+  function updateCheckboxValues() {
+    $('input[type="checkbox"]').each(function() {
+      const checkboxId = $(this).attr('id');
+      const unitValue = $(this).data('unit');
+      let unitId;
+      switch (checkboxId) {
+        case 'event-typing':
+          unitId = 'event-unit-1';
+          break;
+        case 'event-proofreading':
+          unitId = 'event-unit-2';
+          break;
+        case 'event-tc':
+          unitId = 'event-unit-3';
+          break;
+        default:
+          return;
+      }
+      if ($(this).is(':checked')) {
+        $(`#${unitId}`).val(unitValue);
+      } else {
+        $(`#${unitId}`).val('');
+      }
+    });
+  }
 });

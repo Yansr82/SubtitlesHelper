@@ -25,7 +25,7 @@
   color: #f7f7f7;
 }
 .file-btn:hover {
-  background-color: #eff5f4 !important;
+  background-color: #81b1a4 !important;
   color: #f7f7f7;
 }
 
@@ -54,9 +54,6 @@ html body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
-}
-html body a:hover {
-  color: #4d4d4d !important;
 }
 html body .wrapper {
   padding-top: 2% !important;
@@ -398,6 +395,14 @@ hr {
 }
 #Event-canvas .mb-3 input {
   margin: 0.5rem 0.5rem;
+}
+#Event-canvas .mb-3 .type-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+#Event-canvas .mb-3 .type-wrapper input {
+  max-width: 88px;
+  margin: 0;
 }
 #Event-canvas .checkbox-group {
   display: flex;

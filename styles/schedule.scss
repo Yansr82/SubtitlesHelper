@@ -275,6 +275,15 @@ $lg-font-color: #f7f7f7;
         input {
             margin: 0.5rem 0.5rem;
         }
+
+        .type-wrapper {
+            display: flex;
+            flex-direction: column;
+            input {
+                max-width: 88px;
+                margin: 0;
+            }
+        }
     
     }
     .checkbox-group {

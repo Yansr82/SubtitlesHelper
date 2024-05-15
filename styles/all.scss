@@ -33,7 +33,7 @@
     color: $lg-color;
 
     &:hover {
-      background-color: lighten($other-color, 45%) !important;
+      background-color: lighten($other-color, 10%) !important;
       color: $lg-color;
     }
   }

@@ -53,7 +53,7 @@
                         <div class="col-8">
                             <label for="event-type" style="padding: 0.5rem;">節目</label>
                             <input id="event-type" class="event-input form-control" data-bs-toggle="tooltip"
-                                title="請輸入節目名稱">
+                                data-related-units="event-unit-1,event-unit-2,event-unit-3" title="請輸入節目名稱">
                         </div>
                         <div class="col-4">
                             <label for="event-episode" style="padding: 0.5rem;">集數</label>
@@ -93,7 +93,7 @@
                                     </label>
                                 </div>
                                 <input type="number" id="event-unit-1" class="event-input form-control"
-                                    for="event-typing" min="0.1">
+                                    for="event-typing" min="0">
                             </div>
                             <div class="type-wrapper">
                                 <div class="checkbox">
@@ -115,7 +115,7 @@
                                     </label>
                                 </div>
                                 <input type="number" id="event-unit-2" class="event-input form-control"
-                                    for="event-proofreading" min="0.1">
+                                    for="event-proofreading" min="0">
                             </div>
                             <div class="type-wrapper">
                                 <div class="checkbox">
@@ -139,7 +139,8 @@
                                         </span>
                                     </label>
                                 </div>
-                                <input type="number" id="event-unit-3" class="event-input form-control" for="event-tc" min="0.1">
+                                <input type="number" id="event-unit-3" class="event-input form-control" for="event-tc"
+                                    min="0">
                             </div>
                         </fieldset>
                     </div>
