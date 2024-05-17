@@ -668,7 +668,7 @@
         if (event_data.color) {
             markup += 'style="background-color:'+event_data.color+'"'
         }
-        markup += '></div></div><div class="event-info"><p class="event-title">'+_.limitTitle(event_data.name);
+        markup += '></div></div><div class="event-info"><p class="event-title">'+_.limitTitle(event_data.name)+event_data.episode;
         if (event_data.badge) markup += '<span>'+event_data.badge+'</span>';
         markup += '</p>'
         if (event_data.unit) markup += '<span>'+event_data.unit+'</span>';

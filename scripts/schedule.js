@@ -22,6 +22,7 @@ $(document).ready(function () {
 
       $('#addevent').on('click', function () {
         const eventName = $('#event-type').val();
+        const episode = $('#event-episode').val();
         const startDate = $('#startDate').val();
         const endDate = $('#endDate').val();
         const type = $('#event-type').val();
@@ -32,6 +33,7 @@ $(document).ready(function () {
         const tc = $('#event-tc').is(':checked');
         const tcUnit = $('#event-unit-3').val();
         const eventId = eventIdCounter++;
+
         if (!eventName || !startDate) {
           const inputElement = $('#event-type');
           inputElement.tooltip({
@@ -54,6 +56,7 @@ $(document).ready(function () {
               unit: (typing ? `聽打 ${typingUnit} ` : '') +
                 (proofreading ? `校正 ${proofreadingUnit} ` : '') +
                 (tc ? `上字 ${tcUnit} ` : ''),
+              episode: episode.includes('#') ? episode : '#' + episode,
             }
           ]);
         };

@@ -237,10 +237,10 @@ function checkTimeCode() {
                 errorClass = foundWord.errorClass;
             } else if (customizedWord) {
                 if (customizedWord.correct) {
-                    errorMessage = `請確認"${customizedWord.word}" / "${customizedWord.correct}"`;
+                    errorMessage = `請確認是否為"${customizedWord.correct}"`;
                     errorClass = 'customized-word';
                 } else {
-                    errorMessage = `請確認"${customizedWord.word}"`;
+                    errorMessage = `請確認誤用字"${customizedWord.word}"`;
                     errorClass = 'customized-word';
                 }
             }
