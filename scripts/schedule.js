@@ -25,25 +25,35 @@ $(document).ready(function () {
         const startDate = $('#startDate').val();
         const endDate = $('#endDate').val();
         const type = $('#event-type').val();
+        const typing = $('#event-typing').is(':checked');
+        const typingUnit = $('#event-unit-1').val();
+        const proofreading = $('#event-proofreading').is(':checked');
+        const proofreadingUnit = $('#event-unit-2').val();
+        const tc = $('#event-tc').is(':checked');
+        const tcUnit = $('#event-unit-3').val();
         const eventId = eventIdCounter++;
         if (!eventName || !startDate) {
           const inputElement = $('#event-type');
           inputElement.tooltip({
-              placement: 'top',
-              title: '請輸入節目名稱'
+            placement: 'top',
+            title: '請輸入節目名稱'
           }).tooltip('show');
-          setTimeout(function() {
+          setTimeout(function () {
             inputElement.tooltip('hide');
-        }, 2500);
+          }, 2500);
           return;
-      }
-       else {
+        }
+        else {
           $("#calendar").evoCalendar('addCalendarEvent', [
             {
               id: eventId,
               name: eventName,
               date: endDate ? [startDate, endDate] : startDate,
               type: type,
+              badge: endDate ? `回件日 ${endDate}` : `當日`,
+              unit: (typing ? `聽打 ${typingUnit} ` : '') +
+                (proofreading ? `校正 ${proofreadingUnit} ` : '') +
+                (tc ? `上字 ${tcUnit} ` : ''),
             }
           ]);
         };
@@ -78,7 +88,7 @@ $(function () {
     delay: 50,
     minLength: 0,
     search: '',
-    select: function(event, ui) {
+    select: function (event, ui) {
       const selectedProgram = ui.item.value;
       const selectedEvent = eventTypes.find(event => event.program === selectedProgram);
       $('#event-typing').data('unit', selectedEvent.unit);
@@ -90,13 +100,13 @@ $(function () {
     $(this).autocomplete("search", "");
   });
 
-  $('input[type="checkbox"]').on('change', function() {
+  $('input[type="checkbox"]').on('change', function () {
     updateCheckboxValues();
   });
 
 
   function updateCheckboxValues() {
-    $('input[type="checkbox"]').each(function() {
+    $('input[type="checkbox"]').each(function () {
       const checkboxId = $(this).attr('id');
       const unitValue = $(this).data('unit');
       let unitId;

@@ -339,6 +339,13 @@ hr {
   box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
   -webkit-box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
 }
+#calendar .calendar-events .event-list .event-empty {
+  border-color: #D77D77;
+  background-color: rgba(215, 125, 119, 0.1);
+}
+#calendar .calendar-events .event-list .event-empty p {
+  color: #cb5750;
+}
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣學堂 {
   background-color: #FFB347;
 }
@@ -386,6 +393,15 @@ hr {
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-綜藝新時代 {
   background-color: #87CEEB;
+}
+#calendar .calendar-events .event-container .event-info p.event-title span {
+  color: #D77D77;
+  border-color: #D77D77;
+  background-color: rgba(215, 125, 119, 0.1);
+}
+#calendar #eventListToggler {
+  background-color: #D77D77;
+  box-shadow: #D77D77;
 }
 
 #Event-canvas .mb-3 label {
@@ -445,7 +461,8 @@ hr {
   background-color: #D77D77;
   border-color: #D77D77;
 }
-#Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-icon, #Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-label {
+#Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-icon,
+#Event-canvas .checkbox-input:checked + .checkbox-tile .checkbox-label {
   color: #D77D77;
 }
 #Event-canvas .checkbox-input:focus + .checkbox-tile {

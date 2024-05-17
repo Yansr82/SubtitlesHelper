@@ -42,7 +42,7 @@ $lg-font-color: #f7f7f7;
             .calendar-months {
                 li {
                     &:hover {
-                        background-color:lighten($primary-color,5%);
+                        background-color: lighten($primary-color, 5%);
                     }
 
                     &.active-month {
@@ -98,6 +98,7 @@ $lg-font-color: #f7f7f7;
 
         th[colspan="7"] {
             color: $lg-font-color;
+
             &::after {
                 background-color: darken($lg-font-color, 35%);
                 height: 3px;
@@ -126,53 +127,68 @@ $lg-font-color: #f7f7f7;
                     .event-indicator {
                         .type-bullet {
                             .type-台灣學堂 {
-                                background-color: #FFB347; 
+                                background-color: #FFB347;
                             }
+
                             .type-新聞觀測站 {
-                                background-color: #77DD77; 
+                                background-color: #77DD77;
                             }
+
                             .type-台灣最前線 {
-                                background-color: #FF6961; 
+                                background-color: #FF6961;
                             }
+
                             .type-全國第一勇 {
-                                background-color: #4682B4; 
+                                background-color: #4682B4;
                             }
+
                             .type-愛的榮耀 {
-                                background-color: #9932CC; 
+                                background-color: #9932CC;
                             }
+
                             .type-故事屋 {
-                                background-color: #FFD700; 
+                                background-color: #FFD700;
                             }
+
                             .type-台灣傳奇 {
-                                background-color: #CD5C5C; 
+                                background-color: #CD5C5C;
                             }
+
                             .type-全能歌手 {
-                                background-color: #6495ED; 
+                                background-color: #6495ED;
                             }
+
                             .type-美鳳有約 {
-                                background-color: #ADFF2F; 
+                                background-color: #ADFF2F;
                             }
+
                             .type-GoGo台灣 {
-                                background-color: #B0C4DE; 
+                                background-color: #B0C4DE;
                             }
+
                             .type-娛樂超skr {
-                                background-color: #8A2BE2; 
+                                background-color: #8A2BE2;
                             }
+
                             .type-姊妹亮起來 {
-                                background-color: #20B2AA; 
+                                background-color: #20B2AA;
                             }
+
                             .type-醫學大聯盟 {
-                                background-color: #F08080; 
+                                background-color: #F08080;
                             }
+
                             .type-我們一家人 {
-                                background-color: #FF7F50; 
+                                background-color: #FF7F50;
                             }
+
                             .type-綜藝大集合 {
-                                background-color: #FFDAB9; 
+                                background-color: #FFDAB9;
                             }
+
                             .type-綜藝新時代 {
-                                background-color: #87CEEB; 
-                            }  
+                                background-color: #87CEEB;
+                            }
                         }
                     }
                 }
@@ -192,7 +208,7 @@ $lg-font-color: #f7f7f7;
                     right: -1.5rem;
                     width: 2rem;
                     height: 2rem;
-                    background-image:url('../images/today.svg');
+                    background-image: url('../images/today.svg');
                     background-size: contain;
                 }
 
@@ -208,60 +224,101 @@ $lg-font-color: #f7f7f7;
     .calendar-events {
         box-shadow: 5px 0 18px -3px $border-color;
         -webkit-box-shadow: 5px 0 18px -3px $border-color;
+
+        .event-list {
+            .event-empty {
+                border-color: $calendar-color;
+                background-color: rgba($calendar-color, .1);
+                p {
+                    color: darken($calendar-color,10%);
+                }
+            }
+        }
+
         .event-container {
             .event-icon {
                 .event-bullet-台灣學堂 {
                     background-color: #FFB347;
                 }
+
                 .event-bullet-新聞觀測站 {
                     background-color: #77DD77;
                 }
+
                 .event-bullet-台灣最前線 {
                     background-color: #FF6961;
                 }
+
                 .event-bullet-全國第一勇 {
                     background-color: #4682B4;
                 }
+
                 .event-bullet-愛的榮耀 {
                     background-color: #9932CC;
                 }
+
                 .event-bullet-故事屋 {
                     background-color: #FFD700;
                 }
+
                 .event-bullet-台灣傳奇 {
                     background-color: #CD5C5C;
                 }
+
                 .event-bullet-全能歌手 {
                     background-color: #6495ED;
                 }
+
                 .event-bullet-美鳳有約 {
                     background-color: #ADFF2F;
                 }
+
                 .event-bullet-GoGo台灣 {
                     background-color: #B0C4DE;
                 }
+
                 .event-bullet-娛樂超skr {
                     background-color: #8A2BE2;
                 }
+
                 .event-bullet-姊妹亮起來 {
                     background-color: #20B2AA;
                 }
+
                 .event-bullet-醫學大聯盟 {
                     background-color: #F08080;
                 }
+
                 .event-bullet-我們一家人 {
                     background-color: #FF7F50;
                 }
+
                 .event-bullet-綜藝大集合 {
                     background-color: #FFDAB9;
                 }
+
                 .event-bullet-綜藝新時代 {
                     background-color: #87CEEB;
                 }
-                
-                
+
+
+            }
+
+            .event-info {
+                p.event-title {
+                    span {
+                        color: $calendar-color;
+                        border-color: $calendar-color;
+                        background-color: rgba($calendar-color, .1);
+                    }
+                }
             }
         }
+    }
+
+    #eventListToggler {
+        background-color: $calendar-color;
+        box-shadow: $calendar-color;
     }
 }
 
@@ -272,6 +329,7 @@ $lg-font-color: #f7f7f7;
             line-height: 1.125;
             margin-bottom: 1.25rem;
         }
+
         input {
             margin: 0.5rem 0.5rem;
         }
@@ -279,13 +337,15 @@ $lg-font-color: #f7f7f7;
         .type-wrapper {
             display: flex;
             flex-direction: column;
+
             input {
                 max-width: 88px;
                 margin: 0;
             }
         }
-    
+
     }
+
     .checkbox-group {
         display: flex;
         flex-wrap: wrap;
@@ -295,19 +355,20 @@ $lg-font-color: #f7f7f7;
         margin-right: auto;
         max-width: 600px;
         user-select: none;
-        & > * {
+
+        &>* {
             margin: .5rem 0.5rem;
         }
     }
-    
-    
-    
+
+
+
     .checkbox-group-legend {
         font-size: 1rem;
         line-height: 1.125;
         margin-bottom: 1.25rem;
     }
-    
+
     .checkbox-input {
         clip: rect(0 0 0 0);
         clip-path: inset(100%);
@@ -316,33 +377,36 @@ $lg-font-color: #f7f7f7;
         position: absolute;
         white-space: nowrap;
         width: 1px;
-    
-        &:checked + .checkbox-tile {
+
+        &:checked+.checkbox-tile {
             border-color: $calendar-color;
             box-shadow: 0 5px 10px rgba(#000, 0.1);
             color: $calendar-color;
+
             &:before {
                 transform: scale(1);
                 opacity: 1;
                 background-color: $calendar-color;
                 border-color: $calendar-color;
             }
-            
-            .checkbox-icon, .checkbox-label {
+
+            .checkbox-icon,
+            .checkbox-label {
                 color: $calendar-color;
             }
         }
-        
-        &:focus + .checkbox-tile {
+
+        &:focus+.checkbox-tile {
             border-color: $calendar-color;
             box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px lighten($calendar-color, 20%);
+
             &:before {
                 transform: scale(1);
                 opacity: 1;
             }
         }
     }
-    
+
     .checkbox-tile {
         display: flex;
         flex-direction: column;
@@ -357,7 +421,7 @@ $lg-font-color: #f7f7f7;
         transition: 0.15s ease;
         cursor: pointer;
         position: relative;
-    
+
         &:before {
             content: "";
             position: absolute;
@@ -377,33 +441,35 @@ $lg-font-color: #f7f7f7;
             background-repeat: no-repeat;
             background-position: 50% 50%;
         }
-    
+
         &:hover {
             border-color: $calendar-color;
+
             &:before {
                 transform: scale(1);
                 opacity: 1;
             }
         }
     }
-    
+
     .checkbox-icon {
         transition: .375s ease;
         color: #494949;
         margin-bottom: 0.4rem;
+
         svg {
             width: 2rem;
             height: 2rem;
         }
     }
-    
+
     .checkbox-label {
         font-size: .9rem;
         color: #707070;
         transition: .375s ease;
         text-align: center;
     }
-    
+
 }
 
 .ui-widget-content {
