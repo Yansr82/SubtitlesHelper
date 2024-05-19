@@ -33,6 +33,11 @@ $(document).ready(function () {
         const tc = $('#event-tc').is(':checked');
         const tcUnit = $('#event-unit-3').val();
         const eventId = eventIdCounter++;
+        let units = [];
+        if (typing) units.push(`聽打 ${typingUnit}`);
+        if (proofreading) units.push(`校正 ${proofreadingUnit}`);
+        if (tc) units.push(`上字 ${tcUnit}`);
+        let unit = units.join(' / ');
 
         if (!eventName || !startDate) {
           const inputElement = $('#event-type');
@@ -53,9 +58,7 @@ $(document).ready(function () {
               date: endDate ? [startDate, endDate] : startDate,
               type: type,
               badge: endDate ? `回件日 ${endDate}` : `當日`,
-              unit: (typing ? `聽打 ${typingUnit} ` : '') +
-                (proofreading ? `校正 ${proofreadingUnit} ` : '') +
-                (tc ? `上字 ${tcUnit} ` : ''),
+              units: unit,
               episode: episode.includes('#') ? episode : '#' + episode,
             }
           ]);
