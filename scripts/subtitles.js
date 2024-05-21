@@ -294,23 +294,23 @@ function checkTimeCode() {
                 errorAnchor.addEventListener('click', scrollToError);
                 checkArea.appendChild(errorAnchor);
                 hasError = true;
-                
-            } else if (timeCodeToNumber(currentTimeCode) - timeCodeToNumber(prevTimeCode) >= 650){
-                const errorMessage = `確認是否未下字`;
-                const errorClass = 'invalid-timecode-order';
-
-                listItem.classList.add('error');
-                listItem.id = `error-${lineNumber}`;
-                listItem.textContent = `${lineNumber}`;
-
-                const errorAnchor = document.createElement('a');
-                errorAnchor.classList.add(errorClass);
-                errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
-                errorAnchor.href = `#error-${lineNumber}`;
-                errorAnchor.addEventListener('click', scrollToError);
-                checkArea.appendChild(errorAnchor);
-                hasError = true;
             }
+            //  else if (timeCodeToNumber(currentTimeCode) - timeCodeToNumber(prevTimeCode) >= 7000){
+            //     const errorMessage = `確認是否未下字`;
+            //     const errorClass = 'invalid-timecode-order';
+
+            //     listItem.classList.add('error');
+            //     listItem.id = `error-${lineNumber}`;
+            //     listItem.textContent = `${lineNumber}`;
+
+            //     const errorAnchor = document.createElement('a');
+            //     errorAnchor.classList.add(errorClass);
+            //     errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
+            //     errorAnchor.href = `#error-${lineNumber}`;
+            //     errorAnchor.addEventListener('click', scrollToError);
+            //     checkArea.appendChild(errorAnchor);
+            //     hasError = true;
+            // }
         }
 
         output.appendChild(listItem);
