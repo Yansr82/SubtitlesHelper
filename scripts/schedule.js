@@ -1,5 +1,5 @@
 let eventIdCounter = 20;
-const events = [];
+const events = JSON.parse(localStorage.getItem('calendarEvents')) || [];
 
 $(document).ready(function () {
   $("#calendar")
@@ -49,23 +49,69 @@ $(document).ready(function () {
             inputElement.tooltip('hide');
           }, 2500);
           return;
-        }
-        else {
-          $("#calendar").evoCalendar('addCalendarEvent', [
-            {
-              id: eventId,
-              name: eventName,
-              date: endDate ? [startDate, endDate] : startDate,
-              type: type,
-              badge: endDate ? `回件日 ${endDate}` : `當日`,
-              units: unit,
-              episode: episode.includes('#') ? episode : '#' + episode,
-            }
-          ]);
         };
+
+        if (endDate && (new Date(endDate) <= new Date(startDate))) {
+          const endDateElement = $('#endDate');
+          endDateElement.tooltip({
+            placement: 'top',
+            title: '結束日期必須在開始日期之後或不等於開始日期'
+          }).tooltip('show');
+          setTimeout(function () {
+            endDateElement.tooltip('hide');
+          }, 2500);
+          return;
+        };
+
+        if (!typing && !tc && !proofreading) {
+          const checkboxes = $('.type-wrapper:eq(0)');
+          checkboxes.tooltip({
+            placement: 'top',
+            title: '請選擇作業項目'
+          }).tooltip('show');
+          setTimeout(function () {
+            endDateElement.tooltip('hide');
+          }, 2500);
+          return;
+        };
+
+        const newEvent = {
+          id: eventId,
+          name: eventName,
+          date: endDate ? [startDate, endDate] : startDate,
+          type: type,
+          badge: endDate ? `回件日 ${endDate}` : `當日`,
+          units: unit,
+          episode: episode.includes('#') ? episode : '#' + episode,
+        };
+
+        events.push(newEvent);
+
+        localStorage.setItem('calendarEvents', JSON.stringify(events));
+
+        $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
+        updateEventList();
       });
     });
+    updateEventList();
 });
+function updateEventList() {
+  const eventsList = $('.events-list');
+  eventsList.empty();
+
+  events.forEach(event => {
+    const eventItem = `
+      <div class="event-item">
+        <h3>${event.name}</h3>
+        <p>日期: ${Array.isArray(event.date) ? event.date.join(' - ') : event.date}</p>
+        <p>回件日: ${Array.isArray(event.date) ? event.date[1] : '當日'}</p>
+        <p>单元: ${event.units}</p>
+        <p>集数: ${event.episode}</p>
+      </div>
+    `;
+    eventsList.append(eventItem);
+  });
+}
 
 
 //autocomplete
