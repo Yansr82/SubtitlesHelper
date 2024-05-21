@@ -32,6 +32,7 @@ $(document).ready(function () {
         const proofreadingUnit = $('#event-unit-2').val();
         const tc = $('#event-tc').is(':checked');
         const tcUnit = $('#event-unit-3').val();
+        const partner = $('#event-partner').val();
         const eventId = eventIdCounter++;
         let units = [];
         if (typing) units.push(`聽打 ${typingUnit}`);
@@ -82,8 +83,10 @@ $(document).ready(function () {
           type: type,
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unit,
-          episode: episode.includes('#') ? episode : '#' + episode,
+          episode: episode == '' ? '' : episode.includes('#') ? episode : '#' + episode,
+          partner: partner,
         };
+        
 
         events.push(newEvent);
 
@@ -101,13 +104,14 @@ function updateEventList() {
 
   events.forEach(event => {
     const eventItem = `
-      <div class="event-item">
-        <h3>${event.name}</h3>
-        <p>日期: ${Array.isArray(event.date) ? event.date.join(' - ') : event.date}</p>
-        <p>回件日: ${Array.isArray(event.date) ? event.date[1] : '當日'}</p>
-        <p>单元: ${event.units}</p>
-        <p>集数: ${event.episode}</p>
-      </div>
+      <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1]:''}">
+        <span class="filter-name">${event.name}</span>
+        <span class="filter-episode">${event.episode ? event.episode : ''}</span>
+        <span class="filter-received">${Array.isArray(event.date) ? event.date[0] : event.date}</span>
+        <span class="filter-deadline">${Array.isArray(event.date) ? event.date[1] : ''}</span>
+        <span class="filter-status">${event.units}</span>
+        <span class="filter-partner">${event.partner ? event.partner : ''}</span>
+      </li>
     `;
     eventsList.append(eventItem);
   });
@@ -183,3 +187,22 @@ $(function () {
     });
   }
 });
+
+$(document).ready(function () {
+  const today = new Date();
+
+  $('.event-item').each(function () {
+      const eventDate = new Date($(this).data('date'));
+      const timeDifference = eventDate - today;
+      const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+      if (daysDifference >= 0 && daysDifference <= 4) {
+          $(this).addClass('soon');
+      }
+  });
+});
+
+var options = {
+  valueNames: ['filter-program', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner'],
+};
+var userList = new List('events-list-wrapper', options);
