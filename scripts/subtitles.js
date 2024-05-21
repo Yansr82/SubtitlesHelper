@@ -642,6 +642,7 @@ function checkTimeCode() {
     let prevTimeCode = null;
 
     let endIndex = lines.length;
+    const firstLine = lines[0];
     const lastLine = lines[lines.length - 1];
     if (lastLine.trim().toLowerCase().endsWith('end')) {
         endIndex--;
@@ -676,12 +677,26 @@ function checkTimeCode() {
         const foundWord = wordsToCheck.find(({
             word
         }) => line.includes(word));
-        const customizedWord = filteredWords.find(({
-            word
-        }) => {
-            const wordsArray = word.split(',').map(w => w.trim());
-            return wordsArray.some(w => line.includes(w));
+        const customizedWord = filteredWords.find(({ word }) => {
+            const matches = word.match(/(.*)\[(.*?)\]/);
+            if (matches && matches.length > 2) {
+                const mainWord = matches[1].trim();
+                const excludedWord = matches[2].trim();
+                if (line.includes(mainWord)) {
+                    if (line.includes(excludedWord)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            } else {
+                return line.includes(word.trim());
+            }
+            return false;
         });
+        
+        
+        
         if (exceedsLimit || !isValidTimeCode || foundWord || customizedWord) {
             let errorMessage = '';
             let errorClass = '';
@@ -757,9 +772,17 @@ function checkTimeCode() {
         output.appendChild(listItem);
         prevTimeCode = line.substring(0, 11);
     }
-    if (!hasError || !hasError && lastLine.trim().toLowerCase().endsWith('end')) {
+    if (hasError) {
+        return;
+    }
+    console.log(lastLine.trim(), firstLine.trim());
+    if (lastLine.trim().toLowerCase().endsWith('end') && firstLine.trim() === "01:00:00:00") {
         const listItem = document.createElement('p');
         listItem.textContent = `無錯誤行句`;
+        checkArea.appendChild(listItem);
+    } else {
+        const listItem = document.createElement('p');
+        listItem.textContent = `請檢查開頭及結尾格式 "01:00:00:00 or END"`;
         checkArea.appendChild(listItem);
     }
 }
