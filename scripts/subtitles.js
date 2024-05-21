@@ -4,8 +4,7 @@ restoreButton.addEventListener('click', function () {
     window.location.reload();
 });
 
-const defaultWordTableData = [
-    {
+const defaultWordTableData = [{
         "category": "all",
         "correct": "暴打",
         "word": "爆打",
@@ -96,10 +95,21 @@ let filteredWords = [];
 const inputText = document.querySelector('.inputText');
 const output = document.querySelector('.output ol');
 const checkArea = document.querySelector('.check_area');
-const wordsToCheck = [
-    { word: '*', errorMessage: '請確認星號', errorClass: 'stay-key' },
-    { word: '@', errorMessage: '請確認@符號', errorClass: 'at-symbol' },
-    { word: '?', errorMessage: '請確認問號', errorClass: 'question-mark' }
+const wordsToCheck = [{
+        word: '*',
+        errorMessage: '請確認星號',
+        errorClass: 'stay-key'
+    },
+    {
+        word: '@',
+        errorMessage: '請確認@符號',
+        errorClass: 'at-symbol'
+    },
+    {
+        word: '?',
+        errorMessage: '請確認問號',
+        errorClass: 'question-mark'
+    }
 ];
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -155,6 +165,8 @@ function countCharacters(str) {
         const char = str.charAt(i);
         if (isChinese(char)) {
             count += 2;
+        } else if (char === ' ') {
+            count += 0.5;
         } else {
             count++;
         }
@@ -171,7 +183,10 @@ function scrollToError(event) {
     const targetId = event.target.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
     }
 }
 
@@ -214,8 +229,12 @@ function checkTimeCode() {
         }
 
         const listItem = document.createElement('li');
-        const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
-        const customizedWord = filteredWords.find(({ word }) => {
+        const foundWord = wordsToCheck.find(({
+            word
+        }) => line.includes(word));
+        const customizedWord = filteredWords.find(({
+            word
+        }) => {
             const wordsArray = word.split(',').map(w => w.trim());
             return wordsArray.some(w => line.includes(w));
         });
@@ -275,6 +294,22 @@ function checkTimeCode() {
                 errorAnchor.addEventListener('click', scrollToError);
                 checkArea.appendChild(errorAnchor);
                 hasError = true;
+                
+            } else if (timeCodeToNumber(currentTimeCode) - timeCodeToNumber(prevTimeCode) >= 650){
+                const errorMessage = `確認是否未下字`;
+                const errorClass = 'invalid-timecode-order';
+
+                listItem.classList.add('error');
+                listItem.id = `error-${lineNumber}`;
+                listItem.textContent = `${lineNumber}`;
+
+                const errorAnchor = document.createElement('a');
+                errorAnchor.classList.add(errorClass);
+                errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
+                errorAnchor.href = `#error-${lineNumber}`;
+                errorAnchor.addEventListener('click', scrollToError);
+                checkArea.appendChild(errorAnchor);
+                hasError = true;
             }
         }
 
@@ -291,8 +326,19 @@ function checkTimeCode() {
 
 function isValidTimeValues(timeCode) {
     const parts = timeCode.split(':').map(part => parseInt(part, 10));
-    return parts.every(part => part >= 0 && part <= 59);
+    if (parts.length !== 4) {
+        return false;
+    }
+    const [hours, minutes, seconds, milliseconds] = parts;
+
+    if (hours < 0 || hours > 59) return false;
+    if (minutes < 0 || minutes > 59) return false;
+    if (seconds < 0 || seconds > 59) return false;
+    if (milliseconds < 0 || milliseconds > 29) return false;
+
+    return true;
 }
+
 
 function timeCodeToNumber(timeCode) {
     const parts = timeCode.split(':');
@@ -326,7 +372,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const annotation = document.getElementById("floating-annotation").value.trim();
         const category = document.getElementById("form-category").value.trim();
 
-        const newRow = createRow({ correct, word, annotation, category });
+        const newRow = createRow({
+            correct,
+            word,
+            annotation,
+            category
+        });
         if (newRow) {
             insertRowByCategory(newRow, category);
             saveData(newRow);
@@ -514,7 +565,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById('downloadButton').addEventListener('click', function () {
         const data = localStorage.getItem('wordTableData');
-        const blob = new Blob([data], { type: 'application/json' });
+        const blob = new Blob([data], {
+            type: 'application/json'
+        });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
