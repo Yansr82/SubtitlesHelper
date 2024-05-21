@@ -279,7 +279,7 @@ function checkTimeCode() {
 
         if (prevTimeCode !== null) {
             const currentTimeCode = line.substring(0, 11);
-            if (timeCodeToNumber(currentTimeCode) <= timeCodeToNumber(prevTimeCode)) {
+            if (timeCodeToSeconds(currentTimeCode) <= timeCodeToSeconds(prevTimeCode)) {
                 const errorMessage = `TIMECODE順序錯誤`;
                 const errorClass = 'invalid-timecode-order';
 
@@ -294,23 +294,23 @@ function checkTimeCode() {
                 errorAnchor.addEventListener('click', scrollToError);
                 checkArea.appendChild(errorAnchor);
                 hasError = true;
+                
+            } else if (timeCodeToSeconds(currentTimeCode) - timeCodeToSeconds(prevTimeCode) >= 7){
+                const errorMessage = `確認是否未下字`;
+                const errorClass = 'invalid-timecode-order';
+
+                listItem.classList.add('error');
+                listItem.id = `error-${lineNumber}`;
+                listItem.textContent = `${lineNumber}`;
+
+                const errorAnchor = document.createElement('a');
+                errorAnchor.classList.add(errorClass);
+                errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
+                errorAnchor.href = `#error-${lineNumber}`;
+                errorAnchor.addEventListener('click', scrollToError);
+                checkArea.appendChild(errorAnchor);
+                hasError = true;
             }
-            //  else if (timeCodeToNumber(currentTimeCode) - timeCodeToNumber(prevTimeCode) >= 7000){
-            //     const errorMessage = `確認是否未下字`;
-            //     const errorClass = 'invalid-timecode-order';
-
-            //     listItem.classList.add('error');
-            //     listItem.id = `error-${lineNumber}`;
-            //     listItem.textContent = `${lineNumber}`;
-
-            //     const errorAnchor = document.createElement('a');
-            //     errorAnchor.classList.add(errorClass);
-            //     errorAnchor.textContent = `${lineNumber} ${errorMessage}`;
-            //     errorAnchor.href = `#error-${lineNumber}`;
-            //     errorAnchor.addEventListener('click', scrollToError);
-            //     checkArea.appendChild(errorAnchor);
-            //     hasError = true;
-            // }
         }
 
         output.appendChild(listItem);
@@ -340,9 +340,13 @@ function isValidTimeValues(timeCode) {
 }
 
 
-function timeCodeToNumber(timeCode) {
+function timeCodeToSeconds(timeCode) {
     const parts = timeCode.split(':');
-    return parseInt(parts[0]) * 1000000 + parseInt(parts[1]) * 10000 + parseInt(parts[2]) * 100 + parseInt(parts[3]);
+    const hours = parseInt(parts[0]);
+    const minutes = parseInt(parts[1]);
+    const seconds = parseInt(parts[2]);
+    const milliseconds = parseInt(parts[3]);
+    return hours * 3600 + minutes * 60 + seconds + milliseconds / 1000;
 }
 
 function handleInput() {
