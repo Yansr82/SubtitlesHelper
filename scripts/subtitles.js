@@ -1,3 +1,4 @@
+
 const restoreButton = document.getElementById('resetlocalStorage');
 restoreButton.addEventListener('click', function () {
     localStorage.setItem('wordTableData', JSON.stringify(defaultWordTableData));
@@ -751,8 +752,8 @@ function checkTimeCode() {
                 checkArea.appendChild(errorAnchor);
                 hasError = true;
 
-            } else if (timeCodeToSeconds(currentTimeCode) - timeCodeToSeconds(prevTimeCode) >= 7) {
-                const errorMessage = `確認是否未下字`;
+            } else if (countCharacters(lines[index - 1]) >= 12 && timeCodeToSeconds(currentTimeCode) - timeCodeToSeconds(prevTimeCode) >= 7) {
+                const errorMessage = `請確認下字時間`;
                 const errorClass = 'invalid-timecode-order';
 
                 listItem.classList.add('error');
@@ -775,7 +776,6 @@ function checkTimeCode() {
     if (hasError) {
         return;
     }
-    console.log(lastLine.trim(), firstLine.trim());
     if (lastLine.trim().toLowerCase().endsWith('end') && firstLine.trim() === "01:00:00:00") {
         const listItem = document.createElement('p');
         listItem.textContent = `無錯誤行句`;
@@ -955,47 +955,6 @@ document.addEventListener("DOMContentLoaded", function () {
             wordTableBody.appendChild(newRow);
         }
     }
-
-    // const editableTDs = document.querySelectorAll('td.editable');
-    // editableTDs.forEach(td => {
-    //     td.addEventListener('click', function (event) {
-    //         event.stopPropagation();
-    //         td.classList.add('td-editable');
-    //         const editableIndex = Array.from(editableTDs).indexOf(this);
-
-    //         if (!td.querySelector('input')) {
-    //             const content = this.textContent;
-    //             const input = document.createElement('input');
-    //             input.value = content;
-    //             this.innerHTML = '';
-    //             this.appendChild(input);
-    //             input.focus();
-    //             input.addEventListener('blur', function () {
-    //                 const existingRow = findExistingRow({ word: input.value });
-    //                 if (existingRow && editableIndex !== 1) {
-    //                     const newValue = input.value;
-    //                     td.textContent = newValue;
-    //                     saveData(td.parentNode, false);
-    //                     td.classList.remove('td-editable');
-    //                 } else if (!existingRow) {
-    //                     const newValue = input.value;
-    //                     td.textContent = newValue;
-    //                     saveData(td.parentNode, false);
-    //                     td.classList.remove('td-editable');
-    //                 } else {
-    //                     oml2d.tipsMessage('已有新增詞彙了！');
-    //                     return null;
-    //                 }
-    //             });
-
-    //             input.addEventListener('keydown', function (event) {
-    //                 if (event.keyCode === 13) {
-    //                     input.blur();
-    //                 }
-    //             });
-    //         }
-    //     });
-    // });
 
     const trsWithClass = document.querySelectorAll('#wordTable tr[class]');
 
