@@ -12,7 +12,6 @@ $(document).ready(function () {
       eventDisplayDefault: true,
       calendarEvents: events
     })
-
     .on('selectDate', function () {
       const active_date = $('#calendar').evoCalendar('getActiveDate');
       console.log(active_date);
@@ -84,13 +83,11 @@ $(document).ready(function () {
           category: (eventName == '全國第一勇' || eventName == '台灣最前線') ? 'LIVE' : 'PROGRAM',
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unit,
-          episode: episode == '' ? '' : episode.includes('#') ? episode : '#' + episode,
+          episode: episode,
           partner: partner,
         };
 
-
         events.push(newEvent);
-
         localStorage.setItem('calendarEvents', JSON.stringify(events));
 
         $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
@@ -102,14 +99,16 @@ $(document).ready(function () {
           'filter-deadline': Array.isArray(newEvent.date) ? newEvent.date[1] : '',
           'filter-status': newEvent.units,
           'filter-partner': newEvent.partner ? newEvent.partner : '',
+          'filter-category': newEvent.category
         });
       });
     });
+
   updateEventList();
 
   if (events.length > 0) {
     const options = {
-      valueNames: ['filter-name', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner'],
+      valueNames: ['filter-name', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner', 'filter-category'],
       customSort: function (a, b) {
         const aDate = $(a.elm).data('date');
         const bDate = $(b.elm).data('date');
@@ -123,8 +122,18 @@ $(document).ready(function () {
     };
     userList = new List('events-list-wrapper', options);
   }
-});
 
+  $('#filter-category').on('change', function () {
+    const selectedCategory = $(this).val();
+    if (selectedCategory === 'All') {
+      userList.filter();
+    } else {
+      userList.filter(item => {
+        return $(item.elm).find('.filter-category').text() === selectedCategory;
+      });
+    }
+  });
+});
 
 function updateEventList() {
   const eventsList = $('.events-list');
@@ -132,86 +141,49 @@ function updateEventList() {
 
   events.forEach(event => {
     const eventItem = `
-    <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1] : ''}" data-category="${event.category}">
+    <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1] : ''}">
         <span class="filter-name">${event.name}</span>
         <span class="filter-episode">${event.episode ? event.episode : ''}</span>
         <span class="filter-received">${Array.isArray(event.date) ? event.date[0] : event.date}</span>
         <span class="filter-deadline">${Array.isArray(event.date) ? event.date[1] : ''}</span>
         <span class="filter-status">${event.units}</span>
         <span class="filter-partner">${event.partner ? event.partner : ''}</span>
+        <span class="filter-category" style="display: none;">${event.category}</span>
       </li>
     `;
     eventsList.append(eventItem);
   });
+  const today = new Date();
+
+  $('.event-item').each(function () {
+    const eventDate = new Date($(this).data('date'));
+    const timeDifference = eventDate - today;
+    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+    if (daysDifference >= 0 && daysDifference <= 3) {
+      $(this).addClass('soon');
+    }
+  });
 }
 
-
-//autocomplete
 $(function () {
-  const eventTypes = [{
-      program: '台灣學堂',
-      unit: '1'
-    },
-    {
-      program: '新聞觀測站',
-      unit: ''
-    },
-    {
-      program: '台灣最前線',
-      unit: '0.3'
-    },
-    {
-      program: '全國第一勇',
-      unit: '0.3'
-    },
-    {
-      program: '愛的榮耀',
-      unit: ''
-    },
-    {
-      program: '故事屋',
-      unit: '1'
-    },
-    {
-      program: '台灣傳奇',
-      unit: ''
-    },
-    {
-      program: '全能歌手',
-      unit: ''
-    },
-    {
-      program: '美鳳有約',
-      unit: '1'
-    },
-    {
-      program: 'GoGo台灣',
-      unit: '1'
-    },
-    {
-      program: '娛樂超skr',
-      unit: '1'
-    },
-    {
-      program: '姊妹亮起來',
-      unit: '1'
-    },
-    {
-      program: '醫學大聯盟',
-      unit: '1'
-    },
-    {
-      program: '我們一家人',
-      unit: '1'
-    },
-    {
-      program: '綜藝大集合',
-      unit: '4'
-    },
-    {
-      program: '綜藝新時代',
-      unit: '1'
-    }
+  const eventTypes = [
+    { program: '台灣學堂', unit: '1' },
+    { program: '新聞觀測站', unit: '' },
+    { program: '台灣最前線', unit: '0.3' },
+    { program: '全國第一勇', unit: '0.3' },
+    { program: '愛的榮耀', unit: '' },
+    { program: '故事屋', unit: '1' },
+    { program: '台灣傳奇', unit: '' },
+    { program: '全能歌手', unit: '' },
+    { program: '美鳳有約', unit: '1' },
+    { program: 'GoGo台灣', unit: '1' },
+    { program: '娛樂超skr', unit: '1' },
+    { program: '姊妹亮起來', unit: '1' },
+    { program: '醫學大聯盟', unit: '1' },
+    { program: '我們一家人', unit: '1' },
+    { program: '綜藝大集合', unit: '4' },
+    { program: '綜藝新時代', unit: '1' }
   ];
   const program = eventTypes.map(event => event.program);
   $("#event-type").autocomplete({
@@ -234,7 +206,6 @@ $(function () {
   $('input[type="checkbox"]').on('change', function () {
     updateCheckboxValues();
   });
-
 
   function updateCheckboxValues() {
     $('input[type="checkbox"]').each(function () {
@@ -263,18 +234,73 @@ $(function () {
   }
 });
 
-$(document).ready(function () {
-  const today = new Date();
 
-  $('.event-item').each(function () {
-    const eventDate = new Date($(this).data('date'));
-    const timeDifference = eventDate - today;
-    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-
-    if (daysDifference >= 0 && daysDifference <= 4) {
-      $(this).addClass('soon');
-    }
-  });
+// export XLSX
+$('#export').on('click', function () {
+  exportToExcel();
 });
 
-// 篩選功能
+function exportToExcel() {
+  const filteredData = userList.visibleItems.map(item => {
+    const statusText = $(item.elm).find('.filter-status').text();
+    const typing = getStatusNumber(statusText, '聽打');
+    const proofreading = getStatusNumber(statusText, '校正');
+    const tc = getStatusNumber(statusText, '上字');
+
+    return {
+      '節目': $(item.elm).find('.filter-name').text(),
+      '集數': $(item.elm).find('.filter-episode').text(),
+      '接收日期': $(item.elm).find('.filter-received').text(),
+      '截止日期': $(item.elm).find('.filter-deadline').text(),
+      '聽打': typing,
+      '校正': proofreading,
+      '上字': tc
+    };
+  });
+
+  filteredData.push({
+    '節目': '總計',
+    '聽打': { t: 'n', f: `SUM(E2:E${filteredData.length + 1})` },
+    '校正': { t: 'n', f: `SUM(F2:F${filteredData.length + 1})` },
+    '上字': { t: 'n', f: `SUM(G2:G${filteredData.length + 1})` },
+  });
+
+  function getStatusNumber(statusText, keyword) {
+    const regex = new RegExp(`${keyword} (\\d+)`);
+    const match = statusText.match(regex);
+    return match ? parseInt(match[1]) : 0;
+  }
+
+  const worksheet = XLSX.utils.json_to_sheet(filteredData);
+
+  const range = XLSX.utils.decode_range(worksheet['!ref']);
+  for (let C = range.s.c; C <= range.e.c; ++C) {
+    const alignment = C === 0 ? { horizontal: 'left' } : { horizontal: 'center' };
+    worksheet[XLSX.utils.encode_cell({ r: range.s.r, c: C })].s = { alignment };
+  }
+  for (let C = range.s.c; C <= range.e.c; ++C) {
+    let max_width = 0;
+    for (let R = range.s.r; R <= range.e.r; ++R) {
+      const cell = worksheet[XLSX.utils.encode_cell({ r: R, c: C })];
+      if (cell && cell.v) {
+        const cellContentWidth = getStringWidth(cell.v);
+        if (cellContentWidth > max_width) max_width = cellContentWidth;
+      }
+    }
+    worksheet['!cols'] = worksheet['!cols'] || [];
+    worksheet['!cols'][C] = { 'wpx': max_width };
+  }
+
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Events');
+  XLSX.writeFile(workbook, 'filtered_events.xlsx', { cellStyles: true });
+}
+
+function getStringWidth(str) {
+  const fontSize = 14;
+  const font = `${fontSize}px Arial`;
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.font = font;
+  return context.measureText(str).width;
+}

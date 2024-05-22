@@ -19,6 +19,15 @@
   color: rgba(102, 204, 255, 0.8392156863);
 }
 
+.bg-sub-color {
+  background-color: rgba(0, 136, 204, 0.8392156863);
+  color: #f7f7f7;
+}
+.bg-sub-color:hover {
+  background-color: rgba(0, 170, 255, 0.8392156863);
+  color: #f7f7f7;
+}
+
 .file-btn {
   background-color: #619E8D !important;
   color: #f7f7f7;

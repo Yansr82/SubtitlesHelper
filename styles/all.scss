@@ -29,6 +29,15 @@
     color: $sub-color;
   }
 
+  .bg-sub-color {
+    background-color: darken($sub-color,30%);
+    color: $lg-color;
+    &:hover {
+      background-color: darken($sub-color, 20%);
+      color: $lg-color;
+    }
+  }
+
   .file-btn {
     background-color: $other-color !important;
     color: $lg-color;
