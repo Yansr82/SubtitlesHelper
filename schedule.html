@@ -27,9 +27,9 @@
     <header class="fixed-top">
     </header>
     <main id="main-container">
-        <section id="calendar-section">
+        <section id="calendar-section" style="padding-top: 88px;">
             <div class="container-fluid">
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-sm-12">
                         <div class="hero">
                             <div id="calendar"></div>
@@ -38,14 +38,14 @@
                 </div>
             </div>
         </section>
-        <section id="data-section">
+        <section id="data-section" style="padding: 88px;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="events-list-wrapper">
-                            <ol id="filter">
-                                <!-- <li class="sort" data-sort="filter-status">狀態</li> -->
-                                <!-- <li class="sort" data-sort="filter-type">節目類別</li> -->
+                        <div id="events-list-wrapper" class="min-vh-100">
+                            <!--<ol id="filter">
+                                <li class="sort" data-sort="filter-status">狀態</li>
+                                <li class="sort" data-sort="filter-type">節目類別</li>
                                 <li class="sort" data-sort="filter-program">節目</li>
                                 <li class="sort" data-sort="filter-received">接收日期</li>
                                 <li class="sort" data-sort="filter-deadline">截止日期</li>
@@ -54,30 +54,37 @@
                                 <li class="sort" data-sort="filter-status">上字</li>
                                 <li class="sort" data-sort="filter-partner">搭檔</li>
                                 <li><input class="search" type="text" placeholder="Search..."></li>
-                            </ol>
+                            </ol>-->
+
+                            <ul id="filter">
+                                <li><select id="filter-category">
+                                        <option value="All">All</option>
+                                        <option value="LIVE">LIVE</option>
+                                        <option value="PROGRAM">預錄</option>
+                                    </select></li>
+                                <li><input class="search" type="text" placeholder="Search..."></li>
+                            </ul>
                             <ul class="list-head">
                                 <li><span>節目</span>
                                     <span>集數</span>
-                                    <span>接收日期</span>
-                                    <span>截止日期</span>
+                                    <span class="sort" data-sort="filter-received">接收日期</span>
+                                    <span class="sort" data-sort="filter-deadline">截止日期</span>
                                     <span>作業項目</span>
                                     <span>搭檔</span>
                                 </li>
                             </ul>
-                            <ul class="events-list">
-                                <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1] : ''}">
-                                    <span class="filter-name">${event.name}</span>
-                                    <span class="filter-episode">${event.episode ? event.episode : ''}</span>
-                                    <span class="filter-received">${Array.isArray(event.date) ? event.date[0] : event.date}</span>
-                                    <span class="filter-deadline">${Array.isArray(event.date) ? event.date[1] : ''}</span>
-                                    <span class="filter-status">${event.units}</span>
-                                    <span class="filter-partner">${event.partner ? event.partner : ''}</span>
-                                  </li>
+                            <ul class="events-list list">
+
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <section id="footer" style="height: 60px;background-color: rgb(95, 95, 95);">
+            <footer class="text-center" style="line-height: 60px;">
+                <span class="ps-4" style="color: rgb(190, 190, 190);">© 2024 YSR v0.1.0</span>
+            </footer>
         </section>
     </main>
     <!-- offcanvas -->
@@ -230,8 +237,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
     <script src='scripts/evo-calendar.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
     <script src="https://unpkg.com/oh-my-live2d@latest"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/schedule.js"></script>

@@ -1,5 +1,6 @@
 let eventIdCounter = 20;
 const events = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+let userList;
 
 $(document).ready(function () {
   $("#calendar")
@@ -25,7 +26,6 @@ $(document).ready(function () {
         const episode = $('#event-episode').val();
         const startDate = $('#startDate').val();
         const endDate = $('#endDate').val();
-        const type = $('#event-type').val();
         const typing = $('#event-typing').is(':checked');
         const typingUnit = $('#event-unit-1').val();
         const proofreading = $('#event-proofreading').is(':checked');
@@ -80,13 +80,14 @@ $(document).ready(function () {
           id: eventId,
           name: eventName,
           date: endDate ? [startDate, endDate] : startDate,
-          type: type,
+          type: eventName,
+          category: (eventName == '全國第一勇' || eventName == '台灣最前線') ? 'LIVE' : 'PROGRAM',
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unit,
           episode: episode == '' ? '' : episode.includes('#') ? episode : '#' + episode,
           partner: partner,
         };
-        
+
 
         events.push(newEvent);
 
@@ -94,17 +95,44 @@ $(document).ready(function () {
 
         $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
         updateEventList();
+        userList.add({
+          'filter-name': newEvent.name,
+          'filter-episode': newEvent.episode ? newEvent.episode : '',
+          'filter-received': Array.isArray(newEvent.date) ? newEvent.date[0] : newEvent.date,
+          'filter-deadline': Array.isArray(newEvent.date) ? newEvent.date[1] : '',
+          'filter-status': newEvent.units,
+          'filter-partner': newEvent.partner ? newEvent.partner : '',
+        });
       });
     });
-    updateEventList();
+  updateEventList();
+
+  if (events.length > 0) {
+    const options = {
+      valueNames: ['filter-name', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner'],
+      customSort: function (a, b) {
+        const aDate = $(a.elm).data('date');
+        const bDate = $(b.elm).data('date');
+
+        if (!aDate && bDate) return 1;
+        if (aDate && !bDate) return -1;
+        if (!aDate && !bDate) return 0;
+
+        return aDate < bDate ? -1 : (aDate > bDate ? 1 : 0);
+      }
+    };
+    userList = new List('events-list-wrapper', options);
+  }
 });
+
+
 function updateEventList() {
   const eventsList = $('.events-list');
   eventsList.empty();
 
   events.forEach(event => {
     const eventItem = `
-      <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1]:''}">
+    <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1] : ''}" data-category="${event.category}">
         <span class="filter-name">${event.name}</span>
         <span class="filter-episode">${event.episode ? event.episode : ''}</span>
         <span class="filter-received">${Array.isArray(event.date) ? event.date[0] : event.date}</span>
@@ -120,23 +148,70 @@ function updateEventList() {
 
 //autocomplete
 $(function () {
-  const eventTypes = [
-    { program: '台灣學堂', unit: '1' },
-    { program: '新聞觀測站', unit: '' },
-    { program: '台灣最前線', unit: '0.3' },
-    { program: '全國第一勇', unit: '0.3' },
-    { program: '愛的榮耀', unit: '' },
-    { program: '故事屋', unit: '1' },
-    { program: '台灣傳奇', unit: '' },
-    { program: '全能歌手', unit: '' },
-    { program: '美鳳有約', unit: '1' },
-    { program: 'GoGo台灣', unit: '1' },
-    { program: '娛樂超skr', unit: '1' },
-    { program: '姊妹亮起來', unit: '1' },
-    { program: '醫學大聯盟', unit: '1' },
-    { program: '我們一家人', unit: '1' },
-    { program: '綜藝大集合', unit: '4' },
-    { program: '綜藝新時代', unit: '1' }
+  const eventTypes = [{
+      program: '台灣學堂',
+      unit: '1'
+    },
+    {
+      program: '新聞觀測站',
+      unit: ''
+    },
+    {
+      program: '台灣最前線',
+      unit: '0.3'
+    },
+    {
+      program: '全國第一勇',
+      unit: '0.3'
+    },
+    {
+      program: '愛的榮耀',
+      unit: ''
+    },
+    {
+      program: '故事屋',
+      unit: '1'
+    },
+    {
+      program: '台灣傳奇',
+      unit: ''
+    },
+    {
+      program: '全能歌手',
+      unit: ''
+    },
+    {
+      program: '美鳳有約',
+      unit: '1'
+    },
+    {
+      program: 'GoGo台灣',
+      unit: '1'
+    },
+    {
+      program: '娛樂超skr',
+      unit: '1'
+    },
+    {
+      program: '姊妹亮起來',
+      unit: '1'
+    },
+    {
+      program: '醫學大聯盟',
+      unit: '1'
+    },
+    {
+      program: '我們一家人',
+      unit: '1'
+    },
+    {
+      program: '綜藝大集合',
+      unit: '4'
+    },
+    {
+      program: '綜藝新時代',
+      unit: '1'
+    }
   ];
   const program = eventTypes.map(event => event.program);
   $("#event-type").autocomplete({
@@ -192,17 +267,14 @@ $(document).ready(function () {
   const today = new Date();
 
   $('.event-item').each(function () {
-      const eventDate = new Date($(this).data('date'));
-      const timeDifference = eventDate - today;
-      const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+    const eventDate = new Date($(this).data('date'));
+    const timeDifference = eventDate - today;
+    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 
-      if (daysDifference >= 0 && daysDifference <= 4) {
-          $(this).addClass('soon');
-      }
+    if (daysDifference >= 0 && daysDifference <= 4) {
+      $(this).addClass('soon');
+    }
   });
 });
 
-var options = {
-  valueNames: ['filter-program', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner'],
-};
-var userList = new List('events-list-wrapper', options);
+// 篩選功能
