@@ -1,5 +1,6 @@
 let eventIdCounter = 20;
 const events = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+let userListInitialized = false;
 let userList;
 
 $(document).ready(function () {
@@ -49,7 +50,7 @@ $(document).ready(function () {
             inputElement.tooltip('hide');
           }, 2500);
           return;
-        };
+        }
 
         if (endDate && (new Date(endDate) <= new Date(startDate))) {
           const endDateElement = $('#endDate');
@@ -61,7 +62,7 @@ $(document).ready(function () {
             endDateElement.tooltip('hide');
           }, 2500);
           return;
-        };
+        }
 
         if (!typing && !tc && !proofreading) {
           const checkboxes = $('.type-wrapper:eq(0)');
@@ -70,10 +71,10 @@ $(document).ready(function () {
             title: '請選擇作業項目'
           }).tooltip('show');
           setTimeout(function () {
-            endDateElement.tooltip('hide');
+            checkboxes.tooltip('hide');
           }, 2500);
           return;
-        };
+        }
 
         const newEvent = {
           id: eventId,
@@ -89,101 +90,187 @@ $(document).ready(function () {
 
         events.push(newEvent);
         localStorage.setItem('calendarEvents', JSON.stringify(events));
-
         $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
-        updateEventList();
-        userList.add({
-          'filter-name': newEvent.name,
-          'filter-episode': newEvent.episode ? newEvent.episode : '',
-          'filter-received': Array.isArray(newEvent.date) ? newEvent.date[0] : newEvent.date,
-          'filter-deadline': Array.isArray(newEvent.date) ? newEvent.date[1] : '',
-          'filter-status': newEvent.units,
-          'filter-partner': newEvent.partner ? newEvent.partner : '',
-          'filter-category': newEvent.category
-        });
+        updateEventList(newEvent, startDate);
       });
     });
 
   updateEventList();
-
-  if (events.length > 0) {
-    const options = {
-      valueNames: ['filter-name', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner', 'filter-category'],
-      customSort: function (a, b) {
-        const aDate = $(a.elm).data('date');
-        const bDate = $(b.elm).data('date');
-
-        if (!aDate && bDate) return 1;
-        if (aDate && !bDate) return -1;
-        if (!aDate && !bDate) return 0;
-
-        return aDate < bDate ? -1 : (aDate > bDate ? 1 : 0);
-      }
-    };
-    userList = new List('events-list-wrapper', options);
-  }
-
-  $('#filter-category').on('change', function () {
-    const selectedCategory = $(this).val();
-    if (selectedCategory === 'All') {
-      userList.filter();
-    } else {
-      userList.filter(item => {
-        return $(item.elm).find('.filter-category').text() === selectedCategory;
-      });
-    }
-  });
 });
 
-function updateEventList() {
+function updateEventList(newEvent = null, startDate) {
   const eventsList = $('.events-list');
-  eventsList.empty();
 
-  events.forEach(event => {
+  if (newEvent) {
+    const eventDate = Array.isArray(newEvent.date) ? new Date(newEvent.date[0]) : new Date(newEvent.date);
+    const eventMonth = eventDate.getMonth() + 1;
+    const formattedEventDate = eventDate.toISOString().split('T')[0];
+    const receivedDate = Array.isArray(newEvent.date) ? newEvent.date[0] : newEvent.date;
+    const deadlineDate = Array.isArray(newEvent.date) ? newEvent.date[1] : '';
+
     const eventItem = `
-    <li class="event-item" data-date="${Array.isArray(event.date) ? event.date[1] : ''}">
-        <span class="filter-name">${event.name}</span>
-        <span class="filter-episode">${event.episode ? event.episode : ''}</span>
-        <span class="filter-received">${Array.isArray(event.date) ? event.date[0] : event.date}</span>
-        <span class="filter-deadline">${Array.isArray(event.date) ? event.date[1] : ''}</span>
-        <span class="filter-status">${event.units}</span>
-        <span class="filter-partner">${event.partner ? event.partner : ''}</span>
-        <span class="filter-category" style="display: none;">${event.category}</span>
+      <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+          <span class="filter-name">${newEvent.name}</span>
+          <span class="filter-episode">${newEvent.episode ? newEvent.episode : ''}</span>
+          <span class="filter-received">${receivedDate}</span>
+          <span class="filter-deadline">${deadlineDate}</span>
+          <span class="filter-status">${newEvent.units}</span>
+          <span class="filter-partner">${newEvent.partner ? newEvent.partner : ''}</span>
+          <span class="filter-category" style="display: none;">${newEvent.category}</span>
       </li>
     `;
     eventsList.append(eventItem);
+
+    if (!userListInitialized) {
+      initializeUserList();
+      userListInitialized = true;
+    } else {
+      userList.add({
+        'filter-name': newEvent.name,
+        'filter-episode': newEvent.episode ? newEvent.episode : '',
+        'filter-received': receivedDate,
+        'filter-deadline': deadlineDate,
+        'filter-status': newEvent.units,
+        'filter-partner': newEvent.partner ? newEvent.partner : '',
+        'filter-category': newEvent.category
+      });
+    }
+  } else {
+    eventsList.empty();
+
+    events.forEach(event => {
+      const eventDate = Array.isArray(event.date) ? new Date(event.date[0]) : new Date(event.date);
+      const eventMonth = eventDate.getMonth() + 1;
+      const formattedEventDate = eventDate.toISOString().split('T')[0];
+      const receivedDate = Array.isArray(event.date) ? event.date[0] : event.date;
+      const deadlineDate = Array.isArray(event.date) ? event.date[1] : '';
+
+      const eventItem = `
+        <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+            <span class="filter-name">${event.name}</span>
+            <span class="filter-episode">${event.episode ? event.episode : ''}</span>
+            <span class="filter-received">${receivedDate}</span>
+            <span class="filter-deadline">${deadlineDate}</span>
+            <span class="filter-status">${event.units}</span>
+            <span class="filter-partner">${event.partner ? event.partner : ''}</span>
+            <span class="filter-category" style="display: none;">${event.category}</span>
+        </li>
+      `;
+      eventsList.append(eventItem);
+    });
+
+    initializeUserList();
+    userListInitialized = true;
+  }
+
+  // Filter
+  $('#filter-category, #filter-month').on('change', function () {
+    const selectedCategory = $('#filter-category').val();
+    const selectedMonth = $('#filter-month').val();
+    userList.filter(item => {
+      const categoryMatch = selectedCategory === 'All' || $(item.elm).find('.filter-category').text() === selectedCategory;
+      const monthMatch = selectedMonth === 'All' || parseInt($(item.elm).attr('date-month')) === parseInt(selectedMonth);
+      return categoryMatch && monthMatch;
+    });
   });
+
+  // Date reminders
   const today = new Date();
-
   $('.event-item').each(function () {
-    const eventDate = new Date($(this).data('date'));
-    const timeDifference = eventDate - today;
+    const deadlineDate = $(this).find('.filter-deadline').text();
+    const eventDeadline = new Date(deadlineDate);
+    const timeDifference = eventDeadline - today;
     const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-
     if (daysDifference >= 0 && daysDifference <= 3) {
       $(this).addClass('soon');
     }
   });
+
 }
 
+function initializeUserList() {
+  const options = {
+    valueNames: ['filter-name', 'filter-episode', 'filter-received', 'filter-deadline', 'filter-status', 'filter-partner', 'filter-category'],
+    customSort: function (a, b) {
+      const aDate = new Date($(a.elm).data('date'));
+      const bDate = new Date($(b.elm).data('date'));
+
+      if (!aDate && bDate) return 1;
+      if (aDate && !bDate) return -1;
+      if (!aDate && !bDate) return 0;
+
+      return aDate - bDate;
+    }
+  };
+  userList = new List('events-list-wrapper', options);
+}
+
+
 $(function () {
-  const eventTypes = [
-    { program: '台灣學堂', unit: '1' },
-    { program: '新聞觀測站', unit: '' },
-    { program: '台灣最前線', unit: '0.3' },
-    { program: '全國第一勇', unit: '0.3' },
-    { program: '愛的榮耀', unit: '' },
-    { program: '故事屋', unit: '1' },
-    { program: '台灣傳奇', unit: '' },
-    { program: '全能歌手', unit: '' },
-    { program: '美鳳有約', unit: '1' },
-    { program: 'GoGo台灣', unit: '1' },
-    { program: '娛樂超skr', unit: '1' },
-    { program: '姊妹亮起來', unit: '1' },
-    { program: '醫學大聯盟', unit: '1' },
-    { program: '我們一家人', unit: '1' },
-    { program: '綜藝大集合', unit: '4' },
-    { program: '綜藝新時代', unit: '1' }
+  const eventTypes = [{
+      program: '台灣學堂',
+      unit: '1'
+    },
+    {
+      program: '新聞觀測站',
+      unit: ''
+    },
+    {
+      program: '台灣最前線',
+      unit: '0.3'
+    },
+    {
+      program: '全國第一勇',
+      unit: '0.3'
+    },
+    {
+      program: '愛的榮耀',
+      unit: ''
+    },
+    {
+      program: '故事屋',
+      unit: '1'
+    },
+    {
+      program: '台灣傳奇',
+      unit: ''
+    },
+    {
+      program: '全能歌手',
+      unit: ''
+    },
+    {
+      program: '美鳳有約',
+      unit: '1'
+    },
+    {
+      program: 'GoGo台灣',
+      unit: '1'
+    },
+    {
+      program: '娛樂超skr',
+      unit: '1'
+    },
+    {
+      program: '姊妹亮起來',
+      unit: '1'
+    },
+    {
+      program: '醫學大聯盟',
+      unit: '1'
+    },
+    {
+      program: '我們一家人',
+      unit: '1'
+    },
+    {
+      program: '綜藝大集合',
+      unit: '4'
+    },
+    {
+      program: '綜藝新時代',
+      unit: '1'
+    }
   ];
   const program = eventTypes.map(event => event.program);
   $("#event-type").autocomplete({
@@ -260,9 +347,21 @@ function exportToExcel() {
 
   filteredData.push({
     '節目': '總計',
-    '聽打': { t: 'n', f: `SUM(E2:E${filteredData.length + 1})` },
-    '校正': { t: 'n', f: `SUM(F2:F${filteredData.length + 1})` },
-    '上字': { t: 'n', f: `SUM(G2:G${filteredData.length + 1})` },
+    '集數': '',
+    '接收日期': '',
+    '截止日期': '',
+    '聽打': {
+      t: 'n',
+      f: `SUM(E2:E${filteredData.length + 1})`
+    },
+    '校正': {
+      t: 'n',
+      f: `SUM(F2:F${filteredData.length + 1})`
+    },
+    '上字': {
+      t: 'n',
+      f: `SUM(G2:G${filteredData.length + 1})`
+    },
   });
 
   function getStatusNumber(statusText, keyword) {
@@ -271,29 +370,70 @@ function exportToExcel() {
     return match ? parseInt(match[1]) : 0;
   }
 
-  const worksheet = XLSX.utils.json_to_sheet(filteredData);
+  const worksheet = XLSX.utils.json_to_sheet(filteredData, {
+    cellStyles: true
+  });
 
   const range = XLSX.utils.decode_range(worksheet['!ref']);
   for (let C = range.s.c; C <= range.e.c; ++C) {
-    const alignment = C === 0 ? { horizontal: 'left' } : { horizontal: 'center' };
-    worksheet[XLSX.utils.encode_cell({ r: range.s.r, c: C })].s = { alignment };
+    const alignment = C === 0 ? {
+      horizontal: 'left'
+    } : {
+      horizontal: 'center'
+    };
+    for (let R = range.s.r; R <= range.e.r; ++R) {
+      const cell = worksheet[XLSX.utils.encode_cell({
+        r: R,
+        c: C
+      })];
+      if (cell) {
+        cell.s = cell.s || {};
+        cell.s.alignment = alignment;
+      }
+    }
   }
+
   for (let C = range.s.c; C <= range.e.c; ++C) {
     let max_width = 0;
     for (let R = range.s.r; R <= range.e.r; ++R) {
-      const cell = worksheet[XLSX.utils.encode_cell({ r: R, c: C })];
+      const cell = worksheet[XLSX.utils.encode_cell({
+        r: R,
+        c: C
+      })];
       if (cell && cell.v) {
         const cellContentWidth = getStringWidth(cell.v);
         if (cellContentWidth > max_width) max_width = cellContentWidth;
       }
     }
     worksheet['!cols'] = worksheet['!cols'] || [];
-    worksheet['!cols'][C] = { 'wpx': max_width };
+    worksheet['!cols'][C] = {
+      'wpx': max_width
+    };
+  }
+
+  worksheet['!rows'] = worksheet['!rows'] || [];
+  for (let R = range.s.r; R <= range.e.r; ++R) {
+    let max_height = 0;
+    for (let C = range.s.c; C <= range.e.c; ++C) {
+      const cell = worksheet[XLSX.utils.encode_cell({
+        r: R,
+        c: C
+      })];
+      if (cell && cell.v) {
+        const cellContentHeight = getStringHeight(cell.v);
+        if (cellContentHeight > max_height) max_height = cellContentHeight;
+      }
+    }
+    worksheet['!rows'][R] = {
+      'hpx': max_height
+    };
   }
 
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, 'Events');
-  XLSX.writeFile(workbook, 'filtered_events.xlsx', { cellStyles: true });
+  XLSX.writeFile(workbook, 'filtered_events.xlsx', {
+    cellStyles: true
+  });
 }
 
 function getStringWidth(str) {
@@ -303,4 +443,12 @@ function getStringWidth(str) {
   const context = canvas.getContext('2d');
   context.font = font;
   return context.measureText(str).width;
+}
+
+
+function getStringHeight(str) {
+  const fontSize = 14;
+  const lineHeight = fontSize * 1.4;
+  const lines = str.split('\n').length;
+  return lineHeight * lines;
 }

@@ -100,6 +100,9 @@ $lg-font-color: #f7f7f7;
                     padding: 1em;
                     width: 20%;
                     text-align: center;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
 
                     &:nth-of-type(2),
                     &:nth-of-type(6) {
@@ -109,7 +112,7 @@ $lg-font-color: #f7f7f7;
             }
         }
 
-        #events-table {       
+        #events-table {
             .list-head li {
                 background-color: #454545;
                 border-left-color: darken($gray-color, 10%);
@@ -139,64 +142,66 @@ $lg-font-color: #f7f7f7;
                     }
                 }
             }
+
             .events-list {
                 min-height: 710px;
+
                 .event-item {
                     border-bottom: 1px solid #252525;
                     transition: background .3s ease;
                     position: relative;
-    
+
                     &.soon {
                         border: 1px dashed $danger;
                         border-left: 4px solid #FF0000 !important;
-    
+
                         &:after {
                             content: url('data:image/svg+xml,%3Csvg%20t%3D%221716311243740%22%20class%3D%22icon%22%20viewBox%3D%220%200%201097%201024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20p-id%3D%2211324%22%20width%3D%2227%22%20height%3D%2227%22%3E%3Cpath%20d%3D%22M512%20585.143H292.571a36.571%2036.571%200%200%201%200-73.143H475.43V256a36.571%2036.571%200%200%201%2073.142%200v292.571A36.571%2036.571%200%200%201%20512%20585.143zM946.834%20413.33a36.571%2036.571%200%200%201-72.52%209.472c-25.967-199.021-196.28-349.66-398.885-349.66-222.172%200-402.286%20180.115-402.286%20402.287%200%20171.995%20108.91%20323.254%20268.47%20379.501a36.571%2036.571%200%201%201-24.283%2068.974A475.575%20475.575%200%200%201%200%20475.429C0%20212.846%20212.846%200%20475.429%200c239.433%200%20440.685%20177.993%20471.405%20413.33z%20m-117.138%2095.964l256%20402.285C1116.709%20960.293%201081.71%201024%201024%201024H512c-57.71%200-92.709-63.707-61.696-112.42l256-402.286a73.143%2073.143%200%200%201%20123.392%200zM768%20548.57L512%20950.857h512L768%20548.571z%20m0%20109.715a36.571%2036.571%200%200%201%2036.571%2036.571V768a36.571%2036.571%200%200%201-73.142%200v-73.143A36.571%2036.571%200%200%201%20768%20658.286z%20m0%20182.857a36.571%2036.571%200%201%201%200%2073.143%2036.571%2036.571%200%200%201%200-73.143z%22%20fill%3D%22%23f76a6a%22%20p-id%3D%2211325%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
                             position: absolute;
                             top: 30%;
                             left: 1.5rem;
                         }
-    
+
                         >span {
                             color: $lg-color;
                         }
-    
+
                         >span:nth-child(4) {
                             color: $danger;
                             font-weight: bold;
                         }
-    
-    
+
+
                     }
-    
+
                     &:hover {
                         background-color: lighten(#303030, 3%);
                     }
-    
+
                     span {
                         color: #fff;
                         padding-top: 1.75em;
                         padding-bottom: 1.75em;
                     }
-    
+
                     &:nth-child(4n+1) {
                         border-left-color: #1f697b;
                     }
-    
+
                     &:nth-child(4n+2) {
                         border-left-color: #197149;
                     }
-    
+
                     &:nth-child(4n+3) {
                         border-left-color: #886f22;
                     }
-    
+
                     &:nth-child(4n+4) {
                         border-left-color: #98552e;
                     }
                 }
             }
-            
+
         }
 
 

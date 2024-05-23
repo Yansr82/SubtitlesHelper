@@ -264,6 +264,9 @@ hr {
   padding: 1em;
   width: 20%;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #main-container #data-section ul li span:nth-of-type(2), #main-container #data-section ul li span:nth-of-type(6) {
   width: 10%;

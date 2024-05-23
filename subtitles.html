@@ -148,16 +148,21 @@
                                                     <ol>
                                                         <li>詞彙新增
                                                             <ol>
-                                                                <li> 誤用字以 <span class="badge bg-info">,</span>
-                                                                    隔開分類，可同時檢查多詞。
-                                                                </li>
                                                                 <li>內規字若新增重複詞會 <span class="badge bg-info">自動過濾</span>。
                                                                 </li>
                                                                 <li>「誤用字」=> <span class="badge bg-danger">必填</span>
                                                                     ，「註釋」及「內規字」=> <span
                                                                         class="badge bg-danger">可選填</span>。</li>
+                                                                <li> 誤用字以 <span class="badge bg-info">,</span>
+                                                                    隔開分類，可同時檢查多詞。
+                                                                </li>
+                                                                <li>「誤用字+ [ ] 」=> 若該行<span class="badge bg-danger"> 包含 [ ] 中的詞 </span>
+                                                                    則略過。<br>
+                                                                    <span class="badge bg-warning">EX:韓國[韓國瑜]，則該行為韓國瑜時跳過檢查"韓國"</span>
+                                                                </li>
                                                             </ol>
                                                         </li>
+                                                        <hr>
 
                                                         <li>資料保存
                                                             <ol>
@@ -168,6 +173,7 @@
                                                                 </li>
                                                                 <li>上傳資料僅限 <span class="badge bg-warning">.json</span>
                                                                     格式。</li>
+
                                                             </ol>
                                                         </li>
                                                     </ol>
@@ -320,11 +326,11 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
-        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
-        crossorigin="anonymous"></script>
+        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous">
+    </script>
     <script src="https://unpkg.com/oh-my-live2d@latest"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/subtitles.js"></script>
