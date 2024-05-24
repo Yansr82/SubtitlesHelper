@@ -414,20 +414,6 @@ function exportToExcel() {
     };
   }
 
-  worksheet['!rows'] = worksheet['!rows'] || [];
-  for (let R = range.s.r; R <= range.e.r; ++R) {
-    let max_height = 0;
-    for (let C = range.s.c; C <= range.e.c; ++C) {
-      const cell = worksheet[XLSX.utils.encode_cell({
-        r: R,
-        c: C
-      })];
-    }
-    worksheet['!rows'][R] = {
-      'hpx': max_height
-    };
-  }
-
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, 'Events');
   XLSX.writeFile(workbook, 'filtered_events.xlsx', {
