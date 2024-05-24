@@ -1,0 +1,17 @@
+@import 'all.scss';
+.CodeMirror{
+    font-family: inherit;
+    
+}
+#compare {
+    height: 100%;
+    .mergely-splash {
+        display: none;
+    }
+    .mergely-editor .mergely.ch.ind.lhs{
+        background-color:#ffe9e9;
+    }
+    .mergely-editor .mergely.ch.ind.rhs{
+        background-color:#ddeeff;
+    }
+}

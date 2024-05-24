@@ -1,0 +1,201 @@
+.bg-warning {
+  color: #333333 !important;
+}
+
+.bg-info {
+  background-color: #3d7694 !important;
+}
+
+.bg-light {
+  background-color: #f7f7f7 !important;
+  min-height: calc(100vh - 60px);
+}
+
+.primary-color {
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.sub-color {
+  color: rgba(102, 204, 255, 0.8392156863);
+}
+
+.bg-sub-color {
+  background-color: rgba(0, 136, 204, 0.8392156863);
+  color: #f7f7f7;
+}
+.bg-sub-color:hover {
+  background-color: rgba(0, 170, 255, 0.8392156863);
+  color: #f7f7f7;
+}
+
+.file-btn {
+  background-color: #619E8D !important;
+  color: #f7f7f7;
+}
+.file-btn:hover {
+  background-color: #81b1a4 !important;
+  color: #f7f7f7;
+}
+
+a,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+strong {
+  color: #333333;
+}
+
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  position: relative;
+  background: fixed url(../images/bg-image.jpg) no-repeat center/cover;
+  font-family: "Noto Sans TC", "Helvetica", "Arial", "sans-serif", "bootstrap-icons" !important;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+}
+html body .wrapper {
+  padding-top: 2% !important;
+}
+html body main {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html body .scrollbar {
+  position: fixed;
+  top: 0;
+  height: 3px;
+  background: rgba(102, 204, 255, 0.8392156863);
+  transition-property: width, color;
+  transition-duration: 1s, 1s;
+  z-index: 99999;
+}
+html body header {
+  font-size: 0.95rem;
+  width: 100%;
+  height: 60px;
+  border-radius: 0;
+  border: 1.5px solid transparent;
+  transition: all 1s ease-in-out;
+}
+html body header.ysr {
+  background-color: rgba(1, 1, 1, 0.8) !important;
+  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5);
+  border: 1.5px solid rgba(125, 125, 125, 0.1882352941);
+}
+html body header .nav-link {
+  text-decoration: none;
+  color: #f7f7f7;
+  position: relative;
+}
+html body header .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+}
+html body header .nav-link:focus, html body header .nav-link:active, html body header .nav-link:hover {
+  color: #66ccff !important;
+}
+html body header .nav-link:focus::before, html body header .nav-link:active::before, html body header .nav-link:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(102, 204, 255, 0.8392156863);
+  transition: width 0.3s ease-in-out;
+  border-radius: 2rem;
+  bottom: -8px;
+  left: 0;
+}
+html body #main-container {
+  background-color: rgba(51, 51, 51, 0.8);
+  min-height: 100%;
+}
+html body #oml2d-stage {
+  height: 0;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background-color: rgba(26, 26, 26, 0.8);
+  border: none;
+}
+.btn-primary:focus, .btn-primary:active, .btn-primary:hover {
+  background-color: rgba(64, 64, 64, 0.8);
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  color: #f7f7f7;
+}
+
+.page-container {
+  padding-top: 60px;
+  position: relative;
+}
+
+.to_top {
+  display: inline;
+  position: fixed;
+  right: 0;
+  bottom: 1px;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.backdrop-f {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#settingsPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(26, 26, 26, 0.8);
+  color: #f7f7f7;
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#settingsPopup h3 {
+  color: #f7f7f7 !important;
+}
+
+.CodeMirror {
+  font-family: inherit;
+}
+
+#compare {
+  height: 100%;
+}
+#compare .mergely-splash {
+  display: none;
+}
+#compare .mergely-editor .mergely.ch.ind.lhs {
+  background-color: #ffe9e9;
+}
+#compare .mergely-editor .mergely.ch.ind.rhs {
+  background-color: #ddeeff;
+}/*# sourceMappingURL=textdiff.css.map */

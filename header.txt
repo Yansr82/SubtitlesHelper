@@ -21,9 +21,9 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
+            <a href="./textdiff.html" class="nav-link ">
 
-              文字比較
+              文檔比較
             </a>
           </li>
            <li>
