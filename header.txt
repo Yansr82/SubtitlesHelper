@@ -21,15 +21,14 @@
             </a>
           </li>
           <li>
-            <a href="https://drive.google.com/drive/folders/156DWU2T1X7nZrvCgbM_u0Gt67skOTV14?usp=drive_link" class="nav-link ">
-
-              小工具
-            </a>
-          </li>
-          <li>
             <a href="#" class="nav-link ">
 
-              #
+              文字比較
+            </a>
+          </li>
+           <li>
+            <a href="https://drive.google.com/drive/folders/156DWU2T1X7nZrvCgbM_u0Gt67skOTV14?usp=drive_link" class="nav-link ">
+              小工具
             </a>
           </li>
           <li>
