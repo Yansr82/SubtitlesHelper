@@ -422,10 +422,6 @@ function exportToExcel() {
         r: R,
         c: C
       })];
-      if (cell && cell.v) {
-        const cellContentHeight = getStringHeight(cell.v);
-        if (cellContentHeight > max_height) max_height = cellContentHeight;
-      }
     }
     worksheet['!rows'][R] = {
       'hpx': max_height
@@ -449,12 +445,6 @@ function getStringWidth(str) {
 }
 
 
-function getStringHeight(str) {
-  const fontSize = 14;
-  const lineHeight = fontSize * 1.4;
-  const lines = str.split('\n').length;
-  return lineHeight * lines;
-}
 
 // quickadd - sot/live
 $(document).ready(function () {
