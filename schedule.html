@@ -51,14 +51,12 @@
                                     <button id="export" class="btn btn-sm">匯出</button>
                                 <li>
                                     <select id="filter-category" class="text-center form-select-sm">
-                                        <option value="All">-- 類別 --</option>
-                                        <option value="All">All</option>
+                                        <option value="All">類別</option>
                                         <option value="LIVE">LIVE</option>
                                         <option value="PROGRAM">預錄</option>
                                     </select>
                                 <li><select id="filter-month" class="text-center form-select-sm">
-                                        <option value="All">-- 月分 --</option>
-                                        <option value="All">All</option>
+                                        <option value="All">月分</option>
                                         <option value="1">January</option>
                                         <option value="2">February</option>
                                         <option value="3">March</option>
@@ -95,16 +93,48 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
-        <section id="footer" style="height: 60px;background-color: rgb(95, 95, 95);">
+        <section id="footer">
             <footer class="text-center" style="line-height: 60px;">
-                <span class="ps-4" style="color: rgb(190, 190, 190);">© 2024 YSR v0.1.0</span>
+                <span class="ps-4" style="color: rgb(190, 190, 190);">Copyright © 2024 YSR</span>
             </footer>
         </section>
     </main>
+    <!-- quickaddevent -->
+    <div id="quick-add-wrapper" class="position-fixed bottom-0 left-0 m-3">
+        <button id="quick-add-btn" class="btn btn-sm btn-primary ">＋</button>
+        <div id="quick-add-container">
+            <select id="quick-add-type">
+                <optgroup label="SOT">
+                    <option>
+                        SOT - 全國第一勇
+                    </option>
+                    <option>
+                        SOT - 台灣最前線
+                    </option>
+                </optgroup>
+                <optgroup label="LIVE">
+                    <option>
+                        全國第一勇
+                    </option>
+                    <option>
+                        台灣最前線
+                    </option>
+                    <option>
+                        財經週末趴
+                    </option>
+                </optgroup>
+            </select>
+            <select id="quick-add-work">
+                <option value="1">打</option>
+                <option value="2">校</option>
+                <option value="3">上</option>
+            </select>
+            <input id="quick-add-unit" type="text"  placeholder="單位" value="0.3">
+            <button type="submit" id="quick-add-submit">Go!</button>
+        </div>
+    </div>
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" id="Event-canvas" tabindex="-1" aria-labelledby="Event-canvas-Label"
         aria-hidden="true">
@@ -210,10 +240,11 @@
                             </div>
                         </fieldset>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="describe">敘述</label>
-                        <textarea name="describe" id="describe" cols="20" rows="10" class="event-input"></textarea>
-                    </div> -->
+                    <div class="form-floating mb-3">
+                        <textarea name="description" id="event-description" class="form-control"
+                            style="height: 100px;resize:none" placeholder="於此處輸入描述..."></textarea>
+                        <label for="description">Leave a describe here...</label>
+                    </div>
                 </form>
 
             </div>
@@ -228,6 +259,7 @@
             <img src="./images/gotop.png" alt="Go to Top">
         </a>
     </div>
+    <!-- oml2d-->
     <section class="setting">
         <div id="settingsPopup" class="popup">
             <button id="closeButton" type="button" class="btn-close btn-close-white float-end"
