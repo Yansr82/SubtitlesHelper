@@ -22,7 +22,6 @@ $(document).ready(function () {
       $('#addevent').off('click');
 
       $('#addevent').on('click', function () {
-        const eventId = eventIdCounter++;
         const eventName = $('#event-type').val();
         const episode = $('#event-episode').val();
         const startDate = $('#startDate').val();
@@ -34,8 +33,7 @@ $(document).ready(function () {
         const tc = $('#event-tc').is(':checked');
         const tcUnit = $('#event-unit-3').val();
         const partner = $('#event-partner').val();
-        const description = $('#event-description').val();
-
+        const eventId = eventIdCounter++;
         let units = [];
         if (typing) units.push(`聽打 ${typingUnit}`);
         if (proofreading) units.push(`校正 ${proofreadingUnit}`);
@@ -88,7 +86,6 @@ $(document).ready(function () {
           units: unit,
           episode: episode,
           partner: partner,
-          description: description,
         };
 
         events.push(newEvent);
@@ -455,42 +452,3 @@ function getStringHeight(str) {
   const lines = str.split('\n').length;
   return lineHeight * lines;
 }
-
-// quickadd - sot/live
-$(document).ready(function () {
-  $('#quick-add-btn').on('click', function () {
-    $('#quick-add-container').toggle('fast');
-    $('#quick-add-btn').toggleClass('active');
-    $('#quick-add-submit').on('click', function () {
-      const date = new Date();
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let day = date.getDate();
-
-      const eventId = eventIdCounter++;
-      const eventName = $('#quick-add-type').val();
-      const today = `${year}-${month}-${day}`;
-      const typing = $('#quick-add-work').val() === "1";
-      const proofreading = $('#quick-add-work').val() === "2";
-      const tc = $('#quick-add-work').val() === "3";
-      const quickAddUnit = $('#quick-add-unit').val();
-
-      const newEvent = {
-        id: eventId,
-        name: eventName,
-        date: today,
-        type: eventName,
-        episode: '',
-        category: eventName.includes('SOT') ? 'SOT' : 'LIVE',
-        badge: `LIVE ${typing ? '聽打' : ''} ${proofreading ? '校正' : ''} ${tc ? '上字' : ''}`,
-        units: typing ? '聽打 ' + quickAddUnit : proofreading ? '校正 ' + quickAddUnit : tc ? '上字 ' + quickAddUnit : '',
-
-      };
-
-      events.push(newEvent);
-      localStorage.setItem('calendarEvents', JSON.stringify(events));
-      $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
-      updateEventList(newEvent, today);
-    })
-  });
-})
