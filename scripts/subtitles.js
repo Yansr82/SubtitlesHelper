@@ -5,7 +5,7 @@ fetch('./scripts/dwt-0529.json')
     .then(response => response.json())
     .then(data => {
         data.forEach((item, index) => {
-            if (!item.hasOwnProperty('number' || item.number === '')) {
+            if (!item.hasOwnProperty('number') || item.number === '') {
                 item.number = wordTableIdCounter++;
             }
         });
@@ -14,9 +14,6 @@ fetch('./scripts/dwt-0529.json')
             wordTableData = data;
             localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
             location.reload();
-        } else {
-            wordTableData = [...wordTableData, ...data];
-            localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
         }
     })
     .catch(error => {
@@ -412,7 +409,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const newRow = document.createElement("tr");
-        const uniqueId = `row-${wordTableIdCounter++}`;
+        let uniqueId;
+
+        if (data.number !== undefined && data.number !== null) {
+            uniqueId = `row-${data.number}`;
+        } else {
+            uniqueId = `row-${wordTableIdCounter++}`;
+        }
+
         newRow.id = uniqueId;
 
         if (data.category) {
@@ -429,6 +433,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         return newRow;
     }
+
 
     function saveData(newRow) {
         const tdList = newRow.querySelectorAll('td');
