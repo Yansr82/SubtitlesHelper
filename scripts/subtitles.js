@@ -747,21 +747,18 @@ function checkTimeCode() {
         const customizedWord = filteredWords.find(({
             word
         }) => {
-            const matches = word.match(/(.*)\[(.*?)\]/);
-            if (matches && matches.length > 2) {
-                const mainWord = matches[1].trim();
-                const excludedWord = matches[2].trim();
-                if (line.includes(mainWord)) {
+            const wordsArray = word.split(',').map(w => w.trim());
+            return wordsArray.some(w => {
+                const matches = w.match(/(?<=\[)(.*?)(?=\])/);
+                if (matches && matches.length > 0) {
+                    const excludedWord = matches[0];
                     if (line.includes(excludedWord)) {
                         return false;
-                    } else {
-                        return true;
                     }
                 }
-            } else {
-                return line.includes(word.trim());
-            }
-            return false;
+                const wordToCheck = w.replace(/\[.*?\]/, '').trim();
+                return line.includes(wordToCheck);
+            });
         });
 
 
