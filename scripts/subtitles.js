@@ -1,8 +1,15 @@
+let wordTableIdCounter = 1;
 let wordTableData = JSON.parse(localStorage.getItem('wordTableData')) || [];
 
 fetch('./scripts/dwt-0529.json')
     .then(response => response.json())
     .then(data => {
+        data.forEach((item, index) => {
+            if (!item.hasOwnProperty('number' || item.number === '')) {
+                item.number = wordTableIdCounter++;
+            }
+        });
+
         if (wordTableData.length < 1) {
             wordTableData = data;
             localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
@@ -318,7 +325,6 @@ inputText.addEventListener('paste', handleInput);
 
 // rules
 document.addEventListener("DOMContentLoaded", function () {
-    let wordTableIdCounter = 1;
 
     const addWordForm = document.getElementById("addWordForm");
     const wordTableBody = document.querySelector("#wordTable tbody");
@@ -393,6 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (row.classList.contains('pcp-1')) return 'pcp-1';
         if (row.classList.contains('pcp-2')) return 'pcp-2';
         if (row.classList.contains('name')) return 'name';
+        if (row.classList.contains('vgt')) return 'vgt';
         if (row.classList.contains('all')) return 'all';
         return null;
     }
