@@ -942,20 +942,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function findExistingRow(data) {
         const tableRows = wordTableBody.querySelectorAll('tr');
+        const dataCategory = getCategoryFromData(data);
+
         for (let i = 0; i < tableRows.length; i++) {
             const row = tableRows[i];
             const td = row.querySelectorAll('td');
-            if (td[2].textContent.trim() === data.word) {
+            const hasAllClass = row.classList.contains('all');
+            const rowCategory = getCategoryFromRow(row);
+
+            if ((td[0].textContent.trim() === data.word) && (hasAllClass || rowCategory === dataCategory)) {
                 return row;
             }
         }
         return null;
     }
 
+    function getCategoryFromData(data) {
+        return data.category;
+    }
+
+    function getCategoryFromRow(row) {
+        if (row.classList.contains('pcp-1')) return 'pcp-1';
+        if (row.classList.contains('pcp-2')) return 'pcp-2';
+        if (row.classList.contains('name')) return 'name';
+        if (row.classList.contains('all')) return 'all';
+        return null;
+    }
+
     function createRow(data) {
         const existingRow = findExistingRow(data);
         if (existingRow) {
-            oml2d.tipsMessage('已有新增詞彙了！');
+            alert('已有新增詞彙了！');
             return null;
         }
 
@@ -971,21 +988,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         newRow.innerHTML = `
             <th></th>
-            <td class="editable role-word">${data.word}</td>  
+            <td class="editable role-word">${data.word}</td>
             <td class="editable role-correct">${data.correct}</td>
             <td class="editable role-annotation">${data.annotation}</td>
         `;
         return newRow;
     }
 
-    function saveData(newRow, isNewRow) {
+    function saveData(newRow) {
         const tdList = newRow.querySelectorAll('td');
         const rowData = {
             category: newRow.classList[0],
             word: tdList[0].textContent.trim(),
             correct: tdList[1].textContent.trim(),
             annotation: tdList[2].textContent.trim(),
-            number: parseInt(newRow.classList[1].split('-')[1])
+            number: parseInt(newRow.id.split('-')[1])
         };
 
         let savedData = localStorage.getItem('wordTableData');
@@ -994,9 +1011,7 @@ document.addEventListener("DOMContentLoaded", function () {
             rowDataArray = JSON.parse(savedData);
         }
 
-        const existingIndex = rowDataArray.findIndex(item =>
-            item.word === rowData.word
-        );
+        const existingIndex = rowDataArray.findIndex(item => item.word === rowData.word && item.category === rowData.category);
 
         if (existingIndex !== -1) {
             rowDataArray[existingIndex] = rowData;
