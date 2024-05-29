@@ -1,4 +1,3 @@
-
 // header
 
 fetch('header.txt')
@@ -6,6 +5,9 @@ fetch('header.txt')
   .then(html => {
     document.querySelector('header').innerHTML = html;
   })
+
+
+
 
 // totop
 
@@ -54,8 +56,7 @@ async function initOml2dAndEvents() {
     dockedPosition: 'right',
     primaryColor: '#285166',
     sayHello: false,
-    models: [
-      {
+    models: [{
         "path": "https://model.oml2d.com/cat-black/model.json",
         "scale": 0.14,
         "position": [0, 20],
@@ -74,8 +75,7 @@ async function initOml2dAndEvents() {
     ],
     menus: {
       disable: false,
-      items: [
-        {
+      items: [{
           id: 'Rest',
           icon: 'icon-rest',
           title: '休息',
@@ -119,7 +119,7 @@ async function initOml2dAndEvents() {
       ]
     },
     statusBar: {
-      disable:  false,
+      disable: false,
       loadSuccessMessage: '打卡上班',
       loadingMessage: '載入中',
       reloadMessage: '重新載入',
@@ -130,8 +130,7 @@ async function initOml2dAndEvents() {
       copyTips: {
         message: ['複製了什麼呢~'],
       },
-      idleTips: {
-      },
+      idleTips: {},
       welcomeTips: {
         priority: 1,
         message: {
@@ -153,15 +152,14 @@ async function initOml2dAndEvents() {
 
 initOml2dAndEvents().then((oml2d) => {
   console.error('OML2D initialization error:', error);
-}).catch((error) => {
-});
+}).catch((error) => {});
 
 // Settings
 function openSettingsPopup() {
   const settingsPopup = document.querySelector('#settingsPopup');
   settingsPopup.style.display = 'block';
   setTimeout(function () {
-      settingsPopup.style.opacity = '1';
+    settingsPopup.style.opacity = '1';
   }, 10);
 }
 
@@ -172,6 +170,6 @@ function closeSettingsPopup() {
   const settingsPopup = document.querySelector('#settingsPopup');
   settingsPopup.style.opacity = '0';
   setTimeout(function () {
-      settingsPopup.style.display = 'none';
+    settingsPopup.style.display = 'none';
   }, 300);
 }
