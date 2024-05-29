@@ -670,6 +670,8 @@
     EvoCalendar.prototype.addEventList = function (event_data) {
         var _ = this,
             markup;
+        event_data.type = event_data.type.replace(/\s+/g, '');
+        console.log(event_data.type)
         var eventListEl = _.$elements.eventEl.find('.event-list');
         if (eventListEl.find('[data-event-index]').length === 0) eventListEl.empty();
         _.$active.events.push(event_data);
@@ -678,7 +680,7 @@
         if (event_data.color) {
             markup += 'style="background-color:' + event_data.color + '"'
         }
-        markup += '></div></div><div class="event-info"><p class="event-title">' + _.limitTitle(event_data.name) + event_data.episode;
+        markup += '></div></div><div class="event-info"><p class="event-title fs-5">' + _.limitTitle(event_data.name) + event_data.episode;
         if (event_data.badge) markup += '<span>' + event_data.badge + '</span>';
         markup += '</p>'
         if (event_data.unit) markup += '<span>' + event_data.unit + '</span>';
@@ -792,6 +794,7 @@
         var _ = this,
             htmlToAppend, thisDate;
         var event_date = event.date;
+        var typeCheck = event.type;
         var type = _.stringCheck(event.type);
         var startDate = Array.isArray(event_date) ? event_date[0] : event_date;
         var endDate = Array.isArray(event_date) ? event_date[1] : null;
@@ -811,6 +814,9 @@
                 console.warn('Date element not found:', date);
                 return;
             }
+            if (shouldSkipType(typeCheck)) {
+                return;
+            }
 
             if (thisDate.find('span.event-indicator').length === 0) {
                 thisDate.append('<span class="event-indicator"></span>');
@@ -826,6 +832,11 @@
                 htmlToAppend += '></div></div>';
                 thisDate.find('.event-indicator').append(htmlToAppend);
             }
+        }
+
+        function shouldSkipType(type) {
+            const skipTypes = ['全國第一勇', '台灣最前線', '財經週末趴'];
+            return skipTypes.some(skipType => type.includes(skipType));
         }
     };
 

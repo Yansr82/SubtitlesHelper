@@ -11,6 +11,7 @@ $lg-font-color: #f7f7f7;
 
 #main-container {
     #data-section {
+
         #filter-wrapper {
 
             #filter {
@@ -113,6 +114,40 @@ $lg-font-color: #f7f7f7;
         }
 
         #events-table {
+            #data-nav {
+                padding: .5rem 0;
+                display: flex;
+                justify-content: space-between;
+                background-color: transparent;
+
+                #filter-perpage,
+                input {
+                    border-radius: 5px;
+                }
+
+                input {
+                    padding: 4px;
+                }
+            }
+
+            .left-items {
+                display: flex;
+                align-items: center;
+
+                ul,
+                li {
+                    background-color: transparent;
+                    border-left-style: none;
+                }
+            }
+
+            .right-item {
+                input {
+                    height: 100%;
+                }
+            }
+
+
             .list-head li {
                 background-color: #454545;
                 border-left-color: darken($gray-color, 10%);
@@ -144,7 +179,7 @@ $lg-font-color: #f7f7f7;
             }
 
             .events-list {
-                min-height: 710px;
+                // min-height: 710px;
 
                 .event-item {
                     border-bottom: 1px solid #252525;
@@ -202,6 +237,28 @@ $lg-font-color: #f7f7f7;
                 }
             }
 
+            #tabs-nav {
+                margin-top: 2px;
+
+                ul {
+                    background-color: transparent;
+                    justify-content: end;
+
+                    li {
+                        border-left-style: none;
+
+                        .page-link {
+                            background-color: $calendar-color;
+                            color: $lg-font-color;
+                            border-color: $border-color;
+
+                            &:focus {
+                                box-shadow: 0 0 0 .25rem rgba($lg-font-color, .8);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -334,14 +391,6 @@ $lg-font-color: #f7f7f7;
                                 background-color: #77DD77;
                             }
 
-                            .type-台灣最前線 {
-                                background-color: #FF6961;
-                            }
-
-                            .type-全國第一勇 {
-                                background-color: #4682B4;
-                            }
-
                             .type-愛的榮耀 {
                                 background-color: #9932CC;
                             }
@@ -389,6 +438,16 @@ $lg-font-color: #f7f7f7;
                             .type-綜藝新時代 {
                                 background-color: #87CEEB;
                             }
+
+
+                            // .type-台灣最前線,
+                            // .type-全國第一勇,
+                            // .type-財經週末趴,
+                            // .type-短影音\ -\ 全國第一勇,
+                            // .type-SOT\ -\ 全國第一勇,
+                            // .type-SOT\ -\ 台灣最前線 {
+                            //     background-color: #FF6961;
+                            // }
                         }
                     }
                 }
@@ -448,14 +507,6 @@ $lg-font-color: #f7f7f7;
                     background-color: #77DD77;
                 }
 
-                .event-bullet-台灣最前線 {
-                    background-color: #FF6961;
-                }
-
-                .event-bullet-全國第一勇 {
-                    background-color: #4682B4;
-                }
-
                 .event-bullet-愛的榮耀 {
                     background-color: #9932CC;
                 }
@@ -504,12 +555,26 @@ $lg-font-color: #f7f7f7;
                     background-color: #87CEEB;
                 }
 
+                .event-bullet-台灣最前線,
+                .event-bullet-全國第一勇,
+                .event-bullet-財經週末趴,
+                .event-bullet-短影音-全國第一勇,
+                .event-bullet-SOT-全國第一勇,
+                .event-bullet-SOT-台灣最前線 {
+                    background-color: #FF6961;
+                }
+
 
             }
 
             .event-info {
                 p.event-title {
+                    position: relative;
+
                     span {
+                        position: absolute;
+                        top: -20px;
+                        left: 0;
                         color: $calendar-color;
                         border-color: $calendar-color;
                         background-color: rgba($calendar-color, .1);

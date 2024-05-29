@@ -271,6 +271,31 @@ hr {
 #main-container #data-section ul li span:nth-of-type(2), #main-container #data-section ul li span:nth-of-type(6) {
   width: 10%;
 }
+#main-container #data-section #events-table #data-nav {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+}
+#main-container #data-section #events-table #data-nav #filter-perpage,
+#main-container #data-section #events-table #data-nav input {
+  border-radius: 5px;
+}
+#main-container #data-section #events-table #data-nav input {
+  padding: 4px;
+}
+#main-container #data-section #events-table .left-items {
+  display: flex;
+  align-items: center;
+}
+#main-container #data-section #events-table .left-items ul,
+#main-container #data-section #events-table .left-items li {
+  background-color: transparent;
+  border-left-style: none;
+}
+#main-container #data-section #events-table .right-item input {
+  height: 100%;
+}
 #main-container #data-section #events-table .list-head li {
   background-color: #454545;
   border-left-color: #646464;
@@ -295,9 +320,6 @@ hr {
 #main-container #data-section #events-table .list-head li span.asc:after {
   border-width: 0 0.25em 0.3em 0.25em;
   border-color: transparent transparent #f7f7f7 transparent;
-}
-#main-container #data-section #events-table .events-list {
-  min-height: 710px;
 }
 #main-container #data-section #events-table .events-list .event-item {
   border-bottom: 1px solid #252525;
@@ -340,6 +362,24 @@ hr {
 }
 #main-container #data-section #events-table .events-list .event-item:nth-child(4n+4) {
   border-left-color: #98552e;
+}
+#main-container #data-section #events-table #tabs-nav {
+  margin-top: 2px;
+}
+#main-container #data-section #events-table #tabs-nav ul {
+  background-color: transparent;
+  justify-content: end;
+}
+#main-container #data-section #events-table #tabs-nav ul li {
+  border-left-style: none;
+}
+#main-container #data-section #events-table #tabs-nav ul li .page-link {
+  background-color: #D77D77;
+  color: #f7f7f7;
+  border-color: rgba(125, 125, 125, 0.1882352941);
+}
+#main-container #data-section #events-table #tabs-nav ul li .page-link:focus {
+  box-shadow: 0 0 0 0.25rem rgba(247, 247, 247, 0.8);
 }
 
 .hero {
@@ -433,12 +473,6 @@ hr {
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-新聞觀測站 {
   background-color: #77DD77;
 }
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣最前線 {
-  background-color: #FF6961;
-}
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-全國第一勇 {
-  background-color: #4682B4;
-}
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-愛的榮耀 {
   background-color: #9932CC;
 }
@@ -516,12 +550,6 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-新聞觀測站 {
   background-color: #77DD77;
 }
-#calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線 {
-  background-color: #FF6961;
-}
-#calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇 {
-  background-color: #4682B4;
-}
 #calendar .calendar-events .event-container .event-icon .event-bullet-愛的榮耀 {
   background-color: #9932CC;
 }
@@ -557,6 +585,14 @@ hr {
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-綜藝新時代 {
   background-color: #87CEEB;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
+#calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇,
+#calendar .calendar-events .event-container .event-icon .event-bullet-財經週末趴,
+#calendar .calendar-events .event-container .event-icon .event-bullet-短影音-全國第一勇,
+#calendar .calendar-events .event-container .event-icon .event-bullet-SOT-全國第一勇,
+#calendar .calendar-events .event-container .event-icon .event-bullet-SOT-台灣最前線 {
+  background-color: #FF6961;
 }
 #calendar .calendar-events .event-container .event-info p.event-title span {
   color: #D77D77;

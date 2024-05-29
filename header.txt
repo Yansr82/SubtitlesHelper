@@ -5,7 +5,7 @@
         <a href="./index.html" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto  text-decoration-none">
           <img src="images/logo3.png" style="width:40px" alt="Logo">
         </a>
-
+  
         <ul class="nav d-none d-sm-flex col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
           <li>
             <a href="./index.html" class="nav-link">
@@ -32,10 +32,9 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link ">
-
-              #
-            </a>
+<script async src="https://cse.google.com/cse.js?cx=901d7f25d409c44ef">
+</script>
+<div class="gcse-searchbox-only"></div>
           </li>
         </ul>
       </div>
