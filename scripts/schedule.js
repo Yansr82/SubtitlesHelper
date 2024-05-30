@@ -4,6 +4,10 @@ let userListInitialized = false;
 let userList;
 
 $(document).ready(function () {
+  let events = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+  let eventIdCounter = events.length ? Math.max(...events.map(event => event.id)) + 1 : 1;
+  let userListInitialized = false;
+
   $("#calendar")
     .evoCalendar({
       format: "yyyy-mm-dd",
@@ -13,15 +17,16 @@ $(document).ready(function () {
       eventDisplayDefault: true,
       calendarEvents: events
     })
+    .off('selectDate')
     .on('selectDate', function () {
       const active_date = $('#calendar').evoCalendar('getActiveDate');
-      console.log(active_date);
       $('#Event-canvas').offcanvas('show');
       $('#startDate').val(active_date);
+      const dateObj = new Date(active_date);
+      dateObj.setDate(dateObj.getDate() + 5);
+      $('#endDate').val(dateObj.toISOString().substring(0, 10));
 
-      $('#addevent').off('click');
-
-      $('#addevent').on('click', function () {
+      $('#addevent').off('click').on('click', function () {
         const eventId = eventIdCounter++;
         const eventName = $('#event-type').val();
         const episode = $('#event-episode').val();
@@ -86,7 +91,7 @@ $(document).ready(function () {
           category: (eventName == '全國第一勇' || eventName == '台灣最前線') ? 'LIVE' : 'PROGRAM',
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unit,
-          episode: episode,
+          episode: episode ? ' ' + '#' + episode : '',
           partner: partner,
           description: description,
         };
@@ -103,6 +108,11 @@ $(document).ready(function () {
 
 function updateEventList(newEvent = null, startDate) {
   const eventsList = $('.events-list');
+
+  if (!events || events.length === 0) {
+    eventsList.empty();
+    return;
+  }
 
   if (newEvent) {
     const eventDate = Array.isArray(newEvent.date) ? new Date(newEvent.date[0]) : new Date(newEvent.date);
@@ -167,7 +177,7 @@ function updateEventList(newEvent = null, startDate) {
   }
 
   // Filter
-  $('#filter-category, #filter-month').on('change', function () {
+  $('#filter-category, #filter-month').off('change').on('change', function () {
     const selectedCategory = $('#filter-category').val();
     const selectedMonth = $('#filter-month').val();
     userList.filter(item => {
@@ -216,7 +226,7 @@ $(function () {
     },
     {
       program: '新聞觀測站',
-      unit: ''
+      unit: '1'
     },
     {
       program: '台灣最前線',
@@ -228,7 +238,7 @@ $(function () {
     },
     {
       program: '愛的榮耀',
-      unit: ''
+      unit: '2.5'
     },
     {
       program: '故事屋',
@@ -236,18 +246,18 @@ $(function () {
     },
     {
       program: '台灣傳奇',
-      unit: ''
+      unit: '1.5'
     },
     {
-      program: '全能歌手',
-      unit: ''
+      program: '超級冰冰Show',
+      unit: '1'
     },
     {
       program: '美鳳有約',
       unit: '1'
     },
     {
-      program: 'GoGo台灣',
+      program: 'GoGo Taiwan',
       unit: '1'
     },
     {
@@ -336,15 +346,22 @@ function exportToExcel() {
     const typing = getStatusNumber(statusText, '聽打');
     const proofreading = getStatusNumber(statusText, '校正');
     const tc = getStatusNumber(statusText, '上字');
+    const partner = $(item.elm).find('.filter-partner').text();
+
+    const receivedDateText = $(item.elm).find('.filter-received').text();
+    const deadlineDateText = $(item.elm).find('.filter-deadline').text();
+    const receivedDate = parseDateString(receivedDateText);
+    const deadlineDate = parseDateString(deadlineDateText);
 
     return {
       '節目': $(item.elm).find('.filter-name').text(),
       '集數': $(item.elm).find('.filter-episode').text(),
-      '接收日期': $(item.elm).find('.filter-received').text(),
-      '截止日期': $(item.elm).find('.filter-deadline').text(),
+      '接收日期': receivedDate,
+      '截止日期': deadlineDate,
       '聽打': typing,
       '校正': proofreading,
-      '上字': tc
+      '上字': tc,
+      '搭檔': partner
     };
   });
 
@@ -421,6 +438,17 @@ function exportToExcel() {
   });
 }
 
+function parseDateString(dateString) {
+  const parts = dateString.split('-');
+  if (parts.length === 3) {
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1;
+    const day = parseInt(parts[2]);
+    return `${year}-${month}-${day}`;
+  }
+  return null;
+}
+
 function getStringWidth(str) {
   const fontSize = 14;
   const font = `${fontSize}px Arial`;
@@ -430,43 +458,194 @@ function getStringWidth(str) {
   return context.measureText(str).width;
 }
 
+// import XLSX
+
+$('#import').on('change', function (event) {
+  const file = event.target.files[0];
+  importFile(file);
+});
+
+function importFile(file) {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, {
+      type: 'array',
+      cellNF: true
+    });
+
+    const sheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[sheetName];
+    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+    const eventsData = jsonData.map(row => {
+      
+
+      const startDate = row['接收日期'];
+      const endDate = row['截止日期'];
+
+      const units = [];
+      if (row['校正']) units.push(`校正 ${row['校正']}`);
+      if (row['聽打']) units.push(`聽打 ${row['聽打']}`);
+      if (row['上字']) units.push(`上字 ${row['上字']}`);
+      const unitsStr = units.length > 0 ? units.join(' / ') : '';
+
+      const eventName = row['節目'] ? row['節目'] : console.error('缺少節目名稱');
+
+      return {
+        id: eventIdCounter++,
+        name: eventName,
+        date: startDate && endDate ? [startDate, endDate] : startDate || endDate,
+        type: eventName,
+        episode: row['集數'],
+        category: (eventName == '全國第一勇' || eventName == '台灣最前線') ? 'LIVE' : 'PROGRAM',
+        badge: endDate ? `回件日 ${endDate}` : `當日`,
+        units: unitsStr,
+        partner: row['搭檔'] ? row['搭檔'] : '',
+      };
+    }).filter(event => event !== null);
+
+    events.push(...eventsData);
+    localStorage.setItem('calendarEvents', JSON.stringify(events));
+    $("#calendar").evoCalendar('addCalendarEvent', eventsData);
+    updateEventList(eventsData);
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+
+
+
+
+
+
 
 
 // quickadd - sot/live
 $(document).ready(function () {
-  $('#quick-add-btn').on('click', function () {
+  $('#quick-add-btn').off('click').on('click', function (event) {
+    event.stopPropagation();
     $('#quick-add-container').toggle('fast');
     $('#quick-add-btn').toggleClass('active');
-    $('#quick-add-submit').on('click', function () {
-      const date = new Date();
-      let year = date.getFullYear();
-      let month = date.getMonth() + 1;
-      let day = date.getDate();
 
-      const eventId = eventIdCounter++;
-      const eventName = $('#quick-add-type').val();
-      const today = `${year}-${month}-${day}`;
-      const typing = $('#quick-add-work').val() === "1";
-      const proofreading = $('#quick-add-work').val() === "2";
-      const tc = $('#quick-add-work').val() === "3";
-      const quickAddUnit = $('#quick-add-unit').val();
+    $(document).on('click', function (event) {
+      if (!$(event.target).closest('#quick-add-btn').length && !$(event.target).closest('#quick-add-container').length) {
+        $('#quick-add-container').hide('fast');
+        $('#quick-add-btn').removeClass('active');
+      }
+    });
 
-      const newEvent = {
-        id: eventId,
-        name: eventName,
-        date: today,
-        type: eventName,
-        episode: '',
-        category: eventName.includes('SOT') ? 'SOT' : 'LIVE',
-        badge: `LIVE ${typing ? '聽打' : ''} ${proofreading ? '校正' : ''} ${tc ? '上字' : ''}`,
-        units: typing ? '聽打 ' + quickAddUnit : proofreading ? '校正 ' + quickAddUnit : tc ? '上字 ' + quickAddUnit : '',
+    const originalDisabledStates = {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true
+    };
 
-      };
+    $('#quick-add-type').on('change', function () {
+      const type = $('#quick-add-type').val();
 
-      events.push(newEvent);
-      localStorage.setItem('calendarEvents', JSON.stringify(events));
-      $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
-      updateEventList(newEvent, today);
-    })
+      if (type.includes('短影音')) {
+        $('#quick-add-work option').prop('disabled', true);
+        $('#quick-add-work option[value="1"]').prop('disabled', false).prop('selected', true);
+      } else if (type.includes('SOT')) {
+        $('#quick-add-work option').prop('disabled', false);
+      } else {
+        $('#quick-add-work option').each(function () {
+          const value = $(this).val();
+          $(this).prop('disabled', originalDisabledStates[value] && value !== "1" && value !== "2" && value !== "3");
+        });
+        $('#quick-add-work option[value="1"]').prop('selected', true);
+      }
+    });
   });
-})
+
+  $('#quick-add-submit').off('click').on('click', function () {
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    const eventId = eventIdCounter++;
+    const eventName = $('#quick-add-type').val();
+    const today = `${year}-${month}-${day}`;
+    const typing = $('#quick-add-work').val() === "1";
+    const proofreading = $('#quick-add-work').val() === "2";
+    const tc = $('#quick-add-work').val() === "3";
+    const quickAddUnit = $('#quick-add-unit').val();
+    const newEvent = {
+      id: eventId,
+      name: eventName,
+      date: today,
+      type: eventName,
+      episode: '',
+      category: eventName.includes('SOT') ? 'SOT' : 'LIVE',
+      badge: `LIVE ${typing ? '聽打' : ''} ${proofreading ? '校正' : ''} ${tc ? '上字' : ''}`,
+      units: typing ? '聽打 ' + quickAddUnit : proofreading ? '校正 ' + quickAddUnit : tc ? '上字 ' + quickAddUnit : '',
+    };
+
+    events.push(newEvent);
+    localStorage.setItem('calendarEvents', JSON.stringify(events));
+    $("#calendar").evoCalendar('addCalendarEvent', [newEvent]);
+    updateEventList(newEvent, today);
+  });
+
+});
+
+
+// 分頁
+$(document).ready(function () {
+  let itemsPerPage = -1;
+  const eventItems = $('.event-item');
+  const pagination = $('.pagination');
+  let currentPage = 0;
+
+  pagination.on('click', '.page-link', function (event) {
+    event.preventDefault();
+    currentPage = $(this).text() - 1;
+    updateDisplay();
+  });
+
+  $('#filter-perpage').on('change', function () {
+    itemsPerPage = parseInt($(this).val());
+    if (itemsPerPage === -1) {
+      itemsPerPage = eventItems.length;
+    }
+    const itemHeight = 70;
+    const listHeight = itemsPerPage * itemHeight;
+
+    $('.events-list').css('min-height', (listHeight) + 'px');
+    currentPage = 0;
+    generatePagination();
+    updateDisplay();
+  });
+
+  function updateDisplay() {
+    if (itemsPerPage === eventItems.length) {
+      eventItems.show();
+    } else {
+      eventItems.hide().slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).show();
+    }
+  }
+
+  function generatePagination() {
+    pagination.empty();
+    if (itemsPerPage === eventItems.length) {
+      return;
+    }
+    const totalPages = Math.ceil(eventItems.length / itemsPerPage);
+    for (let i = 0; i < totalPages; i++) {
+      const listItem = $('<li class="page-item"><a class="page-link" href="#">' + (i + 1) + '</a></li>');
+      if (i === currentPage) {
+        listItem.addClass('active');
+      }
+      listItem.click(function () {
+        currentPage = i;
+        updateDisplay();
+      });
+      pagination.append(listItem);
+    }
+  }
+
+  generatePagination();
+  updateDisplay();
+});
