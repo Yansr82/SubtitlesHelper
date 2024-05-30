@@ -1,24 +1,27 @@
 let wordTableIdCounter = 1;
 let wordTableData = JSON.parse(localStorage.getItem('wordTableData')) || [];
 
-fetch('./scripts/dwt-0530.json')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach((item, index) => {
-            if (!item.hasOwnProperty('number') || item.number === '') {
-                item.number = wordTableIdCounter++;
-            }
-        });
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('./scripts/dwt-0530.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach((item, index) => {
+                if (!item.hasOwnProperty('number') || item.number === '') {
+                    item.number = wordTableIdCounter++;
+                }
+            });
 
-        if (wordTableData.length < 1) {
-            wordTableData = data;
-            localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
-            location.reload();
-        }
-    })
-    .catch(error => {
-        console.error('Error loading JSON:', error);
-    });
+            if (wordTableData.length < 1 || wordTableData.length < data.length) {
+                wordTableData = data;
+                localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
+                location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+})
+
 
 
 const restoreButton = document.getElementById('resetlocalStorage');
