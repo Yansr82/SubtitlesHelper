@@ -27,6 +27,7 @@ restoreButton.addEventListener('click', function () {
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('wordTableData', JSON.stringify(data));
+            location.reload();
         })
         .catch(error => {
             console.error('Error loading default JSON:', error);
