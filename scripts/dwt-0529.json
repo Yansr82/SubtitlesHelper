@@ -673,128 +673,156 @@
         },
         {
                 "category": "vgt",
-                "correct": "1千",
+                "correct": "1千,一千",
                 "word": "1000",
                 "annotation": "",
                 "number": ""
         },
         {
                 "category": "vgt",
-                "correct": "2千",
+                "correct": "2千,兩千",
                 "word": "2000",
                 "annotation": "",
                 "number": ""
         },
         {
                 "category": "vgt",
-                "correct": "3千",
+                "correct": "3千,三千",
                 "word": "3000",
                 "annotation": "",
                 "number": ""
         },
         {
-                "category": "vgt",
-                "correct": "4千",
-                "word": "4000",
+    "category": "vgt",
+    "correct": "4千",
+    "word": "4000,四千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "5千",
+    "word": "5000,五千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "6千",
+    "word": "6000,六千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "7千",
+    "word": "7000,七千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "8千",
+    "word": "8000,八千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "9千",
+    "word": "9000,九千",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "1萬",
+    "word": "10000,一萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "2萬",
+    "word": "20000,二萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "3萬",
+    "word": "30000,三萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "4萬",
+    "word": "40000,四萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "5萬",
+    "word": "50000,五萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "6萬",
+    "word": "60000,六萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "7萬",
+    "word": "70000,七萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "8萬",
+    "word": "80000,八萬",
+    "annotation": "",
+    "number": ""
+},
+{
+    "category": "vgt",
+    "correct": "9萬",
+    "word": "90000,九萬",
+    "annotation": "",
+    "number": ""
+},
+        {
+                "category": "all",
+                "correct": "阿姨/大叔",
+                "word": "歐吉桑,歐巴桑",
                 "annotation": "",
                 "number": ""
         },
         {
-                "category": "vgt",
-                "correct": "5千",
-                "word": "5000",
-                "annotation": "",
+                "category": "all",
+                "correct": "煉金",
+                "word": "鍊金",
+                "annotation": "240530會議",
                 "number": ""
         },
         {
-                "category": "vgt",
-                "correct": "6千",
-                "word": "6000",
-                "annotation": "",
+                "category": "all",
+                "correct": "雞佛",
+                "word": "雞佛,雞胇",
+                "annotation": "240530會議",
                 "number": ""
         },
         {
-                "category": "vgt",
-                "correct": "7千",
-                "word": "7000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "8千",
-                "word": "8000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "9千",
-                "word": "9000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "1萬",
-                "word": "10000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "2萬",
-                "word": "20000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "3萬",
-                "word": "30000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "4萬",
-                "word": "40000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "5萬",
-                "word": "50000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "6萬",
-                "word": "60000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "7萬",
-                "word": "70000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "8萬",
-                "word": "80000",
-                "annotation": "",
-                "number": ""
-        },
-        {
-                "category": "vgt",
-                "correct": "9萬",
-                "word": "90000",
-                "annotation": "",
+                "category": "all",
+                "correct": "枝椏",
+                "word": "枝亞,枝枒,枝牙",
+                "annotation": "240530會議",
                 "number": ""
         }
 ]
