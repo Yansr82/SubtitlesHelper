@@ -14,6 +14,12 @@
             </a>
           </li>
           <li>
+            <a href="./subtitles.html" class="nav-link">
+
+              字幕作業
+            </a>
+          </li>
+          <li>
 
             <a href="./schedule.html" class="nav-link ">
 
