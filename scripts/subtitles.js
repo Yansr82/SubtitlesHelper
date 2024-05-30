@@ -1,7 +1,7 @@
 let wordTableIdCounter = 1;
 let wordTableData = JSON.parse(localStorage.getItem('wordTableData')) || [];
 
-fetch('./scripts/dwt-0529.json')
+fetch('./scripts/dwt-0530.json')
     .then(response => response.json())
     .then(data => {
         data.forEach((item, index) => {
@@ -27,7 +27,6 @@ restoreButton.addEventListener('click', function () {
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('wordTableData', JSON.stringify(data));
-            location.reload();
         })
         .catch(error => {
             console.error('Error loading default JSON:', error);

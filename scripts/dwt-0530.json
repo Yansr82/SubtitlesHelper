@@ -814,7 +814,7 @@
   {
     "category": "all",
     "correct": "雞佛",
-    "word": "雞佛,雞胇",
+    "word": "雞胇",
     "annotation": "240530會議",
     "number": ""
   },
@@ -824,5 +824,37 @@
     "word": "枝亞,枝枒,枝牙",
     "annotation": "240530會議",
     "number": ""
+  },
+{
+    "category": "all",
+    "correct": "搜尋",
+    "word": "收尋",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "稀哩呼嚕",
+    "word": "稀里呼嚕",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "捨生取義",
+    "word": "捨身取義",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "統統",
+    "word": "通通",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "一旦",
+    "word": "一但",
+    "annotation": "",
+    "number": ""
   }
+
 ]
