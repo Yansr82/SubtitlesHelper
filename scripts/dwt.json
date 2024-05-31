@@ -316,7 +316,7 @@
   },
   {
     "category": "pcp-1",
-    "word": "韓國[韓國瑜],北韓",
+    "word": "韓國[韓國瑜],北韓[南北韓]",
     "correct": "南韓/北朝鮮",
     "annotation": "",
     "number": 86
@@ -869,12 +869,12 @@
     "number": ""
   },{
     "category": "all",
-    "correct": "儘快",
+    "correct": "儘",
     "word": "盡快,盡速,盡管",
     "annotation": "",
     "number": ""
   },{
-    "category": "ALL",
+    "category": "all",
     "correct": "盡",
     "word": "儘量,儘可能,儘力",
     "annotation": "",
