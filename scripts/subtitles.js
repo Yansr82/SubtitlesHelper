@@ -2,7 +2,7 @@ let wordTableIdCounter = 1;
 let wordTableData = JSON.parse(localStorage.getItem('wordTableData')) || [];
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('./scripts/dwt-0530.json')
+    fetch('./scripts/dwt.json')
         .then(response => response.json())
         .then(data => {
             data.forEach((item, index) => {
