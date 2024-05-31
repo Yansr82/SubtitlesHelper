@@ -30,7 +30,7 @@
   {
     "category": "all",
     "correct": "山洪暴發",
-    "word": "山洪爆發",
+    "word": "山洪爆發",	
     "annotation": "",
     "number": 41
   },
@@ -407,8 +407,8 @@
   },
   {
     "category": "all",
-    "correct": "日據",
-    "word": "日治",
+    "correct": "日治",
+    "word": "日據",
     "annotation": "",
     "number": 129
   },
@@ -877,6 +877,12 @@
     "category": "all",
     "correct": "盡",
     "word": "儘量,儘可能,儘力",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "週刊",
+    "word": "周刊[今周刊][商業周刊]",
     "annotation": "",
     "number": ""
   }
