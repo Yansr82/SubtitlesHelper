@@ -859,12 +859,24 @@
     "category": "P-3",
     "correct": "00940",
     "word": "940[00940]",
-    "annotation": "",
+    "annotation": "財經股票代號",
     "number": ""
   },{
     "category": "P-3",
     "correct": "00919",
     "word": "919[00919]",
+    "annotation": "財經股票代號",
+    "number": ""
+  },{
+    "category": "all",
+    "correct": "儘快",
+    "word": "盡快,盡速,盡管",
+    "annotation": "",
+    "number": ""
+  },{
+    "category": "ALL",
+    "correct": "盡",
+    "word": "儘量,儘可能,儘力",
     "annotation": "",
     "number": ""
   }
