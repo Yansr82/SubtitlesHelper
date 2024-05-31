@@ -195,6 +195,7 @@ hr {
 }
 #compare .mergely-editor .mergely.ch.ind.lhs {
   background-color: #ffe9e9;
+  text-decoration: none;
 }
 #compare .mergely-editor .mergely.ch.ind.rhs {
   background-color: #ddeeff;
