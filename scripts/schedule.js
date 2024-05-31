@@ -463,6 +463,7 @@ function getStringWidth(str) {
 $('#import').on('change', function (event) {
   const file = event.target.files[0];
   importFile(file);
+  location.reload();
 });
 
 function importFile(file) {
@@ -477,8 +478,16 @@ function importFile(file) {
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
+    if (jsonData.length > 0) {
+      const lastRow = jsonData[jsonData.length - 1];
+      const hasTotal = Object.values(lastRow).some(value => typeof value === 'string' && value.includes('總計'));
+
+      if (hasTotal) {
+        jsonData.pop();
+      }
+    }
+
     const eventsData = jsonData.map(row => {
-      
 
       const startDate = row['接收日期'];
       const endDate = row['截止日期'];
@@ -489,7 +498,7 @@ function importFile(file) {
       if (row['上字']) units.push(`上字 ${row['上字']}`);
       const unitsStr = units.length > 0 ? units.join(' / ') : '';
 
-      const eventName = row['節目'] ? row['節目'] : console.error('缺少節目名稱');
+      const eventName = row['節目'] ? row['節目'] : alert('缺少節目名稱');
 
       return {
         id: eventIdCounter++,
@@ -595,6 +604,7 @@ $(document).ready(function () {
 // 分頁
 $(document).ready(function () {
   let itemsPerPage = -1;
+
   const eventItems = $('.event-item');
   const pagination = $('.pagination');
   let currentPage = 0;

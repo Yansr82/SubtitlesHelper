@@ -1,26 +1,71 @@
-let wordTableIdCounter = 1;
+let wordTableIdCounter = 300;
 let wordTableData = JSON.parse(localStorage.getItem('wordTableData')) || [];
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('./scripts/dwt.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach((item, index) => {
-                if (!item.hasOwnProperty('number') || item.number === '') {
-                    item.number = wordTableIdCounter++;
-                }
-            });
+    let newBadgeData = localStorage.getItem('newBadge') === 'true';
+    const tabsButton = document.querySelector('#check-rules-area-tab');
+    const newBadge = document.querySelector('#rules-update');
 
-            if (wordTableData.length < 1 || wordTableData.length < data.length) {
-                wordTableData = data;
-                localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
-                location.reload();
-            }
-        })
-        .catch(error => {
-            console.error('Error loading JSON:', error);
-        });
-})
+    function updateWordTableData() {
+        fetch('./scripts/dwt.json')
+            .then(response => response.json())
+            .then(data => {
+                let updated = false;
+                let maxNumber = data.reduce((max, item) => (item.number !== undefined && item.number !== null && item.number !== '' && item.number > max ? item.number : max), 0);
+
+                data.forEach(item => {
+
+                    if (item.number === null || item.number === undefined || item.number === '') {
+                        item.number = ++maxNumber;
+                    }
+
+                    if (item.number >= 0 && item.number < 300) {
+                        let existingItem = wordTableData.find(existing => existing.number === item.number);
+                        if (!existingItem || existingItem.word !== item.word || existingItem.correct !== item.correct || existingItem.annotation !== item.annotation || existingItem.category !== item.category) {
+                            if (!existingItem) {
+                                wordTableData.push(item);
+                            } else {
+                                Object.assign(existingItem, item);
+                            }
+                            updated = true;
+                            location.reload();
+                        }
+                    }
+                });
+
+                if (updated || wordTableData.length < 1) {
+                    localStorage.setItem('wordTableData', JSON.stringify(wordTableData));
+                    localStorage.setItem('newBadge', 'true');
+                    newBadgeData = true;
+                }
+
+                checkBadgeDisplay();
+            })
+            .catch(error => {
+                console.error('Error loading JSON:', error);
+            });
+    }
+
+    function checkBadgeDisplay() {
+        if (newBadgeData) {
+            newBadge.style.display = 'block';
+        } else {
+            newBadge.style.display = 'none';
+        }
+    }
+
+    updateWordTableData();
+
+    tabsButton.addEventListener('click', function () {
+        localStorage.setItem('newBadge', 'false');
+        newBadgeData = false;
+        newBadge.style.display = 'none';
+    });
+
+    checkBadgeDisplay();
+});
+
+
 
 
 

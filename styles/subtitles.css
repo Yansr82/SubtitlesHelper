@@ -216,6 +216,9 @@ hr {
   color: rgba(0, 102, 153, 0.8392156863);
   font-weight: 500;
 }
+#listen-tab .nav-link #rules-update {
+  background-color: #619E8D;
+}
 
 /* error color */
 .exceeds-limit {
