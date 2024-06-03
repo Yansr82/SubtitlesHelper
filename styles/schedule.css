@@ -600,13 +600,7 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-SOT-台灣最前線 {
   background-color: #FF6961;
 }
-#calendar .calendar-events .event-container .event-info p.event-title {
-  position: relative;
-}
 #calendar .calendar-events .event-container .event-info p.event-title span {
-  position: absolute;
-  top: -20px;
-  left: 0;
   color: #D77D77;
   border-color: #D77D77;
   background-color: rgba(215, 125, 119, 0.1);
