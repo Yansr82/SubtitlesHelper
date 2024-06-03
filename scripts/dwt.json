@@ -872,5 +872,15 @@
     "correct": "盡",
     "word": "儘量,儘可能,儘力",
     "annotation": ""
-  }
+  },{
+"category": "pcp-1",
+    "correct": "台北國際電腦展",
+    "word": "COMPUTEX",
+    "annotation": ""
+},{
+"category": "pcp-2",
+    "correct": "台北國際電腦展",
+    "word": "COMPUTEX",
+    "annotation": ""
+}
 ]
