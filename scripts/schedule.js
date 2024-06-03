@@ -13,7 +13,7 @@ $(document).ready(function () {
       format: "yyyy-mm-dd",
       eventHeaderFormat: "mm/dd",
       todayHighlight: true,
-      sidebarDisplayDefault: true,
+      sidebarDisplayDefault: false,
       eventDisplayDefault: true,
       calendarEvents: events
     })

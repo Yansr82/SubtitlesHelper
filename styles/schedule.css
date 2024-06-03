@@ -515,6 +515,9 @@ hr {
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-綜藝新時代 {
   background-color: #87CEEB;
 }
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-超級冰冰Show {
+  background-color: #d16eff;
+}
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
   color: #f7f7f7;
@@ -549,6 +552,37 @@ hr {
 }
 #calendar .calendar-events .event-list .event-empty p {
   color: #cb5750;
+}
+#calendar .calendar-events .event-container:hover .event-icon {
+  position: relative;
+}
+#calendar .calendar-events .event-container:hover .event-icon:hover::after {
+  content: "";
+  background-image: url(../images/trash-opening.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#calendar .calendar-events .event-container:hover .event-icon:hover::after.event-icon::after {
+  display: none;
+}
+#calendar .calendar-events .event-container:hover .event-icon > div {
+  height: 0;
+}
+#calendar .calendar-events .event-container:hover .event-icon::after {
+  content: "";
+  background-image: url(../images/trash-can.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣學堂 {
   background-color: #FFB347;
@@ -591,6 +625,9 @@ hr {
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-綜藝新時代 {
   background-color: #87CEEB;
+}
+#calendar .calendar-events .event-container .event-icon .event-bullet-超級冰冰秀 {
+  background-color: #d16eff;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
 #calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇,
