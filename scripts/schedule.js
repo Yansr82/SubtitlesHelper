@@ -609,6 +609,10 @@ $(document).ready(function () {
   const pagination = $('.pagination');
   let currentPage = 0;
 
+  if (itemsPerPage === -1) {
+    itemsPerPage = eventItems.length;
+  }
+
   pagination.on('click', '.page-link', function (event) {
     event.preventDefault();
     currentPage = $(this).text() - 1;
