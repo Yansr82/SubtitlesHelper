@@ -21,9 +21,18 @@
 </head>
 
 <body data-bs-target="#list-glossaries" data-bs-spy="scroll" data-bs-offset="50">
+    <!-- toTop -->
+    <div>
+        <a class="to_top" href="#to_top">
+            <img src="./images/gotop.png" alt="Go to Top">
+        </a>
+    </div>
+    <!-- scrollbar -->
     <div class="scrollbar" id="bar"></div>
+    <!-- navbar -->
     <header class="fixed-top">
     </header>
+    <!-- main -->
     <section id="main-container">
         <main>
             <div class="container-fluid page-container ps-0 pe-0">
@@ -62,7 +71,7 @@
                             <div id="check-word-area" class="section tab-pane fade flex-column active show"
                                 role="tabpanel" aria-labelledby="check-word-area-tab">
                                 <div class="listen">
-                                    <div id="checks-wrapper">
+                                    <div id="toolbar" class="ms-3">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="subtitles-check-1"
                                                 value="all" checked disabled>
@@ -92,6 +101,7 @@
                                             </label>
                                         </div>
                                     </div>
+
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col col-sm-7 d-flex input">
@@ -323,12 +333,7 @@
         </main>
         <div id="oml2d-wrapper"></div>
     </section>
-    <!-- toTop -->
-    <div>
-        <a class="to_top" href="#to_top">
-            <img src="./images/gotop.png" alt="Go to Top">
-        </a>
-    </div>
+    <!-- setting -->
     <section class="setting">
         <div id="settingsPopup" class="popup">
             <button id="closeButton" type="button" class="btn-close btn-close-white float-end"
@@ -344,6 +349,31 @@
                 </div>
             </div>
     </section>
+    <!-- combine -->
+    <div class="fixed-bottom m-2">
+        <button class="bombine-open btn btn-sm btn-primary" data-bs-toggle="modal"
+            data-bs-target="#combine-modal">合檔</button>
+    </div>
+    <div id="combine-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">合檔文件上傳</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check form-check-inline file-drop-area">
+                        <span class="choose-file-button">Choose files</span>
+                        <span class="file-message">or drag and drop files here</span>
+                        <input id="combine-input-btn" class="btn btn-sm file-btn" type="file" accept=".txt" multiple />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

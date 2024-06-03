@@ -188,6 +188,7 @@ hr {
   font-family: "Noto Sans TC";
   resize: none;
   line-height: 1.6;
+  overflow-y: hidden;
 }
 
 .output {
@@ -414,4 +415,45 @@ hr {
   left: 0;
   background-color: rgba(26, 26, 26, 0.8);
   z-index: 1;
+}
+
+#combine-modal .file-drop-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: 200px;
+  padding: 25px;
+  border: 1px dashed rgba(52, 52, 52, 0.4);
+  border-radius: 3px;
+  transition: 0.2s;
+}
+#combine-modal .choose-file-button {
+  flex-shrink: 0;
+  background-color: rgba(52, 52, 52, 0.04);
+  border: 1px solid rgba(52, 52, 52, 0.1);
+  border-radius: 3px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+#combine-modal .file-message {
+  font-size: small;
+  font-weight: 300;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #616161;
+}
+#combine-modal #combine-input-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
 }/*# sourceMappingURL=subtitles.css.map */

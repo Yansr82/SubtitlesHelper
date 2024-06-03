@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     listItem.textContent = `錯誤檢查區`;
     checkArea.appendChild(listItem);
 
-    const checkboxes = document.querySelectorAll('#checks-wrapper input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('#toolbar input[type="checkbox"]');
 
     checkboxes.forEach(function (checkbox, index) {
         checkbox.addEventListener('click', function () {
@@ -364,8 +364,18 @@ function handleInput() {
     }, 0);
 }
 
+function debounce(func, wait) {
+    let timeout;
+    return function () {
+        const context = this,
+            args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
 
-inputText.addEventListener('input', checkTimeCode);
+
+inputText.addEventListener('input', debounce(checkTimeCode, 500));
 inputText.addEventListener('paste', handleInput);
 
 // rules
@@ -594,4 +604,64 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsText(file);
     });
 
+});
+
+// 合檔
+document.addEventListener('change', function (event) {
+    if (event.target.classList.contains('file-btn')) {
+        const filesCount = event.target.files.length;
+        const textbox = event.target.previousElementSibling;
+
+        if (filesCount === 1) {
+            const fileName = event.target.value.split('\\').pop();
+            textbox.textContent = fileName;
+        } else {
+            textbox.textContent = filesCount + ' files selected';
+        }
+    }
+});
+
+const combineBtn = document.getElementById('combine-input-btn');
+const textarea = document.querySelector('.inputText');
+const combineModai = document.querySelector('#combine-modal');
+
+combineBtn.addEventListener('change', function () {
+    const files = Array.from(combineBtn.files);
+    let text = '';
+
+    if (files.length > 0) {
+        files.sort((a, b) => a.name.localeCompare(b.name));
+
+        let filesRead = 0;
+
+        const readFile = (index) => {
+            if (index >= files.length) {
+                textarea.value = text;
+                checkTimeCode();
+                combineBtn.value = '';
+                const combineModal = document.querySelector('#combine-modal');
+                const modalInstance = bootstrap.Modal.getInstance(combineModal);
+                modalInstance.hide();
+                return;
+            }
+
+            const reader = new FileReader();
+            const currentFile = files[index];
+
+            reader.onload = function (event) {
+                text += event.target.result;
+
+                if (index !== files.length - 1) {
+                    text += '\n@\n';
+                }
+
+                filesRead++;
+                readFile(index + 1);
+            };
+
+            reader.readAsText(currentFile);
+        };
+
+        readFile(0);
+    }
 });
