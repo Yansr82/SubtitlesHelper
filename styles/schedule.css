@@ -689,6 +689,10 @@ hr {
 #Event-canvas .checkbox-group > * {
   margin: 0.5rem 0.5rem;
 }
+#Event-canvas #startDate,
+#Event-canvas #endDate {
+  margin: 0.75rem 0;
+}
 #Event-canvas .checkbox-group-legend {
   font-size: 1rem;
   line-height: 1.125;

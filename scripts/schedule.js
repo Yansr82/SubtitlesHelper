@@ -85,7 +85,7 @@ $("#addevent")
         const newEvent = {
           id: eventId + i,
           name: eventName,
-          date: datesForDayOfWeek[i],
+          date: [datesForDayOfWeek[i], datesForDayOfWeek[i]],
           type: eventName,
           category: eventName === "全國第一勇" || eventName === "台灣最前線" ?
             "LIVE" : "PROGRAM",
