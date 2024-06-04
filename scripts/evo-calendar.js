@@ -257,7 +257,38 @@
             if (_.options.theme) _.setTheme(_.options.theme); // set calendar theme
             _.buildTheBones(); // start building the calendar components
         }
+        _.$elements.innerEl.on('mouseenter', '.day', function (event) {
+            _.hoverDate(event);
+        });
+
     };
+
+    //hoverDate 
+
+    EvoCalendar.prototype.hoverDate = function (event) {
+        var _ = this;
+        var date = $(event.currentTarget).attr('data-date-val'); // 使用 attr 方法獲取日期值
+        console.log(date);
+
+        // 確保日期值存在
+        if (date) {
+            // 更新活動日期
+            _.$active.date = date;
+            _.$active.event_date = date;
+
+            // 移除所有日期的活動類
+            _.$elements.innerEl.find('[data-date-val]').removeClass('calendar-active');
+
+            // 將活動類添加到選定的日期
+            $(event.currentTarget).addClass('calendar-active');
+
+            // 構建事件列表
+            _.buildEventList();
+        }
+    };
+
+
+
     // v1.0.0 - Destroy plugin
     EvoCalendar.prototype.destroy = function () {
         var _ = this;

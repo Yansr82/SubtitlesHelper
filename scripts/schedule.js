@@ -21,15 +21,16 @@ $(document).ready(function () {
       eventDisplayDefault: true,
       calendarEvents: events,
     })
-    .off("selectDate")
-    .on("selectDate", function () {
-      const active_date = $("#calendar").evoCalendar("getActiveDate");
-      $("#Event-canvas").offcanvas("show");
-      $("#startDate").val(active_date);
-      const dateObj = new Date(active_date);
-      dateObj.setDate(dateObj.getDate() + 5);
-      $("#endDate").val(dateObj.toISOString().substring(0, 10));
-    });
+  $("#calendar").off("selectDate");
+
+  $("#calendar").on("selectDate", function () {
+    const active_date = $("#calendar").evoCalendar("getActiveDate");
+    $("#Event-canvas").offcanvas("show");
+    $("#startDate").val(active_date);
+    const dateObj = new Date(active_date);
+    dateObj.setDate(dateObj.getDate() + 5);
+    $("#endDate").val(dateObj.toISOString().substring(0, 10));
+  });
 
   updateEventList();
 });
@@ -83,7 +84,7 @@ $("#addevent")
 
       for (let i = 0; i < datesForDayOfWeek.length; i++) {
         const newEvent = {
-          id: eventId + i,
+          id: eventIdCounter,
           name: eventName,
           date: [datesForDayOfWeek[i], datesForDayOfWeek[i]],
           type: eventName,
@@ -100,6 +101,7 @@ $("#addevent")
         localStorage.setItem("calendarEvents", JSON.stringify(events));
         $("#calendar").evoCalendar("addCalendarEvent", [newEvent]);
         updateEventList(newEvent, startDate);
+        eventIdCounter++;
       }
     } else {
       if (endDate && new Date(endDate) <= new Date(startDate)) {
