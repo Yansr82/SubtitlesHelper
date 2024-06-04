@@ -473,6 +473,9 @@ hr {
   color: #f7f7f7;
   background-color: #D77D77;
 }
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator [class^=type-] {
+  background-color: #4a81c0;
+}
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣學堂 {
   background-color: #FFB347;
 }
@@ -517,9 +520,6 @@ hr {
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-超級冰冰Show {
   background-color: #d16eff;
-}
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^=type-] {
-  background-color: #004797;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
@@ -587,6 +587,9 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#calendar .calendar-events .event-container .event-icon [class^=event-bullet-] {
+  background-color: #4a81c0;
+}
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣學堂 {
   background-color: #FFB347;
 }
@@ -639,9 +642,6 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-SOT-全國第一勇,
 #calendar .calendar-events .event-container .event-icon .event-bullet-SOT-台灣最前線 {
   background-color: #FF6961;
-}
-#calendar .calendar-events .event-container .event-icon [class^=event-bullet-] {
-  background-color: #004797;
 }
 #calendar .calendar-events .event-container .event-info p.event-title span {
   color: #D77D77;
