@@ -1,13 +1,15 @@
-let eventIdCounter = 20;
 const events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
+const existingEventIds = events.map(event => event.id);
+const maxEventId = existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
+let eventIdCounter = maxEventId + 1;
 let userListInitialized = false;
 let userList;
 
 $(document).ready(function () {
   let events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
-  let eventIdCounter = events.length
-    ? Math.max(...events.map((event) => event.id)) + 1
-    : 1;
+  const existingEventIds = events.map(event => event.id);
+  const maxEventId = existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
+  eventIdCounter = maxEventId + 1;
   let userListInitialized = false;
 
   $("#calendar")
@@ -85,10 +87,8 @@ $("#addevent")
           name: eventName,
           date: datesForDayOfWeek[i],
           type: eventName,
-          category:
-            eventName === "全國第一勇" || eventName === "台灣最前線"
-              ? "LIVE"
-              : "PROGRAM",
+          category: eventName === "全國第一勇" || eventName === "台灣最前線" ?
+            "LIVE" : "PROGRAM",
           badge: "例行節目",
           units: unit,
           episode: episode ? " " + "#" + episode : "",
@@ -121,10 +121,8 @@ $("#addevent")
         name: eventName,
         date: endDate ? [startDate, endDate] : startDate,
         type: eventName,
-        category:
-          eventName === "全國第一勇" || eventName === "台灣最前線"
-            ? "LIVE"
-            : "PROGRAM",
+        category: eventName === "全國第一勇" || eventName === "台灣最前線" ?
+          "LIVE" : "PROGRAM",
         badge: endDate ? `回件日 ${endDate}` : `當日`,
         units: unit,
         episode: episode ? " " + "#" + episode : "",
@@ -184,14 +182,14 @@ function updateEventList(newEvent = null, startDate) {
   }
 
   if (newEvent) {
-    const eventDate = Array.isArray(newEvent.date)
-      ? new Date(newEvent.date[0])
-      : new Date(newEvent.date);
+    const eventDate = Array.isArray(newEvent.date) ?
+      new Date(newEvent.date[0]) :
+      new Date(newEvent.date);
     const eventMonth = eventDate.getMonth() + 1;
     const formattedEventDate = eventDate.toISOString().split("T")[0];
-    const receivedDate = Array.isArray(newEvent.date)
-      ? newEvent.date[0]
-      : newEvent.date;
+    const receivedDate = Array.isArray(newEvent.date) ?
+      newEvent.date[0] :
+      newEvent.date;
     const deadlineDate = Array.isArray(newEvent.date) ? newEvent.date[1] : "";
 
     const eventItem = `
@@ -231,14 +229,14 @@ function updateEventList(newEvent = null, startDate) {
     eventsList.empty();
 
     events.forEach((event) => {
-      const eventDate = Array.isArray(event.date)
-        ? new Date(event.date[0])
-        : new Date(event.date);
+      const eventDate = Array.isArray(event.date) ?
+        new Date(event.date[0]) :
+        new Date(event.date);
       const eventMonth = eventDate.getMonth() + 1;
       const formattedEventDate = eventDate.toISOString().split("T")[0];
-      const receivedDate = Array.isArray(event.date)
-        ? event.date[0]
-        : event.date;
+      const receivedDate = Array.isArray(event.date) ?
+        event.date[0] :
+        event.date;
       const deadlineDate = Array.isArray(event.date) ? event.date[1] : "";
 
       const eventItem = `
@@ -321,8 +319,7 @@ function initializeUserList() {
 }
 
 $(function () {
-  const eventTypes = [
-    {
+  const eventTypes = [{
       program: "台灣學堂",
       unit: "1",
     },
@@ -502,13 +499,11 @@ function exportToExcel() {
   const range = XLSX.utils.decode_range(worksheet["!ref"]);
   for (let C = range.s.c; C <= range.e.c; ++C) {
     const alignment =
-      C === 0
-        ? {
-            horizontal: "left",
-          }
-        : {
-            horizontal: "center",
-          };
+      C === 0 ? {
+        horizontal: "left",
+      } : {
+        horizontal: "center",
+      };
     for (let R = range.s.r; R <= range.e.r; ++R) {
       const cell =
         worksheet[
@@ -619,14 +614,11 @@ function importFile(file) {
         return {
           id: eventIdCounter++,
           name: eventName,
-          date:
-            startDate && endDate ? [startDate, endDate] : startDate || endDate,
+          date: startDate && endDate ? [startDate, endDate] : startDate || endDate,
           type: eventName,
           episode: row["集數"],
-          category:
-            eventName == "全國第一勇" || eventName == "台灣最前線"
-              ? "LIVE"
-              : "PROGRAM",
+          category: eventName == "全國第一勇" || eventName == "台灣最前線" ?
+            "LIVE" : "PROGRAM",
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unitsStr,
           partner: row["搭檔"] ? row["搭檔"] : "",
@@ -684,9 +676,9 @@ $(document).ready(function () {
             $(this).prop(
               "disabled",
               originalDisabledStates[value] &&
-                value !== "1" &&
-                value !== "2" &&
-                value !== "3"
+              value !== "1" &&
+              value !== "2" &&
+              value !== "3"
             );
           });
           $('#quick-add-work option[value="1"]').prop("selected", true);
@@ -719,13 +711,10 @@ $(document).ready(function () {
         badge: `LIVE ${typing ? "聽打" : ""} ${proofreading ? "校正" : ""} ${
           tc ? "上字" : ""
         }`,
-        units: typing
-          ? "聽打 " + quickAddUnit
-          : proofreading
-          ? "校正 " + quickAddUnit
-          : tc
-          ? "上字 " + quickAddUnit
-          : "",
+        units: typing ?
+          "聽打 " + quickAddUnit : proofreading ?
+          "校正 " + quickAddUnit : tc ?
+          "上字 " + quickAddUnit : "",
       };
 
       events.push(newEvent);
@@ -787,8 +776,8 @@ $(document).ready(function () {
     for (let i = 0; i < totalPages; i++) {
       const listItem = $(
         '<li class="page-item"><a class="page-link" href="#">' +
-          (i + 1) +
-          "</a></li>"
+        (i + 1) +
+        "</a></li>"
       );
       if (i === currentPage) {
         listItem.addClass("active");
