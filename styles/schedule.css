@@ -473,7 +473,7 @@ hr {
   color: #f7f7f7;
   background-color: #D77D77;
 }
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator [class^=type-] {
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator [class^=type-]:not(type-bullet) {
   background-color: #4a81c0;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣學堂 {
