@@ -518,6 +518,9 @@ hr {
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-超級冰冰Show {
   background-color: #d16eff;
 }
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^=type-] {
+  background-color: #004797;
+}
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
   color: #f7f7f7;
@@ -626,7 +629,7 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-綜藝新時代 {
   background-color: #87CEEB;
 }
-#calendar .calendar-events .event-container .event-icon .event-bullet-超級冰冰秀 {
+#calendar .calendar-events .event-container .event-icon .event-bullet-超級冰冰秀Show {
   background-color: #d16eff;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
@@ -636,6 +639,9 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-SOT-全國第一勇,
 #calendar .calendar-events .event-container .event-icon .event-bullet-SOT-台灣最前線 {
   background-color: #FF6961;
+}
+#calendar .calendar-events .event-container .event-icon [class^=event-bullet-] {
+  background-color: #004797;
 }
 #calendar .calendar-events .event-container .event-info p.event-title span {
   color: #D77D77;
