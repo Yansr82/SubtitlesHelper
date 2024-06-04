@@ -887,5 +887,11 @@
     "correct": "電視台",
     "word": "中天",
     "annotation": ""
-}
+},
+  {
+    "category": "name",
+    "correct": "張啓楷",
+    "word": "張啟楷",
+    "annotation": "",
+  }
 ]
