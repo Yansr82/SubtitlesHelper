@@ -899,5 +899,17 @@
     "correct": "周邊",
     "word": "週邊",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "爺兒們",
+    "word": "爺們",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "煞車",
+    "word": "剎車",
+    "annotation": ""
   }
 ]

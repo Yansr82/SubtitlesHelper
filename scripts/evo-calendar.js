@@ -268,21 +268,15 @@
     EvoCalendar.prototype.hoverDate = function (event) {
         var _ = this;
         var date = $(event.currentTarget).attr('data-date-val'); // 使用 attr 方法獲取日期值
-        console.log(date);
 
-        // 確保日期值存在
         if (date) {
-            // 更新活動日期
             _.$active.date = date;
             _.$active.event_date = date;
 
-            // 移除所有日期的活動類
             _.$elements.innerEl.find('[data-date-val]').removeClass('calendar-active');
 
-            // 將活動類添加到選定的日期
             $(event.currentTarget).addClass('calendar-active');
 
-            // 構建事件列表
             _.buildEventList();
         }
     };
@@ -702,7 +696,6 @@
         var _ = this,
             markup;
         event_data.type = event_data.type.replace(/\s+/g, '');
-        console.log(event_data.type)
         var eventListEl = _.$elements.eventEl.find('.event-list');
         if (eventListEl.find('[data-event-index]').length === 0) eventListEl.empty();
         _.$active.events.push(event_data);

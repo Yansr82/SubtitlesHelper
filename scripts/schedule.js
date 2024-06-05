@@ -19,7 +19,9 @@ $(document).ready(function () {
       todayHighlight: true,
       sidebarDisplayDefault: false,
       eventDisplayDefault: true,
+      eventListToggler: false,
       calendarEvents: events,
+      firstDayOfWeek: 1,
     })
   $("#calendar").off("selectDate");
 
@@ -88,15 +90,14 @@ $("#addevent")
           name: eventName,
           date: [datesForDayOfWeek[i], datesForDayOfWeek[i]],
           type: eventName,
-          category: eventName === "全國第一勇" || eventName === "台灣最前線" ?
+          category: ["一勇", "前線", "財經"].includes(eventName) ?
             "LIVE" : "PROGRAM",
           badge: "例行節目",
           units: unit,
-          episode: episode ? " " + "#" + episode : "",
+          episode: episode ? " " + "#" + parseInt(episode + i) : "",
           partner: partner,
           description: description,
         };
-        console.log("New Event:", newEvent);
         events.push(newEvent);
         localStorage.setItem("calendarEvents", JSON.stringify(events));
         $("#calendar").evoCalendar("addCalendarEvent", [newEvent]);
@@ -123,7 +124,7 @@ $("#addevent")
         name: eventName,
         date: endDate ? [startDate, endDate] : startDate,
         type: eventName,
-        category: eventName === "全國第一勇" || eventName === "台灣最前線" ?
+        category: ["一勇", "前線", "財經"].includes(eventName) ?
           "LIVE" : "PROGRAM",
         badge: endDate ? `回件日 ${endDate}` : `當日`,
         units: unit,

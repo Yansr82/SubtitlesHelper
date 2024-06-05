@@ -546,9 +546,6 @@ hr {
   box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
   -webkit-box-shadow: 5px 0 18px -3px rgba(125, 125, 125, 0.1882352941);
 }
-#calendar .calendar-events .event-list {
-  min-height: 710px;
-}
 #calendar .calendar-events .event-list .event-empty {
   border-color: #D77D77;
   background-color: rgba(215, 125, 119, 0.1);
