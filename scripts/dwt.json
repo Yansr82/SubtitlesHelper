@@ -911,5 +911,11 @@
     "correct": "煞車",
     "word": "剎車",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一退六二五",
+    "word": "一推六,一推二,一退二",
+    "annotation": ""
   }
 ]
