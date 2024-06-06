@@ -520,7 +520,7 @@
   {
     "category": "all",
     "correct": "越",
-    "word": "愈",
+    "word": "愈[況愈]",
     "annotation": "",
     "number": 75
   },
@@ -916,6 +916,18 @@
     "category": "all",
     "correct": "一退六二五",
     "word": "一推六,一推二,一退二",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "靜怡",
+    "word": "吳靜宜,靜宜",
+    "annotation": "政論節目"
+  },
+  {
+    "category": "pcp-2",
+    "correct": "少子女化",
+    "word": "少子化",
     "annotation": ""
   }
 ]
