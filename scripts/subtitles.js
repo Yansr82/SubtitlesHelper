@@ -652,7 +652,7 @@ combineBtn.addEventListener('change', function () {
                 text += event.target.result;
 
                 if (index !== files.length - 1) {
-                    text += '\n@\n';
+                    text += `\n@${index+2}\n`;
                 }
 
                 filesRead++;
