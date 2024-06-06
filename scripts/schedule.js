@@ -267,6 +267,7 @@ function updateEventList(newEvent = null, startDate) {
   }
 
   // Filter
+  $("#filter-category").val("PROGRAM");
   $("#filter-category, #filter-month")
     .off("change")
     .on("change", function () {
@@ -282,6 +283,15 @@ function updateEventList(newEvent = null, startDate) {
         return categoryMatch && monthMatch;
       });
     });
+  userList.filter((item) => {
+    const categoryMatch =
+      "PROGRAM" === "All" ||
+      $(item.elm).find(".filter-category").text() === "PROGRAM";
+    const monthMatch =
+      "All" === "All" ||
+      parseInt($(item.elm).attr("date-month")) === parseInt("All");
+    return categoryMatch && monthMatch;
+  });
 
   // Date reminders
   const today = new Date();
