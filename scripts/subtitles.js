@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const restoreButton = document.getElementById('resetlocalStorage');
 restoreButton.addEventListener('click', function () {
-    fetch('./scripts/dwt-0529.json')
+    fetch('./scripts/dw.json')
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('wordTableData', JSON.stringify(data));
