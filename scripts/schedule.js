@@ -5,6 +5,107 @@ let eventIdCounter = maxEventId + 1;
 let userListInitialized = false;
 let userList;
 
+const eventTypes = [{
+    program: "台灣學堂",
+    unit: "1",
+  },
+  {
+    program: "新聞觀測站",
+    unit: "1",
+  },
+  {
+    program: "愛的榮耀",
+    unit: "2.5",
+  },
+  {
+    program: "故事屋",
+    unit: "1",
+  },
+  {
+    program: "台灣傳奇",
+    unit: "1.5",
+  },
+  {
+    program: "超級冰冰Show",
+    unit: "1",
+  },
+  {
+    program: "美鳳有約",
+    unit: "1",
+  },
+  {
+    program: "GoGoTaiwan",
+    unit: "1",
+  },
+  {
+    program: "娛樂超skr",
+    unit: "1",
+  },
+  {
+    program: "姊妹亮起來",
+    unit: "1",
+  },
+  {
+    program: "醫學大聯盟",
+    unit: "1",
+  },
+  {
+    program: "我們一家人",
+    unit: "1",
+  },
+  {
+    program: "綜藝大集合",
+    unit: "4",
+  },
+  {
+    program: "綜藝新時代",
+    unit: "1",
+  },
+  {
+    program: "台灣趴趴走(1H)",
+    unit: "1",
+  },
+  {
+    program: "台灣最前線",
+    unit: "0.1",
+  },
+  {
+    program: "全國第一勇",
+    unit: "0.1",
+  },
+  {
+    program: "財經週末趴",
+    unit: "0.1",
+  },
+];
+
+function updateCheckboxValues() {
+  $('input[type="checkbox"]').each(function () {
+    const checkboxId = $(this).attr("id");
+    const unitValue = $(this).data("unit");
+    let unitId;
+    switch (checkboxId) {
+      case "event-typing":
+        unitId = "event-unit-1";
+        break;
+      case "event-proofreading":
+        unitId = "event-unit-2";
+        break;
+      case "event-tc":
+        unitId = "event-unit-3";
+        break;
+      default:
+        return;
+    }
+    if ($(this).is(":checked")) {
+      $(`#${unitId}`).val(unitValue);
+    } else {
+      $(`#${unitId}`).val("");
+    }
+  });
+}
+
+
 $(document).ready(function () {
   let events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
   const existingEventIds = events.map(event => event.id);
@@ -37,11 +138,12 @@ $(document).ready(function () {
   updateEventList();
 });
 
+
 $("#addevent")
   .off("click")
   .on("click", function () {
     const eventId = eventIdCounter++;
-    const eventName = $("#event-type").val();
+    const eventName = $("#event-type").val().replace(/\s/g, '');
     const episode = $("#event-episode").val();
     const startDate = $("#startDate").val();
     const endDate = $("#endDate").val();
@@ -332,71 +434,6 @@ function initializeUserList() {
 }
 
 $(function () {
-  const eventTypes = [{
-      program: "台灣學堂",
-      unit: "1",
-    },
-    {
-      program: "新聞觀測站",
-      unit: "1",
-    },
-    {
-      program: "台灣最前線",
-      unit: "0.1",
-    },
-    {
-      program: "全國第一勇",
-      unit: "0.1",
-    },
-    {
-      program: "愛的榮耀",
-      unit: "2.5",
-    },
-    {
-      program: "故事屋",
-      unit: "1",
-    },
-    {
-      program: "台灣傳奇",
-      unit: "1.5",
-    },
-    {
-      program: "超級冰冰Show",
-      unit: "1",
-    },
-    {
-      program: "美鳳有約",
-      unit: "1",
-    },
-    {
-      program: "GoGo Taiwan",
-      unit: "1",
-    },
-    {
-      program: "娛樂超skr",
-      unit: "1",
-    },
-    {
-      program: "姊妹亮起來",
-      unit: "1",
-    },
-    {
-      program: "醫學大聯盟",
-      unit: "1",
-    },
-    {
-      program: "我們一家人",
-      unit: "1",
-    },
-    {
-      program: "綜藝大集合",
-      unit: "4",
-    },
-    {
-      program: "綜藝新時代",
-      unit: "1",
-    },
-  ];
   const program = eventTypes.map((event) => event.program);
   $("#event-type")
     .autocomplete({
@@ -422,33 +459,65 @@ $(function () {
   $('input[type="checkbox"]').on("change", function () {
     updateCheckboxValues();
   });
-
-  function updateCheckboxValues() {
-    $('input[type="checkbox"]').each(function () {
-      const checkboxId = $(this).attr("id");
-      const unitValue = $(this).data("unit");
-      let unitId;
-      switch (checkboxId) {
-        case "event-typing":
-          unitId = "event-unit-1";
-          break;
-        case "event-proofreading":
-          unitId = "event-unit-2";
-          break;
-        case "event-tc":
-          unitId = "event-unit-3";
-          break;
-        default:
-          return;
-      }
-      if ($(this).is(":checked")) {
-        $(`#${unitId}`).val(unitValue);
-      } else {
-        $(`#${unitId}`).val("");
-      }
-    });
-  }
 });
+
+function uncheckAllInputs() {
+  $("#checkbox-wrapper input[type='checkbox']").prop("checked", false);
+}
+$("#auto-input").on("paste", function () {
+  uncheckAllInputs();
+  setTimeout(function () {
+    const autoInput = $('#auto-input').val();
+    const DateObj = new Date();
+    const dates = autoInput.match(/\d{1,2}\/\d{1,2}/g);
+    const monthAndDate = dates[1].split('/');
+    const formattedMonth = ('0' + monthAndDate[0]).slice(-2);
+    const formattedDate = ('0' + monthAndDate[1]).slice(-2);
+    const endDate = `${DateObj.getFullYear()}-${formattedMonth}-${formattedDate}`;
+    const showInfoPattern = /[^\n]+#\d+/g;
+    const showInfo = autoInput.match(showInfoPattern).map(info => {
+      const [showName, episodeNumber] = info.split('#');
+      return {
+        showName: showName.replace(/\s/g, ''),
+        episodeNumber
+      };
+    });
+    const tasksPattern = /[^\s@]+(?:、[^\s@]+)?(?:、[^\s@]+)?$/gm;
+
+    const tasks = autoInput.match(tasksPattern);
+    console.log(tasks);
+
+    $("#event-type").val(showInfo[0].showName);
+    $("#event-episode").val(showInfo[0].episodeNumber);
+    $("#endDate").val(endDate);
+
+    if (tasks.some(task => task.includes('聽打'))) {
+      $("#event-typing").prop("checked", true);
+    }
+
+    if (tasks.some(task => task.includes('校正'))) {
+      $("#event-proofreading").prop("checked", true);
+    }
+
+    if (tasks.some(task => task.includes('上字'))) {
+      $("#event-tc").prop("checked", true);
+    }
+
+    const selectedProgram = showInfo[0].showName;
+    const selectedEvent = eventTypes.find(
+      (event) => event.program === selectedProgram
+    );
+    if (selectedEvent) {
+      $("#event-typing").data("unit", selectedEvent.unit);
+      $("#event-proofreading").data("unit", selectedEvent.unit);
+      $("#event-tc").data("unit", selectedEvent.unit);
+    }
+
+    updateCheckboxValues();
+  }, 100);
+});
+
+
 
 // export XLSX
 $("#export").on("click", function () {

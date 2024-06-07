@@ -474,7 +474,7 @@ hr {
   background-color: #D77D77;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^=type-] {
-  background-color: #d2e0f0;
+  background-color: #FFFFFF;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-台灣學堂 {
   background-color: #FFB347;
@@ -497,7 +497,7 @@ hr {
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-美鳳有約 {
   background-color: #ADFF2F;
 }
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-GoGo台灣 {
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-GoGoTaiwan {
   background-color: #B0C4DE;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-娛樂超skr {
@@ -520,6 +520,9 @@ hr {
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-超級冰冰Show {
   background-color: #d16eff;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class="type-台灣趴趴走(1H)"] {
+  background-color: #FFDAB9;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
@@ -585,7 +588,7 @@ hr {
   transform: translate(-50%, -50%);
 }
 #calendar .calendar-events .event-container .event-icon [class^=event-bullet-] {
-  background-color: #d2e0f0;
+  background-color: #ffffff;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣學堂 {
   background-color: #FFB347;
@@ -608,7 +611,7 @@ hr {
 #calendar .calendar-events .event-container .event-icon .event-bullet-美鳳有約 {
   background-color: #ADFF2F;
 }
-#calendar .calendar-events .event-container .event-icon .event-bullet-GoGo台灣 {
+#calendar .calendar-events .event-container .event-icon .event-bullet-GoGoTaiwan {
   background-color: #B0C4DE;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-娛樂超skr {
@@ -631,6 +634,9 @@ hr {
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-超級冰冰秀Show {
   background-color: #d16eff;
+}
+#calendar .calendar-events .event-container .event-icon [class="event-bullet-台灣趴趴走(1H)"] {
+  background-color: #FFDAB9;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
 #calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇,
