@@ -327,12 +327,12 @@ hr {
   position: relative;
 }
 #main-container #data-section #events-table .events-list .event-item.finished {
-  background-color: #b6b6b6 !important;
-  border-color: #a1a1a1;
+  background-color: #232323 !important;
+  border-left-color: #1ebfe7 !important;
 }
 #main-container #data-section #events-table .events-list .event-item.finished > span,
 #main-container #data-section #events-table .events-list .event-item.finished a {
-  color: #ffffff !important;
+  color: #aaaaaa !important;
 }
 #main-container #data-section #events-table .events-list .event-item.soon {
   border: 1px dashed #f76a6a;

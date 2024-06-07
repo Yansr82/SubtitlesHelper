@@ -186,12 +186,12 @@ $lg-font-color: #f7f7f7;
                     position: relative;
 
                     &.finished {
-                        background-color: #b6b6b6 !important;
-                        border-color: #a1a1a1;
+                        background-color: darken(#303030, 5%) !important;
+                        border-left-color: #1ebfe7 !important;
 
                         >span,
                         a {
-                            color: #ffffff !important;
+                            color: #aaaaaa !important;
                         }
                     }
 

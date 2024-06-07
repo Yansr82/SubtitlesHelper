@@ -339,7 +339,7 @@ function updateEventList(newEvent = null, startDate) {
       const deadlineDate = Array.isArray(event.date) ? formatDate(new Date(event.date[1])) : "";
 
       const eventItem = `
-        <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+        <li class="event-item" data-id="${event.id}" date-month="${eventMonth}" data-date="${formattedEventDate}">
           <span class="filter-name">${event.name}</span>
           <span class="filter-episode">${event.episode ? event.episode : ""}</span>
           <span class="filter-received">${receivedDate}</span>
@@ -396,25 +396,6 @@ function updateEventList(newEvent = null, startDate) {
     }
   });
 }
-
-// 雙擊元素完成
-$('.event-item').each(function () {
-  const eventId = $(this).data('id');
-  const isFinished = localStorage.getItem(`eventFinished_${eventId}`);
-  if (isFinished === 'true') {
-    $(this).addClass('finished');
-  }
-});
-
-$('.events-list').on('dblclick', '.event-item', function () {
-  $(this).toggleClass('finished');
-  const eventId = $(this).data('id');
-  const isFinished = $(this).hasClass('finished');
-  localStorage.setItem(`eventFinished_${eventId}`, isFinished.toString());
-});
-
-
-
 
 function initializeUserList() {
   const options = {
@@ -901,6 +882,25 @@ $(document).ready(function () {
       console.log(eventsArray);
     } else {
       console.error("無法找到事件或事件索引無效。");
+    }
+  });
+});
+
+
+// 雙擊元素完成
+$('.events-list').on('dblclick', '.event-item', function () {
+  $(this).toggleClass('finished');
+  const eventId = $(this).data('id');
+  const isFinished = $(this).hasClass('finished');
+  localStorage.setItem(`eventFinished_${eventId}`, isFinished.toString());
+});
+
+$(document).ready(function () {
+  $('.event-item').each(function () {
+    const eventId = $(this).data('id');
+    const isFinished = localStorage.getItem(`eventFinished_${eventId}`);
+    if (isFinished === 'true') {
+      $(this).addClass('finished');
     }
   });
 });
