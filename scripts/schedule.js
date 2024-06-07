@@ -291,29 +291,23 @@ function updateEventList(newEvent = null, startDate) {
       new Date(newEvent.date[0]) :
       new Date(newEvent.date);
     const eventMonth = eventDate.getMonth() + 1;
-    const formattedEventDate = eventDate.toISOString().split("T")[0];
+    const formattedEventDate = formatDate(eventDate);
     const receivedDate = Array.isArray(newEvent.date) ?
-      newEvent.date[0] :
-      newEvent.date;
-    const deadlineDate = Array.isArray(newEvent.date) ? newEvent.date[1] : "";
+      formatDate(new Date(newEvent.date[0])) :
+      formatDate(new Date(newEvent.date));
+    const deadlineDate = Array.isArray(newEvent.date) ? formatDate(new Date(newEvent.date[1])) : "";
 
     const eventItem = `
-        <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
-            <span class="filter-name">${newEvent.name}</span>
-            <span class="filter-episode">${
-              newEvent.episode ? newEvent.episode : ""
-            }</span>
-            <span class="filter-received">${receivedDate}</span>
-            <span class="filter-deadline">${deadlineDate}</span>
-            <span class="filter-status">${newEvent.units}</span>
-            <span class="filter-partner">${
-              newEvent.partner ? newEvent.partner : ""
-            }</span>
-            <span class="filter-category" style="display: none;">${
-              newEvent.category
-            }</span>
-        </li>
-      `;
+      <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+        <span class="filter-name">${newEvent.name}</span>
+        <span class="filter-episode">${newEvent.episode ? newEvent.episode : ""}</span>
+        <span class="filter-received">${receivedDate}</span>
+        <span class="filter-deadline">${deadlineDate}</span>
+        <span class="filter-status">${newEvent.units}</span>
+        <span class="filter-partner">${newEvent.partner ? newEvent.partner : ""}</span>
+        <span class="filter-category" style="display: none;">${newEvent.category}</span>
+      </li>
+    `;
     eventsList.append(eventItem);
 
     if (!userListInitialized) {
@@ -338,35 +332,30 @@ function updateEventList(newEvent = null, startDate) {
         new Date(event.date[0]) :
         new Date(event.date);
       const eventMonth = eventDate.getMonth() + 1;
-      const formattedEventDate = eventDate.toISOString().split("T")[0];
+      const formattedEventDate = formatDate(eventDate);
       const receivedDate = Array.isArray(event.date) ?
-        event.date[0] :
-        event.date;
-      const deadlineDate = Array.isArray(event.date) ? event.date[1] : "";
+        formatDate(new Date(event.date[0])) :
+        formatDate(new Date(event.date));
+      const deadlineDate = Array.isArray(event.date) ? formatDate(new Date(event.date[1])) : "";
 
       const eventItem = `
-          <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
-              <span class="filter-name">${event.name}</span>
-              <span class="filter-episode">${
-                event.episode ? event.episode : ""
-              }</span>
-              <span class="filter-received">${receivedDate}</span>
-              <span class="filter-deadline">${deadlineDate}</span>
-              <span class="filter-status">${event.units}</span>
-              <span class="filter-partner">${
-                event.partner ? event.partner : ""
-              }</span>
-              <span class="filter-category" style="display: none;">${
-                event.category
-              }</span>
-          </li>
-        `;
+        <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+          <span class="filter-name">${event.name}</span>
+          <span class="filter-episode">${event.episode ? event.episode : ""}</span>
+          <span class="filter-received">${receivedDate}</span>
+          <span class="filter-deadline">${deadlineDate}</span>
+          <span class="filter-status">${event.units}</span>
+          <span class="filter-partner">${event.partner ? event.partner : ""}</span>
+          <span class="filter-category" style="display: none;">${event.category}</span>
+        </li>
+      `;
       eventsList.append(eventItem);
     });
 
     initializeUserList();
     userListInitialized = true;
   }
+
 
   // Filter
   $("#filter-category").val("PROGRAM");
