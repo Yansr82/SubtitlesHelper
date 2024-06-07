@@ -929,5 +929,17 @@
     "correct": "少子女化",
     "word": "少子化",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "孤伶伶",
+    "word": "孤零零",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "籠絡",
+    "word": "攏絡",
+    "annotation": "20240327會議紀錄"
   }
 ]
