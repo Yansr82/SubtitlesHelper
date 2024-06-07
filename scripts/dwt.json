@@ -941,5 +941,17 @@
     "correct": "籠絡",
     "word": "攏絡",
     "annotation": "20240327會議紀錄"
+  },
+  {
+    "category": "all",
+    "correct": "流露",
+    "word": "流漏",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "曠日費時",
+    "word": "曠日廢時",
+    "annotation": ""
   }
 ]
