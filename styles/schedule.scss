@@ -179,12 +179,21 @@ $lg-font-color: #f7f7f7;
             }
 
             .events-list {
-                // min-height: 710px;
 
                 .event-item {
                     border-bottom: 1px solid #252525;
                     transition: background .3s ease;
                     position: relative;
+
+                    &.finished {
+                        background-color: #b6b6b6 !important;
+                        border-color: #a1a1a1;
+
+                        >span,
+                        a {
+                            color: #ffffff !important;
+                        }
+                    }
 
                     &.soon {
                         border: 1px dashed $danger;
@@ -456,7 +465,7 @@ $lg-font-color: #f7f7f7;
                             }
 
                             [class='type-台灣趴趴走(1H)'] {
-                                background-color: #FFDAB9;
+                                background-color: #5bf39f;
                             }
 
 
@@ -625,7 +634,7 @@ $lg-font-color: #f7f7f7;
                 }
 
                 [class='event-bullet-台灣趴趴走(1H)'] {
-                    background-color: #FFDAB9;
+                    background-color: #5bf39f;
                 }
 
                 .event-bullet-台灣最前線,

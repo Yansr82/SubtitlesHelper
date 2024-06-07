@@ -326,6 +326,14 @@ hr {
   transition: background 0.3s ease;
   position: relative;
 }
+#main-container #data-section #events-table .events-list .event-item.finished {
+  background-color: #b6b6b6 !important;
+  border-color: #a1a1a1;
+}
+#main-container #data-section #events-table .events-list .event-item.finished > span,
+#main-container #data-section #events-table .events-list .event-item.finished a {
+  color: #ffffff !important;
+}
 #main-container #data-section #events-table .events-list .event-item.soon {
   border: 1px dashed #f76a6a;
   border-left: 4px solid #FF0000 !important;
@@ -522,7 +530,7 @@ hr {
   background-color: #d16eff;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class="type-台灣趴趴走(1H)"] {
-  background-color: #FFDAB9;
+  background-color: #5bf39f;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day.calendar-today {
   border: transparent 1px solid;
@@ -636,7 +644,7 @@ hr {
   background-color: #d16eff;
 }
 #calendar .calendar-events .event-container .event-icon [class="event-bullet-台灣趴趴走(1H)"] {
-  background-color: #FFDAB9;
+  background-color: #5bf39f;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
 #calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇,

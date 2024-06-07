@@ -298,7 +298,7 @@ function updateEventList(newEvent = null, startDate) {
     const deadlineDate = Array.isArray(newEvent.date) ? formatDate(new Date(newEvent.date[1])) : "";
 
     const eventItem = `
-      <li class="event-item" date-month="${eventMonth}" data-date="${formattedEventDate}">
+      <li class="event-item" data-id="${newEvent.id}" date-month="${eventMonth}" data-date="${formattedEventDate}">
         <span class="filter-name">${newEvent.name}</span>
         <span class="filter-episode">${newEvent.episode ? newEvent.episode : ""}</span>
         <span class="filter-received">${receivedDate}</span>
@@ -396,6 +396,25 @@ function updateEventList(newEvent = null, startDate) {
     }
   });
 }
+
+// 雙擊元素完成
+$('.event-item').each(function () {
+  const eventId = $(this).data('id');
+  const isFinished = localStorage.getItem(`eventFinished_${eventId}`);
+  if (isFinished === 'true') {
+    $(this).addClass('finished');
+  }
+});
+
+$('.events-list').on('dblclick', '.event-item', function () {
+  $(this).toggleClass('finished');
+  const eventId = $(this).data('id');
+  const isFinished = $(this).hasClass('finished');
+  localStorage.setItem(`eventFinished_${eventId}`, isFinished.toString());
+});
+
+
+
 
 function initializeUserList() {
   const options = {
