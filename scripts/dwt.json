@@ -953,5 +953,17 @@
     "correct": "曠日費時",
     "word": "曠日廢時",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "國6/國道6號",
+    "word": "國六,國道六號",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "國6/國道6號",
+    "word": "國六,國道六號",
+    "annotation": ""
   }
 ]
