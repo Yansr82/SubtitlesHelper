@@ -567,12 +567,14 @@ function exportToExcel() {
       f: `SUM(G2:G${filteredData.length + 1})`,
     },
   });
+  console.log(filteredData);
 
   function getStatusNumber(statusText, keyword) {
-    const regex = new RegExp(`${keyword} (\\d+)`);
+    const regex = new RegExp(`${keyword} (\\d+(\\.\\d+)?)`);
     const match = statusText.match(regex);
-    return match ? parseInt(match[1]) : 0;
+    return match ? parseFloat(match[1]) : 0;
   }
+
 
   const worksheet = XLSX.utils.json_to_sheet(filteredData, {
     cellStyles: true,
