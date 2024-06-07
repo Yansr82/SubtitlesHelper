@@ -556,7 +556,6 @@ function exportToExcel() {
       f: `SUM(G2:G${filteredData.length + 1})`,
     },
   });
-  console.log(filteredData);
 
   function getStatusNumber(statusText, keyword) {
     const regex = new RegExp(`${keyword} (\\d+(\\.\\d+)?)`);
@@ -614,8 +613,11 @@ function exportToExcel() {
   }
 
   const workbook = XLSX.utils.book_new();
+  const today = new Date();
+  const month = (today.getMonth() + 1).toString().padStart(2, "0");
+  const day = today.getDate().toString().padStart(2, "0");
   XLSX.utils.book_append_sheet(workbook, worksheet, "Events");
-  XLSX.writeFile(workbook, "filtered_events.xlsx", {
+  XLSX.writeFile(workbook, `schedule-${month}${day}.xlsx`, {
     cellStyles: true,
   });
 }
