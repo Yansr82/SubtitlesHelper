@@ -965,5 +965,41 @@
     "correct": "國6/國道6號",
     "word": "國六,國道六號",
     "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "羅廷瑋",
+    "word": "羅庭瑋",
+    "annotation": "國民黨立委"
+  },
+  {
+    "category": "name",
+    "correct": "翁曉玲",
+    "word": "翁曉鈴",
+    "annotation": "國民黨立委"
+  },
+  {
+    "category": "all",
+    "correct": "局限",
+    "word": "侷限",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "回響",
+    "word": "迴響",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "回響",
+    "word": "迴響",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "菸",
+    "word": "香煙,煙草",
+    "annotation": ""
   }
 ]
