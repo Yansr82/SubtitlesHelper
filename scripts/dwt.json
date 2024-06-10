@@ -1001,5 +1001,11 @@
     "correct": "菸",
     "word": "香煙,煙草",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "馬後炮",
+    "word": "馬後砲",
+    "annotation": ""
   }
 ]
