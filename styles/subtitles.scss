@@ -300,3 +300,43 @@
     opacity: 0;
   }
 }
+
+#feature-area {
+  strong {
+    color: #525252;
+  }
+
+  li {
+    color: $gray-color;
+    font-size: 14px;
+  }
+
+  h2 {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 15px;
+    padding: 0 30px 0 0px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 24px 40px 0px 24px;
+    background: rgba(40, 183, 255, 0.7);
+    text-decoration: underline solid var(--friend-link-title, #ffeeeB);
+    text-underline-offset: 10px;
+    color: #fdfdfd;
+    font-weight: bold;
+
+    div {
+      font-size: 16px;
+      margin-right: 14px;
+      line-height: 39px;
+      text-align: center;
+      color: #66ccff;
+      background: rgb(255 255 255 / 90%);
+      border-radius: 50%;
+      border: 3px solid rgb(105 189 250 / 70%);
+      display: inline-block;
+      width: 47px;
+    }
+  }
+}

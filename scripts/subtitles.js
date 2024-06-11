@@ -71,10 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const restoreButton = document.getElementById('resetlocalStorage');
 restoreButton.addEventListener('click', function () {
-    fetch('./scripts/dw.json')
+    fetch('./scripts/dwt.json')
         .then(response => response.json())
         .then(data => {
             localStorage.setItem('wordTableData', JSON.stringify(data));
+            location.reload();
         })
         .catch(error => {
             console.error('Error loading default JSON:', error);

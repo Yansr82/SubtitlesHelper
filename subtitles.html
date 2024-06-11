@@ -60,9 +60,9 @@
                                                 id="rules-update" class="ms-1 badge">NEW</span></button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="call-number-tab" data-bs-toggle="tab"
-                                            data-bs-target="#call-number-area" type="button" role="tab"
-                                            aria-controls="call-number-area" aria-selected="false" disabled>暫留</button>
+                                        <button class="nav-link" id="feature-tab" data-bs-toggle="tab"
+                                            data-bs-target="#feature-area" type="button" role="tab"
+                                            aria-controls="feature-area" aria-selected="false">功能介紹</button>
                                     </li>
                                 </ul>
                             </div>
@@ -161,45 +161,6 @@
                                                     style="cursor: pointer;">上傳檔案</label>
                                                 <a id="downloadButton" class="btn file-btn me-5">下載模板</a>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="info-wrapper">
-                                                    <ol>
-                                                        <li>詞彙新增
-                                                            <ol>
-                                                                <li>內規字若新增重複詞會 <span class="badge bg-info">自動過濾</span>。
-                                                                </li>
-                                                                <li>「誤用字」=> <span class="badge bg-danger">必填</span>
-                                                                    ，「註釋」及「內規字」=> <span
-                                                                        class="badge bg-danger">可選填</span>。</li>
-                                                                <li> 誤用字以 <span class="badge bg-info">,</span>
-                                                                    隔開分類，可同時檢查多詞。
-                                                                </li>
-                                                                <li>「誤用字+ [ ] 」=> 若該行<span class="badge bg-danger"> 包含 [
-                                                                        ] 中的詞 </span>
-                                                                    則略過。<br>
-                                                                    <span
-                                                                        class="badge bg-warning">EX:韓國[韓國瑜]，則該行為韓國瑜時跳過檢查"韓國"</span>
-                                                                </li>
-                                                            </ol>
-                                                        </li>
-                                                        <hr>
-
-                                                        <li>資料保存
-                                                            <ol>
-                                                                <li>本站使用網頁儲存，建議 <a type="button" class="link"
-                                                                        id="downloadButton2"><span
-                                                                            class="badge bg-info">定時存檔</span></a> ，<span
-                                                                        class="badge bg-danger">清除Cookie會遺失網站資料</span>。
-                                                                </li>
-                                                                <li>上傳資料僅限 <span class="badge bg-warning">.json</span>
-                                                                    格式。</li>
-
-                                                            </ol>
-                                                        </li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </form>
                                 </div>
@@ -291,43 +252,101 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="call-number-area" class="section tab-pane fade" role="tabpanel"
-                                aria-labelledby="call-number-tab">
+                            <div id="feature-area" class="section tab-pane fade" role="tabpanel"
+                                aria-labelledby="feature-tab">
+                                <div class="container" style="max-width: 860px; margin: 0 auto;">
+                                    <h2>
+                                        <div>
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </div>支援功能 Features
+                                    </h2>
 
-                                <div class="left-area d-flex flex-column">
-                                    <input class="mt-2" type="text" name="call-number-order" id="call-number-order"
-                                        placeholder="第幾順位">
-                                    <input class="mt-2" type="text" name="call-number-PPL" id="call-number-PPL"
-                                        placeholder="人數">
-                                    <input class="mt-2" type="text" name="call-number-PPL" id="call-number-end"
-                                        placeholder="END">
-                                    <button id="call-number-submit" class="btn btn-sm btn-primary mt-2">順序列表</button>
-                                    <div class="btn-group mb-3" role="group" style="width: 20%;">
-                                        <button type="button" class="btn btn-sm btn-secondary border-end"
-                                            id="add-ppl">+</button>
-                                        <button type="button" class="btn btn-sm btn-secondary border-start"
-                                            id="del-ppl">-</button>
-                                    </div>
-                                </div>
-                                <div class="ms-5 right-area d-flex flex-row">
-                                    <div class="output-wrapper1 text-center">
-                                        <label for="call-number-output">前線</label>
-                                        <ol id="call-number-output">
-                                    </div>
+                                    <ol>
+                                        <li>
+                                            <strong>錯誤檢查：</strong>
+                                            <ol>
+                                                <li>通過檢查時間碼格式、時間碼順序、特定字詞是否存在等方式，檢測字幕文件中的錯誤。</li>
+                                                <li>會標記出錯誤的行數以及相應的錯誤類型，點選右側可移至定位。</li>
+                                            </ol>
+                                            <br>
+                                            <a href="./images/subtitles-1.png" target="_top">
+                                                <img src="./images/subtitles-1.png" alt="Instructions" width="100%">
+                                            </a>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>自訂字詞管理：</strong>
+                                            <ol>
+                                                <li>用戶可以添加自定義的字詞，並對其進行管理。</li>
+                                                <li>支持對字詞的正確用法、錯誤用法以及註釋進行設置。</li>
+                                                <li>基本上會自動更新字詞庫，若無自動更新可於頁面右下展開選單，點擊<span
+                                                        class="badge bg-success">設定</span> > <span
+                                                        class="badge bg-success">預設規則</span></li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>資料保存與導入：</strong>
+                                            <ol>
+                                                <li>可以將添加的字詞資料保存在本地存儲，方便下次使用。</li>
+                                                <li>支持導入先前保存的字詞資料，以便於共享或備份。</li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>合併多個字幕文件：</strong>
+                                            <ol>
+                                                <li>提供了一個功能，可以將多個字幕文件合併為一個，方便進行統一的錯誤檢查。</li>
+                                            </ol>
+                                        </li>
                                     </ol>
-                                    <div class="output-wrapper2 text-center ms-3">
-                                        <label for="call-number-output2">第一勇</label>
-                                        <ol id="call-number-output-2">
+                                    <br><br><br>
+                                    <h2>
+                                        <div>
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </div>使用說明 Instructions
+                                    </h2>
+                                    <ol>
+                                        <li>
+                                            <strong>詞彙新增</strong>
+                                            <ol>
+                                                <li>內規字若新增重複詞會自動過濾。
+                                                </li>
+                                                <li>「誤用字」=> 必填
+                                                    ，「註釋」及「內規字」=> 可選填。</li>
+                                                <li> 誤用字以[,]
+                                                    隔開分類，可同時檢查多詞。<br>
+                                                    <span class="badge bg-warning">EX:落話,落狠話</span>
+                                                </li>
+                                                <li>「誤用字+ [ ] 」=> 若該行包含 [
+                                                    ] 中的詞則略過。<br>
+                                                    <span class="badge bg-warning">EX:韓國[韓國瑜]，則該行為韓國瑜時跳過檢查"韓國"</span>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>資料保存</strong>
+                                            <ol>
+                                                <li>本站使用網頁儲存，建議 <span class="badge bg-danger"><a type="button"
+                                                            class="link text-white" id="downloadButton2">定時存檔</a></span>
+                                                    ，<span class="badge bg-danger">清除Cookie會遺失網站資料</span>。
+                                                </li>
+                                                <li>上傳資料僅限.json
+                                                    格式。</li>
 
-                                        </ol>
-                                    </div>
+                                            </ol>
+                                        </li>
+                                    </ol>
                                 </div>
-
-
                             </div>
+
+
                         </div>
                     </div>
                 </div>
+            </div>
+            </div>
             </div>
             </div>
         </main>
