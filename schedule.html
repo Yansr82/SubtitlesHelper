@@ -53,9 +53,9 @@
                                 </li>
                                 <li>
                                     <select id="filter-category" class="text-center form-select-sm">
-                                        <option value="All">類別</option>
+                                        <option value="All" selected>類別</option>
                                         <option value="LIVE">LIVE</option>
-                                        <option value="PROGRAM" selected>預錄</option>
+                                        <option value="PROGRAM">預錄</option>
                                     </select>
                                 <li><select id="filter-month" class="text-center form-select-sm">
                                         <option value="All">月分</option>
@@ -78,7 +78,7 @@
                         <div id="events-table" class="col-md-10">
                             <div id="data-nav">
                                 <div class="left-items">
-                                    <ul>
+                                    <ul class="d-flex align-items-center gap-2">
                                         <li>
                                             <select id="filter-perpage" class="text-center form-select-sm">
                                                 <option value="-1" selected>全部顯示</option>
@@ -86,6 +86,10 @@
                                                 <option value="10">每頁10筆</option>
                                                 <option value="20">每頁20筆</option>
                                             </select>
+                                        </li>
+                                        <li>
+                                            <input id="filter-completed" type="checkbox" checked>
+                                            <label for="filter-completed" class="ms-1 text-white">隱藏已完成</label>
                                         </li>
                                     </ul>
                                     <span class="ms-3 badge bg-success"

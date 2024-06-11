@@ -310,6 +310,11 @@ function updateEventList(newEvent = null, startDate) {
     `;
     eventsList.append(eventItem);
 
+    // 如果類別是 "LIVE"，則添加 "finished" 類
+    if (newEvent.category === "LIVE") {
+      $(".event-item[data-id='" + newEvent.id + "']").addClass("finished");
+    }
+
     if (!userListInitialized) {
       initializeUserList();
       userListInitialized = true;
@@ -350,18 +355,23 @@ function updateEventList(newEvent = null, startDate) {
         </li>
       `;
       eventsList.append(eventItem);
+
+      // 如果類別是 "LIVE"，則添加 "finished" 類
+      if (event.category === "LIVE") {
+        $(".event-item[data-id='" + event.id + "']").addClass("finished");
+      }
     });
 
     initializeUserList();
     userListInitialized = true;
   }
 
-
-  // Filter
+  // 篩選
   $("#filter-category").val("PROGRAM");
   $("#filter-category, #filter-month")
     .off("change")
     .on("change", function () {
+      $('#filter-completed').prop('checked', false);
       const selectedCategory = $("#filter-category").val();
       const selectedMonth = $("#filter-month").val();
       userList.filter((item) => {
@@ -384,7 +394,7 @@ function updateEventList(newEvent = null, startDate) {
     return categoryMatch && monthMatch;
   });
 
-  // Date reminders
+  // 日期提醒
   const today = new Date();
   $(".event-item").each(function () {
     const deadlineDate = $(this).find(".filter-deadline").text();
@@ -396,6 +406,7 @@ function updateEventList(newEvent = null, startDate) {
     }
   });
 }
+
 
 function initializeUserList() {
   const options = {
@@ -818,6 +829,7 @@ $(document).ready(function () {
   });
 
   $("#filter-perpage").on("change", function () {
+    $('#filter-completed').prop('checked', false);
     itemsPerPage = parseInt($(this).val());
     if (itemsPerPage === -1) {
       itemsPerPage = eventItems.length;
@@ -896,11 +908,22 @@ $('.events-list').on('dblclick', '.event-item', function () {
 });
 
 $(document).ready(function () {
+  // 檢查已完成的事件
   $('.event-item').each(function () {
     const eventId = $(this).data('id');
     const isFinished = localStorage.getItem(`eventFinished_${eventId}`);
     if (isFinished === 'true') {
       $(this).addClass('finished');
+    }
+  });
+
+  // 顯示/隱藏已完成的事件
+  $('.event-item.finished').hide();
+  $('#filter-completed').on('change', function () {
+    if ($(this).prop('checked')) {
+      $('.event-item.finished').hide();
+    } else {
+      $('.event-item.finished').show();
     }
   });
 });
