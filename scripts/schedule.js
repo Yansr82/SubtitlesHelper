@@ -520,11 +520,15 @@ $("#auto-input").on("paste", function () {
 
 // export XLSX
 $("#export").on("click", function () {
-  exportToExcel();
+  exportToExcel(userList.visibleItems, false);
 });
 
-function exportToExcel() {
-  const filteredData = userList.visibleItems.map((item) => {
+$("#all-export").on("click", function () {
+  exportToExcel(userList.items, true);
+});
+
+function exportToExcel(items, isAllExport) {
+  const data = items.map((item) => {
     const statusText = $(item.elm).find(".filter-status").text();
     const typing = getStatusNumber(statusText, "聽打");
     const proofreading = getStatusNumber(statusText, "校正");
@@ -548,52 +552,41 @@ function exportToExcel() {
     };
   });
 
-  filteredData.push({
+  data.push({
     節目: "總計",
     集數: "",
     接收日期: "",
     截止日期: "",
     聽打: {
       t: "n",
-      f: `SUM(E2:E${filteredData.length + 1})`,
+      f: `SUM(E2:E${data.length + 1})`,
     },
     校正: {
       t: "n",
-      f: `SUM(F2:F${filteredData.length + 1})`,
+      f: `SUM(F2:F${data.length + 1})`,
     },
     上字: {
       t: "n",
-      f: `SUM(G2:G${filteredData.length + 1})`,
+      f: `SUM(G2:G${data.length + 1})`,
     },
   });
 
-  function getStatusNumber(statusText, keyword) {
-    const regex = new RegExp(`${keyword} (\\d+(\\.\\d+)?)`);
-    const match = statusText.match(regex);
-    return match ? parseFloat(match[1]) : 0;
-  }
-
-
-  const worksheet = XLSX.utils.json_to_sheet(filteredData, {
-    cellStyles: true,
+  const worksheet = XLSX.utils.json_to_sheet(data, {
+    cellStyles: true
   });
 
   const range = XLSX.utils.decode_range(worksheet["!ref"]);
   for (let C = range.s.c; C <= range.e.c; ++C) {
-    const alignment =
-      C === 0 ? {
-        horizontal: "left",
-      } : {
-        horizontal: "center",
-      };
+    const alignment = C === 0 ? {
+      horizontal: "left"
+    } : {
+      horizontal: "center"
+    };
     for (let R = range.s.r; R <= range.e.r; ++R) {
-      const cell =
-        worksheet[
-          XLSX.utils.encode_cell({
-            r: R,
-            c: C,
-          })
-        ];
+      const cell = worksheet[XLSX.utils.encode_cell({
+        r: R,
+        c: C
+      })];
       if (cell) {
         cell.s = cell.s || {};
         cell.s.alignment = alignment;
@@ -604,13 +597,10 @@ function exportToExcel() {
   for (let C = range.s.c; C <= range.e.c; ++C) {
     let max_width = 0;
     for (let R = range.s.r; R <= range.e.r; ++R) {
-      const cell =
-        worksheet[
-          XLSX.utils.encode_cell({
-            r: R,
-            c: C,
-          })
-        ];
+      const cell = worksheet[XLSX.utils.encode_cell({
+        r: R,
+        c: C
+      })];
       if (cell && cell.v) {
         const cellContentWidth = getStringWidth(cell.v);
         if (cellContentWidth > max_width) max_width = cellContentWidth;
@@ -618,7 +608,7 @@ function exportToExcel() {
     }
     worksheet["!cols"] = worksheet["!cols"] || [];
     worksheet["!cols"][C] = {
-      wpx: max_width,
+      wpx: max_width
     };
   }
 
@@ -627,9 +617,16 @@ function exportToExcel() {
   const month = (today.getMonth() + 1).toString().padStart(2, "0");
   const day = today.getDate().toString().padStart(2, "0");
   XLSX.utils.book_append_sheet(workbook, worksheet, "Events");
-  XLSX.writeFile(workbook, `schedule-${month}${day}.xlsx`, {
-    cellStyles: true,
+  const filename = isAllExport ? `FTV_${month}${day}_All.xlsx` : `FTV_${month}${day}_Selected.xlsx`;
+  XLSX.writeFile(workbook, filename, {
+    cellStyles: true
   });
+}
+
+function getStatusNumber(statusText, keyword) {
+  const regex = new RegExp(`${keyword} (\\d+(\\.\\d+)?)`);
+  const match = statusText.match(regex);
+  return match ? parseFloat(match[1]) : 0;
 }
 
 function parseDateString(dateString) {
@@ -638,7 +635,7 @@ function parseDateString(dateString) {
     const year = parseInt(parts[0]);
     const month = parseInt(parts[1]) - 1;
     const day = parseInt(parts[2]);
-    return `${year}-${month}-${day}`;
+    return new Date(year, month, day);
   }
   return null;
 }
@@ -651,6 +648,7 @@ function getStringWidth(str) {
   context.font = font;
   return context.measureText(str).width;
 }
+
 
 // import XLSX
 
