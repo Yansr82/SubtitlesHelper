@@ -210,14 +210,14 @@ hr {
 #main-container #data-section #filter-wrapper #filter li * {
   width: 100%;
 }
-#main-container #data-section #filter-wrapper #filter li #export {
+#main-container #data-section #filter-wrapper #filter li .export {
   background-color: #D77D77;
   color: #f7f7f7;
 }
-#main-container #data-section #filter-wrapper #filter li #export:hover {
+#main-container #data-section #filter-wrapper #filter li .export:hover {
   background-color: #d16a63;
 }
-#main-container #data-section #filter-wrapper #filter li #export:focus {
+#main-container #data-section #filter-wrapper #filter li .export:focus {
   box-shadow: 0 0 0 0.25rem #dd908b !important;
 }
 #main-container #data-section #filter-wrapper #filter li select {
