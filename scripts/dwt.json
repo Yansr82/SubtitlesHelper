@@ -183,15 +183,15 @@
   },
   {
     "category": "all",
-    "word": "污點證人",
-    "correct": "汙點證人",
+    "word": "汙點證人",
+    "correct": "污點證人",
     "annotation": "",
     "number": 27
   },
   {
     "category": "all",
-    "word": "貪污",
-    "correct": "貪汙",
+    "word": "貪汙",
+    "correct": "貪污",
     "annotation": "",
     "number": 28
   },
