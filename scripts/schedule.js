@@ -430,6 +430,9 @@ function initializeUserList() {
     },
   };
   userList = new List("events-list-wrapper", options);
+  userList.sort('filter-deadline', {
+    order: 'asc'
+  });
 }
 
 $(function () {
