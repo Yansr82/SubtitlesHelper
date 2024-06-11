@@ -367,7 +367,6 @@ function updateEventList(newEvent = null, startDate) {
   }
 
   // 篩選
-  $("#filter-category").val("PROGRAM");
   $("#filter-category, #filter-month")
     .off("change")
     .on("change", function () {
