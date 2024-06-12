@@ -1007,5 +1007,23 @@
     "correct": "馬後炮",
     "word": "馬後砲",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "蒙眼",
+    "word": "矇眼",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "幼兒園",
+    "word": "幼稚園",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "召",
+    "word": "招集,號招",
+    "annotation": ""
   }
 ]
