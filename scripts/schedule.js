@@ -395,15 +395,18 @@ function updateEventList(newEvent = null, startDate) {
 
   // 日期提醒
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
   $(".event-item").each(function () {
     const deadlineDate = $(this).find(".filter-deadline").text();
     const eventDeadline = new Date(deadlineDate);
+    eventDeadline.setHours(0, 0, 0, 0);
     const timeDifference = eventDeadline - today;
-    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     if (daysDifference >= 0 && daysDifference <= 3) {
       $(this).addClass("soon");
     }
   });
+
 }
 
 
