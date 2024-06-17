@@ -706,7 +706,7 @@ function importFile(file) {
           date: startDate && endDate ? [startDate, endDate] : startDate || endDate,
           type: eventName,
           episode: row["集數"],
-          category: eventName == "全國第一勇" || eventName == "台灣最前線" ?
+          category: ["一勇", "前線", "財經"].includes(eventName) ?
             "LIVE" : "PROGRAM",
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unitsStr,
