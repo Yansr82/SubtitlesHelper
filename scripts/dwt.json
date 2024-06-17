@@ -1025,5 +1025,11 @@
     "correct": "召",
     "word": "招集,號招",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "臺灣銀行",
+    "word": "台灣銀行",
+    "annotation": ""
   }
 ]
