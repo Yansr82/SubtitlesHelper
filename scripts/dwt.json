@@ -1031,5 +1031,11 @@
     "correct": "臺灣銀行",
     "word": "台灣銀行",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "釣魚臺",
+    "word": "釣魚台",
+    "annotation": ""
   }
 ]
