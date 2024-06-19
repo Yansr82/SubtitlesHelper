@@ -1045,7 +1045,13 @@
     "annotation": ""
   },
   {
-    "category": "all",
+    "category": "pcp-1",
+    "correct": "青鳥行動",
+    "word": "青鳥運動,青鳥活動",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
     "correct": "青鳥行動",
     "word": "青鳥運動,青鳥活動",
     "annotation": ""
