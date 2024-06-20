@@ -311,7 +311,7 @@ function updateEventList(newEvent = null, startDate) {
     eventsList.append(eventItem);
 
     // 如果類別是 "LIVE"，則添加 "finished" 類
-    if (["LIVE", "PROGRAM", "SOT"].includes(newEvent.category)) {
+    if (["LIVE", "SOT"].includes(newEvent.category)) {
       $(".event-item[data-id='" + newEvent.id + "']").addClass("finished");
     }
 
