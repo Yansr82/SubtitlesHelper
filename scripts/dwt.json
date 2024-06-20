@@ -872,22 +872,25 @@
     "correct": "盡",
     "word": "儘量,儘可能,儘力",
     "annotation": ""
-  },{
-"category": "pcp-1",
+  },
+  {
+    "category": "pcp-1",
     "correct": "台北國際電腦展",
     "word": "COMPUTEX",
     "annotation": ""
-},{
-"category": "pcp-2",
+  },
+  {
+    "category": "pcp-2",
     "correct": "台北國際電腦展",
     "word": "COMPUTEX",
     "annotation": ""
-},{
-"category": "all",
+  },
+  {
+    "category": "all",
     "correct": "電視台",
     "word": "中天",
     "annotation": ""
-},
+  },
   {
     "category": "name",
     "correct": "張啓楷",
@@ -1054,6 +1057,36 @@
     "category": "pcp-2",
     "correct": "青鳥行動",
     "word": "青鳥運動,青鳥活動",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "海參崴",
+    "word": "海參威",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "國是論壇",
+    "word": "國事論壇",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "藍鷹行動",
+    "word": "藍鷹活動",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "藍鷹行動",
+    "word": "藍鷹活動",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 性侵犯",
+    "word": "強姦犯",
     "annotation": ""
   }
 ]
