@@ -1088,5 +1088,23 @@
     "correct": " 性侵犯",
     "word": "強姦犯",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 復辟",
+    "word": "復闢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 四○三大地震",
+    "word": "0403,403",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "台階",
+    "word": "臺階",
+    "annotation": ""
   }
 ]
