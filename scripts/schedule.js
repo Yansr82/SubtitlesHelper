@@ -192,7 +192,7 @@ $("#addevent")
           name: eventName,
           date: [datesForDayOfWeek[i], datesForDayOfWeek[i]],
           type: eventName,
-          category: ["一勇", "前線", "財經"].includes(eventName) ?
+          category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
             "LIVE" : "PROGRAM",
           badge: "例行節目",
           units: unit,
@@ -226,7 +226,7 @@ $("#addevent")
         name: eventName,
         date: endDate ? [startDate, endDate] : startDate,
         type: eventName,
-        category: ["一勇", "前線", "財經"].includes(eventName) ?
+        category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
           "LIVE" : "PROGRAM",
         badge: endDate ? `回件日 ${endDate}` : `當日`,
         units: unit,
@@ -706,7 +706,7 @@ function importFile(file) {
           date: startDate && endDate ? [startDate, endDate] : startDate || endDate,
           type: eventName,
           episode: row["集數"],
-          category: ["一勇", "前線", "財經"].includes(eventName) ?
+          category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
             "LIVE" : "PROGRAM",
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unitsStr,
