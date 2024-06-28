@@ -1142,5 +1142,41 @@
     "correct": "藍牙",
     "word": "藍芽",
     "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "黃珊珊",
+    "word": "黃姍姍",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聯繫",
+    "word": "連繫",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聯合",
+    "word": "連合",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一錘定音",
+    "word": "一槌定音",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一錘定江山",
+    "word": "一槌定江山",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聯絡",
+    "word": "連絡",
+    "annotation": ""
   }
 ]
