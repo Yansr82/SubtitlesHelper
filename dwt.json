@@ -1,0 +1,1176 @@
+[
+  {
+    "category": "all",
+    "correct": "暴打",
+    "word": "爆打",
+    "annotation": "",
+    "number": 1
+  },
+  {
+    "category": "all",
+    "correct": "暴汗",
+    "word": "爆汗",
+    "annotation": "",
+    "number": 2
+  },
+  {
+    "category": "all",
+    "correct": "暴紅",
+    "word": "爆紅",
+    "annotation": "",
+    "number": 3
+  },
+  {
+    "category": "all",
+    "correct": "暴發戶",
+    "word": "爆發戶",
+    "annotation": "",
+    "number": 4
+  },
+  {
+    "category": "all",
+    "correct": "山洪暴發",
+    "word": "山洪爆發",
+    "annotation": "",
+    "number": 5
+  },
+  {
+    "category": "all",
+    "correct": "爆炸",
+    "word": "暴炸",
+    "annotation": "",
+    "number": 6
+  },
+  {
+    "category": "all",
+    "correct": "爆料",
+    "word": "暴料",
+    "annotation": "",
+    "number": 7
+  },
+  {
+    "category": "all",
+    "correct": "爆笑",
+    "word": "暴笑",
+    "annotation": "",
+    "number": 8
+  },
+  {
+    "category": "all",
+    "correct": "爆氣",
+    "word": "暴氣",
+    "annotation": "",
+    "number": 9
+  },
+  {
+    "category": "all",
+    "correct": "爆哭",
+    "word": "暴哭",
+    "annotation": "",
+    "number": 10
+  },
+  {
+    "category": "pcp-1",
+    "correct": "祕密",
+    "word": "秘密",
+    "annotation": "",
+    "number": 11
+  },
+  {
+    "category": "pcp-2",
+    "correct": "秘密",
+    "word": "祕密",
+    "annotation": "",
+    "number": 12
+  },
+  {
+    "category": "all",
+    "correct": "闔上",
+    "word": "合上",
+    "annotation": "240513會議",
+    "number": 13
+  },
+  {
+    "category": "all",
+    "correct": "闔眼",
+    "word": "合眼",
+    "annotation": "240513會議",
+    "number": 14
+  },
+  {
+    "category": "all",
+    "correct": "作夢",
+    "word": "做夢",
+    "annotation": "240513會議",
+    "number": 15
+  },
+  {
+    "category": "all",
+    "correct": "作主",
+    "word": "做主",
+    "annotation": "240513會議",
+    "number": 16
+  },
+  {
+    "category": "all",
+    "correct": "做不了主",
+    "word": "作不了主",
+    "annotation": "240513會議",
+    "number": 17
+  },
+  {
+    "category": "all",
+    "correct": "做了主",
+    "word": "作了主",
+    "annotation": "240513會議",
+    "number": 18
+  },
+  {
+    "category": "all",
+    "correct": "做惡夢",
+    "word": "作惡夢",
+    "annotation": "240513會議",
+    "number": 19
+  },
+  {
+    "category": "all",
+    "word": "非常的",
+    "correct": "非常地",
+    "annotation": "",
+    "number": 20
+  },
+  {
+    "category": "all",
+    "correct": "紙媒",
+    "word": "中國時報",
+    "annotation": "",
+    "number": 21
+  },
+  {
+    "category": "pcp-2",
+    "correct": "北朝鮮",
+    "word": "北韓",
+    "annotation": "",
+    "number": 22
+  },
+  {
+    "category": "name",
+    "correct": "余莓莓",
+    "word": "于莓莓,于苺苺,余苺苺",
+    "annotation": "",
+    "number": 23
+  },
+  {
+    "category": "name",
+    "correct": "呂家愷",
+    "word": "呂家凱,呂家楷",
+    "annotation": "",
+    "number": 24
+  },
+  {
+    "category": "all",
+    "correct": "禁得起",
+    "word": "經得起",
+    "annotation": "",
+    "number": 25
+  },
+  {
+    "category": "all",
+    "correct": "禁不起",
+    "word": "經不起",
+    "annotation": "",
+    "number": 26
+  },
+  {
+    "category": "all",
+    "word": "汙點證人",
+    "correct": "污點證人",
+    "annotation": "",
+    "number": 27
+  },
+  {
+    "category": "all",
+    "word": "貪汙",
+    "correct": "貪污",
+    "annotation": "",
+    "number": 28
+  },
+  {
+    "category": "all",
+    "word": "扯蛋",
+    "correct": "扯淡",
+    "annotation": "",
+    "number": 29
+  },
+  {
+    "category": "name",
+    "word": "廖偉祥,廖瑋翔",
+    "correct": "廖偉翔",
+    "annotation": "",
+    "number": 30
+  },
+  {
+    "category": "name",
+    "word": "江宜臻,江怡蓁",
+    "correct": "江怡臻",
+    "annotation": "",
+    "number": 31
+  },
+  {
+    "category": "name",
+    "word": "陳珮琪",
+    "correct": "陳佩琪",
+    "annotation": "",
+    "number": 32
+  },
+  {
+    "category": "all",
+    "word": "月份",
+    "correct": "月分",
+    "annotation": "",
+    "number": 33
+  },
+  {
+    "category": "name",
+    "word": "游淑惠",
+    "correct": "游淑慧",
+    "annotation": "",
+    "number": 34
+  },
+  {
+    "category": "name",
+    "word": "洪偉傑,洪緯傑,洪暐杰",
+    "correct": "洪暐傑",
+    "annotation": "醫學大聯盟",
+    "number": 35
+  },
+  {
+    "category": "all",
+    "word": "凸顯",
+    "correct": "突顯",
+    "annotation": "",
+    "number": 36
+  },
+  {
+    "category": "all",
+    "word": "精彩",
+    "correct": "精采",
+    "annotation": "",
+    "number": 37
+  },
+  {
+    "category": "name",
+    "word": "顏寬恆",
+    "correct": "顏寬恒",
+    "annotation": "",
+    "number": 38
+  },
+  {
+    "category": "all",
+    "word": "部份",
+    "correct": "部分",
+    "annotation": "",
+    "number": 39
+  },
+  {
+    "category": "all",
+    "word": "大陸",
+    "correct": "中國",
+    "annotation": "",
+    "number": 40
+  },
+  {
+    "category": "name",
+    "word": "柯建民,柯建名",
+    "correct": "柯建銘",
+    "annotation": "",
+    "number": 41
+  },
+  {
+    "category": "all",
+    "word": "綠畜",
+    "correct": "綠營",
+    "annotation": "",
+    "number": 42
+  },
+  {
+    "category": "pcp-2",
+    "word": "兇",
+    "correct": "凶",
+    "annotation": "",
+    "number": 43
+  },
+  {
+    "category": "all",
+    "word": "沒梗,有梗,梗圖,時事梗",
+    "correct": "哏",
+    "annotation": "",
+    "number": 44
+  },
+  {
+    "category": "name",
+    "word": "謝依鳳,謝衣鳯",
+    "correct": "謝衣鳳",
+    "annotation": "",
+    "number": 45
+  },
+  {
+    "category": "pcp-1",
+    "word": "韓國[韓國瑜],北韓[南北韓]",
+    "correct": "南韓/北朝鮮",
+    "annotation": "",
+    "number": 46
+  },
+  {
+    "category": "all",
+    "word": "Oppa,oppa",
+    "correct": "Obba",
+    "annotation": "",
+    "number": 47
+  },
+  {
+    "category": "all",
+    "word": "賀爾蒙",
+    "correct": "荷爾蒙",
+    "annotation": "",
+    "number": 48
+  },
+  {
+    "category": "all",
+    "correct": "鞦韆",
+    "word": "秋千",
+    "annotation": "",
+    "number": 49
+  },
+  {
+    "category": "all",
+    "correct": "棟樑",
+    "word": "棟梁",
+    "annotation": "",
+    "number": 50
+  },
+  {
+    "category": "all",
+    "correct": "橋樑",
+    "word": "橋梁",
+    "annotation": "",
+    "number": 51
+  },
+  {
+    "category": "all",
+    "correct": "嘴唇",
+    "word": "嘴脣",
+    "annotation": "",
+    "number": 52
+  },
+  {
+    "category": "all",
+    "correct": "護唇膏",
+    "word": "護脣膏",
+    "annotation": "",
+    "number": 53
+  },
+  {
+    "category": "all",
+    "correct": "咆哮",
+    "word": "咆嘯",
+    "annotation": "",
+    "number": 54
+  },
+  {
+    "category": "all",
+    "correct": "抹煞",
+    "word": "抹殺",
+    "annotation": "",
+    "number": 55
+  },
+  {
+    "category": "all",
+    "correct": "要嘛",
+    "word": "要馬",
+    "annotation": "",
+    "number": 56
+  },
+  {
+    "category": "all",
+    "correct": "名不副實",
+    "word": "名不符實",
+    "annotation": "",
+    "number": 57
+  },
+  {
+    "category": "all",
+    "correct": "意識型態",
+    "word": "意識形態",
+    "annotation": "",
+    "number": 58
+  },
+  {
+    "category": "all",
+    "correct": "日治",
+    "word": "日據",
+    "annotation": "",
+    "number": 59
+  },
+  {
+    "category": "all",
+    "correct": "人參",
+    "word": "人蔘",
+    "annotation": "",
+    "number": 60
+  },
+  {
+    "category": "all",
+    "correct": "窗帘",
+    "word": "窗簾",
+    "annotation": "",
+    "number": 61
+  },
+  {
+    "category": "all",
+    "correct": "眼簾",
+    "word": "眼帘",
+    "annotation": "",
+    "number": 62
+  },
+  {
+    "category": "all",
+    "correct": "氾濫",
+    "word": "泛濫",
+    "annotation": "",
+    "number": 63
+  },
+  {
+    "category": "all",
+    "correct": "寒毛",
+    "word": "汗毛",
+    "annotation": "",
+    "number": 64
+  },
+  {
+    "category": "all",
+    "correct": "坑坑巴巴",
+    "word": "坑坑疤疤",
+    "annotation": "",
+    "number": 65
+  },
+  {
+    "category": "all",
+    "correct": "一分子",
+    "word": "一份子",
+    "annotation": "",
+    "number": 66
+  },
+  {
+    "category": "all",
+    "correct": "分量",
+    "word": "份量",
+    "annotation": "",
+    "number": 67
+  },
+  {
+    "category": "all",
+    "correct": "蘸醬",
+    "word": "沾醬",
+    "annotation": "",
+    "number": 68
+  },
+  {
+    "category": "all",
+    "correct": "肴",
+    "word": "餚",
+    "annotation": "",
+    "number": 69
+  },
+  {
+    "category": "all",
+    "correct": "占",
+    "word": "佔",
+    "annotation": "",
+    "number": 70
+  },
+  {
+    "category": "all",
+    "correct": "嘗",
+    "word": "嚐",
+    "annotation": "",
+    "number": 71
+  },
+  {
+    "category": "all",
+    "correct": "念",
+    "word": "唸",
+    "annotation": "",
+    "number": 72
+  },
+  {
+    "category": "all",
+    "correct": "癡",
+    "word": "痴",
+    "annotation": "",
+    "number": 73
+  },
+  {
+    "category": "all",
+    "correct": "黏",
+    "word": "粘",
+    "annotation": "",
+    "number": 74
+  },
+  {
+    "category": "all",
+    "correct": "越",
+    "word": "愈[況愈]",
+    "annotation": "",
+    "number": 75
+  },
+  {
+    "category": "all",
+    "correct": "濕",
+    "word": "溼",
+    "annotation": "",
+    "number": 76
+  },
+  {
+    "category": "all",
+    "correct": "古董",
+    "word": "骨董",
+    "annotation": "",
+    "number": 77
+  },
+  {
+    "category": "all",
+    "correct": "突顯",
+    "word": "凸顯",
+    "annotation": "",
+    "number": 78
+  },
+  {
+    "category": "all",
+    "correct": "起司",
+    "word": "起士",
+    "annotation": "",
+    "number": 79
+  },
+  {
+    "category": "all",
+    "correct": "饑餓",
+    "word": "飢餓",
+    "annotation": "",
+    "number": 80
+  },
+  {
+    "category": "all",
+    "correct": "囉嗦",
+    "word": "囉唆",
+    "annotation": "",
+    "number": 81
+  },
+  {
+    "category": "all",
+    "correct": "保母",
+    "word": "保姆",
+    "annotation": "",
+    "number": 82
+  },
+  {
+    "category": "all",
+    "correct": "枴杖",
+    "word": "拐杖",
+    "annotation": "",
+    "number": 83
+  },
+  {
+    "category": "all",
+    "correct": "叩關",
+    "word": "扣關",
+    "annotation": "",
+    "number": 84
+  },
+  {
+    "category": "name",
+    "correct": "陳時中",
+    "word": "陳時鐘",
+    "annotation": "",
+    "number": 85
+  },
+  {
+    "category": "name",
+    "correct": "郭台銘",
+    "word": "郭台名, 郭台明",
+    "annotation": "",
+    "number": 86
+  },
+  {
+    "category": "name",
+    "correct": "蘇貞昌",
+    "word": "蘇偵昌, 蘇真昌",
+    "annotation": "",
+    "number": 87
+  },
+  {
+    "category": "name",
+    "correct": "黃珊珊",
+    "word": "黃姍姍, 黃刪刪",
+    "annotation": "",
+    "number": 88
+  },
+  {
+    "category": "name",
+    "word": "郭忠佑",
+    "correct": "郭忠祐",
+    "annotation": "",
+    "number": 89
+  },
+  {
+    "category": "all",
+    "word": "當然爾",
+    "correct": "當然耳",
+    "annotation": "",
+    "number": 90
+  },
+  {
+    "category": "all",
+    "word": "至高點",
+    "correct": "制高點",
+    "annotation": "",
+    "number": 91
+  },
+  {
+    "category": "all",
+    "word": "待會[待會兒]",
+    "correct": "待會兒",
+    "annotation": "",
+    "number": 92
+  },
+  {
+    "category": "all",
+    "word": "剽悍",
+    "correct": "驃悍",
+    "annotation": "",
+    "number": 93
+  },
+  {
+    "category": "all",
+    "word": "All in",
+    "correct": "全下",
+    "annotation": "",
+    "number": 94
+  },
+  {
+    "category": "all",
+    "word": "捆綁",
+    "correct": "綑綁",
+    "annotation": "",
+    "number": 95
+  },
+  {
+    "category": "all",
+    "word": "落話,落狠話",
+    "correct": "撂話/落狠話",
+    "annotation": "",
+    "number": 96
+  },
+  {
+    "category": "vgt",
+    "correct": "1千",
+    "word": "1000,一千",
+    "annotation": "",
+    "number": 97
+  },
+  {
+    "category": "vgt",
+    "correct": "2千",
+    "word": "2000,兩千",
+    "annotation": "",
+    "number": 98
+  },
+  {
+    "category": "vgt",
+    "correct": "3千",
+    "word": "3000,三千",
+    "annotation": "",
+    "number": 99
+  },
+  {
+    "category": "vgt",
+    "correct": "4千",
+    "word": "4000,四千",
+    "annotation": "",
+    "number": 100
+  },
+  {
+    "category": "vgt",
+    "correct": "5千",
+    "word": "5000,五千",
+    "annotation": "",
+    "number": 101
+  },
+  {
+    "category": "vgt",
+    "correct": "6千",
+    "word": "6000,六千",
+    "annotation": "",
+    "number": 102
+  },
+  {
+    "category": "vgt",
+    "correct": "7千",
+    "word": "7000,七千",
+    "annotation": "",
+    "number": 103
+  },
+  {
+    "category": "vgt",
+    "correct": "8千",
+    "word": "8000,八千",
+    "annotation": "",
+    "number": 104
+  },
+  {
+    "category": "vgt",
+    "correct": "9千",
+    "word": "9000,九千",
+    "annotation": "",
+    "number": 105
+  },
+  {
+    "category": "vgt",
+    "correct": "1萬",
+    "word": "10000,一萬",
+    "annotation": "",
+    "number": 106
+  },
+  {
+    "category": "vgt",
+    "correct": "2萬",
+    "word": "20000,二萬",
+    "annotation": "",
+    "number": 107
+  },
+  {
+    "category": "vgt",
+    "correct": "3萬",
+    "word": "30000,三萬",
+    "annotation": "",
+    "number": 108
+  },
+  {
+    "category": "vgt",
+    "correct": "4萬",
+    "word": "40000,四萬",
+    "annotation": "",
+    "number": 109
+  },
+  {
+    "category": "vgt",
+    "correct": "5萬",
+    "word": "50000,五萬",
+    "annotation": "",
+    "number": 110
+  },
+  {
+    "category": "vgt",
+    "correct": "6萬",
+    "word": "60000,六萬",
+    "annotation": "",
+    "number": 111
+  },
+  {
+    "category": "vgt",
+    "correct": "7萬",
+    "word": "70000,七萬",
+    "annotation": "",
+    "number": 112
+  },
+  {
+    "category": "vgt",
+    "correct": "8萬",
+    "word": "80000,八萬",
+    "annotation": "",
+    "number": 113
+  },
+  {
+    "category": "vgt",
+    "correct": "9萬",
+    "word": "90000,九萬",
+    "annotation": "",
+    "number": 114
+  },
+  {
+    "category": "all",
+    "correct": "阿姨/大叔",
+    "word": "歐吉桑,歐巴桑",
+    "annotation": "",
+    "number": 115
+  },
+  {
+    "category": "all",
+    "correct": "煉金",
+    "word": "鍊金",
+    "annotation": "240530會議",
+    "number": 116
+  },
+  {
+    "category": "all",
+    "correct": "雞佛",
+    "word": "雞胇",
+    "annotation": "240530會議",
+    "number": 117
+  },
+  {
+    "category": "all",
+    "correct": "枝椏",
+    "word": "枝亞,枝枒,枝牙",
+    "annotation": "240530會議",
+    "number": 118
+  },
+  {
+    "category": "all",
+    "correct": "搜尋",
+    "word": "收尋",
+    "annotation": "",
+    "number": 119
+  },
+  {
+    "category": "all",
+    "correct": "稀哩呼嚕",
+    "word": "稀里呼嚕",
+    "annotation": "",
+    "number": 120
+  },
+  {
+    "category": "all",
+    "correct": "捨生取義",
+    "word": "捨身取義",
+    "annotation": "",
+    "number": 121
+  },
+  {
+    "category": "all",
+    "correct": "統統",
+    "word": "通通",
+    "annotation": "",
+    "number": 122
+  },
+  {
+    "category": "all",
+    "correct": "一旦",
+    "word": "一但",
+    "annotation": "",
+    "number": 123
+  },
+  {
+    "category": "all",
+    "correct": "儘",
+    "word": "盡快,盡速,盡管",
+    "annotation": "",
+    "number": 124
+  },
+  {
+    "category": "all",
+    "correct": "盡",
+    "word": "儘量,儘可能,儘力",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "台北國際電腦展",
+    "word": "COMPUTEX",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "台北國際電腦展",
+    "word": "COMPUTEX",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "電視台",
+    "word": "中天",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "張啓楷",
+    "word": "張啟楷",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "周邊",
+    "word": "週邊",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "爺兒們",
+    "word": "爺們",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "煞車",
+    "word": "剎車",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一退六二五",
+    "word": "一推六,一推二,一退二",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "靜怡",
+    "word": "吳靜宜,靜宜",
+    "annotation": "政論節目"
+  },
+  {
+    "category": "pcp-2",
+    "correct": "少子女化",
+    "word": "少子化",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "孤伶伶",
+    "word": "孤零零",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "籠絡",
+    "word": "攏絡",
+    "annotation": "20240327會議紀錄"
+  },
+  {
+    "category": "all",
+    "correct": "流露",
+    "word": "流漏",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "曠日費時",
+    "word": "曠日廢時",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "國6/國道6號",
+    "word": "國六,國道六號",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "國6/國道6號",
+    "word": "國六,國道六號",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "羅廷瑋",
+    "word": "羅庭瑋",
+    "annotation": "國民黨立委"
+  },
+  {
+    "category": "name",
+    "correct": "翁曉玲",
+    "word": "翁曉鈴",
+    "annotation": "國民黨立委"
+  },
+  {
+    "category": "all",
+    "correct": "局限",
+    "word": "侷限",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "回響",
+    "word": "迴響",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "回響",
+    "word": "迴響",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "菸",
+    "word": "香煙,煙草",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "馬後炮",
+    "word": "馬後砲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "蒙眼",
+    "word": "矇眼",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "幼兒園",
+    "word": "幼稚園",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "召",
+    "word": "招集,號招",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "臺灣銀行",
+    "word": "台灣銀行",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "釣魚臺",
+    "word": "釣魚台",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "俥葉",
+    "word": "車葉",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "青鳥行動",
+    "word": "青鳥運動,青鳥活動",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "青鳥行動",
+    "word": "青鳥運動,青鳥活動",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "海參崴",
+    "word": "海參威",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "國是論壇",
+    "word": "國事論壇",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "藍鷹行動",
+    "word": "藍鷹活動",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "藍鷹行動",
+    "word": "藍鷹活動",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 性侵",
+    "word": "強姦",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 復辟",
+    "word": "復闢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": " 四○三大地震",
+    "word": "0403,403",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "台階",
+    "word": "臺階",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "包庇",
+    "word": "包闢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "盯梢",
+    "word": "盯哨",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "門兒都沒有",
+    "word": "門都沒有",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "抖內",
+    "word": "斗內",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "某傳媒",
+    "word": "菱傳媒",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "藍牙",
+    "word": "藍芽",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "黃珊珊",
+    "word": "黃姍姍",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聯繫",
+    "word": "連繫",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聯合",
+    "word": "連合",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "錘",
+    "word": "一槌定音,一錘定江山",
+    "annotation": ""
+  }
+  {
+    "category": "all",
+    "correct": "聯絡",
+    "word": "連絡",
+    "annotation": ""
+  }
+]
