@@ -1118,5 +1118,29 @@
     "correct": "盯梢",
     "word": "盯哨",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "門兒都沒有",
+    "word": "門都沒有",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "抖內",
+    "word": "斗內",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "某傳媒",
+    "word": "菱傳媒",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "藍牙",
+    "word": "藍芽",
+    "annotation": ""
   }
 ]
