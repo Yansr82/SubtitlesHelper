@@ -1172,5 +1172,17 @@
     "correct": "聯絡",
     "word": "連絡",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "新聞台",
+    "word": "鏡新聞",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "新聞台",
+    "word": "鏡新聞",
+    "annotation": ""
   }
 ]
