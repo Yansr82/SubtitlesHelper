@@ -1,12 +1,14 @@
 const events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
-const existingEventIds = events.map(event => event.id);
-const maxEventId = existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
+const existingEventIds = events.map((event) => event.id);
+const maxEventId =
+  existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
 let eventIdCounter = maxEventId + 1;
 let userListInitialized = false;
 let userList;
 
-const eventTypes = [{
-    program: "台灣學堂",
+const eventTypes = [
+  {
+    program: "想像台灣(1H)",
     unit: "1",
   },
   {
@@ -105,25 +107,24 @@ function updateCheckboxValues() {
   });
 }
 
-
 $(document).ready(function () {
   let events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
-  const existingEventIds = events.map(event => event.id);
-  const maxEventId = existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
+  const existingEventIds = events.map((event) => event.id);
+  const maxEventId =
+    existingEventIds.length > 0 ? Math.max(...existingEventIds) : 0;
   eventIdCounter = maxEventId + 1;
   let userListInitialized = false;
 
-  $("#calendar")
-    .evoCalendar({
-      format: "yyyy-mm-dd",
-      eventHeaderFormat: "mm/dd",
-      todayHighlight: true,
-      sidebarDisplayDefault: false,
-      eventDisplayDefault: true,
-      eventListToggler: false,
-      calendarEvents: events,
-      firstDayOfWeek: 1,
-    })
+  $("#calendar").evoCalendar({
+    format: "yyyy-mm-dd",
+    eventHeaderFormat: "mm/dd",
+    todayHighlight: true,
+    sidebarDisplayDefault: false,
+    eventDisplayDefault: true,
+    eventListToggler: false,
+    calendarEvents: events,
+    firstDayOfWeek: 1,
+  });
   $("#calendar").off("selectDate");
 
   $("#calendar").on("selectDate", function () {
@@ -138,12 +139,11 @@ $(document).ready(function () {
   updateEventList();
 });
 
-
 $("#addevent")
   .off("click")
   .on("click", function () {
     const eventId = eventIdCounter++;
-    const eventName = $("#event-type").val().replace(/\s/g, '');
+    const eventName = $("#event-type").val().replace(/\s/g, "");
     const episode = $("#event-episode").val();
     const startDate = $("#startDate").val();
     const endDate = $("#endDate").val();
@@ -192,11 +192,12 @@ $("#addevent")
           name: eventName,
           date: [datesForDayOfWeek[i], datesForDayOfWeek[i]],
           type: eventName,
-          category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
-            "LIVE" : "PROGRAM",
+          category: ["一勇", "前線", "財經週末趴"].includes(eventName)
+            ? "LIVE"
+            : "PROGRAM",
           badge: "例行節目",
           units: unit,
-          episode: episode ? " " + "#" + parseInt(episode + i) : "",
+          episode: episode ? " " + "#" + (parseInt(episode) + i) : "",
           partner: partner,
           description: description,
         };
@@ -226,8 +227,9 @@ $("#addevent")
         name: eventName,
         date: endDate ? [startDate, endDate] : startDate,
         type: eventName,
-        category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
-          "LIVE" : "PROGRAM",
+        category: ["一勇", "前線", "財經週末趴"].includes(eventName)
+          ? "LIVE"
+          : "PROGRAM",
         badge: endDate ? `回件日 ${endDate}` : `當日`,
         units: unit,
         episode: episode ? " " + "#" + episode : "",
@@ -287,25 +289,35 @@ function updateEventList(newEvent = null, startDate) {
   }
 
   if (newEvent) {
-    const eventDate = Array.isArray(newEvent.date) ?
-      new Date(newEvent.date[0]) :
-      new Date(newEvent.date);
+    const eventDate = Array.isArray(newEvent.date)
+      ? new Date(newEvent.date[0])
+      : new Date(newEvent.date);
     const eventMonth = eventDate.getMonth() + 1;
     const formattedEventDate = formatDate(eventDate);
-    const receivedDate = Array.isArray(newEvent.date) ?
-      formatDate(new Date(newEvent.date[0])) :
-      formatDate(new Date(newEvent.date));
-    const deadlineDate = Array.isArray(newEvent.date) ? formatDate(new Date(newEvent.date[1])) : "";
+    const receivedDate = Array.isArray(newEvent.date)
+      ? formatDate(new Date(newEvent.date[0]))
+      : formatDate(new Date(newEvent.date));
+    const deadlineDate = Array.isArray(newEvent.date)
+      ? formatDate(new Date(newEvent.date[1]))
+      : "";
 
     const eventItem = `
-      <li class="event-item" data-id="${newEvent.id}" date-month="${eventMonth}" data-date="${formattedEventDate}">
+      <li class="event-item" data-id="${
+        newEvent.id
+      }" date-month="${eventMonth}" data-date="${formattedEventDate}">
         <span class="filter-name">${newEvent.name}</span>
-        <span class="filter-episode">${newEvent.episode ? newEvent.episode : ""}</span>
+        <span class="filter-episode">${
+          newEvent.episode ? newEvent.episode : ""
+        }</span>
         <span class="filter-received">${receivedDate}</span>
         <span class="filter-deadline">${deadlineDate}</span>
         <span class="filter-status">${newEvent.units}</span>
-        <span class="filter-partner">${newEvent.partner ? newEvent.partner : ""}</span>
-        <span class="filter-category" style="display: none;">${newEvent.category}</span>
+        <span class="filter-partner">${
+          newEvent.partner ? newEvent.partner : ""
+        }</span>
+        <span class="filter-category" style="display: none;">${
+          newEvent.category
+        }</span>
       </li>
     `;
     eventsList.append(eventItem);
@@ -333,25 +345,35 @@ function updateEventList(newEvent = null, startDate) {
     eventsList.empty();
 
     events.forEach((event) => {
-      const eventDate = Array.isArray(event.date) ?
-        new Date(event.date[0]) :
-        new Date(event.date);
+      const eventDate = Array.isArray(event.date)
+        ? new Date(event.date[0])
+        : new Date(event.date);
       const eventMonth = eventDate.getMonth() + 1;
       const formattedEventDate = formatDate(eventDate);
-      const receivedDate = Array.isArray(event.date) ?
-        formatDate(new Date(event.date[0])) :
-        formatDate(new Date(event.date));
-      const deadlineDate = Array.isArray(event.date) ? formatDate(new Date(event.date[1])) : "";
+      const receivedDate = Array.isArray(event.date)
+        ? formatDate(new Date(event.date[0]))
+        : formatDate(new Date(event.date));
+      const deadlineDate = Array.isArray(event.date)
+        ? formatDate(new Date(event.date[1]))
+        : "";
 
       const eventItem = `
-        <li class="event-item" data-id="${event.id}" date-month="${eventMonth}" data-date="${formattedEventDate}">
+        <li class="event-item" data-id="${
+          event.id
+        }" date-month="${eventMonth}" data-date="${formattedEventDate}">
           <span class="filter-name">${event.name}</span>
-          <span class="filter-episode">${event.episode ? event.episode : ""}</span>
+          <span class="filter-episode">${
+            event.episode ? event.episode : ""
+          }</span>
           <span class="filter-received">${receivedDate}</span>
           <span class="filter-deadline">${deadlineDate}</span>
           <span class="filter-status">${event.units}</span>
-          <span class="filter-partner">${event.partner ? event.partner : ""}</span>
-          <span class="filter-category" style="display: none;">${event.category}</span>
+          <span class="filter-partner">${
+            event.partner ? event.partner : ""
+          }</span>
+          <span class="filter-category" style="display: none;">${
+            event.category
+          }</span>
         </li>
       `;
       eventsList.append(eventItem);
@@ -370,7 +392,7 @@ function updateEventList(newEvent = null, startDate) {
   $("#filter-category, #filter-month")
     .off("change")
     .on("change", function () {
-      $('#filter-completed').prop('checked', false);
+      $("#filter-completed").prop("checked", false);
       const selectedCategory = $("#filter-category").val();
       const selectedMonth = $("#filter-month").val();
       userList.filter((item) => {
@@ -406,9 +428,7 @@ function updateEventList(newEvent = null, startDate) {
       $(this).addClass("soon");
     }
   });
-
 }
-
 
 function initializeUserList() {
   const options = {
@@ -433,8 +453,8 @@ function initializeUserList() {
     },
   };
   userList = new List("events-list-wrapper", options);
-  userList.sort('filter-deadline', {
-    order: 'asc'
+  userList.sort("filter-deadline", {
+    order: "asc",
   });
 }
 
@@ -472,19 +492,19 @@ function uncheckAllInputs() {
 $("#auto-input").on("paste", function () {
   uncheckAllInputs();
   setTimeout(function () {
-    const autoInput = $('#auto-input').val();
+    const autoInput = $("#auto-input").val();
     const DateObj = new Date();
     const dates = autoInput.match(/\d{1,2}\/\d{1,2}/g);
-    const monthAndDate = dates[1].split('/');
-    const formattedMonth = ('0' + monthAndDate[0]).slice(-2);
-    const formattedDate = ('0' + monthAndDate[1]).slice(-2);
+    const monthAndDate = dates[1].split("/");
+    const formattedMonth = ("0" + monthAndDate[0]).slice(-2);
+    const formattedDate = ("0" + monthAndDate[1]).slice(-2);
     const endDate = `${DateObj.getFullYear()}-${formattedMonth}-${formattedDate}`;
     const showInfoPattern = /[^\n]+#\d+/g;
-    const showInfo = autoInput.match(showInfoPattern).map(info => {
-      const [showName, episodeNumber] = info.split('#');
+    const showInfo = autoInput.match(showInfoPattern).map((info) => {
+      const [showName, episodeNumber] = info.split("#");
       return {
-        showName: showName.replace(/\s/g, ''),
-        episodeNumber
+        showName: showName.replace(/\s/g, ""),
+        episodeNumber,
       };
     });
     const tasksPattern = /[^\s@]+(?:、[^\s@]+)?(?:、[^\s@]+)?$/gm;
@@ -496,15 +516,15 @@ $("#auto-input").on("paste", function () {
     $("#event-episode").val(showInfo[0].episodeNumber);
     $("#endDate").val(endDate);
 
-    if (tasks.some(task => task.includes('聽打'))) {
+    if (tasks.some((task) => task.includes("聽打"))) {
       $("#event-typing").prop("checked", true);
     }
 
-    if (tasks.some(task => task.includes('校正'))) {
+    if (tasks.some((task) => task.includes("校正"))) {
       $("#event-proofreading").prop("checked", true);
     }
 
-    if (tasks.some(task => task.includes('上字'))) {
+    if (tasks.some((task) => task.includes("上字"))) {
       $("#event-tc").prop("checked", true);
     }
 
@@ -521,8 +541,6 @@ $("#auto-input").on("paste", function () {
     updateCheckboxValues();
   }, 100);
 });
-
-
 
 // export XLSX
 $("#export").on("click", function () {
@@ -578,21 +596,27 @@ function exportToExcel(items, isAllExport) {
   });
 
   const worksheet = XLSX.utils.json_to_sheet(data, {
-    cellStyles: true
+    cellStyles: true,
   });
 
   const range = XLSX.utils.decode_range(worksheet["!ref"]);
   for (let C = range.s.c; C <= range.e.c; ++C) {
-    const alignment = C === 0 ? {
-      horizontal: "left"
-    } : {
-      horizontal: "center"
-    };
+    const alignment =
+      C === 0
+        ? {
+            horizontal: "left",
+          }
+        : {
+            horizontal: "center",
+          };
     for (let R = range.s.r; R <= range.e.r; ++R) {
-      const cell = worksheet[XLSX.utils.encode_cell({
-        r: R,
-        c: C
-      })];
+      const cell =
+        worksheet[
+          XLSX.utils.encode_cell({
+            r: R,
+            c: C,
+          })
+        ];
       if (cell) {
         cell.s = cell.s || {};
         cell.s.alignment = alignment;
@@ -603,10 +627,13 @@ function exportToExcel(items, isAllExport) {
   for (let C = range.s.c; C <= range.e.c; ++C) {
     let max_width = 0;
     for (let R = range.s.r; R <= range.e.r; ++R) {
-      const cell = worksheet[XLSX.utils.encode_cell({
-        r: R,
-        c: C
-      })];
+      const cell =
+        worksheet[
+          XLSX.utils.encode_cell({
+            r: R,
+            c: C,
+          })
+        ];
       if (cell && cell.v) {
         const cellContentWidth = getStringWidth(cell.v);
         if (cellContentWidth > max_width) max_width = cellContentWidth;
@@ -614,7 +641,7 @@ function exportToExcel(items, isAllExport) {
     }
     worksheet["!cols"] = worksheet["!cols"] || [];
     worksheet["!cols"][C] = {
-      wpx: max_width
+      wpx: max_width,
     };
   }
 
@@ -623,9 +650,11 @@ function exportToExcel(items, isAllExport) {
   const month = (today.getMonth() + 1).toString().padStart(2, "0");
   const day = today.getDate().toString().padStart(2, "0");
   XLSX.utils.book_append_sheet(workbook, worksheet, "Events");
-  const filename = isAllExport ? `FTV_${month}${day}_All.xlsx` : `FTV_${month}${day}_Selected.xlsx`;
+  const filename = isAllExport
+    ? `FTV_${month}${day}_All.xlsx`
+    : `FTV_${month}${day}_Selected.xlsx`;
   XLSX.writeFile(workbook, filename, {
-    cellStyles: true
+    cellStyles: true,
   });
 }
 
@@ -654,7 +683,6 @@ function getStringWidth(str) {
   context.font = font;
   return context.measureText(str).width;
 }
-
 
 // import XLSX
 
@@ -703,11 +731,13 @@ function importFile(file) {
         return {
           id: eventIdCounter++,
           name: eventName,
-          date: startDate && endDate ? [startDate, endDate] : startDate || endDate,
+          date:
+            startDate && endDate ? [startDate, endDate] : startDate || endDate,
           type: eventName,
           episode: row["集數"],
-          category: ["一勇", "前線", "財經週末趴"].includes(eventName) ?
-            "LIVE" : "PROGRAM",
+          category: ["一勇", "前線", "財經週末趴"].includes(eventName)
+            ? "LIVE"
+            : "PROGRAM",
           badge: endDate ? `回件日 ${endDate}` : `當日`,
           units: unitsStr,
           partner: row["搭檔"] ? row["搭檔"] : "",
@@ -765,9 +795,9 @@ $(document).ready(function () {
             $(this).prop(
               "disabled",
               originalDisabledStates[value] &&
-              value !== "1" &&
-              value !== "2" &&
-              value !== "3"
+                value !== "1" &&
+                value !== "2" &&
+                value !== "3"
             );
           });
           $('#quick-add-work option[value="1"]').prop("selected", true);
@@ -800,10 +830,13 @@ $(document).ready(function () {
         badge: `LIVE ${typing ? "聽打" : ""} ${proofreading ? "校正" : ""} ${
           tc ? "上字" : ""
         }`,
-        units: typing ?
-          "聽打 " + quickAddUnit : proofreading ?
-          "校正 " + quickAddUnit : tc ?
-          "上字 " + quickAddUnit : "",
+        units: typing
+          ? "聽打 " + quickAddUnit
+          : proofreading
+          ? "校正 " + quickAddUnit
+          : tc
+          ? "上字 " + quickAddUnit
+          : "",
       };
 
       events.push(newEvent);
@@ -832,7 +865,7 @@ $(document).ready(function () {
   });
 
   $("#filter-perpage").on("change", function () {
-    $('#filter-completed').prop('checked', false);
+    $("#filter-completed").prop("checked", false);
     itemsPerPage = parseInt($(this).val());
     if (itemsPerPage === -1) {
       itemsPerPage = eventItems.length;
@@ -866,8 +899,8 @@ $(document).ready(function () {
     for (let i = 0; i < totalPages; i++) {
       const listItem = $(
         '<li class="page-item"><a class="page-link" href="#">' +
-        (i + 1) +
-        "</a></li>"
+          (i + 1) +
+          "</a></li>"
       );
       if (i === currentPage) {
         listItem.addClass("active");
@@ -901,32 +934,31 @@ $(document).ready(function () {
   });
 });
 
-
 // 雙擊元素完成
-$('.events-list').on('dblclick', '.event-item', function () {
-  $(this).toggleClass('finished');
-  const eventId = $(this).data('id');
-  const isFinished = $(this).hasClass('finished');
+$(".events-list").on("dblclick", ".event-item", function () {
+  $(this).toggleClass("finished");
+  const eventId = $(this).data("id");
+  const isFinished = $(this).hasClass("finished");
   localStorage.setItem(`eventFinished_${eventId}`, isFinished.toString());
 });
 
 $(document).ready(function () {
   // 檢查已完成的事件
-  $('.event-item').each(function () {
-    const eventId = $(this).data('id');
+  $(".event-item").each(function () {
+    const eventId = $(this).data("id");
     const isFinished = localStorage.getItem(`eventFinished_${eventId}`);
-    if (isFinished === 'true') {
-      $(this).addClass('finished');
+    if (isFinished === "true") {
+      $(this).addClass("finished");
     }
   });
 
   // 顯示/隱藏已完成的事件
-  $('.event-item.finished').hide();
-  $('#filter-completed').on('change', function () {
-    if ($(this).prop('checked')) {
-      $('.event-item.finished').hide();
+  $(".event-item.finished").hide();
+  $("#filter-completed").on("change", function () {
+    if ($(this).prop("checked")) {
+      $(".event-item.finished").hide();
     } else {
-      $('.event-item.finished').show();
+      $(".event-item.finished").show();
     }
   });
 });
