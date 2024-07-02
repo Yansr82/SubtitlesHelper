@@ -404,7 +404,7 @@ $lg-font-color: #f7f7f7;
                                 background-color: #FFFFFF;
                             }
 
-                            [class='.type-想像台灣-1H'] {
+                            [class^='type-想像台灣(1H)'] {
                                 background-color: #FFB347;
                             }
 
@@ -573,7 +573,7 @@ $lg-font-color: #f7f7f7;
                     background-color: #ffffff;
                 }
 
-                [class='.event-bullet-想像台灣(1H)'] {
+                [class^='event-bullet-想像台灣(1H)'] {
                     background-color: #FFB347;
                 }
 

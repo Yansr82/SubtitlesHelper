@@ -484,7 +484,7 @@ hr {
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^=type-] {
   background-color: #FFFFFF;
 }
-#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class=".type-想像台灣-1H"] {
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^="type-想像台灣(1H)"] {
   background-color: #FFB347;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-新聞觀測站 {
@@ -598,7 +598,7 @@ hr {
 #calendar .calendar-events .event-container .event-icon [class^=event-bullet-] {
   background-color: #ffffff;
 }
-#calendar .calendar-events .event-container .event-icon [class=".event-bullet-想像台灣(1H)"] {
+#calendar .calendar-events .event-container .event-icon [class^="event-bullet-想像台灣(1H)"] {
   background-color: #FFB347;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-新聞觀測站 {
