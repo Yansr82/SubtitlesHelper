@@ -1178,5 +1178,323 @@
     "correct": "新聞台",
     "word": "鏡新聞",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "頭錘",
+    "word": "頭槌",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "撐杆跳",
+    "word": "撐桿跳",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "羊駝",
+    "word": "草泥馬",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "碾米",
+    "word": "輾米",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "強渡關山",
+    "word": "強度關山",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "復熱",
+    "word": "複熱",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "孳長",
+    "word": "滋長",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "景致",
+    "word": "景緻",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "千遍 萬遍",
+    "word": "千遍萬遍",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "千尋 萬尋",
+    "word": "千尋萬尋",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "送禮 自用兩相宜",
+    "word": "送禮自用兩相宜",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "精製糖",
+    "word": "精緻糖",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "精製澱粉",
+    "word": "精緻澱粉",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "邱比特",
+    "word": "丘比特",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "囂張 跋扈",
+    "word": "囂張跋扈",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "可大 可小",
+    "word": "可大可小",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "做好 做滿",
+    "word": "做好做滿",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "講東 講西",
+    "word": "講東講西",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "東講講 西講講\n",
+    "word": "東講講西講講\n",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "銷魂",
+    "word": "消魂",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "傷筋動骨",
+    "word": "傷筋錯骨",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "逕自",
+    "word": "徑自",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "逕行",
+    "word": "徑行",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "饋贈",
+    "word": "餽贈",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "伊斯蘭教",
+    "word": "回教",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "穆斯林",
+    "word": "回教徒",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "行動電源",
+    "word": "充電寶",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "草蜢弄雞公",
+    "word": "草螟弄雞公",
+    "annotation": "台語用字時"
+  },
+  {
+    "category": "all",
+    "correct": "流理台",
+    "word": "流理臺",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "桀驁不馴",
+    "word": "桀敖不遜",
+    "annotation": "遜X 敖X"
+  },
+  {
+    "category": "all",
+    "correct": "標竿",
+    "word": "標桿",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "借助",
+    "word": "藉助",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "人形機器",
+    "word": "人型機器",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣喘吁吁",
+    "word": "氣喘噓噓",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "喘吁吁",
+    "word": "喘噓噓",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "幼稚園",
+    "word": "幼兒園",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "幼兒園",
+    "word": "托兒所",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "陳義過高",
+    "word": "誠意過高",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "哀歎",
+    "word": "哀嘆",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣呼呼",
+    "word": "氣乎乎",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "熱呼呼",
+    "word": "熱乎乎",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "黏乎乎",
+    "word": "黏呼呼",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "胖乎乎",
+    "word": "胖呼呼",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "傻乎乎",
+    "word": "傻呼呼",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "增加光采",
+    "word": "增加光彩",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "闊背",
+    "word": "擴背",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "掉書袋",
+    "word": "調書袋",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "國家名器",
+    "word": "國家民氣",
+    "annotation": "民企X"
+  },
+  {
+    "category": "all",
+    "correct": "洗澎澎",
+    "word": "洗澡",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "腳步蹣跚",
+    "word": "腳步闌珊",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "渾沌",
+    "word": "混純",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "不省人事",
+    "word": "不醒人事",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "肝連",
+    "word": "肝𦟪",
+    "annotation": "璉X"
   }
 ]
