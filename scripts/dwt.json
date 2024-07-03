@@ -1391,12 +1391,6 @@
   },
   {
     "category": "all",
-    "correct": "幼稚園",
-    "word": "幼兒園",
-    "annotation": ""
-  },
-  {
-    "category": "all",
     "correct": "幼兒園",
     "word": "托兒所",
     "annotation": ""
