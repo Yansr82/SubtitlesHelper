@@ -1595,20 +1595,8 @@
   },
   {
     "category": "all",
-    "correct": "夸夸其談",
-    "word": "誇誇其談",
-    "annotation": ""
-  },
-  {
-    "category": "all",
-    "correct": "夸夸其辭",
-    "word": "誇誇其辭",
-    "annotation": ""
-  },
-  {
-    "category": "all",
-    "correct": "夸夸其詞",
-    "word": "誇誇其詞",
+    "correct": "夸夸",
+    "word": "誇誇其談,誇誇其辭",
     "annotation": ""
   },
   {
@@ -1756,7 +1744,7 @@
     "annotation": ""
   },
   {
-    "category": "all",
+    "category": "name",
     "correct": "辜濓松",
     "word": "辜濂松",
     "annotation": ""
