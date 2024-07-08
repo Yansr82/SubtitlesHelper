@@ -401,11 +401,15 @@ $lg-font-color: #f7f7f7;
                     .event-indicator {
                         .type-bullet {
                             [class^="type-"] {
-                                background-color: #FFFFFF;
+                                background-color: #ff8686;
                             }
 
                             [class^='type-想像台灣(1H)'] {
                                 background-color: #FFB347;
+                            }
+
+                            [class^='type-決策者(1H)'] {
+                                background-color: #005e94;
                             }
 
                             .type-新聞觀測站 {
@@ -635,6 +639,10 @@ $lg-font-color: #f7f7f7;
 
                 [class='event-bullet-台灣趴趴走(1H)'] {
                     background-color: #5bf39f;
+                }
+
+                [class='event-bullet-決策者(1H)'] {
+                    background-color: #005e94;
                 }
 
                 .event-bullet-台灣最前線,

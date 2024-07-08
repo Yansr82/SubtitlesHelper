@@ -79,6 +79,10 @@ const eventTypes = [
     program: "財經週末趴",
     unit: "0.1",
   },
+  {
+    program: "決策者",
+    unit: "1",
+  },
 ];
 
 function updateCheckboxValues() {

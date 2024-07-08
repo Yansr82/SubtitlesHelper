@@ -482,10 +482,13 @@ hr {
   background-color: #D77D77;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^=type-] {
-  background-color: #FFFFFF;
+  background-color: #ff8686;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^="type-想像台灣(1H)"] {
   background-color: #FFB347;
+}
+#calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet [class^="type-決策者(1H)"] {
+  background-color: #005e94;
 }
 #calendar .calendar-inner .calendar-table .calendar-day .day .event-indicator .type-bullet .type-新聞觀測站 {
   background-color: #77DD77;
@@ -645,6 +648,9 @@ hr {
 }
 #calendar .calendar-events .event-container .event-icon [class="event-bullet-台灣趴趴走(1H)"] {
   background-color: #5bf39f;
+}
+#calendar .calendar-events .event-container .event-icon [class="event-bullet-決策者(1H)"] {
+  background-color: #005e94;
 }
 #calendar .calendar-events .event-container .event-icon .event-bullet-台灣最前線,
 #calendar .calendar-events .event-container .event-icon .event-bullet-全國第一勇,
