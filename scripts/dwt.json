@@ -1496,5 +1496,293 @@
     "correct": "捨我其誰",
     "word": "舍我其誰",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "洗澡",
+    "word": "洗澎澎",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "煽風點火",
+    "word": "搧風點火",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "鼓譟",
+    "word": "鼓噪",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "評頭論足",
+    "word": "品頭論足",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "動見觀瞻",
+    "word": "洞見觀瞻",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "寬貸",
+    "word": "寬待",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "軍夫",
+    "word": "軍伕",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "馬夫",
+    "word": "馬伕",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "發憤向上",
+    "word": "發奮向上",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "奮發向上",
+    "word": "憤發向上",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "雇傭",
+    "word": "僱傭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "返璞歸真",
+    "word": "反璞歸真",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "圖窮匕見",
+    "word": "圖窮匕現",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "哪壺不開提哪壺",
+    "word": "那壺不開提那壺",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "結下樑子",
+    "word": "結下梁子",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "魚乾",
+    "word": "魚干",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "夸夸其談",
+    "word": "誇誇其談",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "夸夸其辭",
+    "word": "誇誇其辭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "夸夸其詞",
+    "word": "誇誇其詞",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "老奸巨滑",
+    "word": "老奸巨猾",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "好佳在",
+    "word": "好家在",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "渾球",
+    "word": "混球",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣勢恢宏",
+    "word": "氣勢恢弘",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "洪亮",
+    "word": "宏亮",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "禁不住",
+    "word": "經不住",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "處方箋",
+    "word": "處方簽",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣宇軒昂",
+    "word": "器宇軒昂",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣焰高張",
+    "word": "氣焰高漲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "玉珮",
+    "word": "玉佩",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "蒙騙",
+    "word": "矇騙",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "弭平",
+    "word": "彌平",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "帳篷",
+    "word": "帳棚",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "搭棚子",
+    "word": "搭蓬子",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "博名聲",
+    "word": "搏名聲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "嘮叨",
+    "word": "碎念",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "電線杆",
+    "word": "電線桿",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "道聽塗說",
+    "word": "道聽途說",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "上綱上線",
+    "word": "上綱上限",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "阿們",
+    "word": "阿門",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "梟叫狼嚎",
+    "word": "梟叫狼嗥",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "沿門托缽",
+    "word": "沿門託缽",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "心坎",
+    "word": "心檻",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "喜極而泣",
+    "word": "喜即而泣",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "辜濓松",
+    "word": "辜濂松",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "後腦勺",
+    "word": "後腦杓",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "直達天聽",
+    "word": "直達天庭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "洄游",
+    "word": "迴游",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "虛無縹緲",
+    "word": "虛無飄渺",
+    "annotation": "縹渺X"
   }
 ]
