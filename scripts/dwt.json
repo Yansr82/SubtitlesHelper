@@ -1790,5 +1790,161 @@
     "correct": "影射",
     "word": "隱射",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "受虐傾向",
+    "word": "抖M",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "虐待傾向",
+    "word": "抖S",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "剋扣",
+    "word": "苛扣",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "六 日",
+    "word": "六日",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "有的 沒的",
+    "word": "有的沒的",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "有的 沒有的",
+    "word": "有的沒有的",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "真的 假的",
+    "word": "真的假的",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "作賊心虛",
+    "word": "做賊心虛",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "做賊喊抓賊",
+    "word": "作賊喊抓賊",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "要殺 要剮",
+    "word": "要殺要剮",
+    "annotation": "中間空格"
+  },
+  {
+    "category": "all",
+    "correct": "沖昏頭",
+    "word": "衝昏頭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "氣勢恢弘",
+    "word": "氣勢恢宏",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "A片",
+    "word": "色情片",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "作作秀",
+    "word": "做作秀",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "箝制",
+    "word": "鉗制",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "振振有辭",
+    "word": "振振有詞",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "迴歸分析",
+    "word": "回歸分析",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "致詞",
+    "word": "致辭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "惹事生非",
+    "word": "惹是生非",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "按捺",
+    "word": "按耐",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "坐落",
+    "word": "座落",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "道地",
+    "word": "到地",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "捻香",
+    "word": "拈香",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "贗品",
+    "word": "膺品",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "哀戚",
+    "word": "哀悽",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "夸夸其辭",
+    "word": "誇誇其辭",
+    "annotation": ""
   }
 ]
