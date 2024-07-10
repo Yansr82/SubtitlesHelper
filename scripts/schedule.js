@@ -80,7 +80,7 @@ const eventTypes = [
     unit: "0.1",
   },
   {
-    program: "決策者",
+    program: "決策者(1H)",
     unit: "1",
   },
 ];
