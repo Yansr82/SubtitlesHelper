@@ -315,7 +315,8 @@ function updateEventList(newEvent = null, startDate) {
         }</span>
         <span class="filter-received">${receivedDate}</span>
         <span class="filter-deadline">${deadlineDate}</span>
-        <span class="filter-status">${newEvent.units}</span>
+        <span class="filter-status"><div class="state" data-state="0"></div>
+        ${newEvent.units}</span>
         <span class="filter-partner">${
           newEvent.partner ? newEvent.partner : ""
         }</span>
@@ -371,7 +372,9 @@ function updateEventList(newEvent = null, startDate) {
           }</span>
           <span class="filter-received">${receivedDate}</span>
           <span class="filter-deadline">${deadlineDate}</span>
-          <span class="filter-status">${event.units}</span>
+          <span class="filter-status"><div class="state" data-state="0"></div>${
+            event.units
+          }</span>
           <span class="filter-partner">${
             event.partner ? event.partner : ""
           }</span>
@@ -381,11 +384,48 @@ function updateEventList(newEvent = null, startDate) {
         </li>
       `;
       eventsList.append(eventItem);
+    });
 
-      // 如果類別是 "LIVE"，則添加 "finished" 類
-      if (event.category === "LIVE") {
-        $(".event-item[data-id='" + event.id + "']").addClass("finished");
+    // 點擊事件處理
+    $(".events-list").on("click", ".state", function () {
+      const currentState = parseInt($(this).attr("data-state"));
+      let nextState = currentState + 1;
+      if (nextState > 3) {
+        nextState = 0;
       }
+
+      // 移除所有狀態類別
+      $(this).removeClass("state-0 state-1 state-2 state-3");
+
+      // 根據下一個狀態添加對應的類別
+      if (nextState === 1) {
+        $(this).addClass("state-1");
+      } else if (nextState === 2) {
+        $(this).addClass("state-2");
+      } else if (nextState === 3) {
+        $(this).addClass("state-3");
+      }
+
+      // 更新 data-state 屬性
+      $(this).attr("data-state", nextState);
+
+      // 保存狀態到本地存儲
+      const eventId = $(this).closest(".event-item").attr("data-id");
+      localStorage.setItem(`eventState_${eventId}`, nextState.toString());
+    });
+
+    // 加載時恢復狀態
+    $(document).ready(function () {
+      $(".events-list .state").each(function () {
+        const eventId = $(this).closest(".event-item").attr("data-id");
+        const storedState = localStorage.getItem(`eventState_${eventId}`);
+        if (storedState) {
+          $(this).attr("data-state", storedState);
+          $(this)
+            .removeClass("state-0 state-1 state-2 state-3")
+            .addClass(`state-${storedState}`);
+        }
+      });
     });
 
     initializeUserList();
@@ -939,8 +979,15 @@ $(document).ready(function () {
 });
 
 // 雙擊元素完成
-$(".events-list").on("dblclick", ".event-item", function () {
+$(".events-list").on("dblclick", ".event-item", function (event) {
+  if (
+    $(event.target).hasClass("filter-status") ||
+    $(event.target).hasClass("state")
+  ) {
+    return;
+  }
   $(this).toggleClass("finished");
+
   const eventId = $(this).data("id");
   const isFinished = $(this).hasClass("finished");
   localStorage.setItem(`eventFinished_${eventId}`, isFinished.toString());

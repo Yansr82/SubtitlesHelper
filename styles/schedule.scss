@@ -185,6 +185,27 @@ $lg-font-color: #f7f7f7;
                     transition: background .3s ease;
                     position: relative;
 
+                    .state {
+                        border: 1px solid #FFF;
+                        width: 12px;
+                        height: 12px;
+                        display: inline-block;
+                        margin-right: .5em;
+                        cursor: pointer;
+
+                        &.state-1 {
+                            background-color: yellow;
+                        }
+
+                        &.state-2 {
+                            background-color: deepskyblue;
+                        }
+
+                        &.state-3 {
+                            background-color: green;
+                        }
+                    }
+
                     &.finished {
                         background-color: darken(#303030, 5%) !important;
                         border-left-color: #1ebfe7 !important;

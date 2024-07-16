@@ -1946,5 +1946,137 @@
     "correct": "夸夸其辭",
     "word": "誇誇其辭",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "洗練",
+    "word": "洗鍊",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "百葉窗",
+    "word": "百頁窗",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "獻唱",
+    "word": "現唱",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "電焊",
+    "word": "電銲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "螳臂擋車",
+    "word": "螳臂當車",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "銷聲匿跡",
+    "word": "消聲匿跡",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "行車記錄器",
+    "word": "行車紀錄器",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "勘察",
+    "word": "勘查",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "交保候傳",
+    "word": "交保後傳",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "漲紅",
+    "word": "脹紅",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "熱脹冷縮",
+    "word": "熱漲冷縮",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "卡拉OK",
+    "word": "卡啦OK",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "供奉",
+    "word": "供俸",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "和聲",
+    "word": "合聲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "假戲真作",
+    "word": "假戲真做",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "磅礴",
+    "word": "磅礡",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "開衩",
+    "word": "開叉",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "高衩",
+    "word": "高叉",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "耳扒",
+    "word": "耳耙",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "甘薯",
+    "word": "甘藷",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "周歲",
+    "word": "週歲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "王嘉琳",
+    "word": "王嘉玲",
+    "annotation": ""
   }
 ]

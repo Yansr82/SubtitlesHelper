@@ -326,6 +326,23 @@ hr {
   transition: background 0.3s ease;
   position: relative;
 }
+#main-container #data-section #events-table .events-list .event-item .state {
+  border: 1px solid #FFF;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+#main-container #data-section #events-table .events-list .event-item .state.state-1 {
+  background-color: yellow;
+}
+#main-container #data-section #events-table .events-list .event-item .state.state-2 {
+  background-color: deepskyblue;
+}
+#main-container #data-section #events-table .events-list .event-item .state.state-3 {
+  background-color: green;
+}
 #main-container #data-section #events-table .events-list .event-item.finished {
   background-color: #232323 !important;
   border-left-color: #1ebfe7 !important;
