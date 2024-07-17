@@ -344,6 +344,20 @@
   },
   {
     "category": "all",
+    "correct": "棟樑",
+    "word": "棟梁",
+    "annotation": "",
+    "number": 50
+  },
+  {
+    "category": "all",
+    "correct": "橋樑",
+    "word": "橋梁",
+    "annotation": "",
+    "number": 51
+  },
+  {
+    "category": "all",
     "correct": "嘴唇",
     "word": "嘴脣",
     "annotation": "",
@@ -1569,6 +1583,12 @@
   },
   {
     "category": "all",
+    "correct": "結下樑子",
+    "word": "結下梁子",
+    "annotation": ""
+  },
+  {
+    "category": "all",
     "correct": "魚乾",
     "word": "魚干",
     "annotation": ""
@@ -2097,8 +2117,14 @@
   },
   {
     "category": "all",
-    "correct": "樑",
-    "word": "脊梁,結下梁子,橋梁,棟梁"
+    "correct": "脊樑",
+    "word": "脊梁",
+    "annotation": ""
+  }
+  {
+    "category": "all",
+    "correct": "站哨",
+    "word": "站梢",
     "annotation": ""
   }
 ]
