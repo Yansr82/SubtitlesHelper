@@ -344,13 +344,6 @@
   },
   {
     "category": "all",
-    "correct": "棟樑",
-    "word": "棟梁",
-    "annotation": "",
-    "number": 50
-  },
-  {
-    "category": "all",
     "correct": "嘴唇",
     "word": "嘴脣",
     "annotation": "",
@@ -2105,7 +2098,7 @@
   {
     "category": "all",
     "correct": "樑",
-    "word": "脊梁,結下梁子,橋梁"
+    "word": "脊梁,結下梁子,橋梁,棟梁"
     "annotation": ""
   }
 ]
