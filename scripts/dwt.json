@@ -2120,11 +2120,17 @@
     "correct": "脊樑",
     "word": "脊梁",
     "annotation": ""
-  }
+  },
   {
     "category": "all",
     "correct": "站哨",
     "word": "站梢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "火拚",
+    "word": "火拼",
     "annotation": ""
   }
 ]
