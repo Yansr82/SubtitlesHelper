@@ -2074,9 +2074,39 @@
     "annotation": ""
   },
   {
-    "category": "name",
-    "correct": "王嘉琳",
-    "word": "王嘉玲",
-    "annotation": "決策者"
+    "category": "all",
+    "correct": "職涯",
+    "word": "職崖",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "汙衊",
+    "word": "誣衊",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "跳樑小丑",
+    "word": "跳梁小丑",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "祛寒",
+    "word": "去寒",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "游移",
+    "word": "遊移",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "游刃有餘",
+    "word": "遊刃有餘",
+    "annotation": ""
   }
 ]
