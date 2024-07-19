@@ -2138,5 +2138,149 @@
     "correct": "滿",
     "word": "蠻[蠻勇],蠻[蠻橫],蠻[蠻力],蠻[野蠻]",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "猛虎出柙",
+    "word": "猛虎出閘",
+    "annotation": "ㄒㄧㄚˊ(開關之意)"
+  },
+  {
+    "category": "all",
+    "correct": "鍋巴",
+    "word": "鍋粑",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "息肉",
+    "word": "瘜肉",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "肝醣",
+    "word": "肝糖",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聖誕",
+    "word": "耶誕",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "鈑金",
+    "word": "板金",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "挨過",
+    "word": "捱過",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "唇顎",
+    "word": "唇腭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "縫份",
+    "word": "縫分",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "註生娘娘",
+    "word": "注生娘娘",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "必需品",
+    "word": "必須品",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "必需胺基酸",
+    "word": "必須胺基酸",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "所作所為",
+    "word": "所做所為",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "黏TT",
+    "word": "黏踢踢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "布施",
+    "word": "佈施",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "佈道",
+    "word": "布道",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "愣住",
+    "word": "楞住",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "精煉",
+    "word": "精練",
+    "annotation": "精鍊X"
+  },
+  {
+    "category": "all",
+    "correct": "固樁",
+    "word": "顧樁",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "因為",
+    "word": "因爲",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "收視長紅",
+    "word": "收視長虹",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "色情片",
+    "word": "A片",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "陳啓禮",
+    "word": "陳啟禮",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "扛壩子",
+    "word": "扛霸子",
+    "annotation": ""
   }
 ]
