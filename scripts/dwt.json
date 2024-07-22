@@ -2282,5 +2282,29 @@
     "correct": "扛壩子",
     "word": "扛霸子",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "再三再四",
+    "word": "再三 再四",
+    "annotation": "中間不空格"
+  },
+  {
+    "category": "all",
+    "correct": "無役不與",
+    "word": "無役不予",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "掉頭",
+    "word": "調頭",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "掉包",
+    "word": "調包",
+    "annotation": ""
   }
 ]
