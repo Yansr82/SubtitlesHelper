@@ -2306,5 +2306,17 @@
     "correct": "掉包",
     "word": "調包",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "聊天",
+    "word": "哈啦",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "婢",
+    "word": "選卑,卑女,選俾,俾女",
+    "annotation": ""
   }
 ]
