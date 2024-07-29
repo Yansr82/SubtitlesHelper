@@ -390,20 +390,18 @@ function updateEventList(newEvent = null, startDate) {
     $(".events-list").on("click", ".state", function () {
       const currentState = parseInt($(this).attr("data-state"));
       let nextState = currentState + 1;
-      if (nextState > 3) {
+      if (nextState > 2) {
         nextState = 0;
       }
 
       // 移除所有狀態類別
-      $(this).removeClass("state-0 state-1 state-2 state-3");
+      $(this).removeClass("state-0 state-1 state-2");
 
       // 根據下一個狀態添加對應的類別
       if (nextState === 1) {
         $(this).addClass("state-1");
       } else if (nextState === 2) {
         $(this).addClass("state-2");
-      } else if (nextState === 3) {
-        $(this).addClass("state-3");
       }
 
       // 更新 data-state 屬性
