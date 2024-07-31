@@ -2312,5 +2312,11 @@
     "correct": "聊天",
     "word": "哈啦",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "打巴掌",
+    "word": "呼巴掌",
+    "annotation": ""
   }
 ]
