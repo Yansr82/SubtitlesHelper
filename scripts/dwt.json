@@ -2318,5 +2318,29 @@
     "correct": "打巴掌",
     "word": "呼巴掌",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "鯊魚煙",
+    "word": "沙魚煙",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "非政府組織",
+    "word": "NGO",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "朱學恒",
+    "word": "朱學恆",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "菜肴",
+    "word": "菜餚",
+    "annotation": ""
   }
 ]
