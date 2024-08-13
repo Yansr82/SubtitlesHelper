@@ -2342,5 +2342,47 @@
     "correct": "菜肴",
     "word": "菜餚",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "消夜",
+    "word": "宵夜",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "啞巴",
+    "word": "啞吧",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "架式",
+    "word": "架勢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "了解",
+    "word": "瞭解",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "統統",
+    "word": "通通",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "解雇",
+    "word": "解僱",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "會議紀錄",
+    "word": "會議記錄",
+    "annotation": ""
   }
 ]
