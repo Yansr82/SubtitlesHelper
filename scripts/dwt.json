@@ -2378,5 +2378,17 @@
     "correct": "會議紀錄",
     "word": "會議記錄",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "捅婁子",
+    "word": "捅簍子",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "呲牙裂嘴",
+    "word": "呲牙咧嘴",
+    "annotation": "齜X"
   }
 ]
