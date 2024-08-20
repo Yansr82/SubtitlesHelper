@@ -2390,5 +2390,17 @@
     "correct": "呲牙裂嘴",
     "word": "呲牙咧嘴",
     "annotation": "齜X"
+  },
+  {
+    "category": "all",
+    "correct": "林林總總",
+    "word": "零零總總",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "功德",
+    "word": "公德",
+    "annotation": ""
   }
 ]
