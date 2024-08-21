@@ -2408,5 +2408,17 @@
     "correct": "鬼影幢幢",
     "word": "鬼影重重",
     "annotation": "黑影重重、疑點重重"
+  },
+  {
+    "category": "all",
+    "correct": "遮風蔽雨",
+    "word": "遮風避雨",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "記帳士",
+    "word": "記帳師",
+    "annotation": ""
   }
 ]
