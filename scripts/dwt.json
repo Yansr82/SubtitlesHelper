@@ -2420,5 +2420,11 @@
     "correct": "記帳士",
     "word": "記帳師",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "迴避",
+    "word": "回避",
+    "annotation": ""
   }
 ]
