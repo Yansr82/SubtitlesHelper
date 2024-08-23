@@ -2434,9 +2434,15 @@
     "annotation": ""
   },
   {
-    "category": "all",
-    "correct": "贊助",
-    "word": "斗內,抖內",
+    "category": "pcp-1",
+    "correct": "抖內",
+    "word": "斗內",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "抖內",
+    "word": "斗內",
     "annotation": ""
   }
 ]
