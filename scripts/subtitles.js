@@ -250,10 +250,10 @@ function checkTimeCode() {
 
     if (sotCheck.checked) {
       exceedsLimit =
-        (characterCount > 25 &&
+        (characterCount > 24 &&
           line.charAt(11) !== " " &&
           line.charAt(2) !== ":") ||
-        characterCount > 37;
+        characterCount > 36;
     } else if (firstFourLinesValidTimeCode) {
       isValidTimeCode =
         /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) &&
