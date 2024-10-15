@@ -2450,5 +2450,17 @@
     "correct": "吐司",
     "word": "土司",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "緋聞",
+    "word": "誹聞",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "冤枉",
+    "word": "冤妄",
+    "annotation": ""
   }
 ]
