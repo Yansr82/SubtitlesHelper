@@ -261,10 +261,10 @@ function checkTimeCode() {
       exceedsLimit = characterCount > 39;
     } else {
       exceedsLimit =
-        (characterCount > 25 &&
+        (characterCount > 27 &&
           line.charAt(11) !== " " &&
           line.charAt(2) !== ":") ||
-        characterCount > 37;
+        characterCount > 39;
     }
 
     const listItem = document.createElement("li");
