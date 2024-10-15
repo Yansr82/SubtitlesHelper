@@ -2462,5 +2462,17 @@
     "correct": "冤枉",
     "word": "冤妄",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "影片",
+    "word": "視頻",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "影片",
+    "word": "視頻",
+    "annotation": ""
   }
 ]
