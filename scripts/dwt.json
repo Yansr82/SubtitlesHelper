@@ -2474,5 +2474,59 @@
     "correct": "影片",
     "word": "視頻",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "李文宗",
+    "word": "李文忠",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "陳文鐘",
+    "word": "陳文鍾",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "羅智強",
+    "word": "羅志強",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "郭忠祐",
+    "word": "郭宗佑",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "鍾小平",
+    "word": "鐘小平",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "身分",
+    "word": "身份",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "吳靜怡",
+    "word": "吳靜宜",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "日圓",
+    "word": "日元",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "長知識",
+    "word": "漲知識",
+    "annotation": ""
   }
 ]
