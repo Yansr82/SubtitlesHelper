@@ -2,13 +2,17 @@ let wordTableIdCounter = 300;
 let wordTableData = JSON.parse(localStorage.getItem("wordTableData")) || [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  let newBadgeData = localStorage.getItem("newBadge") === "true";
-  const tabsButton = document.querySelector("#check-rules-area-tab");
-  const newBadge = document.querySelector("#rules-update");
-
   function updateWordTableData() {
+    console.log("執行數據更新...");
     fetch("./scripts/dwt.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "Network response was not ok: " + response.statusText
+          );
+        }
+        return response.json();
+      })
       .then((data) => {
         let updated = false;
         let maxNumber = data.reduce(
@@ -31,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             item.number = ++maxNumber;
           }
 
-          if (item.number >= 0 && item.number < 300) {
+          if (item.number >= 0) {
             let existingItem = wordTableData.find(
               (existing) => existing.number === item.number
             );
@@ -48,54 +52,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 Object.assign(existingItem, item);
               }
               updated = true;
-              location.reload();
             }
           }
         });
 
-        if (updated || wordTableData.length < 1) {
+        if (updated) {
           localStorage.setItem("wordTableData", JSON.stringify(wordTableData));
-          localStorage.setItem("newBadge", "true");
-          newBadgeData = true;
+          console.log("數據更新成功");
+          location.reload();
+        } else {
+          console.log("無數據更新");
         }
-
-        checkBadgeDisplay();
       })
       .catch((error) => {
         console.error("Error loading JSON:", error);
       });
   }
 
-  function checkBadgeDisplay() {
-    if (newBadgeData) {
-      newBadge.style.display = "block";
-    } else {
-      newBadge.style.display = "none";
-    }
+  const updateBtn = document.getElementById("updateBtn");
+  if (updateBtn) {
+    updateBtn.addEventListener("click", updateWordTableData);
+  } else {
+    console.error("未找到更新按鈕");
   }
 
-  updateWordTableData();
-
-  tabsButton.addEventListener("click", function () {
-    localStorage.setItem("newBadge", "false");
-    newBadgeData = false;
-    newBadge.style.display = "none";
-  });
-
-  checkBadgeDisplay();
-});
-
-const restoreButton = document.getElementById("resetlocalStorage");
-restoreButton.addEventListener("click", function () {
-  fetch("./scripts/dwt.json")
-    .then((response) => response.json())
-    .then((data) => {
-      localStorage.setItem("wordTableData", JSON.stringify(data));
-      location.reload();
-    })
-    .catch((error) => {
-      console.error("Error loading default JSON:", error);
-    });
+  const tabsButton = document.getElementById("check-rules-area-tab");
+  if (tabsButton) {
+    tabsButton.addEventListener("click", updateWordTableData);
+  } else {
+    console.error("未找到字幕規則按鈕");
+  }
 });
 
 let filteredWords = [];
