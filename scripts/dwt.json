@@ -2496,8 +2496,8 @@
   {
     "category": "name",
     "correct": "郭忠祐",
-    "word": "郭宗佑",
-    "annotation": ""
+    "word": "郭宗佑,郭忠佑,郭宗祐",
+    "annotation": "綜藝大集合"
   },
   {
     "category": "name",
@@ -2533,6 +2533,18 @@
     "category": "all",
     "correct": "針砭",
     "word": "針貶",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "極致",
+    "word": "極緻",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "全神貫注",
+    "word": "全神灌注",
     "annotation": ""
   }
 ]
