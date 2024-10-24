@@ -2552,5 +2552,11 @@
     "correct": "轉達",
     "word": "轉答",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "叫做",
+    "word": "叫作",
+    "annotation": ""
   }
 ]
