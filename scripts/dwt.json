@@ -2558,5 +2558,17 @@
     "correct": "叫做",
     "word": "叫作",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一",
+    "word": "ㄧ",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "帳",
+    "word": "賬",
+    "annotation": ""
   }
 ]
