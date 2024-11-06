@@ -189,6 +189,8 @@ function scrollToError(event) {
 
 function checkTimeCode() {
   const sotCheck = document.getElementById("subtitles-check-4");
+  const extra1 = document.getElementById("subtitles-check-5");
+  const extra2 = document.getElementById("subtitles-check-6");
   const lines = inputText.value.split("\n");
   output.innerHTML = "";
   checkArea.innerHTML = "";
@@ -240,6 +242,18 @@ function checkTimeCode() {
           line.charAt(11) !== " " &&
           line.charAt(2) !== ":") ||
         characterCount > 36;
+    } else if (extra1.checked) {
+      exceedsLimit =
+        (characterCount > 21 &&
+          line.charAt(11) !== " " &&
+          line.charAt(2) !== ":") ||
+        characterCount > 33;
+    } else if (extra2.checked) {
+      exceedsLimit =
+        (characterCount > 19 &&
+          line.charAt(11) !== " " &&
+          line.charAt(2) !== ":") ||
+        characterCount > 31;
     } else if (firstFourLinesValidTimeCode) {
       isValidTimeCode =
         /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) &&
