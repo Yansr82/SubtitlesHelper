@@ -242,18 +242,6 @@ function checkTimeCode() {
           line.charAt(11) !== " " &&
           line.charAt(2) !== ":") ||
         characterCount > 36;
-    } else if (extra1.checked) {
-      exceedsLimit =
-        (characterCount > 21 &&
-          line.charAt(11) !== " " &&
-          line.charAt(2) !== ":") ||
-        characterCount > 33;
-    } else if (extra2.checked) {
-      exceedsLimit =
-        (characterCount > 18 &&
-          line.charAt(11) !== " " &&
-          line.charAt(2) !== ":") ||
-        characterCount > 30;
     } else if (firstFourLinesValidTimeCode) {
       isValidTimeCode =
         /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) &&
