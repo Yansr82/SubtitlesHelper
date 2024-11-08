@@ -100,243 +100,242 @@
                                             <label class="form-check-label" for="subtitles-check-4">SOT字數
                                             </label>
                                         </div>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col col-sm-7 d-flex input">
-                                                    <textarea class="inputText" rows="30" cols="50"
-                                                        placeholder="於此處貼上文檔內容"></textarea>
-                                                    <div class="error-mark" style="display: none;">
-                                                    </div>
-                                                    <div class="output">
-                                                        <ol id="check_list"></ol>
-                                                    </div>
-                                                </div>
-                                                <div class="col col-sm-3">
-                                                    <div class="check_area sticky-top text-center"></div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                                <div id="check-rules-area" class="section tab-pane fade" role="tabpanel"
-                                    aria-labelledby="check-rules-area-tab">
-                                    <div id="input-wrapper">
-                                        <form id="addWordForm">
-                                            <div class="row g-3 p-5">
-                                                <h2>新增詞彙</h2>
-                                                <div class="col-md-3 form-floating">
-                                                    <input type="text" class="form-control" id="floating-word"
-                                                        placeholder="內規字">
-                                                    <label for="floating-word" class="form-label">內規字：</label>
-                                                </div>
-                                                <div class="col-md-3 form-floating">
-                                                    <input type="text" class="form-control" id="floating-error"
-                                                        placeholder="誤用字" required>
-                                                    <label for="floating-error" class="form-label">誤用字：</label>
-                                                </div>
-                                                <div class="col-md-2 form-floating">
-                                                    <input type="text" class="form-control" id="floating-annotation"
-                                                        placeholder="註釋：">
-                                                    <label for="floating-annotation" class="form-label">註釋：</label>
-                                                </div>
-                                                <div class="col-md-2 form-floating">
-                                                    <select class="form-select" id="form-category" aria-label="分類">
-                                                        <option value="all" selected>通用</option>
-                                                        <option value="name">人名</option>
-                                                        <option value="pcp-1">前線</option>
-                                                        <option value="pcp-2">第一勇</option>
-                                                        <option value="vgt">綜藝大集合</option>
-                                                    </select>
-                                                    <label for="form-category">分類：</label>
-                                                </div>
 
-                                                <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary">新增</button>
-                                                    <button id="updateBtn" type="button"
-                                                        class="btn btn-danger">更新</button>
-                                                    <input type="file" id="uploadButton" accept=".json"
-                                                        style="display: none;">
-                                                    <label for="uploadButton" class="btn file-btn ms-5"
-                                                        style="cursor: pointer;">上傳檔案</label>
-                                                    <a id="downloadButton" class="btn file-btn me-5">下載模板</a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div id="glossaries-wrapper">
+                                    <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-2">
-                                                <div id="list-glossaries" class="list-group list-group-flush sticky-top"
-                                                    style="top: 80px;">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12"><a
-                                                                class="list-group-item list-group-item-action"
-                                                                href="#list-glossaries-1">通&emsp;用</a></div>
-                                                        <div class="col-12"><a
-                                                                class="list-group-item list-group-item-action"
-                                                                href="#list-glossaries-5">人&emsp;名</a></div>
-                                                        <div class="col-12"><a
-                                                                class="list-group-item list-group-item-action"
-                                                                href="#list-glossaries-2">前&emsp;線</a></div>
-                                                        <div class="col-12"><a
-                                                                class="list-group-item list-group-item-action"
-                                                                href="#list-glossaries-3">第一勇</a></div>
-                                                        <div class="col-12"> <a
-                                                                class="list-group-item list-group-item-action"
-                                                                href="#list-glossaries-6">綜藝大集合</a></div>
-                                                    </div>
+                                            <div class="col col-sm-7 d-flex input">
+                                                <textarea class="inputText" rows="30" cols="50"
+                                                    placeholder="於此處貼上文檔內容"></textarea>
+                                                <div class="error-mark" style="display: none;">
+                                                </div>
+                                                <div class="output">
+                                                    <ol id="check_list"></ol>
                                                 </div>
                                             </div>
-                                            <div class="col-10">
-                                                <div class="list-wrapper">
-                                                    <table id="wordTable" class="table mb-0">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col" style="width: 9rem;">#</th>
-                                                                <th scope="col">誤用字</th>
-                                                                <th scope="col">內規字</th>
-                                                                <th scope="col">註釋</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th id="list-glossaries-1" class="all" scope="row">
-                                                                    通&emsp;用</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th id="list-glossaries-5" class="name" scope="row">
-                                                                    人&emsp;名</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th id="list-glossaries-2" class="pcp-1" scope="row">
-                                                                    前&emsp;線</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th id="list-glossaries-3" class="pcp-2" scope="row">第一勇
-                                                                </th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th id="list-glossaries-6" class="vgt" scope="row">綜藝大集合
-                                                                </th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                            <div class="col col-sm-3">
+                                                <div class="check_area sticky-top text-center"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="feature-area" class="section tab-pane fade" role="tabpanel"
-                                    aria-labelledby="feature-tab">
-                                    <div class="container" style="max-width: 860px; margin: 0 auto;">
-                                        <h2>
-                                            <div>
-                                                <i class="fa-solid fa-circle-exclamation"></i>
-                                            </div>支援功能 Features
-                                        </h2>
+                            </div>
+                            <div id="check-rules-area" class="section tab-pane fade" role="tabpanel"
+                                aria-labelledby="check-rules-area-tab">
+                                <div id="input-wrapper">
+                                    <form id="addWordForm">
+                                        <div class="row g-3 p-5">
+                                            <h2>新增詞彙</h2>
+                                            <div class="col-md-3 form-floating">
+                                                <input type="text" class="form-control" id="floating-word"
+                                                    placeholder="內規字">
+                                                <label for="floating-word" class="form-label">內規字：</label>
+                                            </div>
+                                            <div class="col-md-3 form-floating">
+                                                <input type="text" class="form-control" id="floating-error"
+                                                    placeholder="誤用字" required>
+                                                <label for="floating-error" class="form-label">誤用字：</label>
+                                            </div>
+                                            <div class="col-md-2 form-floating">
+                                                <input type="text" class="form-control" id="floating-annotation"
+                                                    placeholder="註釋：">
+                                                <label for="floating-annotation" class="form-label">註釋：</label>
+                                            </div>
+                                            <div class="col-md-2 form-floating">
+                                                <select class="form-select" id="form-category" aria-label="分類">
+                                                    <option value="all" selected>通用</option>
+                                                    <option value="name">人名</option>
+                                                    <option value="pcp-1">前線</option>
+                                                    <option value="pcp-2">第一勇</option>
+                                                    <option value="vgt">綜藝大集合</option>
+                                                </select>
+                                                <label for="form-category">分類：</label>
+                                            </div>
 
-                                        <ol>
-                                            <li>
-                                                <strong>錯誤檢查：</strong>
-                                                <ol>
-                                                    <li>通過檢查時間碼格式、時間碼順序、特定字詞是否存在等方式，檢測字幕文件中的錯誤。</li>
-                                                    <li>會標記出錯誤的行數以及相應的錯誤類型，點選右側可移至定位。</li>
-                                                </ol>
-                                                <br>
-                                                <a href="./images/subtitles-1.png" target="_top">
-                                                    <img src="./images/subtitles-1.png" alt="Instructions" width="100%">
-                                                </a>
-                                            </li>
-                                            <br>
-                                            <li>
-                                                <strong>自訂字詞管理：</strong>
-                                                <ol>
-                                                    <li>用戶可以添加自定義的字詞，並對其進行管理。</li>
-                                                    <li>支持對字詞的正確用法、錯誤用法以及註釋進行設置。</li>
-                                                    <li>基本上會自動更新字詞庫，若無自動更新可於頁面右下展開選單，點擊<span
-                                                            class="badge bg-success">設定</span> > <span
-                                                            class="badge bg-success">預設規則</span></li>
-                                                </ol>
-                                            </li>
-                                            <br>
-                                            <li>
-                                                <strong>資料保存與導入：</strong>
-                                                <ol>
-                                                    <li>可以將添加的字詞資料保存在本地存儲，方便下次使用。</li>
-                                                    <li>支持導入先前保存的字詞資料，以便於共享或備份。</li>
-                                                </ol>
-                                            </li>
-                                            <br>
-                                            <li>
-                                                <strong>合併多個字幕文件：</strong>
-                                                <ol>
-                                                    <li>提供了一個功能，可以將多個字幕文件合併為一個，方便進行統一的錯誤檢查。</li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-                                        <br><br><br>
-                                        <h2>
-                                            <div>
-                                                <i class="fa-solid fa-circle-exclamation"></i>
-                                            </div>使用說明 Instructions
-                                        </h2>
-                                        <ol>
-                                            <li>
-                                                <strong>詞彙新增</strong>
-                                                <ol>
-                                                    <li>內規字若新增重複詞會自動過濾。
-                                                    </li>
-                                                    <li>「誤用字」=> 必填
-                                                        ，「註釋」及「內規字」=> 可選填。</li>
-                                                    <li> 誤用字以[,]
-                                                        隔開分類，可同時檢查多詞。<br>
-                                                        <span class="badge bg-warning">EX:落話,落狠話</span>
-                                                    </li>
-                                                    <li>「誤用字+ [ ] 」=> 若該行包含 [
-                                                        ] 中的詞則略過。<br>
-                                                        <span
-                                                            class="badge bg-warning">EX:韓國[韓國瑜]，則該行為韓國瑜時跳過檢查"韓國"</span>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                            <br>
-                                            <li>
-                                                <strong>資料保存</strong>
-                                                <ol>
-                                                    <li>本站使用網頁儲存，建議 <span class="badge bg-danger"><a type="button"
-                                                                class="link text-white"
-                                                                id="downloadButton2">定時存檔</a></span>
-                                                        ，<span class="badge bg-danger">清除Cookie會遺失網站資料</span>。
-                                                    </li>
-                                                    <li>上傳資料僅限.json
-                                                        格式。</li>
-
-                                                </ol>
-                                            </li>
-                                        </ol>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">新增</button>
+                                                <button id="updateBtn" type="button" class="btn btn-danger">更新</button>
+                                                <input type="file" id="uploadButton" accept=".json"
+                                                    style="display: none;">
+                                                <label for="uploadButton" class="btn file-btn ms-5"
+                                                    style="cursor: pointer;">上傳檔案</label>
+                                                <a id="downloadButton" class="btn file-btn me-5">下載模板</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="glossaries-wrapper">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <div id="list-glossaries" class="list-group list-group-flush sticky-top"
+                                                style="top: 80px;">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-12"><a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-1">通&emsp;用</a></div>
+                                                    <div class="col-12"><a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-5">人&emsp;名</a></div>
+                                                    <div class="col-12"><a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-2">前&emsp;線</a></div>
+                                                    <div class="col-12"><a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-3">第一勇</a></div>
+                                                    <div class="col-12"> <a
+                                                            class="list-group-item list-group-item-action"
+                                                            href="#list-glossaries-6">綜藝大集合</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="list-wrapper">
+                                                <table id="wordTable" class="table mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" style="width: 9rem;">#</th>
+                                                            <th scope="col">誤用字</th>
+                                                            <th scope="col">內規字</th>
+                                                            <th scope="col">註釋</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th id="list-glossaries-1" class="all" scope="row">
+                                                                通&emsp;用</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th id="list-glossaries-5" class="name" scope="row">
+                                                                人&emsp;名</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th id="list-glossaries-2" class="pcp-1" scope="row">
+                                                                前&emsp;線</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th id="list-glossaries-3" class="pcp-2" scope="row">第一勇
+                                                            </th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th id="list-glossaries-6" class="vgt" scope="row">綜藝大集合
+                                                            </th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-
                             </div>
+                            <div id="feature-area" class="section tab-pane fade" role="tabpanel"
+                                aria-labelledby="feature-tab">
+                                <div class="container" style="max-width: 860px; margin: 0 auto;">
+                                    <h2>
+                                        <div>
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </div>支援功能 Features
+                                    </h2>
+
+                                    <ol>
+                                        <li>
+                                            <strong>錯誤檢查：</strong>
+                                            <ol>
+                                                <li>通過檢查時間碼格式、時間碼順序、特定字詞是否存在等方式，檢測字幕文件中的錯誤。</li>
+                                                <li>會標記出錯誤的行數以及相應的錯誤類型，點選右側可移至定位。</li>
+                                            </ol>
+                                            <br>
+                                            <a href="./images/subtitles-1.png" target="_top">
+                                                <img src="./images/subtitles-1.png" alt="Instructions" width="100%">
+                                            </a>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>自訂字詞管理：</strong>
+                                            <ol>
+                                                <li>用戶可以添加自定義的字詞，並對其進行管理。</li>
+                                                <li>支持對字詞的正確用法、錯誤用法以及註釋進行設置。</li>
+                                                <li>基本上會自動更新字詞庫，若無自動更新可於頁面右下展開選單，點擊<span
+                                                        class="badge bg-success">設定</span> > <span
+                                                        class="badge bg-success">預設規則</span></li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>資料保存與導入：</strong>
+                                            <ol>
+                                                <li>可以將添加的字詞資料保存在本地存儲，方便下次使用。</li>
+                                                <li>支持導入先前保存的字詞資料，以便於共享或備份。</li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>合併多個字幕文件：</strong>
+                                            <ol>
+                                                <li>提供了一個功能，可以將多個字幕文件合併為一個，方便進行統一的錯誤檢查。</li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                    <br><br><br>
+                                    <h2>
+                                        <div>
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </div>使用說明 Instructions
+                                    </h2>
+                                    <ol>
+                                        <li>
+                                            <strong>詞彙新增</strong>
+                                            <ol>
+                                                <li>內規字若新增重複詞會自動過濾。
+                                                </li>
+                                                <li>「誤用字」=> 必填
+                                                    ，「註釋」及「內規字」=> 可選填。</li>
+                                                <li> 誤用字以[,]
+                                                    隔開分類，可同時檢查多詞。<br>
+                                                    <span class="badge bg-warning">EX:落話,落狠話</span>
+                                                </li>
+                                                <li>「誤用字+ [ ] 」=> 若該行包含 [
+                                                    ] 中的詞則略過。<br>
+                                                    <span class="badge bg-warning">EX:韓國[韓國瑜]，則該行為韓國瑜時跳過檢查"韓國"</span>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <br>
+                                        <li>
+                                            <strong>資料保存</strong>
+                                            <ol>
+                                                <li>本站使用網頁儲存，建議 <span class="badge bg-danger"><a type="button"
+                                                            class="link text-white" id="downloadButton2">定時存檔</a></span>
+                                                    ，<span class="badge bg-danger">清除Cookie會遺失網站資料</span>。
+                                                </li>
+                                                <li>上傳資料僅限.json
+                                                    格式。</li>
+
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             </div>
             </div>
