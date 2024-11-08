@@ -2594,5 +2594,11 @@
     "correct": "賄賂",
     "word": "賄絡",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "S&  P500",
+    "word": "S&P500",
+    "annotation": ""
   }
 ]
