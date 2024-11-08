@@ -234,13 +234,7 @@ function checkTimeCode() {
     let exceedsLimit = false;
     let isValidTimeCode = true;
 
-    if (sotCheck.checked) {
-      exceedsLimit =
-        (characterCount > 24 &&
-          line.charAt(11) !== " " &&
-          line.charAt(2) !== ":") ||
-        characterCount > 36;
-    } else if (firstFourLinesValidTimeCode) {
+    if (firstFourLinesValidTimeCode) {
       isValidTimeCode =
         /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) &&
         isValidTimeValues(line.substring(0, 11));
@@ -255,8 +249,22 @@ function checkTimeCode() {
 
     const listItem = document.createElement("li");
     const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
+    const customizedWord = filteredWords.find(({ word }) => {
+      const wordsArray = word.split(",").map((w) => w.trim());
+      return wordsArray.some((w) => {
+        const matches = w.match(/(?<=\[)(.*?)(?=\])/);
+        if (matches && matches.length > 0) {
+          const excludedWord = matches[0];
+          if (line.includes(excludedWord)) {
+            return false;
+          }
+        }
+        const wordToCheck = w.replace(/\[.*?\]/, "").trim();
+        return line.includes(wordToCheck);
+      });
+    });
 
-    if (exceedsLimit || !isValidTimeCode || foundWord) {
+    if (exceedsLimit || !isValidTimeCode || foundWord || customizedWord) {
       let errorMessage = "";
       let errorClass = "";
 
@@ -269,6 +277,14 @@ function checkTimeCode() {
       } else if (foundWord) {
         errorMessage = foundWord.errorMessage;
         errorClass = foundWord.errorClass;
+      } else if (customizedWord) {
+        if (customizedWord.correct) {
+          errorMessage = `請確認是否為"${customizedWord.correct}"`;
+          errorClass = "customized-word";
+        } else {
+          errorMessage = `請確認誤用字"${customizedWord.word}"`;
+          errorClass = "customized-word";
+        }
       }
 
       listItem.classList.add("error");
@@ -328,6 +344,7 @@ function checkTimeCode() {
     output.appendChild(listItem);
     prevTimeCode = line.substring(0, 11);
   }
+
   if (hasError) {
     return;
   }
