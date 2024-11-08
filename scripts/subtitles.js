@@ -189,8 +189,6 @@ function scrollToError(event) {
 
 function checkTimeCode() {
   const sotCheck = document.getElementById("subtitles-check-4");
-  const extra1 = document.getElementById("subtitles-check-6");
-  const extra2 = document.getElementById("subtitles-check-7");
   const lines = inputText.value.split("\n");
   output.innerHTML = "";
   checkArea.innerHTML = "";
