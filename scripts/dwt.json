@@ -2594,5 +2594,17 @@
     "correct": "S&  P500",
     "word": "S&P500",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "祕書",
+    "word": "秘書",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "秘書",
+    "word": "祕書",
+    "annotation": ""
   }
 ]
