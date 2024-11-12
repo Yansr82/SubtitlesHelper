@@ -234,7 +234,13 @@ function checkTimeCode() {
     let exceedsLimit = false;
     let isValidTimeCode = true;
 
-    if (firstFourLinesValidTimeCode) {
+    if (sotCheck.checked) {
+      exceedsLimit =
+        (characterCount > 24 &&
+          line.charAt(11) !== " " &&
+          line.charAt(2) !== ":") ||
+        characterCount > 36;
+    } else if (firstFourLinesValidTimeCode) {
       isValidTimeCode =
         /^(?:[0-9]{2}:){3}[0-9]{2}\s*$/.test(line.substring(0, 12)) &&
         isValidTimeValues(line.substring(0, 11));
