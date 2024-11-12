@@ -2606,5 +2606,17 @@
     "correct": "秘書",
     "word": "祕書",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "北士科",
+    "word": "士北科",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "北士科",
+    "word": "士北科",
+    "annotation": ""
   }
 ]
