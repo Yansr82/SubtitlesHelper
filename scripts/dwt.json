@@ -2618,5 +2618,29 @@
     "correct": "北士科",
     "word": "士北科",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "新故鄉智庫",
+    "word": "新故鄉",
+    "annotation": "避免與其他文教基金會混淆"
+  },
+  {
+    "category": "pcp-2",
+    "correct": "新故鄉智庫",
+    "word": "新故鄉",
+    "annotation": "避免與其他文教基金會混淆"
+  },
+  {
+    "category": "all",
+    "correct": "警戒",
+    "word": "緊戒",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "這個",
+    "word": "這各",
+    "annotation": ""
   }
 ]
