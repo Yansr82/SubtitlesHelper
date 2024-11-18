@@ -2642,5 +2642,11 @@
     "correct": "這個",
     "word": "這各",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "影武者",
+    "word": "影舞者",
+    "annotation": ""
   }
 ]
