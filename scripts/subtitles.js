@@ -75,13 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.error("未找到更新按鈕");
   }
-
-  const tabsButton = document.getElementById("check-rules-area-tab");
-  if (tabsButton) {
-    tabsButton.addEventListener("click", updateWordTableData);
-  } else {
-    console.error("未找到字幕規則按鈕");
-  }
+  updateWordTableData();
 });
 
 let filteredWords = [];
