@@ -34,6 +34,7 @@ const assignStart = document.querySelector(".assigntime_btn");
 const hours = document.querySelector(".assigntime_h");
 const minutes = document.querySelector(".assigntime_m");
 const seconds = document.querySelector(".assigntime_s");
+const episodeName = document.querySelector(".assigntime_n");
 const assignTimeOutput = document.querySelector(".assign_time_output");
 let selectOptions = document.querySelectorAll(
   "#tools-assign-time-people select"
@@ -49,8 +50,10 @@ function calculateTimeAndGenerateOutput(
   secondsValue,
   nopValue,
   episode,
-  assignTimeOutput
+  assignTimeOutput,
+  episodeN
 ) {
+  console.log(episodeN);
   // 先確保 selectOptions 陣列有值
   if (selectOptions && selectOptions.length > 0) {
     let outputText = document.createElement("p");
@@ -62,7 +65,7 @@ function calculateTimeAndGenerateOutput(
     }
     let averageTimePerNopMinutes = Math.floor(totalSeconds / 60 / nopValue);
     let averageTimePerNopSeconds = Math.floor((totalSeconds % 60) / nopValue);
-    outputText.textContent = `綜藝大集合#${episode}
+    outputText.textContent = `${episodeN}#${episode}
         總長${hoursValue}時${minutesValue}分${secondsValue}秒 平均每人${averageTimePerNopMinutes}分${averageTimePerNopSeconds}秒
         時間參考如下↓`;
     outputText.style.whiteSpace = "pre-line";
@@ -90,12 +93,12 @@ function calculateTimeAndGenerateOutput(
           .charAt(selectedOption.trim().length - 1);
 
         if (i === nopValue - 1) {
-          noptext += `綜藝大集合#${episode}-0${
+          noptext += `${episodeN}#${episode}-0${
             i + 1
           } (${startTimeString}-END) ${lastCharacter} (文字版).txt
                     `;
         } else {
-          noptext += `綜藝大集合#${episode}-0${
+          noptext += `${episodeN}#${episode}-0${
             i + 1
           } (${startTimeString}-${endTimeString}) ${lastCharacter} (文字版).txt
                     `;
@@ -231,10 +234,12 @@ assignStart.onclick = function () {
       saveOptionsToLocalStorage();
     };
   } else {
-    hoursValue = hours.value.trim() === "" ? "00" : parseInt(hours.value);
-    minutesValue = minutes.value.trim() === "" ? "00" : parseInt(minutes.value);
-    secondsValue = seconds.value.trim() === "" ? "00" : parseInt(seconds.value);
+    hoursValue = hours.value.trim() === "" ? 0 : parseInt(hours.value);
+    minutesValue = minutes.value.trim() === "" ? 0 : parseInt(minutes.value);
+    secondsValue = seconds.value.trim() === "" ? 0 : parseInt(seconds.value);
     episode = episodeInput.value;
+    episodeN = episodeName.value;
+    console.log(hoursValue, minutesValue, secondsValue);
 
     nopValue = document.querySelectorAll(".assigntime_sort").length;
     calculateTimeAndGenerateOutput(
@@ -243,7 +248,8 @@ assignStart.onclick = function () {
       secondsValue,
       nopValue,
       episode,
-      assignTimeOutput
+      assignTimeOutput,
+      episodeN
     );
     saveOptionsToLocalStorage();
   }
