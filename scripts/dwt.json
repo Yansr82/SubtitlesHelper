@@ -2648,5 +2648,29 @@
     "correct": "影武者",
     "word": "影舞者",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "膽小/怕事",
+    "word": "孬",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "究責",
+    "word": "咎責",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "追究",
+    "word": "追咎",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "歸咎",
+    "word": "歸究",
+    "annotation": ""
   }
 ]
