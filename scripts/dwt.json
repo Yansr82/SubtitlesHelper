@@ -2610,13 +2610,13 @@
   {
     "category": "pcp-1",
     "correct": "北士科",
-    "word": "士北科",
+    "word": "士北科,北市科",
     "annotation": ""
   },
   {
     "category": "pcp-2",
     "correct": "北士科",
-    "word": "士北科",
+    "word": "士北科,北市科",
     "annotation": ""
   },
   {
@@ -2683,6 +2683,12 @@
     "category": "all",
     "correct": "撒謊/吹牛",
     "word": "唬爛",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "廬山",
+    "word": "盧山",
     "annotation": ""
   }
 ]
