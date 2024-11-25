@@ -2690,5 +2690,17 @@
     "correct": "廬山",
     "word": "盧山",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "顛峰",
+    "word": "巔峰",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "盃",
+    "word": "獎杯,冠軍杯",
+    "annotation": ""
   }
 ]
