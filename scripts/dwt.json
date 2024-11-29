@@ -99,8 +99,8 @@
   },
   {
     "category": "all",
-    "correct": "作夢",
-    "word": "做夢",
+    "correct": "作",
+    "word": "做夢,做帳,做證",
     "annotation": "240513會議",
     "number": 15
   },
@@ -120,15 +120,8 @@
   },
   {
     "category": "all",
-    "correct": "做了主",
-    "word": "作了主",
-    "annotation": "240513會議",
-    "number": 18
-  },
-  {
-    "category": "all",
-    "correct": "做惡夢",
-    "word": "作惡夢",
+    "correct": "做",
+    "word": "作惡夢,作了主,作偽證,作假證,作假帳",
     "annotation": "240513會議",
     "number": 19
   },
