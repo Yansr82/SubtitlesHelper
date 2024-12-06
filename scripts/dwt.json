@@ -70,20 +70,6 @@
     "number": 10
   },
   {
-    "category": "pcp-1",
-    "correct": "祕密",
-    "word": "秘密",
-    "annotation": "",
-    "number": 11
-  },
-  {
-    "category": "pcp-2",
-    "correct": "秘密",
-    "word": "祕密",
-    "annotation": "",
-    "number": 12
-  },
-  {
     "category": "all",
     "correct": "闔上",
     "word": "合上",
@@ -2590,18 +2576,6 @@
   },
   {
     "category": "pcp-1",
-    "correct": "祕書",
-    "word": "秘書",
-    "annotation": ""
-  },
-  {
-    "category": "pcp-2",
-    "correct": "秘書",
-    "word": "祕書",
-    "annotation": ""
-  },
-  {
-    "category": "pcp-1",
     "correct": "北士科",
     "word": "士北科,北市科",
     "annotation": ""
@@ -2700,6 +2674,36 @@
     "category": "all",
     "correct": "遙控",
     "word": "搖控",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "北士科",
+    "word": "士北科",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "檢察官",
+    "word": "檢查官",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "秘",
+    "word": "祕",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "祕",
+    "word": "秘",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "耶誕",
+    "word": "聖誕",
     "annotation": ""
   }
 ]
