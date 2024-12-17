@@ -2711,5 +2711,29 @@
     "correct": "瑜伽",
     "word": "瑜珈",
     "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "黃智賢",
+    "word": "黃志賢",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "黃智賢",
+    "word": "黃志賢",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "追根究柢",
+    "word": "追根究底",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "披麻戴孝",
+    "word": "披麻帶孝",
+    "annotation": ""
   }
 ]
