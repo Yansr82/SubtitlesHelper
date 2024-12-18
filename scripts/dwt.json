@@ -2735,5 +2735,11 @@
     "correct": "披麻戴孝",
     "word": "披麻帶孝",
     "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "&  ",
+    "word": "&",
+    "annotation": ""
   }
 ]
