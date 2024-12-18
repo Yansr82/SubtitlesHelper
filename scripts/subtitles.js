@@ -251,7 +251,6 @@ function checkTimeCode() {
     const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
     const customizedWord = filteredWords.find(({ word, regex = false }) => {
       const wordsArray = word.split(",").map((w) => w.trim());
-
       return wordsArray.some((w) => {
         const matches = w.match(/(?<=\[)(.*?)(?=\])/);
         if (matches && matches.length > 0) {
