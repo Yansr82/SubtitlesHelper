@@ -2741,7 +2741,7 @@
    "correct": "&  ",
    "word": "&",
    "annotation": "",
-   "regex": "&\\s{2}"
+   "regex": "&\s{2}(.*)}"
   }
 
 ]
