@@ -249,7 +249,7 @@ function checkTimeCode() {
 
     const listItem = document.createElement("li");
     const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
-    const customizedWord = filteredWords.find(({ word }) => {
+    const customizedWord = filteredWords.find(({ word, regex = false }) => {
       const wordsArray = word.split(",").map((w) => w.trim());
       return wordsArray.some((w) => {
         const matches = w.match(/(?<=\[)(.*?)(?=\])/);
@@ -259,6 +259,17 @@ function checkTimeCode() {
             return false;
           }
         }
+
+        if (regex) {
+          try {
+            const regexToCheck = new RegExp(w.replace(/\[.*?\]/, "").trim());
+            return regexToCheck.test(line);
+          } catch (error) {
+            console.error(`正則表達式錯誤: ${w}`, error);
+            return false;
+          }
+        }
+
         const wordToCheck = w.replace(/\[.*?\]/, "").trim();
         return line.includes(wordToCheck);
       });

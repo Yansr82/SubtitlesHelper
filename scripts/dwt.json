@@ -295,8 +295,8 @@
   },
   {
     "category": "pcp-1",
-    "word": "韓國[韓國瑜],北韓[南北韓]",
-    "correct": "南韓/北朝鮮",
+    "word": "北韓[南北韓]",
+    "correct": "北朝鮮",
     "annotation": "",
     "number": 46
   },
@@ -2737,9 +2737,11 @@
     "annotation": ""
   },
   {
-    "category": "pcp-2",
-    "correct": "&  ",
-    "word": "&",
-    "annotation": ""
+   "category": "pcp-2",
+   "correct": "&  ",
+   "word": "&",
+   "annotation": "",
+   "regex": "&\\s{2}"
   }
+
 ]
