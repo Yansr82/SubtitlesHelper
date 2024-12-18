@@ -2737,11 +2737,10 @@
     "annotation": ""
   },
   {
-   "category": "pcp-2",
-   "correct": "& 後需有空格",
-   "word": "&",
-   "annotation": "正則表達",
-   "regex": "&\s{2}(.*)"
+    "category": "pcp-2",
+    "correct": "& 後需有空格",
+    "word": "&",
+    "annotation": "正則表達",
+    "regex": "&\\s{2}(.*)"
   }
-
 ]
