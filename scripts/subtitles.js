@@ -251,7 +251,11 @@ function checkTimeCode() {
     const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
     const customizedWord = filteredWords.find(({ word, regex = false }) => {
       const wordsArray = word.split(",").map((w) => {
-        return regex ? w : w.trim();
+        if (regex) {
+          return w;
+        } else {
+          return w.trim();
+        }
       });
 
       return wordsArray.some((w) => {
@@ -265,10 +269,13 @@ function checkTimeCode() {
 
         if (regex) {
           try {
-            const regexToCheck = new RegExp(w.replace(/\[.*?\]/, ""));
-            return regexToCheck.test(line);
+            const regexToCheck = new RegExp(w.replace(/\[.*?\]/, "").trim());
+            if (regexToCheck.test(line)) {
+              return true;
+            } else {
+              return false;
+            }
           } catch (error) {
-            console.error(`正則表達式錯誤: ${w}`, error);
             return false;
           }
         }
@@ -713,3 +720,5 @@ combineBtn.addEventListener("change", function () {
     readFile(0);
   }
 });
+
+console.log("1");
