@@ -250,7 +250,10 @@ function checkTimeCode() {
     const listItem = document.createElement("li");
     const foundWord = wordsToCheck.find(({ word }) => line.includes(word));
     const customizedWord = filteredWords.find(({ word, regex = false }) => {
-      const wordsArray = word.split(",").map((w) => w.trim());
+      const wordsArray = word.split(",").map((w) => {
+        return regex ? w : w.trim();
+      });
+
       return wordsArray.some((w) => {
         const matches = w.match(/(?<=\[)(.*?)(?=\])/);
         if (matches && matches.length > 0) {
@@ -262,7 +265,7 @@ function checkTimeCode() {
 
         if (regex) {
           try {
-            const regexToCheck = new RegExp(w.replace(/\[.*?\]/, "").trim());
+            const regexToCheck = new RegExp(w.replace(/\[.*?\]/, ""));
             return regexToCheck.test(line);
           } catch (error) {
             console.error(`正則表達式錯誤: ${w}`, error);
