@@ -2735,5 +2735,17 @@
     "correct": "披麻戴孝",
     "word": "披麻帶孝",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "老羞成怒",
+    "word": "惱羞成怒",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "惱羞成怒",
+    "word": "老羞成怒",
+    "annotation": ""
   }
 ]
