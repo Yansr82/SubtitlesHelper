@@ -2747,5 +2747,59 @@
     "correct": "惱羞成怒",
     "word": "老羞成怒",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "搜刮",
+    "word": "搜括",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "青瓦臺",
+    "word": "青瓦台",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "唯妙唯肖",
+    "word": "維妙維肖",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "耳郵",
+    "word": "耳油",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "葉克膜",
+    "word": "葉克模",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "舒培",
+    "word": "書培",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "上下其手",
+    "word": "上下起手",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "蹺腳",
+    "word": "翹腳",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "姪子",
+    "word": "侄子",
+    "annotation": ""
   }
 ]
