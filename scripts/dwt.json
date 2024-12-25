@@ -2801,5 +2801,23 @@
     "correct": "姪子",
     "word": "侄子",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "新加坡",
+    "word": "新加玻",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "義無反顧",
+    "word": "一無反顧",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "陳宥丞",
+    "word": "陳宥辰",
+    "annotation": ""
   }
 ]
