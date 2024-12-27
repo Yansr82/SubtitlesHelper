@@ -2713,13 +2713,7 @@
     "annotation": ""
   },
   {
-    "category": "pcp-1",
-    "correct": "黃智賢",
-    "word": "黃志賢",
-    "annotation": ""
-  },
-  {
-    "category": "pcp-2",
+    "category": "name",
     "correct": "黃智賢",
     "word": "黃志賢",
     "annotation": ""
@@ -2818,6 +2812,60 @@
     "category": "name",
     "correct": "陳宥丞",
     "word": "陳宥辰",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "魚漂",
+    "word": "魚標",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "作東",
+    "word": "做東",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "作客",
+    "word": "做客",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "做莊",
+    "word": "坐莊",
+    "annotation": "內規"
+  },
+  {
+    "category": "all",
+    "correct": "疫情",
+    "word": "役情",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "退役",
+    "word": "退疫",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "潛規則",
+    "word": "淺規則",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "潛意識",
+    "word": "淺意識",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "長臂管轄",
+    "word": "常備管轄",
     "annotation": ""
   }
 ]
