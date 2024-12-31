@@ -2867,5 +2867,29 @@
     "correct": "長臂管轄",
     "word": "常備管轄",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "號啕",
+    "word": "嚎啕",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "抽搐",
+    "word": "抽蓄",
+    "annotation": ""
+  },
+  {
+    "category": "name",
+    "correct": "林國成",
+    "word": "林國城",
+    "annotation": "民眾黨立委"
+  },
+  {
+    "category": "all",
+    "correct": "夯不郎當",
+    "word": "夯不啷噹",
+    "annotation": ""
   }
 ]
