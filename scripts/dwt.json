@@ -2897,5 +2897,11 @@
     "correct": "紈袴",
     "word": "紈褲,紈絝",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "天將降大任於是人也",
+    "word": "天將降大任於斯人也",
+    "annotation": "內部"
   }
 ]
