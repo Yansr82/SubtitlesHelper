@@ -2132,12 +2132,6 @@
   },
   {
     "category": "all",
-    "correct": "聖誕",
-    "word": "耶誕",
-    "annotation": ""
-  },
-  {
-    "category": "all",
     "correct": "鈑金",
     "word": "板金",
     "annotation": ""
@@ -2903,5 +2897,17 @@
     "correct": "天將降大任於是人也",
     "word": "天將降大任於斯人也",
     "annotation": "內部"
+  },
+  {
+    "category": "all",
+    "correct": "印證",
+    "word": "應證",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "江和樹",
+    "word": "江河樹",
+    "annotation": ""
   }
 ]
