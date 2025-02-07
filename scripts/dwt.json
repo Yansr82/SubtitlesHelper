@@ -2901,5 +2901,47 @@
     "correct": "體育署",
     "word": "體育部",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "壯世代",
+    "word": "狀世代",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "事務官",
+    "word": "市務官",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "不遑多讓",
+    "word": "不惶多讓",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "吳春城",
+    "word": "吳春成",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "花蓮",
+    "word": "花連",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "水表",
+    "word": "水錶",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "馬國弼",
+    "word": "馬國畢",
+    "annotation": ""
   }
 ]
