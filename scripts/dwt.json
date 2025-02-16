@@ -3207,5 +3207,35 @@
     "correct": "號啕大哭",
     "word": "嚎啕大哭",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "前進",
+    "word": "前近",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "播出",
+    "word": "撥出",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "蔡家蓁",
+    "word": "蔡佳蓁",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "巫苡萱",
+    "word": "巫苡瑄",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "甄嬛",
+    "word": "甄環",
+    "annotation": ""
   }
 ]
