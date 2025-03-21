@@ -266,6 +266,12 @@
     "number": 43
   },
   {
+    "category": "pcp-1",
+    "word": "兇",
+    "correct": "凶",
+    "annotation": ""
+  },
+  {
     "category": "all",
     "word": "沒梗,有梗,梗圖,時事梗",
     "correct": "哏",
@@ -3421,6 +3427,18 @@
     "category": "all",
     "correct": "沙其馬",
     "word": "沙其瑪",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-1",
+    "correct": "友台",
+    "word": "T台",
+    "annotation": ""
+  },
+  {
+    "category": "pcp-2",
+    "correct": "友台",
+    "word": "T台",
     "annotation": ""
   }
 ]
