@@ -3440,5 +3440,17 @@
     "correct": "友台",
     "word": "T台",
     "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "等分",
+    "word": "等份",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "輕佻",
+    "word": "輕挑",
+    "annotation": ""
   }
 ]
