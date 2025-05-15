@@ -2674,12 +2674,6 @@
     "annotation": ""
   },
   {
-    "category": "pcp-1",
-    "correct": "祕",
-    "word": "秘",
-    "annotation": ""
-  },
-  {
     "category": "all",
     "correct": "耶誕",
     "word": "聖誕",
@@ -3457,6 +3451,12 @@
     "category": "all",
     "correct": "廂型車",
     "word": "箱型車",
+    "annotation": ""
+  },
+  {
+    "category": "all",
+    "correct": "一塌糊塗",
+    "word": "一蹋糊塗",
     "annotation": ""
   }
 ]
